@@ -1,0 +1,8 @@
+#summary Deskripsi Aplikasi Pencairan Dana Online.
+
+= Aplikasi Pencairan Dana Online =
+
+Aplikasi Pencairan Dana Online merupakan aplikasi yang dapat digunakan sebagai sarana dalam memberikan kemudahan pencairan dana APBN mulai pembuatan Surat Perintah Membayar (SPM) oleh Satuan Kerja sampai dengan penerbitan Surat Perintah Pencairan Dana (SP2D) oleh Kuasa Bendahara Umum Negara yaitu Kantor Pelayanan Perbendaharaan Negara
+
+== Latar Belakang ==
+Sesuai peraturan UU Nomor 17 tahun 2003 tentang Keuangan Negara, serta mengacu pada Peraturan Dirjen Perbendaharaan Nomor 66 tahun 2005 tentang mekanisme pelaksanaan pembayaran atas beban Anggaran Pendapatan dan Belanja Negara, dijelaskan bahwa kewenangan kekuasan atas pengelolaan keuangan negara dilimpahkan kepada Pengguna Anggaran / Kuasa Pengguna Anggaran. Dalam hal mekanisme pencairan dana oleh Kuasa Pengguna Anggaran (KPA) atau Satuan Kerja (Satker), diperlukan Surat Perintah Membayar (SPM) sebagai dokumen untuk mencairkan dana yang bersumber dari Daftar Isian Pelaksanaan Anggaran (DIPA) atau dokumen lain yang dipersamakan. Pembuatan SPM oleh Satuan Kerja (Satker) di semua Kementerian/ Lembaga harus benar, sehingga bisa diproses lebih lanjut menjadi Surat Perintah Pencairan Dana (SP2D) oleh Kantor Pelayanan Perbendaharaan Negara (KPPN).  Sebelum adanya wacana pembuatan aplikasi ini, terdapat Aplikasi SPM dan Aplikasi SP2D yang saling terpisah. Proses pencairan dana yang dilaksanakan menjadi kurang efektif dan efisien. Oleh karena itu dibutuhkan sistem yang dapat mengintegrasikan kedua aplikasi tersebut agar proses pencairan dana dari Satuan Kerja hingga KPPN berjalan dengan cepet, tepat dan akurat.
