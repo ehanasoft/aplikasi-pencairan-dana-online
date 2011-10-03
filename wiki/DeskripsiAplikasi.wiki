@@ -26,8 +26,9 @@ Tujuan dibuatnya APDOL adalah sebagai berikut :
   * Mengefektifkan proses pencairan dana sehingga penyerapan dana APBN sesuai target.
 
 == Luaran Yang Diharapkan ==
-Dengan adanya Software APDOL ini diharapkan para klien KPPN dalam hal ini Satuan Kerja serta KPPN itu sendiri memiliki luaran sebagai berikut: 
-  * Satuan Kerja dapat membuat SPM secara cepat, tepat dan akurat.
-  * Satuan Kerja tidak lagi melakukan pengelolaan DIPA dalam aplikasi karena sudah ditangani oleh pihak KPPN.
-  * Mampu mengurangi terjadinya kesalahan pembebanan Mata Anggaran oleh Satuan Kerja.
-  * Mampu memonitor status SPM dan SP2D serta melakukan pengawasan terhadap realisasi APBN.
+Luaran yang diharapkan dari Aplikasi APDOL adalah berupa aplikasi yang memiliki spesifikasi sebagai berikut : 
+  * Berbasis Web
+  * Dapat mengintegrasikan aplikasi SPM dan Aplikasi SP2D 
+  * Menggunakan single database
+  * Mempunyai kontrol hak akses 
+  
