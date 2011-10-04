@@ -3,8 +3,22 @@
 = Use Case APDOL =
 
 Dalam proses pengembangan Aplikasi Pencairan Dana Online perlu dibuat Use Case sebagai guidance sehingga aplikasi ini sesuai dengan requirement yang ada. Beberapa Use Case yang terdapat dalam aplikasi ini adalah sebagai berikut:
- * UC-00 Registrasi
- * UC-01 Login 
+== UC-00 Registrasi ==
+== UC-01 Login == 
+Aktor : Admin, Satker, KPPN
+
+User  aplikasi APDOL melakukan login sehingga dapat menggunakan fasilitas-fasilitas didalamnya sesuai dengan hak akses masing-masing user.
+
+Use case ini digunakan untuk melakukan pengecekan terhadap username dan password yang dimasukkan oleh user APDOL yang ingin menggunakan aplikasi. 
+
+User memilih menu Login kemudian mengisikan username dan password yang sudah diregistrasi diawal, kemudian pilih “Login”. Maka sistem akan melakukan validasi terhadap data yang akan dimasukkan. Sistem membandingkan username dan password yang dimasukkan dengan yang ada dalam databasae APDOL. Kemudian jika username dan password telah valid maka sistem akan menampilkan halaman utama sesuai dengan hak akses masing-masing user.
+
+Apabila username dan atau password tidak valid maka akan ada notifikasi  tidak valid seperti kondisi dibawah ini :
+
+ * Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password
+
+ * Jika username dan atau password jumlah digitnya tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa user memasukkan username dan atau password yang salah
+
  * UC-02 Pagu DIPA
  * UC-03 SPM
  * UC-04 Cetak SPM dan Submit ke KPPN 
