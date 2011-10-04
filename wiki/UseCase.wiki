@@ -389,7 +389,7 @@ untuk menghapus referensi KPP hanya admin saja yang mempunyai hak akses. admin m
 kondisi:
  # jika kode KPP yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika kode KPP yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama KPP telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
- # jika kode KPP yang diinputkan kurang atau lebih dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode KPP yang diinputkan kurang dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika field kode atau nama KPP diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama KPP yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama KPP tidak ada dalam database 
  # pada fungsi pengubahan referensi KPP berlaku kondisi pertama, kedua dan ketiga
@@ -410,10 +410,9 @@ kondisi:
 
  # jika kode golongan yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi 
  # jika kode golongan yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama golongan telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
- # jika kode golongan yang diinputkan kurang atau lebih dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika field kode atau nama golongan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama golongan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama golongan tidak ada dalam database 
- # pada fungsi pengubahan referensi golongan berlaku kondisi pertama, kedua dan ketiga
+ # pada fungsi pengubahan referensi golongan berlaku kondisi pertama dan kedua
 
 ==UC-30 Fungsi-Sub Fungsi-Program==
 
@@ -424,7 +423,7 @@ untuk input referensi fungsi, sub fungsi dan program hanya admin yang mempunyai 
  * nama fungsi dalam bentuk teks
  * kode sub fungsi berupa 2 digit angka
  * nama sub fungsi dalam bentuk teks
- * kode program dalam 2 digit angka
+ * kode program dalam 4 digit angka
  * nama program dalam bentuk teks
 
 dan nama fungsi, sub fungsi dan program dalam bentuk teks. Admin mengisikan kode dan nama fungsi, sub fungsi dan program atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama fungsi, sub fungsi dan program ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
@@ -438,7 +437,7 @@ untuk menghapus referensi fungsi, sub fungsi dan program hanya admin saja yang m
 kondisi:
  # jika kode fungsi, sub fungsi dan program yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika kode fungsi, sub fungsi dan program  yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama fungsi, sub fungsi dan program telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
- # jika kode fungsi, sub fungsi dan program yang diinputkan kurang atau lebih dari digit yang disyaratkan di atas maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode fungsi, sub fungsi dan program yang diinputkan kurang dari digit yang disyaratkan di atas maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika field kode atau nama fungsi, sub fungsi dan program diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama fungsi, sub fungsi dan program yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama fungsi, sub fungsi dan program tidak ada dalam database 
  # pada fungsi pengubahan referensi fungsi, sub fungsi dan program berlaku kondisi pertama, kedua dan ketiga
@@ -458,7 +457,7 @@ untuk menghapus referensi kegiatan hanya admin saja yang mempunyai hak akses. ad
 kondisi:
  # jika kode kegiatan yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika kode kegiatan yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama kegiatan telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
- # jika kode kegiatan yang diinputkan kurang atau lebih dari 4 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode kegiatan yang diinputkan kurang dari 4 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika field kode atau nama kegiatan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama kegiatan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama kegiatan tidak ada dalam database 
  # pada fungsi pengubahan referensi kegiatan berlaku kondisi pertama, kedua dan ketiga
@@ -478,7 +477,7 @@ untuk menghapus referensi sub kegiatan hanya admin saja yang mempunyai hak akses
 kondisi:
  # jika kode sub kegiatan yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika kode sub kegiatan yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama sub kegiatan telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
- # jika kode sub kegiatan yang diinputkan kurang atau lebih dari 4 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode sub kegiatan yang diinputkan kurang dari 4 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika field kode atau nama sub kegiatan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama sub kegiatan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama sub kegiatan tidak ada dalam database 
  # pada fungsi pengubahan referensi sub kegiatan berlaku kondisi pertama, kedua dan ketiga
@@ -498,7 +497,7 @@ untuk menghapus referensi kementrian hanya admin saja yang mempunyai hak akses. 
 kondisi:
  # jika kode kementrian yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika kode kementrian yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama kementrian telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
- # jika kode kementrian yang diinputkan kurang atau lebih dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode kementrian yang diinputkan kurang dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika field kode atau nama kementrian diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama kementrian yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama kementrian tidak ada dalam database 
  # pada fungsi pengubahan referensi kementrian berlaku kondisi pertama, kedua dan ketiga
@@ -507,7 +506,7 @@ kondisi:
 
 aktor : admin, satker dan KPPN
 
-untuk input referensi lokasi/dati II hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode lokasi/dati II dalam bentuk kombinasi angka yang terdiri dari 2 digit dan nama lokasi/dati II dalam bentuk teks. Admin mengisikan kode  dan nama lokasi/dati II atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama lokasi/dati II ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
+untuk input referensi lokasi/dati II hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode lokasi/dati II dalam bentuk kombinasi angka yang terdiri dari 4 digit dan nama lokasi/dati II dalam bentuk teks. Admin mengisikan kode  dan nama lokasi/dati II atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama lokasi/dati II ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
 untuk menayangkan referensi lokasi/dati II admin, satker atau KPPN masuk ke menu referensi lokasi/dati II. di menu referensi lokasi/dati II sudah terdapat daftar kode dan nama lokasi/dati II. Admin, satker atau KPPN dapat mencari kode atau nama lokasi/dati II dengan memasukkan kode atau nama lokasi/dati II kemudian menekan tombol cari. sistem akan mencari kode atau nama lokasi/dati II dalam database dan menampilkan list kode atau nama lokasi/dati II yang mengandung nomor atau karakter inputan.
 
@@ -518,7 +517,7 @@ untuk menghapus referensi lokasi/dati II hanya admin saja yang mempunyai hak aks
 kondisi:
  # jika kode lokasi/dati II yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika kode lokasi/dati II yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama lokasi/dati II telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
- # jika kode lokasi/dati II yang diinputkan kurang atau lebih dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode lokasi/dati II yang diinputkan kurang dari 4 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika field kode atau nama lokasi/dati II diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama lokasi/dati II yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama lokasi/dati II tidak ada dalam database 
  # pada fungsi pengubahan referensi lokasi/dati II berlaku kondisi pertama, kedua dan ketiga
@@ -538,7 +537,7 @@ untuk menghapus referensi mata anggaran hanya admin saja yang mempunyai hak akse
 kondisi:
  # jika kode mata anggaran yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika kode mata anggaran yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama mata anggaran telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
- # jika kode mata anggaran yang diinputkan kurang atau lebih dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode mata anggaran yang diinputkan kurang dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika field kode atau nama mata anggaran diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama mata anggaran yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama mata anggaran tidak ada dalam database 
  # pada fungsi pengubahan referensi mata anggaran berlaku kondisi pertama, kedua dan ketiga
@@ -547,7 +546,7 @@ kondisi:
 
 aktor : admin, satker dan KPPN
 
-untuk input referensi dokumen pengesahan hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode dokumen pengesahan dalam bentuk kombinasi angka yang terdiri dari 6 digit dan nama dokumen pengesahan dalam bentuk teks. Admin mengisikan kode  dan nama dokumen pengesahan atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama dokumen pengesahan ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
+untuk input referensi dokumen pengesahan hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode dokumen pengesahan dalam bentuk kombinasi angka yang terdiri dari 2 digit dan nama dokumen pengesahan dalam bentuk teks. Admin mengisikan kode  dan nama dokumen pengesahan atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama dokumen pengesahan ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
 untuk menayangkan referensi dokumen pengesahan admin, satker atau KPPN masuk ke menu referensi dokumen pengesahan. di menu referensi dokumen pengesahan sudah terdapat daftar kode dan nama dokumen pengesahan. Admin, satker atau KPPN dapat mencari kode atau nama dokumen pengesahan dengan memasukkan kode atau nama dokumen pengesahan kemudian menekan tombol cari. sistem akan mencari kode atau nama dokumen pengesahan dalam database dan menampilkan list kode atau nama dokumen pengesahan yang mengandung nomor atau karakter inputan.
 
@@ -558,7 +557,7 @@ untuk menghapus referensi dokumen pengesahan hanya admin saja yang mempunyai hak
 kondisi:
  # jika kode dokumen pengesahan yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika kode dokumen pengesahan yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama dokumen pengesahan telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
- # jika kode dokumen pengesahan yang diinputkan kurang atau lebih dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode dokumen pengesahan yang diinputkan kurang dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
  # jika field kode atau nama dokumen pengesahan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama dokumen pengesahan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama dokumen pengesahan tidak ada dalam database 
  # pada fungsi pengubahan referensi dokumen pengesahan berlaku kondisi pertama, kedua dan ketiga
