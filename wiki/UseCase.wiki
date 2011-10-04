@@ -155,7 +155,17 @@ Untuk memulai proses perekaman SPM, klik tombol ‘Rekam’, kemudian sistem aka
  Untuk melakukan penghapusan SPM yang sudah direkam, user masuk menu R/U/H SPM, kemudian isikan tanggal SPM yang akan dihapus, kemudian tekan tombol “Tayang” maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan penghapusan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol “Hapus”, maka sistem akan otomatis menghapus data SPM dari database.
 
 
- * UC-04 Cetak SPM dan Submit ke KPPN 
+== UC-04 Cetak SPM dan Submit ke KPPN ==
+
+Aktor :  Satker
+
+Usecase  ini adalah untuk melaksanakan kegiatan pencetakan net SPM. Satker harus memilih sub menu Cetak dan submit SPM pada Menu SPM. Setelah satker memilih maka pada layar menu oleh sistem akan ditayangkan menu isian berupa pilihan data-data SPM yang telah direkam sebelumnya. Satker tinggal memilih SPM mana yang akan dicetak kemudian pilih “cetak” maka sistem akan menayangkan terlebih dahulu kedalam layar berupa tampilan SPM untuk dapat dikoreksi oleh satker. 
+
+ * Apabila SPM telah benar isiannya satker memilih gambar printer maka  sistem akan otomatis terhubung dengan output sistem berupa printer dan secara otomatis juga, sistem akan memunculkan tombol submit KPPN, satker bisa langsung tekan tombol submit maka data SPM akan dikirim ke KPPN dan akan diproses oleh KPPN dalam waktu 1 x 24 jam. Oleh sistem akan dimunculkan notifikasi bahwa SPM telah di submit ke KPPN. 
+
+ * Jika kondisi satker belum menentukan pilihan data SPM yang akan dicetak maka sistem akan memunculkan notifikasi bahwa pilihan SPM untuk dicetak belum ditentukan. 
+
+
  * UC-05 Notifikasi SPM
  * UC-06 Tolak SPM
  * UC-07 Proses SP2D
