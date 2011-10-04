@@ -4,6 +4,71 @@
 
 Dalam proses pengembangan Aplikasi Pencairan Dana Online perlu dibuat Use Case sebagai guidance sehingga aplikasi ini sesuai dengan requirement yang ada. Beberapa Use Case yang terdapat dalam aplikasi ini adalah sebagai berikut:
 == UC-00 Registrasi ==
+Aktor : Admin, KPPN, Satker
+
+Use case registrasi berfungsi untuk membuat hak akses bagi calon user. Proses registrasi dibedakan antara registrasi Satker dengan registrasi KPPN :
+
+==== Registrasi Satker ====
+Registrasi Satker bisa dilakukan oleh Satker sendiri maupun oleh admin.
+ * Registrasi oleh satker sendiri 
+ Calon user melakukan pendaftaran, begitu masuk halaman utama aplikasi maka pilih tombol signup kemudian mengisikan beberapa informasi berupa identitas calon user yang semuanya harus diisi, dengan rincian sebagai berikut :
+
+ Username	           :
+	 
+ Password	           :
+	 
+ Kode Satker	           :	(ada pilihan dropdown)
+
+ Nama Satker	           :	(otomatis muncul ketika kode satker dipilih)
+
+ Alamat	                   :
+	 
+ Nama Bendahara        	   :
+	 
+ Pejabat Penandatangan SPM :
+	 
+ Pangkat/Gol Penandatangan SPM	:
+	
+ Bank                      :	
+ 
+ Nomor Rekening	           :	 
+
+ Setelah melakukan pengisian kemudian klik simpan. Setelah proses simpan sistem akan melakukan verifikasi kebenaran registrasi calon user, jika telah sesuai maka sistem akan melakukan konfirmasi bahwa akun sudah valid dan bisa digunakan.
+
+ Apabila kondisi tidak valid yaitu jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi, kemudian calon user melakukan pengisian data kembali sampai kondisi valid. 
+ * Registrasi oleh admin
+ Admin KPPN masuk kedalam aplikasi dengan mengisi user name dan password  administrator, jika berhasil maka akan muncul tampilan utama dari aplikasi. Apabila pengisian user name dan atau password tidak valid maka kondisinya :
+
+ 1. Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password
+
+ 2. Jika username dan atau password jumlah digitnya tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa user memasukkan username dan atau password yang salah
+
+ Setelah masuk ke halaman utama aplikasi maka admin KPPN bisa masuk ke menu Register. Dalam menu register terdapat pilihan registrasi KPPN dan registrasi Satker. Untuk registrasi KPPN kita pilih registrasi KPPN kemudian akan muncul beberapa isian yang semuanya harus diisi sama seperti registrasi oleh satker diatas.
+
+==== Registrasi  KPPN ====
+ User KPPN dibuat oleh admin KPPN. Admin KPPN masuk kedalam aplikasi dengan mengisi user name dan password  administrator, jika berhasil maka akan muncul tampilan utama dari aplikasi. Apabila pengisian user name dan atau password tidak valid maka kondisinya :
+
+ * Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password;
+ * Jika username dan atau password jumlah digitnya tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa user memasukkan username dan atau password yang salah
+
+ Setelah masuk ke halaman utama aplikasi maka admin KPPN bisa masuk ke menu Register. Dalam menu register terdapat pilihan registrasi KPPN dan registrasi Satker. Untuk registrasi KPPN kita pilih registrasi KPPN kemudian akan muncul beberapa isian yang semuanya harus diisi antara lain :
+
+ Username	:
+	 
+ Password	:
+	 
+ Kode KPPN	:	(ada pilihan dropdown)
+
+ Nama KPPN	:	(otomatis muncul ketika kode KPPN dipilih)
+
+ Nama Petugas 	:
+	 
+ Jabatan	:	(ada pilihan dropdown)
+
+
+
+
+
 == UC-01 Login == 
 Aktor : Admin, Satker, KPPN
 
