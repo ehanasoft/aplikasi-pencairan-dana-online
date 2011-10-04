@@ -180,15 +180,6 @@ Usecase ini adalah untuk notifikasi bahwa ada SPM yang telah disubmit oleh Satke
 
 == UC-06 Tolak SPM ==
 
-Aktor :  KPPN, Admin
-
-Usecase ini adalah untuk menolak SPM yang masuk ke KPPN yang datanya masih terdapat kesalahan.
- 
- * Seteleh proses verifikasi seperti pada prsoses sebelumnya apabila masih terdapat kesalahan pada SPM maka  KPPN akan melanjutkan dengan memilih tombol Tolak, kemudian sistem akan melakukan proses penolakan dan mengirimkan notifikasi ke Satker untuk dapat diperbaiki, kemudian dikirimkan kembali apabila telah dilakukan perbaikan.
-
-Catatan : Nomor SPM yang telah ditolak tidak dapat dipakai lagi untuk pengajuan SPM, jadi ketika Satker akan mengajukan SPM lagi maka Satker harus menggunakan nomor SPM baru.
-
-
 == UC-07 Proses SP2D ==
 
 == UC-08 Cetak SP2D ==
@@ -284,174 +275,194 @@ Alternatif :
  * UC-26  Sumber Dana
  * UC-27  Cara Penarikan
  
- ==UC-28 KPP==
+==UC-28 KPP==
 
 aktor : Admin, Satker dan KPPN
 
-Admin masuk ke menu referensi KPP. Admin melakukan input referensi KPP melalui APDOL dengan menekan tombol rekam, lalu sistem menayangkan form pengisian referensi KPP yang meliputi nomor kode KPP berupa kombinasi angka yang terdiri dari 6 digit dan nama KPP dalam bentuk teks. Admin mengisikan kode KPP dan nama KPP. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menayangkan kembali data yang baru saja dimasukkan dan di bawahnya ada form untuk pengisian data kembali. admin menekan tombol selesai untuk mengakhiri menu ini. 
+untuk input referensi KPP hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode KPP dalam bentuk kombinasi angka yang terdiri dari 6 digit dan nama KPP dalam bentuk teks. Admin mengisikan kode  dan nama KPP atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama KPP ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
-untuk menayangkan referensi, admin, satker atau KPPN masuk ke menu referensi KPP. di menu referensi KPP sudah terdapat daftar kode dan nama KPP. Admin, satker atau KPPN dapat mencari kode atau nama KPP dengan memasukkan kode atau nama KPP kemudian menekan tombol cari. sistem akan mencari kode atau nama KPP dalam database dan menampilkan list kode atau nama KPP yang sesuai dengan parameter yang dimasukkan. 
+untuk menayangkan referensi KPP admin, satker atau KPPN masuk ke menu referensi KPP. di menu referensi KPP sudah terdapat daftar kode dan nama KPP. Admin, satker atau KPPN dapat mencari kode atau nama KPP dengan memasukkan kode atau nama KPP kemudian menekan tombol cari. sistem akan mencari kode atau nama KPP dalam database dan menampilkan list kode atau nama KPP yang mengandung nomor atau karakter inputan.
 
-untuk mengubah referensi KPP, admin masuk ke menu referensi KPP, pilih kode atau nama KPP dengan menyorotnya, kemudian tekan tombol ubah. ganti kode atau nama KPP dengan isian baru kemudian admin menekan tombol simpan untuk menyimpan ke database. sistem akan menampilkan pesan bahwa perubahan berhasil dilakukan
+untuk mengubah referensi KPP hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi KPP, pilih satu atau lebih kode atau nama KPP dengan mencentangnya, kemudian tekan tombol ubah. pada form ubah referensi admin mengganti kode atau nama KPP dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi. 
+
+untuk menghapus referensi KPP hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi KPP, pilih satu atau lebih kode atau nama KPP dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
  
 kondisi:
- * jika kode KPP yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem batal menyimpan data
- * jika kode KPP telah ada dalam database maka sistem akan menampilkan pesan bahwa kode KPP telah ada dan sistem batal menyimpan data
- * jika kode KPP yang diinputkan kurang dari 6 digit maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * jika field kode KPP atau nama KPP diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama KPP yang tidak ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama KPP tidak ada dalam database
- * pada fungsi pengubahan referensi KPP berlaku kondisi 1, 2 dan *
+ # jika kode KPP yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode KPP yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama KPP telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode KPP yang diinputkan kurang atau lebih dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika field kode atau nama KPP diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
+ # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama KPP yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama KPP tidak ada dalam database 
+ # pada fungsi pengubahan referensi KPP berlaku kondisi pertama, kedua dan ketiga
 
 ==UC-29 Golongan==
 
 aktor : admin, satker dan KPPN
 
-Admin masuk ke menu referensi golongan PNS. asmin melakukan input referensi golongan melalui APDOL dengan menekan tombol rekam, lalu sistem menayangkan form pengisian referensi golongan yang meliputi nomor kode folongan berupa angka yang terdiri dari 1 digit dan ruang golongan dalam teks 2 digit. Admin mengisikan kode golongan dan nama ruang golongan. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menayangkan kembali data yang baru saja dimasukkan dan di bawahnya ada form untuk pengisian data kembali. admin menekan tombol selesai untuk mengakhiri menu ini.
+untuk input referensi golongan hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode golongan dalam bentuk kombinasi angka yang terdiri dari 1 digit dan nama golongan dalam bentuk teks. Admin mengisikan kode dan nama golongan atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama golongan ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
-untuk menayangkan referensi, admin, satker atau KPPN masuk ke menu referensi golongan. di menu referensi golongan sudah terdapat daftar kode dan nama golongan. Admin, satker atau KPPN dapat mencari kode atau nama golongan dengan memasukkan kode atau nama golongan kemudian menekan tombol cari. sistem akan mencari kode atau nama golongan dalam database dan menampilkan list kode atau nama golongan yang sesuai dengan parameter yang dimasukkan. 
+untuk menayangkan referensi golongan admin, satker atau KPPN masuk ke menu referensi golongan. di menu referensi golongan sudah terdapat daftar kode dan nama golongan. Admin, satker atau KPPN dapat mencari kode atau nama golongan dengan memasukkan kode atau nama golongan kemudian menekan tombol cari. sistem akan mencari kode atau nama golongan dalam database dan menampilkan list kode atau nama golongan yang mengandung nomor atau karakter inputan.
 
-untuk mengubah referensi golongan, admin masuk ke menu referensi golongan, pilih kode atau nama golongan dengan menyorotnya, kemudian tekan tombol ubah. ganti kode atau nama golongan dengan isian baru kemudian admin menekan tombol simpan untuk menyimpan ke database. sistem akan menampilkan pesan bahwa perubahan berhasil dilakukan
+untuk mengubah referensi golongan hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi golongan, pilih satu atau lebih kode atau nama golongan dengan mencentangnya, kemudian tekan tombol ubah. pada form ubah referensi admin mengganti kode atau nama golongan dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi. 
 
-kondisi :
- * jika field kode golongan yang diisikan bukan angka maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * jika field kode golongan atau ruang golongan kosong maka sistem akan menampilkan pesan bahwa isian tidak boleh kosong dan sistem batal menyimpan data
- * jika kode golongan atau ruang golongan telah ada di database maka sistem akan memunculkan pesan bahwa data sudah ada dan sistem batal menyimpan data
- * jika field kode golongan atau nama golongan diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama golongan yang tidak ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama golongan tidak ada dalam database
- * pada fungsi pengubahan referensi golongan berlaku kondisi 1, 2 dan *
+untuk menghapus referensi golongan hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi golongan, pilih satu atau lebih kode atau nama golongan dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
+ 
+kondisi: 
+
+ # jika kode golongan yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi 
+ # jika kode golongan yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama golongan telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode golongan yang diinputkan kurang atau lebih dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika field kode atau nama golongan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
+ # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama golongan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama golongan tidak ada dalam database 
+ # pada fungsi pengubahan referensi golongan berlaku kondisi pertama, kedua dan ketiga
 
 ==UC-30 Fungsi-Sub Fungsi-Program==
 
 aktor : admin, satker dan KPPN
 
-Admin masuk ke menu referensi fugnsi-sub fungsi-program. Admin melakukan input referensi fungsi-sub fungsi-program melalui APDOL dengan menekan tombol rekam, lalu sistem menayangkan form pengisian referensi fungsi-sub fungsi-program yang meliputi
+untuk input referensi fungsi, sub fungsi dan program hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode fungsi, sub fungsi dan program dalam bentuk kombinasi angka yang terdiri dari 
  * nomor kode fungsi berupa kombinasi 2 digit angka
  * nama fungsi dalam bentuk teks
  * kode sub fungsi berupa 2 digit angka
  * nama sub fungsi dalam bentuk teks
  * kode program dalam 2 digit angka
- * nama program dalam bentuk teks.
- Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menayangkan kembali data yang baru saja dimasukkan dan di bawahnya ada form untuk pengisian data kembali. admin menekan tombol selesai untuk mengakhiri menu ini.
+ * nama program dalam bentuk teks
 
-untuk menayangkan referensi, admin, satker atau KPPN masuk ke menu referensi fungsi, sub fungsi dan program. di menu referensi fungsi, sub fungsi dan program sudah terdapat daftar kode dan nama fungsi, sub fungsi dan program. Admin, satker atau KPPN dapat mencari kode atau nama fungsi, sub fungsi dan program dengan memasukkan kode atau nama fungsi, sub fungsi dan program kemudian menekan tombol cari. sistem akan mencari kode atau nama fungsi, sub fungsi dan program dalam database dan menampilkan list kode atau nama fungsi, sub fungsi dan program yang sesuai dengan parameter yang dimasukkan. 
+dan nama fungsi, sub fungsi dan program dalam bentuk teks. Admin mengisikan kode dan nama fungsi, sub fungsi dan program atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama fungsi, sub fungsi dan program ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
-untuk mengubah referensi fungsi, sub fungsi dan program, admin masuk ke menu referensi fungsi, sub fungsi dan program, pilih kode atau nama fungsi, sub fungsi dan program dengan menyorotnya, kemudian tekan tombol ubah. ganti kode atau nama fungsi, sub fungsi dan program dengan isian baru kemudian admin menekan tombol simpan untuk menyimpan ke database. sistem akan menampilkan pesan bahwa perubahan berhasil dilakukan
+untuk menayangkan referensi fungsi, sub fungsi dan program admin, satker atau KPPN masuk ke menu referensi fungsi, sub fungsi dan program. di menu referensi fungsi, sub fungsi dan program sudah terdapat daftar kode dan nama fungsi, sub fungsi dan program. Admin, satker atau fungsi, sub fungsi dan programN dapat mencari kode atau nama fungsi, sub fungsi dan program dengan memasukkan kode atau nama fungsi, sub fungsi dan program kemudian menekan tombol cari. sistem akan mencari kode atau nama fungsi, sub fungsi dan program dalam database dan menampilkan list kode atau nama fungsi, sub fungsi dan program yang mengandung nomor atau karakter inputan.
 
-kondisi :
- * jika salah satu dari 6 field di atas kosong maka sistem akan menampilkan pesan bahwa isian ada yang kosong dan sistem batal menyimpan data
- * jika salah satu dari tiga isian kode fungsi, sub fungsi atau program telah ada dalam database maka sistem akan menampilkan pesan bahwa kode telah ada dalam database dan sistem batal menyimpan data
- * jika salah satu dari isian kode fungsi, sub fungsi atau program bukan angka maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * jika field kode fungsi, sub fungsi dan program atau nama KPP diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama fungsi, sub fungsi dan program yang tidak ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama fungsi, sub fungsi dan program tidak ada dalam database
- * pada fungsi pengubahan referensi fungsi, sub fungsi dan program berlaku kondisi 1, 2 dan *
+untuk mengubah referensi fungsi, sub fungsi dan program hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi fungsi, sub fungsi dan program, pilih satu atau lebih kode atau nama fungsi, sub fungsi dan program dengan mencentangnya, kemudian tekan tombol ubah. pada form ubah referensi admin mengganti kode atau nama fungsi, sub fungsi dan program dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi. 
+
+untuk menghapus referensi fungsi, sub fungsi dan program hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi fungsi, sub fungsi dan program, pilih satu atau lebih kode atau nama fungsi, sub fungsi dan program dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
+ 
+kondisi:
+ # jika kode fungsi, sub fungsi dan program yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode fungsi, sub fungsi dan program  yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama fungsi, sub fungsi dan program telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode fungsi, sub fungsi dan program yang diinputkan kurang atau lebih dari digit yang disyaratkan di atas maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika field kode atau nama fungsi, sub fungsi dan program diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
+ # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama fungsi, sub fungsi dan program yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama fungsi, sub fungsi dan program tidak ada dalam database 
+ # pada fungsi pengubahan referensi fungsi, sub fungsi dan program berlaku kondisi pertama, kedua dan ketiga
 
 ==UC-31 Kegiatan==
 
 aktor : admin, satker dan KPPN
 
-Admin masuk ke menu referensi kegiatan. Admin melakukan input referensi kegiatan melalui APDOL dengan menekan tombol rekam, lalu sistem menayangkan form pengisian referensi kegiatan yang meliputi kode kegiatan dalam 4 digit angka dan  nama kegiatan dalam bentuk teks.  Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menayangkan kembali data yang baru saja dimasukkan dan di bawahnya ada form untuk pengisian data kembali. admin menekan tombol selesai untuk mengakhiri menu ini.
+untuk input referensi kegiatan hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode kegiatan dalam bentuk kombinasi angka yang terdiri dari 4 digit dan nama kegiatan dalam bentuk teks. Admin mengisikan kode  dan nama kegiatan atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama kegiatan ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
-untuk menayangkan referensi, admin, satker atau KPPN masuk ke menu referensi kegiatan. di menu referensi kegiatan sudah terdapat daftar kode dan nama kegiatan. Admin, satker atau KPPN dapat mencari kode atau nama kegiatan dengan memasukkan kode atau nama kegiatan kemudian menekan tombol cari. sistem akan mencari kode atau nama kegiatan dalam database dan menampilkan list kode atau nama kegiatan yang sesuai dengan parameter yang dimasukkan. 
+untuk menayangkan referensi kegiatan admin, satker atau KPPN masuk ke menu referensi kegiatan. di menu referensi kegiatan sudah terdapat daftar kode dan nama kegiatan. Admin, satker atau KPPN dapat mencari kode atau nama kegiatan dengan memasukkan kode atau nama kegiatan kemudian menekan tombol cari. sistem akan mencari kode atau nama kegiatan dalam database dan menampilkan list kode atau nama kegiatan yang mengandung nomor atau karakter inputan.
 
-untuk mengubah referensi kegiatan, admin masuk ke menu referensi kegiatan, pilih kode atau nama kegiatan dengan menyorotnya, kemudian tekan tombol ubah. ganti kode atau nama kegiatan dengan isian baru kemudian admin menekan tombol simpan untuk menyimpan ke database. sistem akan menampilkan pesan bahwa perubahan berhasil dilakukan
+untuk mengubah referensi kegiatan hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi kegiatan, pilih satu atau lebih kode atau nama kegiatan dengan mencentangnya, kemudian tekan tombol ubah. pada form ubah referensi admin mengganti kode atau nama kegiatan dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi. 
 
-kondisi :
- * jika salah satu dari 2 field di atas kosong maka sistem akan menampilkan pesan bahwa isian ada yang kosong dan sistem batal menyimpan data
- * jika kode kegiatan atau nama kegiatan telah ada dalam sistem maka sistem akan menampilkan pesan bahwa kode telah ada dalam database dan sistem batal menyimpan data
- * jika  isian kode kegaitan bukan angka maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * jika field kode kegiatan atau nama kegiatan diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama kegiatan yang tidak ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama kegiatan tidak ada dalam database
- * pada fungsi pengubahan referensi kegiatan berlaku kondisi 1, 2 dan *
+untuk menghapus referensi kegiatan hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi kegiatan, pilih satu atau lebih kode atau nama kegiatan dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
+ 
+kondisi:
+ # jika kode kegiatan yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode kegiatan yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama kegiatan telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode kegiatan yang diinputkan kurang atau lebih dari 4 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika field kode atau nama kegiatan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
+ # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama kegiatan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama kegiatan tidak ada dalam database 
+ # pada fungsi pengubahan referensi kegiatan berlaku kondisi pertama, kedua dan ketiga
 
 ==UC-32 sub Kegiatan==
 
 aktor : admin, satker dan KPPN
 
-Admin masuk ke menu referensi sub kegiatan. Admin melakukan input referensi sub kegiatan melalui APDOL dengan menekan tombol rekam, lalu sistem menayangkan form pengisian referensi sub kegiatan yang meliputi kode sub kegiatan dalam 4 digit angka dan  nama sub kegiatan dalam bentuk teks.  Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menayangkan kembali data yang baru saja dimasukkan dan di bawahnya ada form untuk pengisian data kembali. admin menekan tombol selesai untuk mengakhiri menu ini.
+untuk input referensi sub kegiatan hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode sub kegiatan dalam bentuk kombinasi angka yang terdiri dari 4 digit dan nama sub kegiatan dalam bentuk teks. Admin mengisikan kode  dan nama sub kegiatan atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama sub kegiatan ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
-untuk menayangkan referensi, admin, satker atau KPPN masuk ke menu referensi sub kegiatan. di menu referensi sub kegiatan sudah terdapat daftar kode dan nama sub kegiatan. Admin, satker atau KPPN dapat mencari kode atau nama sub kegiatan dengan memasukkan kode atau nama sub kegiatan kemudian menekan tombol cari. sistem akan mencari kode atau nama sub kegiatan dalam database dan menampilkan list kode atau nama sub kegiatan yang sesuai dengan parameter yang dimasukkan. 
+untuk menayangkan referensi sub kegiatan admin, satker atau KPPN masuk ke menu referensi sub kegiatan. di menu referensi sub kegiatan sudah terdapat daftar kode dan nama sub kegiatan. Admin, satker atau KPPN dapat mencari kode atau nama sub kegiatan dengan memasukkan kode atau nama sub kegiatan kemudian menekan tombol cari. sistem akan mencari kode atau nama sub kegiatan dalam database dan menampilkan list kode atau nama sub kegiatan yang mengandung nomor atau karakter inputan.
 
-untuk mengubah referensi sub kegiatan, admin masuk ke menu referensi sub kegiatan, pilih kode atau nama sub kegiatan dengan menyorotnya, kemudian tekan tombol ubah. ganti kode atau nama sub kegiatan dengan isian baru kemudian admin menekan tombol simpan untuk menyimpan ke database. sistem akan menampilkan pesan bahwa perubahan berhasil dilakukan
+untuk mengubah referensi sub kegiatan hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi sub kegiatan, pilih satu atau lebih kode atau nama sub kegiatan dengan mencentangnya, kemudian tekan tombol ubah. pada form ubah referensi admin mengganti kode atau nama sub kegiatan dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi. 
 
-kondisi :
- * jika salah satu dari 2 field di atas kosong maka sistem akan menampilkan pesan bahwa isian ada yang kosong dan sistem batal menyimpan data
- * jika kode sub kegiatan atau nama sub kegiatan telah ada dalam sistem maka sistem akan menampilkan pesan bahwa kode telah ada dalam database dan sistem batal menyimpan data
- * jika  isian kode kegaitan bukan angka maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * jika field kode sub kegiatan atau nama sub kegiatan diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama sub kegiatan yang tidak ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama sub kegiatan tidak ada dalam database
- * pada fungsi pengubahan referensi sub kegiatan berlaku kondisi 1, 2 dan *
+untuk menghapus referensi sub kegiatan hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi sub kegiatan, pilih satu atau lebih kode atau nama sub kegiatan dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
+ 
+kondisi:
+ # jika kode sub kegiatan yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode sub kegiatan yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama sub kegiatan telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode sub kegiatan yang diinputkan kurang atau lebih dari 4 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika field kode atau nama sub kegiatan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
+ # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama sub kegiatan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama sub kegiatan tidak ada dalam database 
+ # pada fungsi pengubahan referensi sub kegiatan berlaku kondisi pertama, kedua dan ketiga
 
 ==UC-33 Kementrian==
 
 aktor : admin, satker dan KPPN
 
-Admin masuk ke menu referensi kementrian. Admin melakukan input referensi kementrian melalui APDOL dengan menekan tombol rekam, lalu sistem menayangkan form pengisian referensi kementrian yang meliputi kode kementrian dalam 2 digit angka dan  nama kementrian dalam bentuk teks.  Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menayangkan kembali data yang baru saja dimasukkan dan di bawahnya ada form untuk pengisian data kembali. admin menekan tombol selesai untuk mengakhiri menu ini.
+untuk input referensi kementrian hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode kementrian dalam bentuk kombinasi angka yang terdiri dari 2 digit dan nama kementrian dalam bentuk teks. Admin mengisikan kode  dan nama kementrian atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama kementrian ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
-untuk menayangkan referensi, admin, satker atau KPPN masuk ke menu referensi kementrian. di menu referensi kementrian sudah terdapat daftar kode dan nama kementrian. Admin, satker atau KPPN dapat mencari kode atau nama kementrian dengan memasukkan kode atau nama kementrian kemudian menekan tombol cari. sistem akan mencari kode atau nama kementrian dalam database dan menampilkan list kode atau nama kementrian yang sesuai dengan parameter yang dimasukkan. 
+untuk menayangkan referensi kementrian admin, satker atau KPPN masuk ke menu referensi kementrian. di menu referensi kementrian sudah terdapat daftar kode dan nama kementrian. Admin, satker atau KPPN dapat mencari kode atau nama kementrian dengan memasukkan kode atau nama kementrian kemudian menekan tombol cari. sistem akan mencari kode atau nama kementrian dalam database dan menampilkan list kode atau nama kementrian yang mengandung nomor atau karakter inputan.
 
-untuk mengubah referensi kementrian, admin masuk ke menu referensi kementrian, pilih kode atau nama kementrian dengan menyorotnya, kemudian tekan tombol ubah. ganti kode atau nama kementrian dengan isian baru kemudian admin menekan tombol simpan untuk menyimpan ke database. sistem akan menampilkan pesan bahwa perubahan berhasil dilakukan
+untuk mengubah referensi kementrian hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi kementrian, pilih satu atau lebih kode atau nama kementrian dengan mencentangnya, kemudian tekan tombol ubah. pada form ubah referensi admin mengganti kode atau nama kementrian dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi. 
 
-kondisi :
- * jika salah satu dari 2 field di atas kosong maka sistem akan menampilkan pesan bahwa isian ada yang kosong dan sistem batal menyimpan data
- * jika kode kementrian atau nama kementrian telah ada dalam sistem maka sistem akan menampilkan pesan bahwa kode telah ada dalam database dan sistem batal menyimpan data
- * jika  isian kode kementrian bukan angka maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * jika field kode kementrian atau nama kementrian diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama kementrian yang tidak ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama kementrian tidak ada dalam database
- * pada fungsi pengubahan referensi kementrian berlaku kondisi 1, 2 dan *
+untuk menghapus referensi kementrian hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi kementrian, pilih satu atau lebih kode atau nama kementrian dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
+ 
+kondisi:
+ # jika kode kementrian yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode kementrian yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama kementrian telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode kementrian yang diinputkan kurang atau lebih dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika field kode atau nama kementrian diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
+ # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama kementrian yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama kementrian tidak ada dalam database 
+ # pada fungsi pengubahan referensi kementrian berlaku kondisi pertama, kedua dan ketiga
 
 ==UC-34 Lokasi/Dati II==
 
 aktor : admin, satker dan KPPN
 
-Admin masuk ke menu referensi Lokasi/Dati II. Admin melakukan input referensi Lokasi/Dati II melalui APDOL dengan menekan tombol rekam, lalu sistem menayangkan form pengisian referensi Lokasi/Dati II yang meliputi kode Lokasi/Dati II dalam 2 digit angka dan  nama Lokasi/Dati II dalam bentuk teks.  Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menayangkan kembali data yang baru saja dimasukkan dan di bawahnya ada form untuk pengisian data kembali. admin menekan tombol selesai untuk mengakhiri menu ini.
+untuk input referensi lokasi/dati II hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode lokasi/dati II dalam bentuk kombinasi angka yang terdiri dari 2 digit dan nama lokasi/dati II dalam bentuk teks. Admin mengisikan kode  dan nama lokasi/dati II atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama lokasi/dati II ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
-untuk menayangkan referensi, admin, satker atau KPPN masuk ke menu referensi lokasi/dati II. di menu referensi lokasi/dati II sudah terdapat daftar kode dan nama lokasi/dati II. Admin, satker atau KPPN dapat mencari kode atau nama lokasi/dati II dengan memasukkan kode atau nama lokasi/dati II kemudian menekan tombol cari. sistem akan mencari kode atau nama lokasi/dati II dalam database dan menampilkan list kode atau nama lokasi/dati II yang sesuai dengan parameter yang dimasukkan. 
+untuk menayangkan referensi lokasi/dati II admin, satker atau KPPN masuk ke menu referensi lokasi/dati II. di menu referensi lokasi/dati II sudah terdapat daftar kode dan nama lokasi/dati II. Admin, satker atau KPPN dapat mencari kode atau nama lokasi/dati II dengan memasukkan kode atau nama lokasi/dati II kemudian menekan tombol cari. sistem akan mencari kode atau nama lokasi/dati II dalam database dan menampilkan list kode atau nama lokasi/dati II yang mengandung nomor atau karakter inputan.
 
-untuk mengubah referensi lokasi/dati II, admin masuk ke menu referensi lokasi/dati II, pilih kode atau nama lokasi/dati II dengan menyorotnya, kemudian tekan tombol ubah. ganti kode atau nama lokasi/dati II dengan isian baru kemudian admin menekan tombol simpan untuk menyimpan ke database. sistem akan menampilkan pesan bahwa perubahan berhasil dilakukan
+untuk mengubah referensi lokasi/dati II hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi lokasi/dati II, pilih satu atau lebih kode atau nama lokasi/dati II dengan mencentangnya, kemudian tekan tombol ubah. pada form ubah referensi admin mengganti kode atau nama lokasi/dati II dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi. 
 
-kondisi :
- * jika salah satu dari 2 field di atas kosong maka sistem akan menampilkan pesan bahwa isian ada yang kosong dan sistem batal menyimpan data
- * jika kode atau nama Lokasi/Dati II telah ada dalam sistem maka sistem akan menampilkan pesan bahwa kode telah ada dalam database dan sistem batal menyimpan data
- * jika  isian kode Lokasi/Dati II bukan angka maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * jika field kode  atau nama lokasi/dati II diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama lokasi/dati II yang tidak ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama lokasi/dati II tidak ada dalam database
- * pada fungsi pengubahan referensi lokasi/dati II berlaku kondisi 1, 2 dan *
+untuk menghapus referensi lokasi/dati II hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi lokasi/dati II, pilih satu atau lebih kode atau nama lokasi/dati II dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
+ 
+kondisi:
+ # jika kode lokasi/dati II yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode lokasi/dati II yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama lokasi/dati II telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode lokasi/dati II yang diinputkan kurang atau lebih dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika field kode atau nama lokasi/dati II diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
+ # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama lokasi/dati II yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama lokasi/dati II tidak ada dalam database 
+ # pada fungsi pengubahan referensi lokasi/dati II berlaku kondisi pertama, kedua dan ketiga
 
 ==UC35 Mata Anggaran==
 
 aktor : admin, satker dan KPPN
 
-Admin masuk ke menu referensi mata anggaran. Admin melakukan input referensi mata anggaran melalui APDOL dengan menekan tombol rekam, lalu sistem menayangkan form pengisian referensi mata anggaran yang meliputi kode mata anggaran dalam 6 digit angka dan  nama mata anggaran dalam bentuk teks.  Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menayangkan kembali data yang baru saja dimasukkan dan di bawahnya ada form untuk pengisian data kembali. admin menekan tombol selesai untuk mengakhiri menu ini.
+untuk input referensi mata anggaran hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode mata anggaran dalam bentuk kombinasi angka yang terdiri dari 6 digit dan nama mata anggaran dalam bentuk teks. Admin mengisikan kode  dan nama mata anggaran atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama mata anggaran ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
-untuk menayangkan referensi, admin, satker atau KPPN masuk ke menu referensi mata anggaran. di menu referensi mata anggaran sudah terdapat daftar kode dan nama mata anggaran. Admin, satker atau KPPN dapat mencari kode atau nama mata anggaran dengan memasukkan kode atau nama mata anggaran kemudian menekan tombol cari. sistem akan mencari kode atau nama mata anggaran dalam database dan menampilkan list kode atau nama mata anggaran yang sesuai dengan parameter yang dimasukkan. 
+untuk menayangkan referensi mata anggaran admin, satker atau KPPN masuk ke menu referensi mata anggaran. di menu referensi mata anggaran sudah terdapat daftar kode dan nama mata anggaran. Admin, satker atau KPPN dapat mencari kode atau nama mata anggaran dengan memasukkan kode atau nama mata anggaran kemudian menekan tombol cari. sistem akan mencari kode atau nama mata anggaran dalam database dan menampilkan list kode atau nama mata anggaran yang mengandung nomor atau karakter inputan.
 
-untuk mengubah referensi mata anggaran, admin masuk ke menu referensi mata anggaran, pilih kode atau nama mata anggaran dengan menyorotnya, kemudian tekan tombol ubah. ganti kode atau nama mata anggaran dengan isian baru kemudian admin menekan tombol simpan untuk menyimpan ke database. sistem akan menampilkan pesan bahwa perubahan berhasil dilakukan
+untuk mengubah referensi mata anggaran hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi mata anggaran, pilih satu atau lebih kode atau nama mata anggaran dengan mencentangnya, kemudian tekan tombol ubah. pada form ubah referensi admin mengganti kode atau nama mata anggaran dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi. 
 
-kondisi :
- * jika salah satu dari 2 field di atas kosong maka sistem akan menampilkan pesan bahwa isian ada yang kosong dan sistem batal menyimpan data
- * jika kode mata anggaran atau nama mata anggaran telah ada dalam sistem maka sistem akan menampilkan pesan bahwa kode telah ada dalam database dan sistem batal menyimpan data
- * jika  isian kode mata anggaran bukan angka maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * jika field kode mata anggaran atau nama mata anggaran diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama mata anggaran yang tidak ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama mata anggaran tidak ada dalam database
- * pada fungsi pengubahan referensi mata anggaran berlaku kondisi 1, 2 dan *
+untuk menghapus referensi mata anggaran hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi mata anggaran, pilih satu atau lebih kode atau nama mata anggaran dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
+ 
+kondisi:
+ # jika kode mata anggaran yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode mata anggaran yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama mata anggaran telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode mata anggaran yang diinputkan kurang atau lebih dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika field kode atau nama mata anggaran diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
+ # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama mata anggaran yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama mata anggaran tidak ada dalam database 
+ # pada fungsi pengubahan referensi mata anggaran berlaku kondisi pertama, kedua dan ketiga
 
 ==UC-36 Dokumen Pengesahan==
 
 aktor : admin, satker dan KPPN
 
-Admin masuk ke menu referensi dokumen pengesahan. Admin melakukan input referensi dokumen pengesahan melalui APDOL dengan menekan tombol rekam, lalu sistem menayangkan form pengisian referensi dokumen pengesahan yang meliputi kode dokumen pengesahan dalam 4 digit angka dan  nama dokumen pengesahan dalam bentuk teks.  Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menayangkan kembali data yang baru saja dimasukkan dan di bawahnya ada form untuk pengisian data kembali. admin menekan tombol selesai untuk mengakhiri menu ini.
+untuk input referensi dokumen pengesahan hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode dokumen pengesahan dalam bentuk kombinasi angka yang terdiri dari 6 digit dan nama dokumen pengesahan dalam bentuk teks. Admin mengisikan kode  dan nama dokumen pengesahan atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama dokumen pengesahan ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
 
-untuk menayangkan referensi, admin, satker atau KPPN masuk ke menu referensi dokumen pengesahan. di menu referensi dokumen pengesahan sudah terdapat daftar kode dan nama dokumen pengesahan. Admin, satker atau KPPN dapat mencari kode atau nama dokumen pengesahan dengan memasukkan kode atau nama dokumen pengesahan kemudian menekan tombol cari. sistem akan mencari kode atau nama dokumen pengesahan dalam database dan menampilkan list kode atau nama dokumen pengesahan yang sesuai dengan parameter yang dimasukkan. 
+untuk menayangkan referensi dokumen pengesahan admin, satker atau KPPN masuk ke menu referensi dokumen pengesahan. di menu referensi dokumen pengesahan sudah terdapat daftar kode dan nama dokumen pengesahan. Admin, satker atau KPPN dapat mencari kode atau nama dokumen pengesahan dengan memasukkan kode atau nama dokumen pengesahan kemudian menekan tombol cari. sistem akan mencari kode atau nama dokumen pengesahan dalam database dan menampilkan list kode atau nama dokumen pengesahan yang mengandung nomor atau karakter inputan.
 
-untuk mengubah referensi dokumen pengesahan, admin masuk ke menu referensi dokumen pengesahan, pilih kode atau nama dokumen pengesahan dengan menyorotnya, kemudian tekan tombol ubah. ganti kode atau nama dokumen pengesahan dengan isian baru kemudian admin menekan tombol simpan untuk menyimpan ke database. sistem akan menampilkan pesan bahwa perubahan berhasil dilakukan
+untuk mengubah referensi dokumen pengesahan hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi dokumen pengesahan, pilih satu atau lebih kode atau nama dokumen pengesahan dengan mencentangnya, kemudian tekan tombol ubah. pada form ubah referensi admin mengganti kode atau nama dokumen pengesahan dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi. 
 
-kondisi :
- * jika salah satu dari 2 field di atas kosong maka sistem akan menampilkan pesan bahwa isian ada yang kosong dan sistem batal menyimpan data
- * jika kode dokumen pengesahan atau nama dokumen pengesahan telah ada dalam sistem maka sistem akan menampilkan pesan bahwa kode telah ada dalam database dan sistem batal menyimpan data
- * jika  isian kode dokumen pengesahan bukan angka maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * jika field kode dokumen pengesahan atau nama dokumen pengesahan diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem batal menyimpan data
- * pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama dokumen pengesahan yang tidak ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama dokumen pengesahan tidak ada dalam database
- * pada fungsi pengubahan referensi dokumen pengesahan berlaku kondisi 1, 2 dan *
+untuk menghapus referensi dokumen pengesahan hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi dokumen pengesahan, pilih satu atau lebih kode atau nama dokumen pengesahan dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
+ 
+kondisi:
+ # jika kode dokumen pengesahan yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode dokumen pengesahan yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama dokumen pengesahan telah ada, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika kode dokumen pengesahan yang diinputkan kurang atau lebih dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form input referensi
+ # jika field kode atau nama dokumen pengesahan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
+ # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama dokumen pengesahan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama dokumen pengesahan tidak ada dalam database 
+ # pada fungsi pengubahan referensi dokumen pengesahan berlaku kondisi pertama, kedua dan ketiga
 
 ==UC-37 Logout==
 
