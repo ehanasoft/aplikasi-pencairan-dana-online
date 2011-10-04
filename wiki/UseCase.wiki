@@ -65,8 +65,8 @@ Registrasi Satker bisa dilakukan oleh Satker sendiri maupun oleh admin.
 	 
  Jabatan	:	(ada pilihan dropdown)
 
-
-
+ Setelah melakukan pengisian kemudian klik simpan. Setelah proses simpan sistem akan melakukan verifikasi kebenaran registrasi calon user, jika telah sesuai maka sistem akan melakukan konfirmasi bahwa akun sudah valid dan bisa digunakan.
+ Apabila kondisi tidak valid yaitu jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi, kemudian calon user melakukan pengisian data kembali sampai kondisi valid. 
 
 
 == UC-01 Login == 
@@ -85,7 +85,76 @@ Apabila username dan atau password tidak valid maka akan ada notifikasi  tidak v
  * Jika username dan atau password jumlah digitnya tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa user memasukkan username dan atau password yang salah
 
  * UC-02 Pagu DIPA
- * UC-03 SPM
+
+== UC-03 SPM ==
+Aktor : Admin, Satker, KPPN
+Dalam menu utama SPM ketika user masuk akan terdapat beberapa submenu antara lain : R/U/H SPM, Cetak dan Submit SPM, notifikasi SPM, serta tolak SPM.
+
+Untuk usecase R/U/H SPM ini adalah untuk melaksanakan kegiatan Rekam, Ubah atau Hapus data SPM. Setelah masuk menu SPM user pilih R/U/H SPM. Kemudian akan muncul tampilan window yang didalamnya terdapat  tiga tombol pada bagian bawah yang aktif saat awal perekaman yaitu Tayang, Rekam dan Keluar. Ketiga tombol ini akan aktif bila kegiatan perekaman pada menu tersebut telah selesai.
+
+==== Rekam SPM ====
+
+Untuk memulai proses perekaman SPM, klik tombol ‘Rekam’, kemudian sistem akan memunculkan tampilan isian berupa :
+
+ * Isikan kode satker. Masukkan kode satker sesuai dengan satker user, jika kode satker valid maka sistem akan otomatis melanjutkan ke tab isian selanjutnya dan apabila kondisi tidak valid (jumlah digit yang dimasukkan bukan 5 digit, atau kode yang dimasukkan tidak sesuai) maka sistem akan memunculkan notifikasi bahwa kode satker tidak benar 
+
+ * Isikan kode Jenis SPM sesuai dengan jenis SPM yang direkam. Setelah melakukan pengisian kode jenis SPM maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi kode jenis SPM maka sistem akan memberikan notifikasi bahwa kode jenis SPM belum diisi
+
+ * Isikan Nomor SPM. Setelah melakukan pengisian kode jenis SPM maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi nomor SPM maka sistem akan memberikan notifikasi bahwa nomor SPM belum diisi. Jika nomor SPM yang dimasukkan pernah digunakan maka sistem akan memberikan notifikasi bahwa nomor SPM telah digunakan
+
+ * Isikan tanggal, bulan dan tahun perekaman SPM tersebut. Jika user belum mengisi tanggal, bulan dan tahun perekaman SPM maka sistem akan memberikan notifikasi bahwa tanggal, bulan dan tahun perekaman SPM belum diisi. Jika tanggal, bulan dan tahun perekaman SPM yang diisi telah lampau maka sistem akan memberikan notifikasi bahwa tanggal, bulan dan tahun perekaman SPM telah lewat
+
+ * Isian kode KPPN akan diisi otomatis oleh sistem sesuai dengan isian yang ada pada tabel satker
+
+ * Jumlah pembayaran bersih akan muncul setelah perekaman jumlah kotor dan jumlah potongan selesai dilakukan
+
+ * Isikan kode cara bayar SPM, pada sistem telah ada pilihan kode cara bayar, user tinggal memilih salah satu yang sesuai maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum memilih kode cara maka sistem akan memberikan notifikasi bahwa kode cara bayar belum diisi
+
+ * Isikan tahun anggaran SPM. Setelah mengisi tahun anggaran apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika tahun anggaran SPM yang diisi telah lampau maka sistem akan memberikan notifikasi bahwa tahun anggaran SPM telah lewat
+
+ * Isikan Kode Klasifikasi Belanja sesuai dengan data yang akan direkam. Setelah mengisi Kode Klasifikasi Belanja apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi kode Klasifikasi Belanja maka sistem akan memberikan notifikasi bahwa kode Klasifikasi Belanja belum diisi
+ 
+ * Isikan kode Fungsi, Sub Fungsi dan Program sesuai dengan fungsi, sub fungsi dan program dari Satker bersangkutan. Setelah mengisi Kode Fungsi, Sub Fungsi dan Program apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi Kode Fungsi, Sub Fungsi dan Program maka sistem akan memberikan notifikasi bahwa Kode Fungsi, Sub Fungsi dan Program belum diisi
+
+ * Isian kode Satker otomatis diisi oleh sistem sesuai dengan settingan pada saat proses setting Satker
+
+ * Isian Kode Unit organisasi dan Lokasi otomatis oleh sistem diambil dari database  tabel satker
+
+ * Isikan kode kewenangan pelaksanaan. Setelah mengisi Kode kewenangan pelaksanaan apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi kode kewenangan pelaksanaan maka sistem akan memberikan notifikasi bahwa kode kewenangan pelaksanaan belum diisi
+
+ * Isikan kode Jenis Pembayaran. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  jenis pembayaran, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum memilih kode Jenis Pembayaran maka sistem akan memberikan notifikasi bahwa user belum memilih kode Jenis Pembayaran
+
+ * Isikan kode Sifat Pembayaran. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  sifat pembayaran, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum memilih kode Sifat Pembayaran maka sistem akan memberikan notifikasi bahwa user belum memilih kode Sifat Pembayaran
+
+ * Isikan Kode Beban Anggaran. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  Kode Beban Anggaran, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya (apabila kode beban ini diisi dengan PHLN, maka Jenis Bantuan dan Kode Pinjaman harus diisi). Jika user belum memilih Kode Beban Anggaran maka sistem akan memberikan notifikasi bahwa user belum memilih Kode Beban Anggaran
+
+ * Isikan kode Jenis Dokumen. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  kode jenis dokumen, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya (Jika jenis pengesahan lebih dari satu, maka diisikan pada empat kolom yang disediakan dan atau apabila kode jenis dokumen yang ada pada tabel tidak ada yang cocok maka kosongkan elemen kode jenis dokumen dan isikan uraian jenis dokumen mulai kolom/baris ke dua yang disediakan)
+
+ * Isikan jumlah pengeluaran sesuai dengan data yang akan direkam. Apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab jumlah potongan. Jika user belum mengisi jumlah pengeluaran maka sistem akan memberikan notifikasi bahwa jumlah pengeluaran belum diisi
+
+ * Isikan Jumlah potongan SPM, apabila ada data potongan. Apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada pilihan MAK/MAP. Jika user belum mengisi jumlah potongan SPM maka sistem akan memberikan notifikasi bahwa jumlah potongan SPM belum diisi.
+
+ * Isikan MAK/MAP. Untuk mengisikan jumlah rincian per MAK (untuk pengeluaran)dan MAP (untuk penerimaan/potongan), dan pada  layar menu sistem akan masuk pada menu isian sebagai berikut :
+
+ Isikan kode kegiatan, sub.kegiatan, MAK dan nilai rupiah untuk MAK tersebut, kemudian sistem akan melakukan pengecekan nilai per MAK ini dengan jumlah nilai uang pengeluaran dan apabila nilai uang per MAK sudah sama dengan jumlah nilai pengeluaran, maka cursor akan langsung masuk ke kolom potongan (MAP). Jika kondisi belum sesuai/isian belum valid maka sistem akan memunculkan notifikasi bahwa isian kode kegiatan, sub.kegiatan, MAK dan nilai rupiah belum sesuai. Kemudian user mengisikan kode MAP dan jumlah nilai potongan per MAP, jumlah nilai per MAP oleh sistem juga akan di cek dengan jumlah nilai potongan yang direkam pada menu sebelumnya. Apabila telah valid maka cursor akan berada pada pilihan kembali. Pilih kembali maka sistem akan masuk otomatis ke pilihan Bendahara/Penerima. Jika kondisi belum sesuai/isian belum valid maka sistem akan memunculkan notifikasi bahwa isian kode MAP dan jumlah nilai potongan per MAP belum sesuai.
+
+ * Isikan kode bendahara (sesuai dengan kode bendahara yang ada pada tabel referensi Bendahara). Uraian-uraian yang lainnya akan secara otomatis oleh sistem dimunculkan sesuai dengan isian tabel referensi Bendahara.  Setelah selesai mengisi menu Bendaharawan/Penerima SPM maka cursor akan berada pada pilihan kembali. Tekan kembali untuk masuk  pada pilihan Yang bersangkutan. Jika kode bendahara belum diisi maka sistem akan memunculkan notifikasi bahwa isian kode bendahara belum diisi
+
+ * Isikan Penandatangan SPM (NIP Kuasa Pengguna Anggaran), namanya akan otomatis oleh sistem diambil dari tabel referensi Pejabat. Isikan NIP Perekam Data, namanya akan otomatis oleh sistem diambil dari tabel referensi Pejabat. Setelah selesai mengisi menu Yang Bersangkutan tekan pilihan kembali, kemudian simpan. Maka sistem akan menyimpan perekaman data SPM kedalam database. Dan user bisa melanjutkan untuk merekam SPM lainnya. . Jika Penandatangan SPM dan  Perekam Data belum diisi maka sistem akan memunculkan notifikasi bahwa isian Penandatangan SPM dan  Perekam Data belum diisi. Jika pengisian NIP berbeda dengan data yang ada pada sistem maka sistem akan memberikan notifikasi bahwa isian Penandatangan SPM dan  Perekam Data tidak sesuai
+
+==== Tayang SPM ====
+
+ Untuk menayangkan SPM yang sudah direkam, user masuk menu R/U/H SPM, kemudian isikan tanggal SPM yang akan ditayangkan kemudian tekan tombol “Tayang” maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Jika user memasukkan tanggal yang pada tanggal tersebut tidak ada perekaman atau tidak ada data SPM maka sistem akan memberikan notifikasi bahwa data SPM tidak ditemukan.
+
+==== Ubah SPM ====
+
+ Untuk melakukan perubahan SPM yang sudah direkam user masuk menu R/U/H SPM, kemudian isikan tanggal SPM yang akan diubah, kemudian tekan tombol “Tayang” maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan perubahan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol ubah, maka sistem akan menayangkan kembali tampilan seperti pada saat rekam SPM, kemudian user bisa melakukan perubahan yang diinginkan. 
+
+==== Hapus SPM ====
+
+ Untuk melakukan penghapusan SPM yang sudah direkam, user masuk menu R/U/H SPM, kemudian isikan tanggal SPM yang akan dihapus, kemudian tekan tombol “Tayang” maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan penghapusan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol “Hapus”, maka sistem akan otomatis menghapus data SPM dari database.
+
+
  * UC-04 Cetak SPM dan Submit ke KPPN 
  * UC-05 Notifikasi SPM
  * UC-06 Tolak SPM
