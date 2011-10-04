@@ -180,9 +180,39 @@ Usecase ini adalah untuk notifikasi bahwa ada SPM yang telah disubmit oleh Satke
 
 == UC-06 Tolak SPM ==
 
+Aktor :  KPPN, Admin
+
+Usecase ini adalah untuk menolak SPM yang masuk ke KPPN yang datanya masih terdapat kesalahan. 
+
+ * Seteleh proses verifikasi seperti pada psoses sebelumnya apabila masih terdapat kesalahan pada SPM maka  KPPN akan melanjutkan dengan memilih tombol Tolak, kemudian sistem akan melakukan proses penolakan dan mengirimkan notifikasi ke Satker untuk dapat diperbaiki, kemudian dikirimkan kembali apabila telah dilakukan perbaikan.
+
+Catatan : Nomor SPM yang telah ditolak tidak dapat dipakai lagi untuk pengajuan, jadi ketika Satker akan mengajukan SPM lagi maka Satker harus menggunakan nomor SPM baru.
+
+
 == UC-07 Proses SP2D ==
 
+Aktor :  KPPN, Admin
+
+Usecase ini adalah untuk memproses SPM yang masuk ke KPPN yang datanya telah valid dan siap diproses menjadi SP2D. Seteleh proses verifikasi selesai, user masuk sub menu Proses SP2D, kemudian sistem akan menampilkan pada layar beberapa isian untuk proses SP2D yaitu :
+
+ * Isikan Tanggal SPM. KPPN memasukkan tanggal SPM sesuai SPM yang akan diproses menjadi SP2D
+ * Isikan Tanggal SP2D akan dicairkan. KPPN memasukkan tanggal SP2D kapan akan dicairkan oleh Bank
+ * Isikan Bank/Pos. KPPN memilih pada pilihan dropdown yang telah disediakan oleh sistem kode Bank/Pos mana tempat dana akan dicairkan, sesuai dengan yang ada pada referensi
+ * Isikan checklist “Pilih”. KPPN mencentang pada data yang akan diproses SP2D 
+
+Kemudian KPPN menekan tombol “Proses ke SP2D” bila isian diatas sudah dilakukan. Atau menekan tombol “Kembali” apabila proses SP2D tidak dilanjutkan.
+
+Alternatif :
+
+ * Jika tanggal SPM belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Proses  SP2D seperti semula
+ * Jika tanggal SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
+ * Jika tanggal SP2D diisikan dengan tanggal yang telah lampau, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
+ * Jika kode Bank/Pos belum dipilih, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
+ * Jika KPPN belum melakukan checklist pada pilihan “pilih”, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
+
+
 == UC-08 Cetak SP2D ==
+
 == UC-09 Batal SP2D ==
 Aktor : Admin, KPPN.
 
