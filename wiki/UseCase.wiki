@@ -155,17 +155,7 @@ Untuk memulai proses perekaman SPM, klik tombol ‘Rekam’, kemudian sistem aka
  Untuk melakukan penghapusan SPM yang sudah direkam, user masuk menu R/U/H SPM, kemudian isikan tanggal SPM yang akan dihapus, kemudian tekan tombol “Tayang” maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan penghapusan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol “Hapus”, maka sistem akan otomatis menghapus data SPM dari database.
 
 
-== UC-04 Cetak SPM dan Submit ke KPPN ==
-
-Aktor :  Satker
-
-Usecase  ini adalah untuk melaksanakan kegiatan pencetakan net SPM. Satker harus memilih sub menu Cetak dan submit SPM pada Menu SPM. Setelah satker memilih maka pada layar menu oleh sistem akan ditayangkan menu isian berupa pilihan data-data SPM yang telah direkam sebelumnya. Satker tinggal memilih SPM mana yang akan dicetak kemudian pilih “cetak” maka sistem akan menayangkan terlebih dahulu kedalam layar berupa tampilan SPM untuk dapat dikoreksi oleh satker. 
-
- * Apabila SPM telah benar isiannya satker memilih gambar printer maka  sistem akan otomatis terhubung dengan output sistem berupa printer dan secara otomatis juga, sistem akan memunculkan tombol submit KPPN, satker bisa langsung tekan tombol submit maka data SPM akan dikirim ke KPPN dan akan diproses oleh KPPN dalam waktu 1 x 24 jam. Oleh sistem akan dimunculkan notifikasi bahwa SPM telah di submit ke KPPN. 
-
- * Jika kondisi satker belum menentukan pilihan data SPM yang akan dicetak maka sistem akan memunculkan notifikasi bahwa pilihan SPM untuk dicetak belum ditentukan. 
-
-
+ * UC-04 Cetak SPM dan Submit ke KPPN 
  * UC-05 Notifikasi SPM
  * UC-06 Tolak SPM
  * UC-07 Proses SP2D
@@ -193,12 +183,11 @@ Bagi KPPN atau Satker bisa melihat daftar referensi Jenis Dokumen dengan login s
 Alternatif :
 
  # Jika kode Jenis Dokumen yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- # Jika kode Jenis Dokumen telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Jenis Dokumen telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika kode Jenis Dokumen yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Jenis Dokumen telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika kode Jenis Dokumen yang diinputkan kurang dari 2 (dua) digit maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika field kode Jenis Dokumen atau nama Jenis Dokumen diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Jenis Dokumen yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Jenis Dokumen tidak ada dalam database dan kembali ke tampilan awal menu referensi Jenis Dokumen
- # Pada fungsi ubah referensi Jenis Dokumen berlaku alternatif kondisi 1, 2, dan 3
- 
+ # Pada fungsi ubah referensi Jenis Dokumen berlaku alternatif kondisi 1, 2, dan 3.
 ==UC-19 Jenis SPM==
 Aktor : Admin, KPPN, Satker
 
@@ -213,13 +202,31 @@ Bagi KPPN atau Satker bisa melihat daftar referensi Jenis SPM dengan login sebag
 Alternatif :
 
  # Jika kode Jenis SPM yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- # Jika kode Jenis SPM telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Jenis SPM telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika kode Jenis SPM yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Jenis SPM telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika kode Jenis SPM yang diinputkan kurang dari 2 (dua) digit maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika field kode Jenis SPM atau nama Jenis SPM diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Jenis SPM yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Jenis SPM tidak ada dalam database dan kembali ke tampilan awal menu referensi Jenis SPM
- # Pada fungsi ubah referensi Jenis SPM berlaku alternatif kondisi 1, 2, dan 3
+ # Pada fungsi ubah referensi Jenis SPM berlaku alternatif kondisi 1, 2, dan 3.
+==UC-20 Kewenangan Pelaksanaan==
+Aktor : Admin, KPPN, Satker
 
- * UC-20 Kewenangan Pelaksanaan
+Untuk menginput referensi Kewenangan Pelaksanaan hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Kewenangan Pelaksanaan. Admin menginput referensi Kewenangan Pelaksanaan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Kewenangan Pelaksanaan yang meliputi kode Kewenangan Pelaksanaan sebanyak 2 (dua) huruf dan nama Kewenangan Pelaksanaan dalam bentuk teks. Admin mengisikan kode Kewenangan Pelaksanaan dan nama Kewenangan Pelaksanaan. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Kewenangan Pelaksanaan berupa daftar referensi Kewenangan Pelaksanaan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Kewenangan Pelaksanaan dan Sistem akan kembali ke tampilan awal menu referensi Kewenangan Pelaksanaan.
+
+Untuk mengubah referensi Kewenangan Pelaksanaan hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Kewenangan Pelaksanaan, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Ubah". Sistem akan menampilkan form isian berupa kode dan nama Kewenangan Pelaksanaan yang sudah terisi sesuai pilihan tadi. Admin mengganti kode atau nama Kewenangan Pelaksanaan dengan isian baru kemudian menekan tombol "Simpan" untuk menyimpan data yang telah diubah. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Kewenangan Pelaksanaan pada tampilan awal menu referensi Kewenangan Pelaksanaan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Kewenangan Pelaksanaan yang akan diubah dan Sistem akan kembali ke tampilan awal menu referensi Kewenangan Pelaksanaan. Jika Admin memilih referensi yang akan diubah lebih dari satu, maka Sistem akan memproses satu per satu secara berurutan.
+
+Untuk menghapus referensi Kewenangan Pelaksanaan hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Kewenangan Pelaksanaan, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Jika Admin memilih tombol "Yes" maka Sistem akan menghapus referensi tersebut dari database dan kembali ke tampilan awal referensi Kewenangan Pelaksanaan. Jika memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Kewenangan Pelaksanaan. Jika Admin memilih referensi yang akan dihapus lebih dari satu, maka Sistem akan memproses satu per satu secara berurutan.
+
+Bagi KPPN atau Satker bisa melihat daftar referensi Kewenangan Pelaksanaan dengan login sebagai KPPN atau Satker dan masuk ke menu referensi Kewenangan Pelaksanaan, kemudian Sistem akan menampilkan daftar referensi Kewenangan Pelaksanaan. Admin, KPPN atau Satker juga bisa mencari kode dan nama Kewenangan Pelaksanaan dengan memasukkan kode atau nama Kewenangan Pelaksanaan kemudian menekan tombol cari. Sistem akan mencari kode dan nama Kewenangan Pelaksanaan dalam database dan menampilkan daftar kode dan nama Kewenangan Pelaksanaan sesuai dengan parameter yang dimasukkan.
+
+Alternatif :
+
+ # Jika kode Kewenangan Pelaksanaan yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika kode Kewenangan Pelaksanaan yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Kewenangan Pelaksanaan telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika kode Kewenangan Pelaksanaan yang diinputkan kurang dari 2 (dua) huruf maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika field kode Kewenangan Pelaksanaan atau nama Kewenangan Pelaksanaan diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Kewenangan Pelaksanaan yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Kewenangan Pelaksanaan tidak ada dalam database dan kembali ke tampilan awal menu referensi Kewenangan Pelaksanaan
+ # Pada fungsi ubah referensi Kewenangan Pelaksanaan berlaku alternatif kondisi 1, 2, dan 3.
+
  * UC-21 Cara Bayar
  * UC-22  Jenis Pembayaran
  * UC-23  Sifat Pembayaran
