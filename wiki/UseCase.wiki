@@ -183,7 +183,25 @@ Usecase ini adalah untuk notifikasi bahwa ada SPM yang telah disubmit oleh Satke
 == UC-07 Proses SP2D ==
 
 == UC-08 Cetak SP2D ==
- * UC-09 Batal SP2D
+== UC-09 Batal SP2D ==
+Aktor : Admin, KPPN.
+
+Menu Batal SP2D pada APDOL digunakan untuk membatalkan SP2D yang telah terbit. Hal ini dapat terjadi dikarenakan adanya permasalahan teknis maupun non-teknis pada Satker atau KPPN. KPPN masuk ke dalam menu Batal SP2D. Sistem akan menampilkan textbox pencarian, tabel daftar SP2D yang telah diterbitkan oleh KPPN serta tabel SP2D yang telah dibatalkan tepat dibawah tabel daftar SP2D. KPPN dapat mencari SP2D bedasarkan nomor SP2D yang telah terbit, memilih SP2D yang akan dibatalkan dengan mencentang tickbox kemudian menekan tombol batal. Sistem akan menampilkan form isian pembatalan SP2D berupa :
+
+ * Isikan nomor surat pembatalan SP2D. KPPN memasukkan nomor surat pembatalan SP2D yang telah diterbitkan
+
+ * Isikan tanggal surat pembatalan SP2D. KPPN memasukkan tanggal surat pembatalan SP2D yang telah diterbitkan
+
+ * Isikan alasan pembatalan SP2D. KPPN memasukkan alasan pembatalan SP2D yang telah diterbitkan
+
+KPPN menekan tombol simpan untuk membatalkan SP2D atau batal untuk menangguhkan pembatalan SP2D. Sistem akan menampilkan notifikasi peringatan apakah yakin membatalkan SP2D apabila menekan tombol simpan. Setelah selesai, sistem akan kembali mengarahkan pada penayangan tabel daftar SP2D terbit dan SP2D batal. 
+
+Alternatif :
+ # Jika nomor surat pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah 
+ # Jika tanggal surat pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah
+ # Jika alasan pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah
+ # Jika pada fungsi pencarian KPPN memasukkan nomor SP2D yang salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan ke tampilan awal.
+
  * UC-10 Monitoring Penyelesaian SPM
  * UC-11 Realisasi
  * UC-12 Satker
