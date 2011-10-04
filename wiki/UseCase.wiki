@@ -180,6 +180,15 @@ Usecase ini adalah untuk notifikasi bahwa ada SPM yang telah disubmit oleh Satke
 
 == UC-06 Tolak SPM ==
 
+Aktor :  KPPN, Admin
+
+Usecase ini adalah untuk menolak SPM yang masuk ke KPPN yang datanya masih terdapat kesalahan.
+ 
+ * Seteleh proses verifikasi seperti pada prsoses sebelumnya apabila masih terdapat kesalahan pada SPM maka  KPPN akan melanjutkan dengan memilih tombol Tolak, kemudian sistem akan melakukan proses penolakan dan mengirimkan notifikasi ke Satker untuk dapat diperbaiki, kemudian dikirimkan kembali apabila telah dilakukan perbaikan.
+
+Catatan : Nomor SPM yang telah ditolak tidak dapat dipakai lagi untuk pengajuan SPM, jadi ketika Satker akan mengajukan SPM lagi maka Satker harus menggunakan nomor SPM baru.
+
+
 == UC-07 Proses SP2D ==
 
 == UC-08 Cetak SP2D ==
