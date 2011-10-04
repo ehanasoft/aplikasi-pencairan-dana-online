@@ -169,7 +169,26 @@ Untuk memulai proses perekaman SPM, klik tombol ‘Rekam’, kemudian sistem aka
  * UC-15 Nomor SP2D
  * UC-16 Bank Pos
  * UC-17 Pejabat
- * UC-18 Jenis Dokumen
+==UC-18 Jenis Dokumen==
+Aktor : Admin, KPPN, Satker
+
+Untuk menginput referensi Jenis Dokumen hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Jenis Dokumen. Admin menginput referensi Jenis Dokumen melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Jenis Dokumen yang meliputi nomor kode Jenis Dokumen sebanyak 2 (dua) digit dan nama Jenis Dokumen dalam bentuk teks. Admin mengisikan kode Jenis Dokumen dan nama Jenis Dokumen. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Jenis Dokumen berupa daftar referensi Jenis Dokumen. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Jenis Dokumen dan Sistem akan kembali ke tampilan awal menu referensi Jenis Dokumen.
+
+Untuk mengubah referensi Jenis Dokumen hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Jenis Dokumen, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Ubah". Sistem akan menampilkan form isian berupa nomor kode dan nama Jenis Dokumen yang sudah terisi sesuai pilihan tadi. Admin mengganti kode atau nama Jenis Dokumen dengan isian baru kemudian menekan tombol "Simpan" untuk menyimpan data yang telah diubah. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Jenis Dokumen pada tampilan awal menu referensi Jenis Dokumen. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Jenis Dokumen yang akan diubah dan Sistem akan kembali ke tampilan awal menu referensi Jenis Dokumen. Jika Admin memilih referensi yang akan diubah lebih dari satu, maka Sistem akan memproses satu per satu secara berurutan.
+
+Untuk menghapus referensi Jenis Dokumen hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Jenis Dokumen, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol hapus. Sistem akan menampilkan kotak dialog yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Jika Admin memilih tombol "Yes" maka Sistem akan menghapus referensi tersebut dari database dan kembali ke tampilan awal referensi Jenis Dokumen. Jika memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Jenis Dokumen. Jika Admin memilih referensi yang akan dihapus lebih dari satu, maka Sistem akan memproses satu per satu secara berurutan.
+
+Bagi KPPN atau Satker bisa melihat daftar referensi Jenis Dokumen dengan login sebagai KPPN atau Satker dan masuk ke menu referensi Jenis Dokumen, kemudian Sistem akan menampilkan daftar referensi Jenis Dokumen. Admin, KPPN atau Satker juga bisa mencari kode dan nama Jenis Dokumen dengan memasukkan kode atau nama Jenis Dokumen kemudian menekan tombol cari. Sistem akan mencari kode dan nama Jenis Dokumen dalam database dan menampilkan daftar kode dan nama Jenis Dokumen sesuai dengan parameter yang dimasukkan.
+
+Alternatif :
+
+ # Jika kode Jenis Dokumen yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika kode Jenis Dokumen telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Jenis Dokumen telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika kode Jenis Dokumen yang diinputkan kurang dari 2 (dua) digit maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika field kode Jenis Dokumen atau nama Jenis Dokumen diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Jenis Dokumen yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Jenis Dokumen tidak ada dalam database dan kembali ke tampilan awal menu referensi Jenis Dokumen
+ # Pada fungsi ubah referensi Jenis Dokumen alternatif kondisi 1, 2 dan 3
+
  * UC-19 Jenis SPM
  * UC-20 Kewenangan Pelaksanaan
  * UC-21 Cara Bayar
