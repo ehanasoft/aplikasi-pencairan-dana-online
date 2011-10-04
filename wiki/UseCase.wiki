@@ -1,0 +1,44 @@
+#summary Use Case Aplikasi Pencairan Dana Online
+
+= Use Case APDOL =
+
+Dalam proses pengembangan Aplikasi Pencairan Dana Online perlu dibuat Use Case sebagai guidance sehingga aplikasi ini sesuai dengan requirement yang ada. Beberapa Use Case yang terdapat dalam aplikasi ini adalah sebagai berikut:
+ * UC-00 Registrasi
+ * UC-01 Login 
+ * UC-02 Pagu DIPA
+ * UC-03 SPM
+ * UC-04 Cetak SPM dan Submit ke KPPN 
+ * UC-05 Notifikasi SPM
+ * UC-06 Tolak SPM
+ * UC-07 Proses SP2D
+ * UC-08 Cetak SP2D
+ * UC-09 Batal SP2D
+ * UC-10 Monitoring Penyelesaian SPM
+ * UC-11 Realisasi
+ * UC-12 Satker
+ * UC-13 KPPN
+ * UC-14 Nomor SPM
+ * UC-15 Nomor SP2D
+ * UC-16 Bank Pos
+ * UC-17 Pejabat
+ * UC-18 Jenis Dokumen
+ * UC-19 Jenis SPM
+ * UC-20 Kewenangan Pelaksanaan
+ * UC-21 Cara Bayar
+ * UC-22  Jenis Pembayaran
+ * UC-23  Sifat Pembayaran
+ * UC-24  Beban
+ * UC-25  Jenis Bantuan
+ * UC-26  Sumber Dana
+ * UC-27  Cara Penarikan
+ * UC-28  KPP
+ * UC-29  Golongan
+ * UC-30  Fungsi-Sub Fungsi-Program
+ * UC-31  Kegiatan
+ * UC-32  Sub Kegiatan
+ * UC-33  Kementerian
+ * UC-34  Lokasi/Dati II
+ * UC-35  Register
+ * UC-36  Mata Anggaran
+ * UC-37  Dokumen Pengesahan
+ * UC-38  Logout
