@@ -361,7 +361,24 @@ Alternatif :
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Satker yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Satker tidak ada dalam database dan kembali ke tampilan awal menu referensi Satker
  # Pada fungsi ubah referensi nomor SPM berlaku alternatif kondisi 1, 2, dan 3.
 
- * UC-15 Nomor SP2D
+== UC-15 Nomor SP2D ==
+Aktor: Admin, KPPN.
+
+Untuk melakukan input nomor SP2D hanya dapat dilakukan oleh Admin. Admin masuk ke menu referensi nomor SP2D. Admin menginput referensi nomor SP2D melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi nomor SP2D yang meliputi nomor surat alokasi nomor SP2D dalam bentuk teks, tanggal surat alokasi nomor SP2D dalam bentuk tanggal, nomor awal alokasi SP2D sebanyak 6 (enam) digit, nomor akhir alokasi SP2D sebanyak 6 (enam) digit,  abjad alokasi SP2D sebanyak 1 (satu) karakter huruf romawi dan nomor SP2D aktif sebanyak 6 (enam) digit. Admin mengisikan nomor surat alokasi, tanggal surat alokasi, nomor awal alokasi SP2D, nomor akhir alokasi SP2D, abjad alokasi SP2D dan nomor aktif SP2D. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi  nomor SP2D berupa daftar referensi nomor SP2D. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian nomor SP2D dan Sistem akan kembali ke tampilan awal menu referensi nomor SP2D.
+
+Untuk mengubah referensi nomor SP2D hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi nomor SP2D, kemudian Admin menekan tombol "Ubah". Sistem akan menampilkan form isian berupa nomor surat alokasi, tanggal surat alokasi, nomor awal alokasi SP2D, nomor akhir alokasi SP2D, abjad alokasi SP2D dan nomor aktif SP2D yang sudah terisi sesuai pilihan tadi. Admin mengganti salah satu isian tersebut dengan isian baru kemudian menekan tombol "Simpan" untuk menyimpan data yang telah diubah. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi nomor SP2D pada tampilan awal menu referensi nomor SP2D. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian nomor SP2D yang akan diubah dan Sistem akan kembali ke tampilan awal menu referensi nomor SP2D. Jika Admin memilih referensi yang akan diubah lebih dari satu, maka Sistem akan memproses satu per satu secara berurutan.
+
+Untuk menghapus referensi nomor SP2D hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi nomor SP2D, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Jika Admin memilih tombol "Yes" maka Sistem akan menghapus referensi tersebut dari database dan kembali ke tampilan awal referensi nomor SP2D. Jika memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi nomor SP2D. Jika Admin memilih referensi yang akan dihapus lebih dari satu, maka Sistem akan memproses satu per satu secara berurutan.
+
+Bagi KPPN dapat melihat daftar referensi nomor SP2D dengan login sebagai KPPN dan masuk ke menu referensi nomor SP2D, kemudian Sistem akan menampilkan daftar referensi nomor SP2D diurut berdasarkan nomor awal alokasi SP2D.
+
+ Alternatif :
+ # Jika nomor awal alokasi SP2D, nomor akhir alokasi SP2D dan nomor aktif SP2D yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika abjad alokasi SP2D yang diinputkan bukan huruf maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut
+ # Jika masing-masing atribut yang diinputkan tidak sesuai dengan digit yang dimintakan maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika salah satu field input diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Pada fungsi ubah referensi nomor SP2D berlaku alternatif kondisi 1, 2, dan 3.
+
  * UC-16 Bank Pos
  * UC-17 Pejabat
 ==UC-18 Jenis Dokumen==
