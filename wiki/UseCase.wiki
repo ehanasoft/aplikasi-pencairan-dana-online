@@ -102,12 +102,12 @@ Usecase ini untuk menyiapkan data pagu sebagai bahan yang diperlukan untuk prose
 Kegiatan yang bisa dilakukan oleh admin adalah Rekam, Ubah, Tayang dan Hapus Pagu DIPA. Sedangkan Satker hanya bisa melakukan proses tayang saja.
 
 Dari menu utama user pilih menu pagu, kemudian tekan tombol R/U/H Pagu. Kemudian akan muncul tampilan yang didalamnya terdapat beberapa tombol antara lain :
- # Rekam : untuk melakukan perekaman data pagu dari dokumen baru
-User menekan tombol rekam, kemudian sistem akan menampilkan tampilan berupa data yang harus diisi, isikan elemen-elemen data pagunya, setelah semua terisi tekan tombol “OK”, maka sistem akan menampilkan pada table isian apa yang telah user isikan. Kemudian user menekan tombol “simpan dokumen”, maka sistem akan menyimpan data pagu DIPA kedalam database.
- # Ubah : untuk melakukan perubahan data pagu yang telah dimasukkan
-User menempatkan cursor pada pada baris data yang akan dirubah kemudian tekan tombol Ubah. Kemudian sistem akan menampilkan kembali data seperti pada saat perekaman, user kemudian melakukan perubahan pada elemen-elemen data tersebut. Setelah selesai user klik pada tombol OK maka data hasil perubahan akan tertayang pada bagian atas. Kemudian user menekan tombol “simpan dokumen”, maka sistem akan menyimpan data pagu DIPA kedalam database.
- # Hapus : untuk menghapus data pagu yang telah dimasukkan
-Bila user akan menghapus record data pagu DIPA, user harus menempatkan kursor pada baris data yang akan dirubah, kemudian tekan tombol Hapus. kemudian sistem akan memunculkan notifikasi apakah user yakin akan menghapus record data pagu. Kemudian tekan OK maka baris data akan hilang. Sistem akan secara otomatis menghapus data dari database. Kemudian tekan tombol “simpan dokumen” maka maka sistem akan menyimpan secara otomatis semua perubahan yang dilakukan kedalam database. 
+ * Rekam : untuk melakukan perekaman data pagu dari dokumen baru
+   User menekan tombol rekam, kemudian sistem akan menampilkan tampilan berupa data yang harus diisi, isikan elemen-elemen data pagunya, setelah semua terisi tekan tombol “OK”, maka sistem akan menampilkan pada table isian apa yang telah user isikan. Kemudian user menekan tombol “simpan dokumen”, maka sistem akan menyimpan data pagu DIPA kedalam database.
+ * Ubah : untuk melakukan perubahan data pagu yang telah dimasukkan
+   User menempatkan cursor pada pada baris data yang akan dirubah kemudian tekan tombol Ubah. Kemudian sistem akan menampilkan kembali data seperti pada saat perekaman, user kemudian melakukan perubahan pada elemen-elemen data tersebut. Setelah selesai user klik pada tombol OK maka data hasil perubahan akan tertayang pada bagian atas. Kemudian user menekan tombol “simpan dokumen”, maka sistem akan menyimpan data pagu DIPA kedalam database.
+ * Hapus : untuk menghapus data pagu yang telah dimasukkan
+   Bila user akan menghapus record data pagu DIPA, user harus menempatkan kursor pada baris data yang akan dirubah, kemudian tekan tombol Hapus. kemudian sistem akan memunculkan notifikasi apakah user yakin akan menghapus record data pagu. Kemudian tekan OK maka baris data akan hilang. Sistem akan secara otomatis menghapus data dari database. Kemudian tekan tombol “simpan dokumen” maka maka sistem akan menyimpan secara otomatis semua perubahan yang dilakukan kedalam database. 
 
 Alternatif :
  # Jika pada saat perekaman dan perubahan data pagu DIPA user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam pagu kembali.
