@@ -3,73 +3,85 @@
 = Use Case APDOL =
 
 Dalam proses pengembangan Aplikasi Pencairan Dana Online perlu dibuat Use Case sebagai guidance sehingga aplikasi ini sesuai dengan requirement yang ada. Beberapa Use Case yang terdapat dalam aplikasi ini adalah sebagai berikut:
-== UC-00 Registrasi ==
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-00 Registrasi">UC-00 Registrasi</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-01 Login">UC-01 Login</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-02 Pagu DIPA">UC-02 Pagu DIPA</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-03 SPM">UC-03 SPM</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-04 Cetak SPM dan Submit ke KPPN">UC-04 Cetak SPM dan Submit ke KPPN</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-05 Notifikasi SPM">UC-05 Notifikasi SPM</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-06 Tolak SPM">UC-06 Tolak SPM</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-07 Proses SP2D">UC-07 Proses SP2D</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-08 Cetak SP2D">UC-08 Cetak SP2D</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-09 Batal SP2D">UC-09 Batal SP2D</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-10 Monitoring Penyelesaian SPM">UC-10 Monitoring Penyelesaian SPM</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-11 Realisasi">UC-11 Realisasi</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-12 Satker">UC-12 Satker</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-13 KPPN">UC-13 KPPN</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-14 Nomor SPM">UC-14 Nomor SPM</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-15 Nomor SP2D">UC-15 Nomor SP2D</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-16 Bank Pos">UC-16 Bank Pos</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-17 Pejabat">UC-17 Pejabat</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-18 Jenis Dokumen">UC-18 Jenis Dokumen</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-19 Jenis SPM">UC-19 Jenis SPM</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-20 Kewenangan Pelaksanaan">UC-20 Kewenangan Pelaksanaan</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-21 Cara Bayar">UC-21 Cara Bayar</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-22 Jenis Pembayaran">UC-22 Jenis Pembayaran</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-23 Sifat Pembayaran">UC-23 Sifat Pembayaran</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-24 Beban">UC-24 Beban</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-25 Jenis Bantuan">UC-25 Jenis Bantuan</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-26 Sumber Dana">UC-26 Sumber Dana</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-27 Cara Penarikan">UC-27 Cara Penarikan</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-28 KPP">UC-28 KPP</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-29 Golongan">UC-29 Golongan</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-30 Fungsi-Sub Fungsi-Program">UC-30 Fungsi-Sub Fungsi-Program</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-31 Kegiatan">UC-31 Kegiatan</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-32 Sub Kegiatan">UC-32 Sub Kegiatan</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-33 Kementerian">UC-33 Kementerian</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-34 Lokasi/Dati II">UC-34 Lokasi/Dati II</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-35 Mata Anggaran">UC-35 Mata Anggaran</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-36 Dokumen Pengesahan">UC-36 Dokumen Pengesahan</a></li></ul>
+<ul><li><a href="http://code.google.com/p/aplikasi-pencairan-dana-online/wiki/UseCase#UC-37 Logout">UC-37 Logout</a></li></ul>
+==<a name="UC-00 Registrasi">UC-00 Registrasi</a>==
 Aktor : Admin, KPPN, Satker
-
 Use case registrasi berfungsi untuk membuat hak akses bagi calon user. Proses registrasi dibedakan antara registrasi Satker dengan registrasi KPPN :
-
 ==== Registrasi Satker ====
 Registrasi Satker bisa dilakukan oleh Satker sendiri maupun oleh admin.
- * Registrasi oleh satker sendiri 
- Calon user melakukan pendaftaran, begitu masuk halaman utama aplikasi maka pilih tombol signup kemudian mengisikan beberapa informasi berupa identitas calon user yang semuanya harus diisi, dengan rincian sebagai berikut :
+ # Registrasi oleh satker sendiri 
+   Calon user melakukan pendaftaran, begitu masuk halaman utama aplikasi maka pilih tombol signup kemudian mengisikan beberapa informasi berupa identitas calon user yang semuanya harus diisi, dengan rincian sebagai berikut :
+  * Username	                	:	 
+  * Password	                	:
+  * Kode Satker	                	:	(ada pilihan dropdown)
+  * Nama Satker	              		:	(otomatis muncul ketika kode satker dipilih)
+  * Alamat	               			:
+  * Nama Bendahara         			:
+  * Pejabat Penandatangan SPM 		:
+  * Pangkat/Gol Penandatangan SPM	:
+  * Bank                      		:	
+  * Nomor Rekening	           		:	 
+   Setelah melakukan pengisian kemudian klik simpan. Setelah proses simpan sistem akan melakukan verifikasi kebenaran registrasi calon user, jika telah sesuai maka sistem akan melakukan konfirmasi bahwa akun sudah valid dan bisa digunakan.
 
- Username	           :
-	 
- Password	           :
-	 
- Kode Satker	           :	(ada pilihan dropdown)
+   Apabila kondisi tidak valid yaitu jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi, kemudian calon user melakukan pengisian data kembali sampai kondisi valid. 
+ # Registrasi oleh admin
+   Admin KPPN masuk kedalam aplikasi dengan mengisi user name dan password  administrator, jika berhasil maka akan muncul tampilan utama dari aplikasi. Apabila pengisian user name dan atau password tidak valid maka kondisinya :
+    * Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password
+    * Jika username dan atau password jumlah digitnya tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa user memasukkan username dan atau password yang salah
 
- Nama Satker	           :	(otomatis muncul ketika kode satker dipilih)
-
- Alamat	                   :
-	 
- Nama Bendahara        	   :
-	 
- Pejabat Penandatangan SPM :
-	 
- Pangkat/Gol Penandatangan SPM	:
-	
- Bank                      :	
- 
- Nomor Rekening	           :	 
-
- Setelah melakukan pengisian kemudian klik simpan. Setelah proses simpan sistem akan melakukan verifikasi kebenaran registrasi calon user, jika telah sesuai maka sistem akan melakukan konfirmasi bahwa akun sudah valid dan bisa digunakan.
-
- Apabila kondisi tidak valid yaitu jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi, kemudian calon user melakukan pengisian data kembali sampai kondisi valid. 
- * Registrasi oleh admin
- Admin KPPN masuk kedalam aplikasi dengan mengisi user name dan password  administrator, jika berhasil maka akan muncul tampilan utama dari aplikasi. Apabila pengisian user name dan atau password tidak valid maka kondisinya :
-
- 1. Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password
-
- 2. Jika username dan atau password jumlah digitnya tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa user memasukkan username dan atau password yang salah
-
- Setelah masuk ke halaman utama aplikasi maka admin KPPN bisa masuk ke menu Register. Dalam menu register terdapat pilihan registrasi KPPN dan registrasi Satker. Untuk registrasi KPPN kita pilih registrasi KPPN kemudian akan muncul beberapa isian yang semuanya harus diisi sama seperti registrasi oleh satker diatas.
-
+   Setelah masuk ke halaman utama aplikasi maka admin KPPN bisa masuk ke menu Register. Dalam menu register terdapat pilihan registrasi KPPN dan registrasi Satker. Untuk registrasi KPPN kita pilih registrasi KPPN kemudian akan muncul beberapa isian yang semuanya harus diisi sama seperti registrasi oleh satker diatas.
 ==== Registrasi  KPPN ====
- User KPPN dibuat oleh admin KPPN. Admin KPPN masuk kedalam aplikasi dengan mengisi user name dan password  administrator, jika berhasil maka akan muncul tampilan utama dari aplikasi. Apabila pengisian user name dan atau password tidak valid maka kondisinya :
-
- * Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password;
- * Jika username dan atau password jumlah digitnya tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa user memasukkan username dan atau password yang salah
+User KPPN dibuat oleh admin KPPN. Admin KPPN masuk kedalam aplikasi dengan mengisi user name dan password  administrator, jika berhasil maka akan muncul tampilan utama dari aplikasi. Apabila pengisian user name dan atau password tidak valid maka kondisinya :
+ # Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password;
+ # Jika username dan atau password jumlah digitnya tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa user memasukkan username dan atau password yang salah
 
  Setelah masuk ke halaman utama aplikasi maka admin KPPN bisa masuk ke menu Register. Dalam menu register terdapat pilihan registrasi KPPN dan registrasi Satker. Untuk registrasi KPPN kita pilih registrasi KPPN kemudian akan muncul beberapa isian yang semuanya harus diisi antara lain :
-
- Username	:
-	 
- Password	:
-	 
- Kode KPPN	:	(ada pilihan dropdown)
-
- Nama KPPN	:	(otomatis muncul ketika kode KPPN dipilih)
-
- Nama Petugas 	:
-	 
- Jabatan	:	(ada pilihan dropdown)
-
+ * Username		:
+ * Password		:
+ * Kode KPPN	:	(ada pilihan dropdown)
+ * Nama KPPN	:	(otomatis muncul ketika kode KPPN dipilih)
+ * Nama Petugas :
+ * Jabatan		:	(ada pilihan dropdown)
  Setelah melakukan pengisian kemudian klik simpan. Setelah proses simpan sistem akan melakukan verifikasi kebenaran registrasi calon user, jika telah sesuai maka sistem akan melakukan konfirmasi bahwa akun sudah valid dan bisa digunakan.
  Apabila kondisi tidak valid yaitu jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi, kemudian calon user melakukan pengisian data kembali sampai kondisi valid. 
-
-
-== UC-01 Login == 
+==<a name="UC-01 Login">UC-01 Login</a>== 
 Aktor : Admin, Satker, KPPN
 
 User  aplikasi APDOL melakukan login sehingga dapat menggunakan fasilitas-fasilitas didalamnya sesuai dengan hak akses masing-masing user.
@@ -80,12 +92,9 @@ User memilih menu Login kemudian mengisikan username dan password yang sudah dir
 
 Apabila username dan atau password tidak valid maka akan ada notifikasi  tidak valid seperti kondisi dibawah ini :
 
- * Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password
-
- * Jika username dan atau password jumlah digitnya tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa user memasukkan username dan atau password yang salah
-
-== UC-02 Pagu DIPA ==
-
+ # Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password
+ # Jika username dan atau password jumlah digitnya tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa user memasukkan username dan atau password yang salah
+==<a name="UC-02 Login">UC-02 Login</a>==
 Aktor : Admin, Satker, KPPN
 
 Usecase ini untuk menyiapkan data pagu sebagai bahan yang diperlukan untuk proses perekaman maupun pencetakan SPM. Pilihan kegiatan yang bisa dilakukan dikategorikan menjadi dua yaitu kegiatan yang dilakukan oleh admin serta KPPN/Satker. 
@@ -93,25 +102,17 @@ Usecase ini untuk menyiapkan data pagu sebagai bahan yang diperlukan untuk prose
 Kegiatan yang bisa dilakukan oleh admin adalah Rekam, Ubah, Tayang dan Hapus Pagu DIPA. Sedangkan Satker hanya bisa melakukan proses tayang saja.
 
 Dari menu utama user pilih menu pagu, kemudian tekan tombol R/U/H Pagu. Kemudian akan muncul tampilan yang didalamnya terdapat beberapa tombol antara lain :
-
- * Rekam : untuk melakukan perekaman data pagu dari dokumen baru
+ # Rekam : untuk melakukan perekaman data pagu dari dokumen baru
 User menekan tombol rekam, kemudian sistem akan menampilkan tampilan berupa data yang harus diisi, isikan elemen-elemen data pagunya, setelah semua terisi tekan tombol “OK”, maka sistem akan menampilkan pada table isian apa yang telah user isikan. Kemudian user menekan tombol “simpan dokumen”, maka sistem akan menyimpan data pagu DIPA kedalam database.
-
- * Ubah : untuk melakukan perubahan data pagu yang telah dimasukkan
+ # Ubah : untuk melakukan perubahan data pagu yang telah dimasukkan
 User menempatkan cursor pada pada baris data yang akan dirubah kemudian tekan tombol Ubah. Kemudian sistem akan menampilkan kembali data seperti pada saat perekaman, user kemudian melakukan perubahan pada elemen-elemen data tersebut. Setelah selesai user klik pada tombol OK maka data hasil perubahan akan tertayang pada bagian atas. Kemudian user menekan tombol “simpan dokumen”, maka sistem akan menyimpan data pagu DIPA kedalam database.
-
- * Hapus : untuk menghapus data pagu yang telah dimasukkan
+ # Hapus : untuk menghapus data pagu yang telah dimasukkan
 Bila user akan menghapus record data pagu DIPA, user harus menempatkan kursor pada baris data yang akan dirubah, kemudian tekan tombol Hapus. kemudian sistem akan memunculkan notifikasi apakah user yakin akan menghapus record data pagu. Kemudian tekan OK maka baris data akan hilang. Sistem akan secara otomatis menghapus data dari database. Kemudian tekan tombol “simpan dokumen” maka maka sistem akan menyimpan secara otomatis semua perubahan yang dilakukan kedalam database. 
 
 Alternatif :
-
- * Jika pada saat perekaman dan perubahan data pagu DIPA user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam pagu kembali.
-
- * Jika pada saat penghapusan data pagu user belum menempatkan kursor pada posisi data yang akan dihapus, maka sistem akan menampilkan peringatan bahwa user belum memilih data yang akan dihapus. 
-
-
-
-== UC-03 SPM ==
+ # Jika pada saat perekaman dan perubahan data pagu DIPA user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam pagu kembali.
+ # Jika pada saat penghapusan data pagu user belum menempatkan kursor pada posisi data yang akan dihapus, maka sistem akan menampilkan peringatan bahwa user belum memilih data yang akan dihapus. 
+==<a name="UC-03 SPM">UC-03 SPM</a>==
 Aktor : Admin, Satker, KPPN
 Dalam menu utama SPM ketika user masuk akan terdapat beberapa submenu antara lain : R/U/H SPM, Cetak dan Submit SPM, notifikasi SPM, serta tolak SPM.
 
@@ -120,145 +121,86 @@ Untuk usecase R/U/H SPM ini adalah untuk melaksanakan kegiatan Rekam, Ubah atau 
 ==== Rekam SPM ====
 
 Untuk memulai proses perekaman SPM, klik tombol ‘Rekam’, kemudian sistem akan memunculkan tampilan isian berupa :
-
- * Isikan kode satker. Masukkan kode satker sesuai dengan satker user, jika kode satker valid maka sistem akan otomatis melanjutkan ke tab isian selanjutnya dan apabila kondisi tidak valid (jumlah digit yang dimasukkan bukan 5 digit, atau kode yang dimasukkan tidak sesuai) maka sistem akan memunculkan notifikasi bahwa kode satker tidak benar 
-
- * Isikan kode Jenis SPM sesuai dengan jenis SPM yang direkam. Setelah melakukan pengisian kode jenis SPM maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi kode jenis SPM maka sistem akan memberikan notifikasi bahwa kode jenis SPM belum diisi
-
- * Isikan Nomor SPM. Setelah melakukan pengisian kode jenis SPM maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi nomor SPM maka sistem akan memberikan notifikasi bahwa nomor SPM belum diisi. Jika nomor SPM yang dimasukkan pernah digunakan maka sistem akan memberikan notifikasi bahwa nomor SPM telah digunakan
-
- * Isikan tanggal, bulan dan tahun perekaman SPM tersebut. Jika user belum mengisi tanggal, bulan dan tahun perekaman SPM maka sistem akan memberikan notifikasi bahwa tanggal, bulan dan tahun perekaman SPM belum diisi. Jika tanggal, bulan dan tahun perekaman SPM yang diisi telah lampau maka sistem akan memberikan notifikasi bahwa tanggal, bulan dan tahun perekaman SPM telah lewat
-
- * Isian kode KPPN akan diisi otomatis oleh sistem sesuai dengan isian yang ada pada tabel satker
-
- * Jumlah pembayaran bersih akan muncul setelah perekaman jumlah kotor dan jumlah potongan selesai dilakukan
-
- * Isikan kode cara bayar SPM, pada sistem telah ada pilihan kode cara bayar, user tinggal memilih salah satu yang sesuai maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum memilih kode cara maka sistem akan memberikan notifikasi bahwa kode cara bayar belum diisi
-
- * Isikan tahun anggaran SPM. Setelah mengisi tahun anggaran apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika tahun anggaran SPM yang diisi telah lampau maka sistem akan memberikan notifikasi bahwa tahun anggaran SPM telah lewat
-
- * Isikan Kode Klasifikasi Belanja sesuai dengan data yang akan direkam. Setelah mengisi Kode Klasifikasi Belanja apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi kode Klasifikasi Belanja maka sistem akan memberikan notifikasi bahwa kode Klasifikasi Belanja belum diisi
- 
- * Isikan kode Fungsi, Sub Fungsi dan Program sesuai dengan fungsi, sub fungsi dan program dari Satker bersangkutan. Setelah mengisi Kode Fungsi, Sub Fungsi dan Program apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi Kode Fungsi, Sub Fungsi dan Program maka sistem akan memberikan notifikasi bahwa Kode Fungsi, Sub Fungsi dan Program belum diisi
-
- * Isian kode Satker otomatis diisi oleh sistem sesuai dengan settingan pada saat proses setting Satker
-
- * Isian Kode Unit organisasi dan Lokasi otomatis oleh sistem diambil dari database  tabel satker
-
- * Isikan kode kewenangan pelaksanaan. Setelah mengisi Kode kewenangan pelaksanaan apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi kode kewenangan pelaksanaan maka sistem akan memberikan notifikasi bahwa kode kewenangan pelaksanaan belum diisi
-
- * Isikan kode Jenis Pembayaran. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  jenis pembayaran, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum memilih kode Jenis Pembayaran maka sistem akan memberikan notifikasi bahwa user belum memilih kode Jenis Pembayaran
-
- * Isikan kode Sifat Pembayaran. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  sifat pembayaran, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum memilih kode Sifat Pembayaran maka sistem akan memberikan notifikasi bahwa user belum memilih kode Sifat Pembayaran
-
- * Isikan Kode Beban Anggaran. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  Kode Beban Anggaran, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya (apabila kode beban ini diisi dengan PHLN, maka Jenis Bantuan dan Kode Pinjaman harus diisi). Jika user belum memilih Kode Beban Anggaran maka sistem akan memberikan notifikasi bahwa user belum memilih Kode Beban Anggaran
-
- * Isikan kode Jenis Dokumen. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  kode jenis dokumen, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya (Jika jenis pengesahan lebih dari satu, maka diisikan pada empat kolom yang disediakan dan atau apabila kode jenis dokumen yang ada pada tabel tidak ada yang cocok maka kosongkan elemen kode jenis dokumen dan isikan uraian jenis dokumen mulai kolom/baris ke dua yang disediakan)
-
- * Isikan jumlah pengeluaran sesuai dengan data yang akan direkam. Apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab jumlah potongan. Jika user belum mengisi jumlah pengeluaran maka sistem akan memberikan notifikasi bahwa jumlah pengeluaran belum diisi
-
- * Isikan Jumlah potongan SPM, apabila ada data potongan. Apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada pilihan MAK/MAP. Jika user belum mengisi jumlah potongan SPM maka sistem akan memberikan notifikasi bahwa jumlah potongan SPM belum diisi.
-
- * Isikan MAK/MAP. Untuk mengisikan jumlah rincian per MAK (untuk pengeluaran)dan MAP (untuk penerimaan/potongan), dan pada  layar menu sistem akan masuk pada menu isian sebagai berikut :
-
- Isikan kode kegiatan, sub.kegiatan, MAK dan nilai rupiah untuk MAK tersebut, kemudian sistem akan melakukan pengecekan nilai per MAK ini dengan jumlah nilai uang pengeluaran dan apabila nilai uang per MAK sudah sama dengan jumlah nilai pengeluaran, maka cursor akan langsung masuk ke kolom potongan (MAP). Jika kondisi belum sesuai/isian belum valid maka sistem akan memunculkan notifikasi bahwa isian kode kegiatan, sub.kegiatan, MAK dan nilai rupiah belum sesuai. Kemudian user mengisikan kode MAP dan jumlah nilai potongan per MAP, jumlah nilai per MAP oleh sistem juga akan di cek dengan jumlah nilai potongan yang direkam pada menu sebelumnya. Apabila telah valid maka cursor akan berada pada pilihan kembali. Pilih kembali maka sistem akan masuk otomatis ke pilihan Bendahara/Penerima. Jika kondisi belum sesuai/isian belum valid maka sistem akan memunculkan notifikasi bahwa isian kode MAP dan jumlah nilai potongan per MAP belum sesuai.
-
- * Isikan kode bendahara (sesuai dengan kode bendahara yang ada pada tabel referensi Bendahara). Uraian-uraian yang lainnya akan secara otomatis oleh sistem dimunculkan sesuai dengan isian tabel referensi Bendahara.  Setelah selesai mengisi menu Bendaharawan/Penerima SPM maka cursor akan berada pada pilihan kembali. Tekan kembali untuk masuk  pada pilihan Yang bersangkutan. Jika kode bendahara belum diisi maka sistem akan memunculkan notifikasi bahwa isian kode bendahara belum diisi
-
- * Isikan Penandatangan SPM (NIP Kuasa Pengguna Anggaran), namanya akan otomatis oleh sistem diambil dari tabel referensi Pejabat. Isikan NIP Perekam Data, namanya akan otomatis oleh sistem diambil dari tabel referensi Pejabat. Setelah selesai mengisi menu Yang Bersangkutan tekan pilihan kembali, kemudian simpan. Maka sistem akan menyimpan perekaman data SPM kedalam database. Dan user bisa melanjutkan untuk merekam SPM lainnya. . Jika Penandatangan SPM dan  Perekam Data belum diisi maka sistem akan memunculkan notifikasi bahwa isian Penandatangan SPM dan  Perekam Data belum diisi. Jika pengisian NIP berbeda dengan data yang ada pada sistem maka sistem akan memberikan notifikasi bahwa isian Penandatangan SPM dan  Perekam Data tidak sesuai
-
+ # Isikan kode satker. Masukkan kode satker sesuai dengan satker user, jika kode satker valid maka sistem akan otomatis melanjutkan ke tab isian selanjutnya dan apabila kondisi tidak valid (jumlah digit yang dimasukkan bukan 5 digit, atau kode yang dimasukkan tidak sesuai) maka sistem akan memunculkan notifikasi bahwa kode satker tidak benar 
+ # Isikan kode Jenis SPM sesuai dengan jenis SPM yang direkam. Setelah melakukan pengisian kode jenis SPM maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi kode jenis SPM maka sistem akan memberikan notifikasi bahwa kode jenis SPM belum diisi
+ # Isikan Nomor SPM. Setelah melakukan pengisian kode jenis SPM maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi nomor SPM maka sistem akan memberikan notifikasi bahwa nomor SPM belum diisi. Jika nomor SPM yang dimasukkan pernah digunakan maka sistem akan memberikan notifikasi bahwa nomor SPM telah digunakan
+ # Isikan tanggal, bulan dan tahun perekaman SPM tersebut. Jika user belum mengisi tanggal, bulan dan tahun perekaman SPM maka sistem akan memberikan notifikasi bahwa tanggal, bulan dan tahun perekaman SPM belum diisi. Jika tanggal, bulan dan tahun perekaman SPM yang diisi telah lampau maka sistem akan memberikan notifikasi bahwa tanggal, bulan dan tahun perekaman SPM telah lewat
+ # Isian kode KPPN akan diisi otomatis oleh sistem sesuai dengan isian yang ada pada tabel satker
+ # Jumlah pembayaran bersih akan muncul setelah perekaman jumlah kotor dan jumlah potongan selesai dilakukan
+ # Isikan kode cara bayar SPM, pada sistem telah ada pilihan kode cara bayar, user tinggal memilih salah satu yang sesuai maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum memilih kode cara maka sistem akan memberikan notifikasi bahwa kode cara bayar belum diisi
+ # Isikan tahun anggaran SPM. Setelah mengisi tahun anggaran apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika tahun anggaran SPM yang diisi telah lampau maka sistem akan memberikan notifikasi bahwa tahun anggaran SPM telah lewat
+ # Isikan Kode Klasifikasi Belanja sesuai dengan data yang akan direkam. Setelah mengisi Kode Klasifikasi Belanja apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi kode Klasifikasi Belanja maka sistem akan memberikan notifikasi bahwa kode Klasifikasi Belanja belum diisi
+ # Isikan kode Fungsi, Sub Fungsi dan Program sesuai dengan fungsi, sub fungsi dan program dari Satker bersangkutan. Setelah mengisi Kode Fungsi, Sub Fungsi dan Program apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi Kode Fungsi, Sub Fungsi dan Program maka sistem akan memberikan notifikasi bahwa Kode Fungsi, Sub Fungsi dan Program belum diisi
+ # Isian kode Satker otomatis diisi oleh sistem sesuai dengan settingan pada saat proses setting Satker
+ # Isian Kode Unit organisasi dan Lokasi otomatis oleh sistem diambil dari database  tabel satker
+ # Isikan kode kewenangan pelaksanaan. Setelah mengisi Kode kewenangan pelaksanaan apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum mengisi kode kewenangan pelaksanaan maka sistem akan memberikan notifikasi bahwa kode kewenangan pelaksanaan belum diisi
+ # Isikan kode Jenis Pembayaran. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  jenis pembayaran, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum memilih kode Jenis Pembayaran maka sistem akan memberikan notifikasi bahwa user belum memilih kode Jenis Pembayaran
+ # Isikan kode Sifat Pembayaran. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  sifat pembayaran, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya. Jika user belum memilih kode Sifat Pembayaran maka sistem akan memberikan notifikasi bahwa user belum memilih kode Sifat Pembayaran
+ # Isikan Kode Beban Anggaran. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  Kode Beban Anggaran, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya (apabila kode beban ini diisi dengan PHLN, maka Jenis Bantuan dan Kode Pinjaman harus diisi). Jika user belum memilih Kode Beban Anggaran maka sistem akan memberikan notifikasi bahwa user belum memilih Kode Beban Anggaran
+ # Isikan kode Jenis Dokumen. Pada tampilan aplikasi telah disediakan fasilitas dropdown, user tinggal memilih pada elemen  kode jenis dokumen, pilih salah satu yang sesuai, kemudian tekan tombol enter, maka sistem akan otomatis melanjutkan cursor pada tab berikutnya (Jika jenis pengesahan lebih dari satu, maka diisikan pada empat kolom yang disediakan dan atau apabila kode jenis dokumen yang ada pada tabel tidak ada yang cocok maka kosongkan elemen kode jenis dokumen dan isikan uraian jenis dokumen mulai kolom/baris ke dua yang disediakan)
+ # Isikan jumlah pengeluaran sesuai dengan data yang akan direkam. Apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada tab jumlah potongan. Jika user belum mengisi jumlah pengeluaran maka sistem akan memberikan notifikasi bahwa jumlah pengeluaran belum diisi
+ # Isikan Jumlah potongan SPM, apabila ada data potongan. Apabila kondisi telah valid maka sistem akan otomatis melanjutkan cursor pada pilihan MAK/MAP. Jika user belum mengisi jumlah potongan SPM maka sistem akan memberikan notifikasi bahwa jumlah potongan SPM belum diisi.
+ # Isikan MAK/MAP. Untuk mengisikan jumlah rincian per MAK (untuk pengeluaran)dan MAP (untuk penerimaan/potongan), dan pada  layar menu sistem akan masuk pada menu isian sebagai berikut :
+    * Isikan kode kegiatan, sub.kegiatan, MAK dan nilai rupiah untuk MAK tersebut, kemudian sistem akan melakukan pengecekan nilai per MAK ini dengan jumlah nilai uang pengeluaran dan apabila nilai uang per MAK sudah sama dengan jumlah nilai pengeluaran, maka cursor akan langsung masuk ke kolom potongan (MAP). Jika kondisi belum sesuai/isian belum valid maka sistem akan memunculkan notifikasi bahwa isian kode kegiatan, sub.kegiatan, MAK dan nilai rupiah belum sesuai. Kemudian user mengisikan kode MAP dan jumlah nilai potongan per MAP, jumlah nilai per MAP oleh sistem juga akan di cek dengan jumlah nilai potongan yang direkam pada menu sebelumnya. Apabila telah valid maka cursor akan berada pada pilihan kembali. Pilih kembali maka sistem akan masuk otomatis ke pilihan Bendahara/Penerima. Jika kondisi belum sesuai/isian belum valid maka sistem akan memunculkan notifikasi bahwa isian kode MAP dan jumlah nilai potongan per MAP belum sesuai.
+ # Isikan kode bendahara (sesuai dengan kode bendahara yang ada pada tabel referensi Bendahara). Uraian-uraian yang lainnya akan secara otomatis oleh sistem dimunculkan sesuai dengan isian tabel referensi Bendahara.  Setelah selesai mengisi menu Bendaharawan/Penerima SPM maka cursor akan berada pada pilihan kembali. Tekan kembali untuk masuk  pada pilihan Yang bersangkutan. Jika kode bendahara belum diisi maka sistem akan memunculkan notifikasi bahwa isian kode bendahara belum diisi
+ # Isikan Penandatangan SPM (NIP Kuasa Pengguna Anggaran), namanya akan otomatis oleh sistem diambil dari tabel referensi Pejabat. Isikan NIP Perekam Data, namanya akan otomatis oleh sistem diambil dari tabel referensi Pejabat. Setelah selesai mengisi menu Yang Bersangkutan tekan pilihan kembali, kemudian simpan. Maka sistem akan menyimpan perekaman data SPM kedalam database. Dan user bisa melanjutkan untuk merekam SPM lainnya. . Jika Penandatangan SPM dan  Perekam Data belum diisi maka sistem akan memunculkan notifikasi bahwa isian Penandatangan SPM dan  Perekam Data belum diisi. Jika pengisian NIP berbeda dengan data yang ada pada sistem maka sistem akan memberikan notifikasi bahwa isian Penandatangan SPM dan  Perekam Data tidak sesuai
 ==== Tayang SPM ====
-
  Untuk menayangkan SPM yang sudah direkam, user masuk menu R/U/H SPM, kemudian isikan tanggal SPM yang akan ditayangkan kemudian tekan tombol “Tayang” maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Jika user memasukkan tanggal yang pada tanggal tersebut tidak ada perekaman atau tidak ada data SPM maka sistem akan memberikan notifikasi bahwa data SPM tidak ditemukan.
-
 ==== Ubah SPM ====
-
  Untuk melakukan perubahan SPM yang sudah direkam user masuk menu R/U/H SPM, kemudian isikan tanggal SPM yang akan diubah, kemudian tekan tombol “Tayang” maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan perubahan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol ubah, maka sistem akan menayangkan kembali tampilan seperti pada saat rekam SPM, kemudian user bisa melakukan perubahan yang diinginkan. 
-
 ==== Hapus SPM ====
-
  Untuk melakukan penghapusan SPM yang sudah direkam, user masuk menu R/U/H SPM, kemudian isikan tanggal SPM yang akan dihapus, kemudian tekan tombol “Tayang” maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan penghapusan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol “Hapus”, maka sistem akan otomatis menghapus data SPM dari database.
-
-
-== UC-04 Cetak SPM dan Submit ke KPPN ==
-
+==<a name="UC-04 Cetak SPM dan Submit ke KPPN">UC-04 Cetak SPM dan Submit ke KPPN</a>==
 Aktor :  Satker
 
 Usecase  ini adalah untuk melaksanakan kegiatan pencetakan net SPM. Satker harus memilih sub menu Cetak dan submit SPM pada Menu SPM. Setelah satker memilih maka pada layar menu oleh sistem akan ditayangkan menu isian berupa pilihan data-data SPM yang telah direkam sebelumnya. Satker tinggal memilih SPM mana yang akan dicetak kemudian pilih “cetak” maka sistem akan menayangkan terlebih dahulu kedalam layar berupa tampilan SPM untuk dapat dikoreksi oleh satker.
- 
- * Apabila SPM telah benar isiannya satker memilih gambar printer maka  sistem akan otomatis terhubung dengan output sistem berupa printer dan secara otomatis juga, sistem akan memunculkan tombol submit KPPN, satker bisa langsung tekan tombol submit maka data SPM akan dikirim ke KPPN dan akan diproses oleh KPPN dalam waktu 1 x 24 jam. Oleh sistem akan dimunculkan notifikasi bahwa SPM telah di submit ke KPPN.
- 
- * Jika kondisi satker belum menentukan pilihan data SPM yang akan dicetak maka sistem akan memunculkan notifikasi bahwa pilihan SPM untuk dicetak belum ditentukan. 
- 
-
-== UC-05 Notifikasi SPM ==
-
+ # Apabila SPM telah benar isiannya satker memilih gambar printer maka  sistem akan otomatis terhubung dengan output sistem berupa printer dan secara otomatis juga, sistem akan memunculkan tombol submit KPPN, satker bisa langsung tekan tombol submit maka data SPM akan dikirim ke KPPN dan akan diproses oleh KPPN dalam waktu 1 x 24 jam. Oleh sistem akan dimunculkan notifikasi bahwa SPM telah di submit ke KPPN.
+ # Jika kondisi satker belum menentukan pilihan data SPM yang akan dicetak maka sistem akan memunculkan notifikasi bahwa pilihan SPM untuk dicetak belum ditentukan. 
+==<a name="UC-05 Notifikasi SPM">UC-05 Notifikasi SPM</a>==
 Aktor :  Admin, KPPN
 
 Usecase ini adalah untuk notifikasi bahwa ada SPM yang telah disubmit oleh Satker dan harus diverfikasi oleh KPPN dalam waktu 1x24 jam. Admin/KPPN pilih submenu notifikasi SPM pada menu SPM kemudian pilih SPM yang akan diverifikasi. 
-
- * Checklist SPM yang akan diverifikasi, kemudian klik tombol verifikasi. Kemudian KPPN melakukan proses pemeriksaan data. Apabila data SPM telah valid maka pilih tombol simpan, kemudian sistem akan menyimpan data SPM kedalam database untuk dihubungkan dengan menu proses SP2D. 
-
- * Apabila masih ada kesalahan pada SPM setelah diverifikasi maka dilakukan proses tolak SPM.
-
- * Sistem akan mengirimkan notifikasi kepada Satker baik ketika SPM lolos verifikasi maupun ditolak.
-
-== UC-06 Tolak SPM ==
-
+ # Checklist SPM yang akan diverifikasi, kemudian klik tombol verifikasi. Kemudian KPPN melakukan proses pemeriksaan data. Apabila data SPM telah valid maka pilih tombol simpan, kemudian sistem akan menyimpan data SPM kedalam database untuk dihubungkan dengan menu proses SP2D. 
+ # Apabila masih ada kesalahan pada SPM setelah diverifikasi maka dilakukan proses tolak SPM.
+ # Sistem akan mengirimkan notifikasi kepada Satker baik ketika SPM lolos verifikasi maupun ditolak.
+==<a name="UC-06 Tolak SPM">UC-06 Tolak SPM</a>==
 Aktor :  KPPN, Admin
 
 Usecase ini adalah untuk menolak SPM yang masuk ke KPPN yang datanya masih terdapat kesalahan. 
-
- * Seteleh proses verifikasi seperti pada psoses sebelumnya apabila masih terdapat kesalahan pada SPM maka  KPPN akan melanjutkan dengan memilih tombol Tolak, kemudian sistem akan melakukan proses penolakan dan mengirimkan notifikasi ke Satker untuk dapat diperbaiki, kemudian dikirimkan kembali apabila telah dilakukan perbaikan.
+ # Seteleh proses verifikasi seperti pada psoses sebelumnya apabila masih terdapat kesalahan pada SPM maka  KPPN akan melanjutkan dengan memilih tombol Tolak, kemudian sistem akan melakukan proses penolakan dan mengirimkan notifikasi ke Satker untuk dapat diperbaiki, kemudian dikirimkan kembali apabila telah dilakukan perbaikan.
 
 Catatan : Nomor SPM yang telah ditolak tidak dapat dipakai lagi untuk pengajuan, jadi ketika Satker akan mengajukan SPM lagi maka Satker harus menggunakan nomor SPM baru.
-
-
-== UC-07 Proses SP2D ==
-
+==<a name="UC-07 Proses SP2D">UC-07 Proses SP2D</a>==
 Aktor :  KPPN, Admin
 
 Usecase ini adalah untuk memproses SPM yang masuk ke KPPN yang datanya telah valid dan siap diproses menjadi SP2D. Seteleh proses verifikasi selesai, user masuk sub menu Proses SP2D, kemudian sistem akan menampilkan pada layar beberapa isian untuk proses SP2D yaitu :
-
  * Isikan Tanggal SPM. KPPN memasukkan tanggal SPM sesuai SPM yang akan diproses menjadi SP2D
  * Isikan Tanggal SP2D akan dicairkan. KPPN memasukkan tanggal SP2D kapan akan dicairkan oleh Bank
  * Isikan Bank/Pos. KPPN memilih pada pilihan dropdown yang telah disediakan oleh sistem kode Bank/Pos mana tempat dana akan dicairkan, sesuai dengan yang ada pada referensi
  * Isikan checklist “Pilih”. KPPN mencentang pada data yang akan diproses SP2D 
-
 Kemudian KPPN menekan tombol “Proses ke SP2D” bila isian diatas sudah dilakukan. Atau menekan tombol “Kembali” apabila proses SP2D tidak dilanjutkan.
 
 Alternatif :
-
- * Jika tanggal SPM belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Proses  SP2D seperti semula
- * Jika tanggal SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
- * Jika tanggal SP2D diisikan dengan tanggal yang telah lampau, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
- * Jika kode Bank/Pos belum dipilih, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
- * Jika KPPN belum melakukan checklist pada pilihan “pilih”, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
-
-== UC-08 Cetak SP2D ==
-
+ # Jika tanggal SPM belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Proses  SP2D seperti semula
+ # Jika tanggal SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
+ # Jika tanggal SP2D diisikan dengan tanggal yang telah lampau, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
+ # Jika kode Bank/Pos belum dipilih, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
+ # Jika KPPN belum melakukan checklist pada pilihan “pilih”, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
+==<a name="UC-08 Cetak SP2D">UC-08 Cetak SP2D</a>==
 Aktor :  KPPN, Admin
 
 Usecase ini adalah untuk mencetak SP2D. KPPN masuk sub menu cetak SP2D kemudian isikan beberapa isian sebagai berikut :
-
  * Isikan tanggal SP2D sesuai tanggal SP2D akan dicairkan. Kemudian sistem akan menampilkan pada layar semua data SP2D yang bisa dilakukan proses cetak SP2D. 
-
  * KPPN melakukan Checlist pada isian “cetak” SP2D mana saja yang akan dicetak
-
  * KPPN memilih pilihan cetak kelayar atau cetak ke printer. Sistem akan menampilkan pada layar tampilan SP2D yang akan dicetak apabila KPPN memilih cetak ke layar atau sistem akan terkoneksi otomatis dengan output sistem berupa printer apabila memilih cetak ke printer.
 
 Setelah proses cetak selesai KPPN bisa menekan tombol keluar untuk keluar dari menu Cetak SP2D
 
 Alternatif :
-
- * Jika tanggal SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula
-
- * Jika checklist isian “cetak” belum dicentang, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula
-
- * Jika KPPN belum memilih pilihan cetak kelayar atau cetak ke printer, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula.
-
-
-== UC-09 Batal SP2D ==
+ # Jika tanggal SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula
+ # Jika checklist isian “cetak” belum dicentang, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula
+ # Jika KPPN belum memilih pilihan cetak kelayar atau cetak ke printer, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula.
+==<a name="UC-09 Batal SP2D">UC-09 Batal SP2D</a>==
 Aktor : Admin, KPPN.
 
 Menu Batal SP2D pada APDOL digunakan untuk membatalkan SP2D yang telah terbit. Hal ini dapat terjadi dikarenakan adanya permasalahan teknis maupun non-teknis pada Satker atau KPPN. KPPN masuk ke dalam menu Batal SP2D. Sistem akan menampilkan textbox pencarian, tabel daftar SP2D yang telah diterbitkan oleh KPPN serta tabel SP2D yang telah dibatalkan tepat dibawah tabel daftar SP2D. KPPN dapat mencari SP2D bedasarkan nomor SP2D yang telah terbit, memilih SP2D yang akan dibatalkan dengan mencentang tickbox kemudian menekan tombol batal. Sistem akan menampilkan form isian pembatalan SP2D berupa :
@@ -277,8 +219,7 @@ Alternatif :
  # Jika tanggal surat pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah.
  # Jika alasan pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah.
  # Jika pada fungsi pencarian KPPN memasukkan nomor SP2D yang salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan ke tampilan awal.
-
-== UC-10 Monitoring Penyelesaian SPM ==
+==<a name="UC-10 Monitoring Penyelesaian SPM">UC-10 Monitoring Penyelesaian SPM</a>==
 Aktor : Admin, Satker, KPPN.
 
 Menu Monitoring Penyelesaian SPM pada APDOL berisi daftar SPM yang telah diterima dan diproses oleh KPPN. Satker, sebagaimana KPPN dan Admin dapat memantau proses penyelesaian SPM dan terbitnya SP2D. Satker masuk ke menu Monitoring Penyelesaian SPM. Sistem akan menampilkan daftar SPM yang telah diterima oleh KPPN serta status proses penyelesaian SPM. 
@@ -287,8 +228,7 @@ Satker dapat melakukan pencarian berdasarkan dengan memasukkan kode satker atau 
 Alternatif :
 
  * Jika Admin, KPPN atau Satker memasukkan kode satker atau nomor SPM yang tidak ada dalam database, maka sistem akan menampilkan peringatan kesalahan dan kembali pada tampilan awal menu Monitoring Penyelesaian SPM.
-
-== UC-11 Realisasi ==
+==<a name="UC-11 Realisasi">UC-11 Realisasi</a>==
 Aktor : Admin, Satker, KPPN.
 
 Menu Realisasi pada APDOL digunakan untuk menampilkan realisasi anggaran pada setiap Satuan Kerja. Admin, KPPN dan Satker dapat menampilkan realisasi anggaran yang diurut berdasarkan fungsi, sub fungsi, program dan kegiatan, sub kegiatan, mata anggaran. Satker masuk menu Realisasi. Sistem akan menampilkan form isian berupa:
@@ -306,8 +246,7 @@ Alternatif:
  # Jika kode satker belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
  # Jika kode fungsi, sub fungsi, program belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
  # Jika kode kegiatan, sub kegiatan belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
-
-== UC-12 Satker ==
+==<a name="UC-12 Satker">UC-12 Satker</a>==
 Aktor : Admin, KPPN, Satker.
 
 Untuk melakukan input referensi Satuan Kerja hanya dapat dilakukan oleh Admin. Admin masuk ke menu referensi Satker. Admin menginput referensi Satker melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Satker yang meliputi nomor kode Satker sebanyak 6 (enam) digit, kode Departemen sebanyak 3 (tiga) digit, kode Unit sebanyak 2 (dua) digit, kode lokasi sebanyak 2 (dua) digit, kode Dati II sebanyak 2 (dua) digit, kode KPPN sebanyak 3 (tiga) digit dan nama Satker dalam bentuk teks. Admin mengisikan kode Satker, kode Departemen, kode Unit, kode Lokasi, kode Dati II, kode KPPN dan nama Satker. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Satker berupa daftar referensi Satker. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Satker dan Sistem akan kembali ke tampilan awal menu referensi Satker.
@@ -326,8 +265,7 @@ Alternatif :
  # Jika salah satu field input diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Satker yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Satker tidak ada dalam database dan kembali ke tampilan awal menu referensi Satker.
  # Pada fungsi ubah referensi Satker berlaku alternatif kondisi 1, 2, dan 3.
-
-== UC-13 KPPN ==
+==<a name="UC-13 KPPN">UC-13 KPPN</a>==
 Aktor : Admin, KPPN, Satker.
 
 Untuk melakukan input referensi KPPN hanya dapat dilakukan oleh Admin. Admin masuk ke menu referensi KPPN. Admin menginput referensi KPPN melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi KPPN yang meliputi nomor kode KPPN sebanyak 3 (tiga) digit, kode Kanwil sebanyak 2 (dua) digit, kode Dati II sebanyak 2 (dua) digit, kode Lokasi sebanyak 2 (dua) digit dan nama KPPN dalam bentuk teks. Admin mengisikan kode KPPN, kode Kanwil, kode Dati II, kode Lokasi dan nama KPPN. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi KPPN berupa daftar referensi KPPN. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama KPPN dan Sistem akan kembali ke tampilan awal menu referensi KPPN.
@@ -346,8 +284,7 @@ Alternatif :
  # Jika salah satu field input diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama KPPN yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Satker tidak ada dalam database dan kembali ke tampilan awal menu referensi Satker
  # Pada fungsi ubah referensi KPPN berlaku alternatif kondisi 1, 2, dan 3.
-
-== UC-14 Nomor SPM ==
+==<a name="UC-14 Nomor SPM">UC-14 Nomor SPM</a>==
 Aktor: Admin, KPPN, Satker.
 
 Untuk melakukan input nomor SPM hanya dapat dilakukan oleh Satker. Satker masuk ke menu referensi nomor SPM. Satker menginput referensi nomor SPM melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi nomor SPM yang meliputi nomor awal SPM sebanyak 5 (lima) digit, nomor Akhir SPM sebanyak 5 (lima) digit, tahun anggaran sebanyak 4 (empat) digit dan default nomor SPM sebanyak 5 (lima) digit. Satker mengisikan nomor awal SPM, nomor akhir SPM, dan default nomor SPM. Satker menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi  nomor SPM berupa daftar referensi nomor SPM. Selain itu, Satker bisa menekan tombol "Batal" untuk membatalkan isian nomor SPM dan Sistem akan kembali ke tampilan awal menu referensi nomor SPM.
@@ -366,8 +303,7 @@ Alternatif :
  # Jika salah satu field input diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Satker yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Satker tidak ada dalam database dan kembali ke tampilan awal menu referensi Satker
  # Pada fungsi ubah referensi nomor SPM berlaku alternatif kondisi 1, 2, dan 3.
-
-== UC-15 Nomor SP2D ==
+==<a name="UC-15 Nomor SP2D">UC-15 Nomor SP2D</a>==
 Aktor: Admin, KPPN.
 
 Untuk melakukan input nomor SP2D hanya dapat dilakukan oleh Admin. Admin masuk ke menu referensi nomor SP2D. Admin menginput referensi nomor SP2D melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi nomor SP2D yang meliputi nomor surat alokasi nomor SP2D dalam bentuk teks, tanggal surat alokasi nomor SP2D dalam bentuk tanggal, nomor awal alokasi SP2D sebanyak 6 (enam) digit, nomor akhir alokasi SP2D sebanyak 6 (enam) digit,  abjad alokasi SP2D sebanyak 1 (satu) karakter huruf romawi dan nomor SP2D aktif sebanyak 6 (enam) digit. Admin mengisikan nomor surat alokasi, tanggal surat alokasi, nomor awal alokasi SP2D, nomor akhir alokasi SP2D, abjad alokasi SP2D dan nomor aktif SP2D. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi  nomor SP2D berupa daftar referensi nomor SP2D. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian nomor SP2D dan Sistem akan kembali ke tampilan awal menu referensi nomor SP2D.
@@ -385,8 +321,7 @@ Bagi KPPN dapat melihat daftar referensi nomor SP2D dengan login sebagai KPPN da
  # Jika masing-masing atribut yang diinputkan tidak sesuai dengan digit yang dimintakan maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika salah satu field input diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi ubah referensi nomor SP2D berlaku alternatif kondisi 1, 2, dan 3.
-
-== UC-16 Bank Pos ==
+==<a name="UC-16 Bank Pos">UC-16 Bank Pos</a>==
 Aktor : Admin, KPPN, Satker.
 
 Untuk melakukan input referensi Satuan Kerja hanya dapat dilakukan oleh Admin. Admin masuk ke menu referensi Bank Pos. Admin menginput referensi Bank Pos melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Bank Pos yang meliputi nomor kode Bank Pos sebanyak 3 (tiga) digit, kode KPPN sebanyak 3 (tiga) digit, nomor rekening dalam bentuk teks, kota Bank Pos dalam bentuk teks, dan nama Bank Pos dalam bentuk teks. Admin mengisikan kode Bank Pos, kode KPPN, nomor rekening, kota Bank Pos dan nama Bank Pos. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Bank Pos berupa daftar referensi Bank Pos. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Bank Pos dan Sistem akan kembali ke tampilan awal menu referensi Bank Pos.
@@ -406,8 +341,7 @@ Alternatif :
  # Jika salah satu field input diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Bank Pos yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Bank Pos tidak ada dalam database dan kembali ke tampilan awal menu referensi Bank Pos.
  # Pada fungsi ubah referensi Satker berlaku alternatif kondisi 1, 2, dan 3.
-
-== UC-17 Pejabat ==
+==<a name="UC-17 Pejabat">UC-17 Pejabat</a>==
 Aktor : Admin, KPPN.
 
 Untuk melakukan input referensi Satuan Kerja hanya dapat dilakukan oleh Admin. Admin masuk ke menu referensi Pejabat. Admin menginput referensi Pejabat melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Pejabat yang meliputi nomor induk Pejabat sebanyak 18 (delapan belas) digit, nama Pejabat dalam bentuk teks, kode golongan sebanyak 2 (dua) digit, nama jabatan dalam bentuk teks dan keterangan jabatan sebanyak 1 (satu) digit. Admin mengisikan nomor induk Pejabat, nama Pejabat, kode golongan, nama jabatan dan keterangan jabatan. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Pejabat berupa daftar referensi Pejabat. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Pejabat dan Sistem akan kembali ke tampilan awal menu referensi Pejabat.
@@ -426,8 +360,7 @@ Alternatif :
  # Jika salah satu field input diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin dan KPPN memasukan kode atau nama Pejabat yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Pejabat tidak ada dalam database dan kembali ke tampilan awal menu referensi Pejabat.
  # Pada fungsi ubah referensi Satker berlaku alternatif kondisi 1, 2, dan 3.
-
-==UC-18 Jenis Dokumen==
+==<a name="UC-18 Jenis Dokumen">UC-18 Jenis Dokumen</a>==
 Aktor : Admin, KPPN, Satker
 
 Untuk menginput referensi Jenis Dokumen hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Jenis Dokumen. Admin menginput referensi Jenis Dokumen melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Jenis Dokumen yang meliputi nomor kode Jenis Dokumen sebanyak 2 (dua) digit dan nama Jenis Dokumen dalam bentuk teks. Admin mengisikan kode Jenis Dokumen dan nama Jenis Dokumen. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Jenis Dokumen berupa daftar referensi Jenis Dokumen. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Jenis Dokumen dan Sistem akan kembali ke tampilan awal menu referensi Jenis Dokumen.
@@ -446,7 +379,7 @@ Alternatif :
  # Jika field kode Jenis Dokumen atau nama Jenis Dokumen diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Jenis Dokumen yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Jenis Dokumen tidak ada dalam database dan kembali ke tampilan awal menu referensi Jenis Dokumen
  # Pada fungsi ubah referensi Jenis Dokumen berlaku alternatif kondisi 1, 2, dan 3.
-==UC-19 Jenis SPM==
+==<a name="UC-19 Jenis SPM">UC-19 Jenis SPM</a>==
 Aktor : Admin, KPPN, Satker
 
 Untuk menginput referensi Jenis SPM hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Jenis SPM. Admin menginput referensi Jenis SPM melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Jenis SPM yang meliputi nomor kode Jenis SPM sebanyak 2 (dua) digit dan nama Jenis SPM dalam bentuk teks. Admin mengisikan kode Jenis SPM dan nama Jenis SPM. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Jenis SPM berupa daftar referensi Jenis SPM. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Jenis SPM dan Sistem akan kembali ke tampilan awal menu referensi Jenis SPM.
@@ -465,7 +398,7 @@ Alternatif :
  # Jika field kode Jenis SPM atau nama Jenis SPM diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Jenis SPM yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Jenis SPM tidak ada dalam database dan kembali ke tampilan awal menu referensi Jenis SPM
  # Pada fungsi ubah referensi Jenis SPM berlaku alternatif kondisi 1, 2, dan 3.
-==UC-20 Kewenangan Pelaksanaan==
+==<a name="UC-20 Kewenangan Pelaksanaan">UC-20 Kewenangan Pelaksanaan</a>==
 Aktor : Admin, KPPN, Satker
 
 Untuk menginput referensi Kewenangan Pelaksanaan hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Kewenangan Pelaksanaan. Admin menginput referensi Kewenangan Pelaksanaan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Kewenangan Pelaksanaan yang meliputi kode Kewenangan Pelaksanaan sebanyak 2 (dua) huruf dan nama Kewenangan Pelaksanaan dalam bentuk teks. Admin mengisikan kode Kewenangan Pelaksanaan dan nama Kewenangan Pelaksanaan. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Kewenangan Pelaksanaan berupa daftar referensi Kewenangan Pelaksanaan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Kewenangan Pelaksanaan dan Sistem akan kembali ke tampilan awal menu referensi Kewenangan Pelaksanaan.
@@ -484,7 +417,7 @@ Alternatif :
  # Jika field kode Kewenangan Pelaksanaan atau nama Kewenangan Pelaksanaan diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Kewenangan Pelaksanaan yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Kewenangan Pelaksanaan tidak ada dalam database dan kembali ke tampilan awal menu referensi Kewenangan Pelaksanaan
  # Pada fungsi ubah referensi Kewenangan Pelaksanaan berlaku alternatif kondisi 1, 2, dan 3.
-==UC-21 Cara Bayar==
+==<a name="UC-21 Cara Bayar">UC-21 Cara Bayar</a>==
 Aktor : Admin, KPPN, Satker
 
 Untuk menginput referensi Cara Bayar hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Cara Bayar. Admin menginput referensi Cara Bayar melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Cara Bayar yang meliputi nomor kode Cara Bayar sebanyak 1 (satu) digit dan nama Cara Bayar dalam bentuk teks. Admin mengisikan kode Cara Bayar dan nama Cara Bayar. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Cara Bayar berupa daftar referensi Cara Bayar. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Cara Bayar dan Sistem akan kembali ke tampilan awal menu referensi Cara Bayar.
@@ -502,7 +435,7 @@ Alternatif :
  # Jika field kode Cara Bayar atau nama Cara Bayar diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Cara Bayar yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Cara Bayar tidak ada dalam database dan kembali ke tampilan awal menu referensi Cara Bayar
  # Pada fungsi ubah referensi Cara Bayar berlaku alternatif kondisi 1 dan 2.
-==UC-22 Jenis Pembayaran==
+==<a name="UC-22 Jenis Pembayaran">UC-22 Jenis Pembayaran</a>==
 Aktor : Admin, KPPN, Satker
 
 Untuk menginput referensi Jenis Pembayaran hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Jenis Pembayaran. Admin menginput referensi Jenis Pembayaran melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Jenis Pembayaran yang meliputi nomor kode Jenis Pembayaran sebanyak 1 (satu) digit dan nama Jenis Pembayaran dalam bentuk teks. Admin mengisikan kode Jenis Pembayaran dan nama Jenis Pembayaran. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Jenis Pembayaran berupa daftar referensi Jenis Pembayaran. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Jenis Pembayaran dan Sistem akan kembali ke tampilan awal menu referensi Jenis Pembayaran.
@@ -520,7 +453,7 @@ Alternatif :
  # Jika field kode Jenis Pembayaran atau nama Jenis Pembayaran diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Jenis Pembayaran yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Jenis Pembayaran tidak ada dalam database dan kembali ke tampilan awal menu referensi Jenis Pembayaran
  # Pada fungsi ubah referensi Jenis Pembayaran berlaku alternatif kondisi 1 dan 2.
-==UC-23 Sifat Pembayaran==
+==<a name="UC-23 Sifat Pembayaran">UC-23 Sifat Pembayaran</a>==
 Aktor : Admin, KPPN, Satker
 
 Untuk menginput referensi Sifat Pembayaran hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Sifat Pembayaran. Admin menginput referensi Sifat Pembayaran melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Sifat Pembayaran yang meliputi nomor kode Sifat Pembayaran sebanyak 1 (satu) digit dan nama Sifat Pembayaran dalam bentuk teks. Admin mengisikan kode Sifat Pembayaran dan nama Sifat Pembayaran. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Sifat Pembayaran berupa daftar referensi Sifat Pembayaran. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Sifat Pembayaran dan Sistem akan kembali ke tampilan awal menu referensi Sifat Pembayaran.
@@ -538,7 +471,7 @@ Alternatif :
  # Jika field kode Sifat Pembayaran atau nama Sifat Pembayaran diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Sifat Pembayaran yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Sifat Pembayaran tidak ada dalam database dan kembali ke tampilan awal menu referensi Sifat Pembayaran
  # Pada fungsi ubah referensi Sifat Pembayaran berlaku alternatif kondisi 1 dan 2.
-==UC-24 Beban==
+==<a name="UC-24 Beban">UC-24 Beban</a>==
 Aktor : Admin, KPPN, Satker
 
 Untuk menginput referensi Beban hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Beban. Admin menginput referensi Beban melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Beban yang meliputi kode Beban sebanyak 1 (satu) huruf dan nama Beban dalam bentuk teks. Admin mengisikan kode Beban dan nama Beban. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Beban berupa daftar referensi Beban. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Beban dan Sistem akan kembali ke tampilan awal menu referensi Beban.
@@ -556,7 +489,7 @@ Alternatif :
  # Jika field kode Beban atau nama Beban diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Beban yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Beban tidak ada dalam database dan kembali ke tampilan awal menu referensi Beban
  # Pada fungsi ubah referensi Beban berlaku alternatif kondisi 1 dan 2.
-==UC-25 Jenis Bantuan==
+==<a name="UC-25 Jenis Bantuan">UC-25 Jenis Bantuan</a>==
 Aktor : Admin, KPPN, Satker
 
 Untuk menginput referensi Jenis Bantuan hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Jenis Bantuan. Admin menginput referensi Jenis Bantuan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Jenis Bantuan yang meliputi nomor kode Jenis Bantuan sebanyak 1 (satu) digit dan nama Jenis Bantuan dalam bentuk teks. Admin mengisikan kode Jenis Bantuan dan nama Jenis Bantuan. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Jenis Bantuan berupa daftar referensi Jenis Bantuan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Jenis Bantuan dan Sistem akan kembali ke tampilan awal menu referensi Jenis Bantuan.
@@ -574,7 +507,7 @@ Alternatif :
  # Jika field kode Jenis Bantuan atau nama Jenis Bantuan diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Jenis Bantuan yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Jenis Bantuan tidak ada dalam database dan kembali ke tampilan awal menu referensi Jenis Bantuan
  # Pada fungsi ubah referensi Jenis Bantuan berlaku alternatif kondisi 1 dan 2.
-==UC-26 Sumber Dana==
+==<a name="UC-26 Sumber Dana">UC-26 Sumber Dana</a>==
 Aktor : Admin, KPPN, Satker
 
 Untuk menginput referensi Sumber Dana hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Sumber Dana. Admin menginput referensi Sumber Dana melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Sumber Dana yang meliputi nomor kode Sumber Dana sebanyak 2 (dua) digit dan nama Sumber Dana dalam bentuk teks. Admin mengisikan kode Sumber Dana dan nama Sumber Dana. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Sumber Dana berupa daftar referensi Sumber Dana. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Sumber Dana dan Sistem akan kembali ke tampilan awal menu referensi Sumber Dana.
@@ -593,7 +526,7 @@ Alternatif :
  # Jika field kode Sumber Dana atau nama Sumber Dana diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Sumber Dana yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Sumber Dana tidak ada dalam database dan kembali ke tampilan awal menu referensi Sumber Dana
  # Pada fungsi ubah referensi Sumber Dana berlaku alternatif kondisi 1, 2, dan 3.
-==UC-27 Cara Penarikan==
+==<a name="UC-27 Cara Penarikan">UC-27 Cara Penarikan</a>==
 Aktor : Admin, KPPN, Satker
 
 Untuk menginput referensi Cara Penarikan hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Cara Penarikan. Admin menginput referensi Cara Penarikan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Cara Penarikan yang meliputi nomor kode Cara Penarikan sebanyak 1 (satu) digit dan nama Cara Penarikan dalam bentuk teks. Admin mengisikan kode Cara Penarikan dan nama Cara Penarikan. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Cara Penarikan berupa daftar referensi Cara Penarikan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Cara Penarikan dan Sistem akan kembali ke tampilan awal menu referensi Cara Penarikan.
@@ -611,8 +544,7 @@ Alternatif :
  # Jika field kode Cara Penarikan atau nama Cara Penarikan diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Cara Penarikan yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Cara Penarikan tidak ada dalam database dan kembali ke tampilan awal menu referensi Cara Penarikan
  # Pada fungsi ubah referensi Cara Penarikan berlaku alternatif kondisi 1 dan 2.
-==UC-28 KPP==
-
+==<a name="UC-28 KPP">UC-28 KPP</a>==
 aktor : Admin, Satker dan KPPN
 
 untuk input referensi KPP hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode KPP dalam bentuk kombinasi angka yang terdiri dari 6 digit dan nama KPP dalam bentuk teks. Admin mengisikan kode  dan nama KPP atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama KPP ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
@@ -630,9 +562,7 @@ kondisi:
  # jika field kode atau nama KPP diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama KPP yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama KPP tidak ada dalam database 
  # pada fungsi pengubahan referensi KPP berlaku kondisi pertama, kedua dan ketiga
-
-==UC-29 Golongan==
-
+==<a name="UC-29 Golongan">UC-29 Golongan</a>==
 aktor : admin, satker dan KPPN
 
 untuk input referensi golongan hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode golongan dalam bentuk kombinasi angka yang terdiri dari 1 digit dan nama golongan dalam bentuk teks. Admin mengisikan kode dan nama golongan atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama golongan ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
@@ -650,9 +580,7 @@ kondisi:
  # jika field kode atau nama golongan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama golongan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama golongan tidak ada dalam database 
  # pada fungsi pengubahan referensi golongan berlaku kondisi pertama dan kedua
-
-==UC-30 Fungsi-Sub Fungsi-Program==
-
+==<a name="UC-30 Fungsi-Sub Fungsi-Program">UC-30 Fungsi-Sub Fungsi-Program</a>==
 aktor : admin, satker dan KPPN
 
 untuk input referensi fungsi, sub fungsi dan program hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode fungsi, sub fungsi dan program dalam bentuk kombinasi angka yang terdiri dari 
@@ -678,9 +606,7 @@ kondisi:
  # jika field kode atau nama fungsi, sub fungsi dan program diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama fungsi, sub fungsi dan program yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama fungsi, sub fungsi dan program tidak ada dalam database 
  # pada fungsi pengubahan referensi fungsi, sub fungsi dan program berlaku kondisi pertama, kedua dan ketiga
-
-==UC-31 Kegiatan==
-
+==<a name="UC-31 Kegiatan">UC-31 Kegiatan</a>==
 aktor : admin, satker dan KPPN
 
 untuk input referensi kegiatan hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode kegiatan dalam bentuk kombinasi angka yang terdiri dari 4 digit dan nama kegiatan dalam bentuk teks. Admin mengisikan kode  dan nama kegiatan atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama kegiatan ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
@@ -698,9 +624,7 @@ kondisi:
  # jika field kode atau nama kegiatan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama kegiatan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama kegiatan tidak ada dalam database 
  # pada fungsi pengubahan referensi kegiatan berlaku kondisi pertama, kedua dan ketiga
-
-==UC-32 sub Kegiatan==
-
+==<a name="UC-32 Sub Kegiatan">UC-32 Sub Kegiatan</a>==
 aktor : admin, satker dan KPPN
 
 untuk input referensi sub kegiatan hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode sub kegiatan dalam bentuk kombinasi angka yang terdiri dari 4 digit dan nama sub kegiatan dalam bentuk teks. Admin mengisikan kode  dan nama sub kegiatan atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama sub kegiatan ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
@@ -718,9 +642,7 @@ kondisi:
  # jika field kode atau nama sub kegiatan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama sub kegiatan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama sub kegiatan tidak ada dalam database 
  # pada fungsi pengubahan referensi sub kegiatan berlaku kondisi pertama, kedua dan ketiga
-
-==UC-33 Kementrian==
-
+==<a name="UC-33 Kementrian">UC-33 Kementrian</a>==
 aktor : admin, satker dan KPPN
 
 untuk input referensi kementrian hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode kementrian dalam bentuk kombinasi angka yang terdiri dari 2 digit dan nama kementrian dalam bentuk teks. Admin mengisikan kode  dan nama kementrian atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama kementrian ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
@@ -738,9 +660,7 @@ kondisi:
  # jika field kode atau nama kementrian diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama kementrian yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama kementrian tidak ada dalam database 
  # pada fungsi pengubahan referensi kementrian berlaku kondisi pertama, kedua dan ketiga
-
-==UC-34 Lokasi/Dati II==
-
+==<a name="UC-34 Lokasi/Dati II">UC-34 Lokasi/Dati II</a>==
 aktor : admin, satker dan KPPN
 
 untuk input referensi lokasi/dati II hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode lokasi/dati II dalam bentuk kombinasi angka yang terdiri dari 4 digit dan nama lokasi/dati II dalam bentuk teks. Admin mengisikan kode  dan nama lokasi/dati II atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama lokasi/dati II ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
@@ -758,9 +678,7 @@ kondisi:
  # jika field kode atau nama lokasi/dati II diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama lokasi/dati II yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama lokasi/dati II tidak ada dalam database 
  # pada fungsi pengubahan referensi lokasi/dati II berlaku kondisi pertama, kedua dan ketiga
-
-==UC35 Mata Anggaran==
-
+==<a name="UC-35 Mata Anggaran">UC-35 Mata Anggaran</a>==
 aktor : admin, satker dan KPPN
 
 untuk input referensi mata anggaran hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode mata anggaran dalam bentuk kombinasi angka yang terdiri dari 6 digit dan nama mata anggaran dalam bentuk teks. Admin mengisikan kode  dan nama mata anggaran atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama mata anggaran ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
@@ -778,9 +696,7 @@ kondisi:
  # jika field kode atau nama mata anggaran diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama mata anggaran yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama mata anggaran tidak ada dalam database 
  # pada fungsi pengubahan referensi mata anggaran berlaku kondisi pertama, kedua dan ketiga
-
-==UC-36 Dokumen Pengesahan==
-
+==<a name="UC-36 Dokumen Pengesahan">UC-36 Dokumen Pengesahan</a>==
 aktor : admin, satker dan KPPN
 
 untuk input referensi dokumen pengesahan hanya admin yang mempunyai hak akses. Admin masuk halaman referensi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode dokumen pengesahan dalam bentuk kombinasi angka yang terdiri dari 2 digit dan nama dokumen pengesahan dalam bentuk teks. Admin mengisikan kode  dan nama dokumen pengesahan atau menekan tombol batal jika ingin membatalkan input referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama dokumen pengesahan ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
@@ -798,9 +714,7 @@ kondisi:
  # jika field kode atau nama dokumen pengesahan diisikan kosong maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form input referensi
  # pada fungsi pencarian, jika admin, satker atau KPPN memasukan kode atau nama dokumen pengesahan yang tidak ada dalam database maka sistem akan menampilkan menu awal referensi disertai dialog box berisi pesan bahwa kode atau nama dokumen pengesahan tidak ada dalam database 
  # pada fungsi pengubahan referensi dokumen pengesahan berlaku kondisi pertama, kedua dan ketiga
-
-==UC-37 Logout==
-
+==<a name="UC-37 Logout">UC-37 Logout</a>==
 aktor : admin, satker dan KPPN
 
 admin, satker dan KPPN meng-klik tombol logout, kemudian sistem menampilkan pesan logout berhasil dan halaman depan website
