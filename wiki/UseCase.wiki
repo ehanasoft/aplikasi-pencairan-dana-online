@@ -235,8 +235,30 @@ Alternatif :
  * Jika kode Bank/Pos belum dipilih, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
  * Jika KPPN belum melakukan checklist pada pilihan “pilih”, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form proses  SP2D tanpa melakukan penyimpanan input data yang salah
 
-
 == UC-08 Cetak SP2D ==
+
+Aktor :  KPPN, Admin
+
+Usecase ini adalah untuk mencetak SP2D. KPPN masuk sub menu cetak SP2D kemudian isikan beberapa isian sebagai berikut :
+
+ * Isikan tanggal SP2D sesuai tanggal SP2D akan dicairkan. Kemudian sistem akan menampilkan pada layar semua data SP2D yang bisa dilakukan proses cetak SP2D. 
+
+ * KPPN melakukan Checlist pada isian “cetak” SP2D mana saja yang akan dicetak
+
+ * KPPN memilih pilihan cetak kelayar atau cetak ke printer. Sistem akan menampilkan pada layar tampilan SP2D yang akan dicetak apabila KPPN memilih cetak ke layar atau sistem akan terkoneksi otomatis dengan output sistem berupa printer apabila memilih cetak ke printer.
+
+Setelah proses cetak selesai KPPN bisa menekan tombol keluar untuk keluar dari menu Cetak SP2D
+
+Alternatif :
+
+ * Jika tanggal SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula
+
+ * Jika checklist isian “cetak” belum dicentang, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula
+
+ * Jika KPPN belum memilih pilihan cetak kelayar atau cetak ke printer, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula
+
+
+
 
 == UC-09 Batal SP2D ==
 Aktor : Admin, KPPN.
