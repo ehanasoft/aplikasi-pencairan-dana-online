@@ -273,11 +273,8 @@ KPPN menekan tombol simpan untuk membatalkan SP2D atau batal untuk menangguhkan 
 
 Alternatif :
  # Jika nomor surat pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah.
- 
  # Jika tanggal surat pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah.
-
  # Jika alasan pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah.
-
  # Jika pada fungsi pencarian KPPN memasukkan nomor SP2D yang salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan ke tampilan awal.
 
 == UC-10 Monitoring Penyelesaian SPM ==
@@ -304,9 +301,7 @@ Satker menekan tombol tampilkan untuk menampilkan daftar realisasi anggaran atau
 
 Alternatif:
  # Jika kode satker belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
- 
  # Jika kode fungsi, sub fungsi, program belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
-
  # Jika kode kegiatan, sub kegiatan belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
 
 == UC-12 Satker ==
@@ -322,18 +317,31 @@ Bagi KPPN atau Satker bisa melihat daftar referensi Satker dengan login sebagai 
 
 Alternatif :
  # Jika kode Satker, Departemen, Unit, Lokasi, Dati II dan KPPN yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
-
  # Jika kode Satker yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Satker telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
-
  # Jika masing-masing atribut yang diinputkan tidak sesuai dengan digit yang dimintakan maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
-
  # Jika salah satu field input diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
-
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Satker yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Satker tidak ada dalam database dan kembali ke tampilan awal menu referensi Satker.
-
  # Pada fungsi ubah referensi Satker berlaku alternatif kondisi 1, 2, dan 3.
 
- * UC-13 KPPN
+ == UC-13 KPPN ==
+Aktor : Admin, KPPN, Satker.
+
+Untuk melakukan input referensi KPPN hanya dapat dilakukan oleh Admin. Admin masuk ke menu referensi KPPN. Admin menginput referensi KPPN melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi KPPN yang meliputi nomor kode KPPN sebanyak 3 (tiga) digit, kode Kanwil sebanyak 2 (dua) digit, kode Dati II sebanyak 2 (dua) digit, kode Lokasi sebanyak 2 (dua) digit dan nama KPPN dalam bentuk teks. Admin mengisikan kode KPPN, kode Kanwil, kode Dati II, kode Lokasi dan nama KPPN. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi KPPN berupa daftar referensi KPPN. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama KPPN dan Sistem akan kembali ke tampilan awal menu referensi KPPN.
+
+Untuk mengubah referensi KPPN hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi KPPN, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Ubah". Sistem akan menampilkan form isian berupa kode KPPN, kode Kanwil, kode Dati II, kode Lokasi dan nama KPPN yang sudah terisi sesuai pilihan tadi. Admin mengganti salah satu isian tersebut dengan isian baru kemudian menekan tombol "Simpan" untuk menyimpan data yang telah diubah. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi KPPN pada tampilan awal menu referensi KPPN. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama KPPN yang akan diubah dan Sistem akan kembali ke tampilan awal menu referensi KPPN. Jika Admin memilih referensi yang akan diubah lebih dari satu, maka Sistem akan memproses satu per satu secara berurutan.
+
+Untuk menghapus referensi KPPN hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi KPPN, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Jika Admin memilih tombol "Yes" maka Sistem akan menghapus referensi tersebut dari database dan kembali ke tampilan awal referensi KPPN. Jika memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi KPPN. Jika Admin memilih referensi yang akan dihapus lebih dari satu, maka Sistem akan memproses satu per satu secara berurutan.
+
+Bagi KPPN atau Satker bisa melihat daftar referensi KPPN dengan login sebagai KPPN atau Satker dan masuk ke menu referensi KPPN, kemudian Sistem akan menampilkan daftar referensi KPPN. Admin, KPPN atau Satker juga bisa mencari kode dan nama KPPN dengan memasukkan kode atau nama KPPN kemudian menekan tombol "Cari". Sistem akan mencari kode dan nama KPPN dalam database dan menampilkan daftar kode dan nama KPPN sesuai dengan parameter yang dimasukkan.
+
+Alternatif :
+ # Jika kode KPPN, Kanwil, Lokasi dan Dati II yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika kode KPPN yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Satker telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika masing-masing atribut yang diinputkan tidak sesuai dengan digit yang dimintakan maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika salah satu field input diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama KPPN yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Satker tidak ada dalam database dan kembali ke tampilan awal menu referensi Satker
+ # Pada fungsi ubah referensi KPPN berlaku alternatif kondisi 1, 2, dan 3.
+
  * UC-14 Nomor SPM
  * UC-15 Nomor SP2D
  * UC-16 Bank Pos
