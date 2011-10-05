@@ -255,9 +255,7 @@ Alternatif :
 
  * Jika checklist isian “cetak” belum dicentang, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula
 
- * Jika KPPN belum memilih pilihan cetak kelayar atau cetak ke printer, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula
-
-
+ * Jika KPPN belum memilih pilihan cetak kelayar atau cetak ke printer, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian Cetak  SP2D seperti semula.
 
 
 == UC-09 Batal SP2D ==
@@ -279,7 +277,7 @@ Alternatif :
  # Jika alasan pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah
  # Jika pada fungsi pencarian KPPN memasukkan nomor SP2D yang salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan ke tampilan awal.
 
- == UC-10 Monitoring Penyelesaian SPM ==
+== UC-10 Monitoring Penyelesaian SPM ==
 Aktor : Admin, Satker, KPPN.
 
 Menu Monitoring Penyelesaian SPM pada APDOL berisi daftar SPM yang telah diterima dan diproses oleh KPPN. Satker, sebagaimana KPPN dan Admin dapat memantau proses penyelesaian SPM dan terbitnya SP2D. Satker masuk ke menu Monitoring Penyelesaian SPM. Sistem akan menampilkan daftar SPM yang telah diterima oleh KPPN serta status proses penyelesaian SPM. 
@@ -288,7 +286,22 @@ Satker dapat melakukan pencarian berdasarkan dengan memasukkan kode satker atau 
 Alternatif :
  * Jika Admin, KPPN atau Satker memasukkan kode satker atau nomor SPM yang tidak ada dalam database, maka sistem akan menampilkan peringatan kesalahan dan kembali pada tampilan awal menu Monitoring Penyelesaian SPM.
 
- * UC-11 Realisasi
+== UC-11 Realisasi ==
+Aktor : Admin, Satker, KPPN.
+
+Menu Realisasi pada APDOL digunakan untuk menampilkan realisasi anggaran pada setiap Satuan Kerja. Admin, KPPN dan Satker dapat menampilkan realisasi anggaran yang diurut berdasarkan fungsi, sub fungsi, program dan kegiatan, sub kegiatan, mata anggaran. Satker masuk menu Realisasi. Sistem akan menampilkan form isian berupa:
+
+ * Isikan kode Satuan Kerja. Satker memasukkan kode satker sesuai dengan kantor bersangkutan
+ * Isikan fungsi, sub fungsi, program. Satker memasukkan kode fungsi, sub fungsi, program masing-masing
+ * Isikan kegiatan, sub kegiatan. Satker memasukkan kode kegiatan, sub kegiatan
+
+Satker menekan tombol tampilkan untuk menampilkan daftar realisasi anggaran atau batal untuk kembali ke halaman utama. Apabila Satker ingin menampilkan data realisasi untuk fungsi, sub fungsi, program atau kegiatan, sub kegiatan lainnya, maka dapat menekan tombol kembali. Sistem akan kembali mengarahkan pada tampilan form isian realisasi.
+
+Alternatif:
+ # Jika kode satker belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah 
+ # Jika kode fungsi, sub fungsi, program belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah
+ # Jika kode kegiatan, sub kegiatan belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah
+
  * UC-12 Satker
  * UC-13 KPPN
  * UC-14 Nomor SPM
