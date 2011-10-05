@@ -272,6 +272,7 @@ Menu Batal SP2D pada APDOL digunakan untuk membatalkan SP2D yang telah terbit. H
 KPPN menekan tombol simpan untuk membatalkan SP2D atau batal untuk menangguhkan pembatalan SP2D. Sistem akan menampilkan notifikasi peringatan apakah yakin membatalkan SP2D apabila menekan tombol simpan. Setelah selesai, sistem akan kembali mengarahkan pada penayangan tabel daftar SP2D terbit dan SP2D batal. 
 
 Alternatif :
+
  # Jika nomor surat pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah.
  # Jika tanggal surat pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah.
  # Jika alasan pembatalan SP2D belum diisikan, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian pembatalan SP2D tanpa melakukan penyimpanan input data yang salah.
@@ -284,6 +285,7 @@ Menu Monitoring Penyelesaian SPM pada APDOL berisi daftar SPM yang telah diterim
 Satker dapat melakukan pencarian berdasarkan dengan memasukkan kode satker atau nomor SPM yang diinginkan kemudian menekan tombol cari. Sistem akan mencari SPM yang dimaksud lalu menayangkannya.
 
 Alternatif :
+
  * Jika Admin, KPPN atau Satker memasukkan kode satker atau nomor SPM yang tidak ada dalam database, maka sistem akan menampilkan peringatan kesalahan dan kembali pada tampilan awal menu Monitoring Penyelesaian SPM.
 
 == UC-11 Realisasi ==
@@ -300,6 +302,7 @@ Menu Realisasi pada APDOL digunakan untuk menampilkan realisasi anggaran pada se
 Satker menekan tombol tampilkan untuk menampilkan daftar realisasi anggaran atau batal untuk kembali ke halaman utama. Apabila Satker ingin menampilkan data realisasi untuk fungsi, sub fungsi, program atau kegiatan, sub kegiatan lainnya, maka dapat menekan tombol kembali. Sistem akan kembali mengarahkan pada tampilan form isian realisasi.
 
 Alternatif:
+
  # Jika kode satker belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
  # Jika kode fungsi, sub fungsi, program belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
  # Jika kode kegiatan, sub kegiatan belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
@@ -316,6 +319,7 @@ Untuk menghapus referensi Satker hanya bisa dilakukan oleh Admin. Admin masuk ke
 Bagi KPPN atau Satker bisa melihat daftar referensi Satker dengan login sebagai KPPN atau Satker dan masuk ke menu referensi Satker, kemudian Sistem akan menampilkan daftar referensi Satker. Admin, KPPN atau Satker juga bisa mencari kode dan nama Satker dengan memasukkan kode atau nama Satker kemudian menekan tombol "Cari". Sistem akan mencari kode dan nama Satker dalam database dan menampilkan daftar kode dan nama Satker sesuai dengan parameter yang dimasukkan.
 
 Alternatif :
+
  # Jika kode Satker, Departemen, Unit, Lokasi, Dati II dan KPPN yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika kode Satker yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Satker telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika masing-masing atribut yang diinputkan tidak sesuai dengan digit yang dimintakan maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
@@ -335,6 +339,7 @@ Untuk menghapus referensi KPPN hanya bisa dilakukan oleh Admin. Admin masuk ke m
 Bagi KPPN atau Satker bisa melihat daftar referensi KPPN dengan login sebagai KPPN atau Satker dan masuk ke menu referensi KPPN, kemudian Sistem akan menampilkan daftar referensi KPPN. Admin, KPPN atau Satker juga bisa mencari kode dan nama KPPN dengan memasukkan kode atau nama KPPN kemudian menekan tombol "Cari". Sistem akan mencari kode dan nama KPPN dalam database dan menampilkan daftar kode dan nama KPPN sesuai dengan parameter yang dimasukkan.
 
 Alternatif :
+
  # Jika kode KPPN, Kanwil, Lokasi dan Dati II yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika kode KPPN yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Satker telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika masing-masing atribut yang diinputkan tidak sesuai dengan digit yang dimintakan maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
@@ -354,6 +359,7 @@ Untuk menghapus referensi nomor SPM hanya bisa dilakukan oleh Satker. Satker mas
 Bagi KPPN atau Admin bisa melihat daftar referensi nomor SPM dengan login sebagai KPPN atau Admin dan masuk ke menu referensi nomor SPM, kemudian Sistem akan menampilkan daftar referensi nomor SPM diurut berdasarkan kode Satker. Admin, KPPN atau Satker juga bisa mencari referensi nomor SPM dengan memasukkan kode atau nama Satker kemudian menekan tombol "Cari". Sistem akan mencari kode dan nama Satker dalam database dan menampilkan daftar referensi nomor SPM  sesuai dengan parameter yang dimasukkan.
 
 Alternatif :
+
  # Jika nomor SPM awal, nomor SPM akhir dan default nomor yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika tahun anggaran yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Satker telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika masing-masing atribut yang diinputkan tidak sesuai dengan digit yang dimintakan maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
@@ -373,6 +379,7 @@ Untuk menghapus referensi nomor SP2D hanya bisa dilakukan oleh Admin. Admin masu
 Bagi KPPN dapat melihat daftar referensi nomor SP2D dengan login sebagai KPPN dan masuk ke menu referensi nomor SP2D, kemudian Sistem akan menampilkan daftar referensi nomor SP2D diurut berdasarkan nomor awal alokasi SP2D.
 
  Alternatif :
+
  # Jika nomor awal alokasi SP2D, nomor akhir alokasi SP2D dan nomor aktif SP2D yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika abjad alokasi SP2D yang diinputkan bukan huruf maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut
  # Jika masing-masing atribut yang diinputkan tidak sesuai dengan digit yang dimintakan maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
@@ -392,6 +399,7 @@ Bagi KPPN atau Satker bisa melihat daftar referensi Bank Pos dengan login sebaga
 masuk ke menu referensi Bank Pos, kemudian Sistem akan menampilkan daftar referensi Bank Pos. Admin, KPPN atau Bank Pos juga bisa mencari kode dan nama Bank Pos dengan memasukkan kode atau nama Bank Pos kemudian menekan tombol "Cari". Sistem akan mencari kode dan nama Bank Pos dalam database dan menampilkan daftar kode dan nama Bank Pos sesuai dengan parameter yang dimasukkan.
 
 Alternatif :
+
  # Jika kode Bank Pos dan KPPN  yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika kode Bank Pos yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Bank Pos telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  # Jika masing-masing atribut yang diinputkan tidak sesuai dengan digit yang dimintakan maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
@@ -399,7 +407,26 @@ Alternatif :
  # Pada fungsi pencarian, jika Admin, KPPN atau Satker memasukan kode atau nama Bank Pos yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Bank Pos tidak ada dalam database dan kembali ke tampilan awal menu referensi Bank Pos.
  # Pada fungsi ubah referensi Satker berlaku alternatif kondisi 1, 2, dan 3.
 
- * UC-17 Pejabat
+== UC-17 Pejabat ==
+Aktor : Admin, KPPN.
+
+Untuk melakukan input referensi Satuan Kerja hanya dapat dilakukan oleh Admin. Admin masuk ke menu referensi Pejabat. Admin menginput referensi Pejabat melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Pejabat yang meliputi nomor induk Pejabat sebanyak 18 (delapan belas) digit, nama Pejabat dalam bentuk teks, kode golongan sebanyak 2 (dua) digit, nama jabatan dalam bentuk teks dan keterangan jabatan sebanyak 1 (satu) digit. Admin mengisikan nomor induk Pejabat, nama Pejabat, kode golongan, nama jabatan dan keterangan jabatan. Admin menekan tombol "Simpan" untuk menyimpan data yang telah dimasukkan. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Pejabat berupa daftar referensi Pejabat. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Pejabat dan Sistem akan kembali ke tampilan awal menu referensi Pejabat.
+
+Untuk mengubah referensi Pejabat hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Pejabat, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Ubah". Sistem akan menampilkan form isian berupa nomor induk Pejabat, nama Pejabat, kode golongan, nama jabatan dan keterangan jabatan yang sudah terisi sesuai pilihan tadi. Admin mengganti salah satu isian tersebut dengan isian baru kemudian menekan tombol "Simpan" untuk menyimpan data yang telah diubah. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Pejabat pada tampilan awal menu referensi Pejabat. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian kode dan nama Pejabat yang akan diubah dan Sistem akan kembali ke tampilan awal menu referensi Pejabat. Jika Admin memilih referensi yang akan diubah lebih dari satu, maka Sistem akan memproses satu per satu secara berurutan.
+
+Untuk menghapus referensi Pejabat hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Pejabat, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Jika Admin memilih tombol "Yes" maka Sistem akan menghapus referensi tersebut dari database dan kembali ke tampilan awal referensi Pejabat. Jika memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Pejabat. Jika Admin memilih referensi yang akan dihapus lebih dari satu, maka Sistem akan memproses satu per satu secara berurutan.
+
+Bagi KPPN bisa melihat daftar referensi Pejabat dengan login sebagai KPPN dan masuk ke menu referensi Pejabat, kemudian Sistem akan menampilkan daftar referensi Pejabat. Admin dan KPPN juga bisa mencari Pejabat dengan memasukkan nomor induk atau nama Pejabat kemudian menekan tombol "Cari". Sistem akan mencari kode dan nama Pejabat dalam database dan menampilkan daftar nomor induk dan nama Pejabat sesuai dengan parameter yang dimasukkan.
+
+Alternatif :
+
+ # Jika nomor induk Pejabat dan nomor induk Pejabat yang diinputkan bukan angka maka sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika nomor induk Pejabat yang diinputkan telah ada dalam database maka sistem akan menampilkan pesan bahwa kode Pejabat telah ada dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika masing-masing atribut yang diinputkan tidak sesuai dengan digit yang dimintakan maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Jika salah satu field input diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ # Pada fungsi pencarian, jika Admin dan KPPN memasukan kode atau nama Pejabat yang tidak ada dalam database maka sistem akan menampilkan kotak dialog berisi pesan bahwa kode atau nama Pejabat tidak ada dalam database dan kembali ke tampilan awal menu referensi Pejabat.
+ # Pada fungsi ubah referensi Satker berlaku alternatif kondisi 1, 2, dan 3.
+
 ==UC-18 Jenis Dokumen==
 Aktor : Admin, KPPN, Satker
 
