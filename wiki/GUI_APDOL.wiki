@@ -17,3 +17,7 @@ http://aplikasi-pencairan-dana-online.googlecode.com/files/R-U-H-DIPA.jpg
 == Monitoring DIPA ==
 
 http://aplikasi-pencairan-dana-online.googlecode.com/files/04-Monitoring%20DIPA.jpg
+
+== Referensi II ==
+=== tampilah awal menu Referensi II ===
+http://aplikasi-pencairan-dana-online.googlecode.com/files/referensi_ii.jpg
