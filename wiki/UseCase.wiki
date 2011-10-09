@@ -222,21 +222,13 @@ Alternatif (Rainy-Day) :
 ==<a name="UC-11 Realisasi">UC-11 Realisasi</a>==
 Aktor : Admin, Satker, KPPN.
 
-Menu Realisasi pada APDOL digunakan untuk menampilkan realisasi anggaran pada setiap Satuan Kerja. Admin, KPPN dan Satker dapat menampilkan realisasi anggaran yang diurut berdasarkan fungsi, sub fungsi, program dan kegiatan, sub kegiatan, mata anggaran. Satker masuk menu Realisasi. Sistem akan menampilkan form isian berupa:
+Menu Realisasi pada APDOL digunakan untuk menampilkan realisasi anggaran pada setiap Satuan Kerja. Admin, KPPN dan Satker dapat menampilkan realisasi anggaran yang diurut berdasarkan fungsi, sub fungsi, program dan kegiatan, sub kegiatan, mata anggaran. Satker masuk menu Realisasi. Sistem akan menampilkan form isian Realisasi. Satker memasukkan kode satker sesuai dengan kantor bersangkutan, kemudian Satker memasukkan kode fungsi, sub fungsi, program masing-masing, lalu memasukkan kode kegiatan, sub kegiatan. Satker menekan tombol tampilkan untuk menampilkan daftar realisasi anggaran. Sistem menampilkan data realisasi menurut fungsi, sub fungsi, program atau kegiatan, sub kegiatan.
 
- * Isikan kode Satuan Kerja. Satker memasukkan kode satker sesuai dengan kantor bersangkutan.
+Alternatif (Rainy-Day) :
 
- * Isikan fungsi, sub fungsi, program. Satker memasukkan kode fungsi, sub fungsi, program masing-masing.
-
- * Isikan kegiatan, sub kegiatan. Satker memasukkan kode kegiatan, sub kegiatan
-
-Satker menekan tombol tampilkan untuk menampilkan daftar realisasi anggaran atau batal untuk kembali ke halaman utama. Apabila Satker ingin menampilkan data realisasi untuk fungsi, sub fungsi, program atau kegiatan, sub kegiatan lainnya, maka dapat menekan tombol kembali. Sistem akan kembali mengarahkan pada tampilan form isian realisasi.
-
-Alternatif:
-
- # Jika kode satker belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
- # Jika kode fungsi, sub fungsi, program belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
- # Jika kode kegiatan, sub kegiatan belum diisikan atau salah, sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
+ * Jika kode satker belum diisikan atau salah: sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
+ * Jika kode fungsi, sub fungsi, program belum diisikan atau salah: sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
+ * Jika kode kegiatan, sub kegiatan belum diisikan atau salah: sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian realisasi tanpa melakukan eksekusi input data yang salah.
 ==<a name="UC-12 Satker">UC-12 Satker</a>==
 Aktor : Admin, KPPN, Satker.
 
