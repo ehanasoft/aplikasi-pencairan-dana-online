@@ -2,6 +2,15 @@
 
 = GUI Aplikasi Pencairan Dana Online =
 
+
+== Registrasi ==
+
+http://aplikasi-pencairan-dana-online.googlecode.com/files/Registrasi-KPPN.jpg
+
+http://aplikasi-pencairan-dana-online.googlecode.com/files/Registrasi_Satker-by_KPPN.jpg
+
+http://aplikasi-pencairan-dana-online.googlecode.com/files/registrasi_satker_by_satker.jpg
+
 == Login ==
 
 http://aplikasi-pencairan-dana-online.googlecode.com/files/Login.jpg
