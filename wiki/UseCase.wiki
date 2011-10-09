@@ -214,12 +214,11 @@ Alternatif (Rainy-Day) :
 ==<a name="UC-10 Monitoring Penyelesaian SPM">UC-10 Monitoring Penyelesaian SPM</a>==
 Aktor : Admin, Satker, KPPN.
 
-Menu Monitoring Penyelesaian SPM pada APDOL berisi daftar SPM yang telah diterima dan diproses oleh KPPN. Satker, sebagaimana KPPN dan Admin dapat memantau proses penyelesaian SPM dan terbitnya SP2D. Satker masuk ke menu Monitoring Penyelesaian SPM. Sistem akan menampilkan daftar SPM yang telah diterima oleh KPPN serta status proses penyelesaian SPM. 
-Satker dapat melakukan pencarian berdasarkan dengan memasukkan kode satker atau nomor SPM yang diinginkan kemudian menekan tombol cari. Sistem akan mencari SPM yang dimaksud lalu menayangkannya.
+Menu Monitoring Penyelesaian SPM pada APDOL berisi daftar SPM yang telah diterima dan diproses oleh KPPN. Satker, sebagaimana KPPN dan Admin dapat memantau proses penyelesaian SPM dan terbitnya SP2D. Satker masuk ke menu Monitoring Penyelesaian SPM. Sistem akan menampilkan daftar SPM yang telah diterima oleh KPPN serta status proses penyelesaian SPM. Satker dapat melakukan pencarian berdasarkan dengan memasukkan kode satker atau nomor SPM yang diinginkan kemudian menekan tombol cari. Sistem akan mencari SPM yang dimaksud lalu menayangkannya.
 
-Alternatif :
+Alternatif (Rainy-Day) :
 
- * Jika Admin, KPPN atau Satker memasukkan kode satker atau nomor SPM yang tidak ada dalam database, maka sistem akan menampilkan peringatan kesalahan dan kembali pada tampilan awal menu Monitoring Penyelesaian SPM.
+ * Jika Admin, KPPN atau Satker memasukkan kode satker atau nomor SPM yang tidak ada dalam database : sistem akan menampilkan peringatan kesalahan dan kembali pada tampilan awal menu Monitoring Penyelesaian SPM.
 ==<a name="UC-11 Realisasi">UC-11 Realisasi</a>==
 Aktor : Admin, Satker, KPPN.
 
