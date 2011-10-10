@@ -4,4 +4,4 @@
 
 Usecase untuk APDOL dapat dilihat pada link berikut ini :
 
-http://aplikasi-pencairan-dana-online.googlecode.com/files/UseCase.html
+http://aplikasi-pencairan-dana-online.googlecode.com/files/UseCaseAPDOL.html
