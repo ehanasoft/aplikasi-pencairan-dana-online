@@ -228,6 +228,18 @@ Alternatif  :
  * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
+== UC-28 Ubah Bank Pos ==
+Aktor : Admin.
+
+Sistem akan menampilkan halaman referensi Bank Pos. Admin memilih referensi Bank Pos yang akan diubah kemudian menekan tombol Ubah. Admin mengubah sesuai keperluan kemudian menekan tombol Simpan. Sistem menyimpan data, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
+
+Alternatif  :
+
+  * Jika kode Bank Pos dan KPPN  yang diinputkan bukan angka : sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah.
+ * Jika kode Bank Pos yang dimasukkan tidak unik : sistem akan menampilkan pesan bahwa kode Bank Pos telah ada dan kembali pada halaman pengisian referensi tanpa menyimpan inputan yang salah.
+ * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
+ * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
 
