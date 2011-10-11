@@ -223,6 +223,17 @@ Alternatif:
  * Jika nomor kode Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
 
+==UC-37 Ubah Fungsi==
+Aktor : Admin
+
+Admin masuk ke menu referensi Fungsi, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Fungsi pada tampilan awal menu referensi Fungsi. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Fungsi. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
+
+Alternatif:
+ * Jika nomor kode Fungsi yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika nomor kode Fungsi yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika nomor kode Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+
 == UC-49 Ubah Sub Kegiatan ==
 
 aktor : admin
