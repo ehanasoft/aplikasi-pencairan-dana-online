@@ -4,6 +4,73 @@
 
 Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
 
+ #  Registrasi Satker
+ #  Registrasi KPPN
+ #  Login
+ #  R DIPA
+ #  U DIPA
+ #  H DIPA
+ #  C DIPA (khusus admin)
+ #  Tayang DIPA
+ #  R SPM
+ #  U SPM
+ #  H SPM
+ #  C SPM
+ #  Cetak SPM
+ #  Submit ke KPPN
+ #  Notifikasi SPM
+ #  Tolak SPM
+ #  Proses SP2D
+ #  Cetak SP2D
+ #  Batal SP2D
+ #  Monitoring Penyelesaian SPM
+ #  Realisasi
+ #  Nomor SP2D
+ #  Cari Referensi
+ #  R Satker
+ #  U Satker
+ #  H Satker
+ #  R Bank Pos
+ #  U Bank Pos
+ #  H Bank Pos
+ #  R Pejabat
+ #  U Pejabat
+ #  H Pejabat
+ #  R Golongan
+ #  U Golongan
+ #  H Golongan
+ #  R Fungsi
+ #  U Fungsi
+ #  H Fungsi
+ #  R Sub Fungsi
+ #  U Sub Fungsi
+ #  H Sub Fungsi
+ #  R Program
+ #  U Program
+ #  H Program
+ #  R Kegiatan
+ #  U Kegiatan
+ #  H Kegiatan
+ #  R Sub Kegiatan
+ #  U Sub Kegiatan
+ #  H Sub Kegiatan
+ #  R Kementerian
+ #  U Kementerian
+ #  H Kementerian
+ #  R Lokasi 
+ #  U Lokasi
+ #  H Lokasi
+ #  R Dati II
+ #  U Dati II
+ #  H Dati II
+ #  R BKPK
+ #  U BKPK
+ #  H BKPK
+ #  R Mata Anggaran
+ #  U Mata Anggaran
+ #  H Mata Anggaran
+ #  Logout
+
 == UC-01 Registrasi Satker ==
 Aktor : Admin, Satker
 
