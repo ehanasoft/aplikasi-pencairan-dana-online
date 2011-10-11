@@ -176,7 +176,7 @@ Alternatif:
  
 ==UC-32 Hapus Pejabat==
 Aktor : Admin
- 
+
 Untuk menghapus referensi Pejabat, Admin masuk ke menu referensi Pejabat, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Pejabat. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Pejabat. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
 
 Alternatif:
@@ -184,7 +184,7 @@ Alternatif:
  
 ==UC-33 Rekam Golongan==
 Aktor : Admin
- 
+
 Admin masuk ke menu referensi Golongan. Admin menginput referensi Golongan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Golongan. Admin menginput nomor kode Golongan dalam bentuk kombinasi angka yang terdiri dari 2 (dua) digit antara 1 sampai 4 dan nama Golongan dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Golongan berupa daftar referensi Golongan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Golongan dan Sistem akan kembali ke tampilan awal menu referensi Golongan.
  
 Alternatif:
@@ -206,8 +206,19 @@ Alternatif:
 
 ==UC-35 Hapus Golongan==
 Aktor : Admin
- 
+
 Untuk menghapus referensi Golongan, Admin masuk ke menu referensi Golongan, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Golongan. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Golongan. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
 
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
+
+==UC-36 Rekam Fungsi==
+Aktor : Admin 
+
+Admin masuk ke menu referensi Fungsi. Admin menginput referensi Fungsi melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Fungsi. Admin menginput nomor kode Fungsi dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Fungsi dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Fungsi berupa daftar referensi Fungsi. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Fungsi dan Sistem akan kembali ke tampilan awal menu referensi Fungsi.
+
+Alternatif:
+ * Jika nomor kode Fungsi yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika nomor kode Fungsi yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika nomor kode Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
