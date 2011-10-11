@@ -204,9 +204,17 @@ Sistem akan menampilkan halaman referensi Satuan Kerja. Admin memilih referensi 
 Alternatif  :
 
  * Jika kode Satker, Departemen, Unit, Lokasi, Dati II dan KPPN yang diinputkan bukan angka: sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah.
-* Jika kode Satker yang dimasukkan tidak unik : sistem akan menampilkan pesan bahwa kode Satker telah ada dan kembali pada halaman pengisian referensi tanpa menyimpan inputan yang salah.
-* Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
-* Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+ * Jika kode Satker yang dimasukkan tidak unik : sistem akan menampilkan pesan bahwa kode Satker telah ada dan kembali pada halaman pengisian referensi tanpa menyimpan inputan yang salah.
+ * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
+ * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+
+== UC-26 Hapus Satker ==
+Aktor : Admin .
+Sistem menampilkan halaman referensi Satuan Kerja. Admin menghapus referensi Satker dengan memilih referensi Satker yang ingin dihapus kemudian menekan tombol Hapus. Sistem menampilkan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin menekan tombol "Yes" untuk menghapus referensi tersebut. Sistem akan menghapus data dan mengembalikan ke tampilan awal referensi Satker. 
+
+Alternatif: 
+
+* Jika user KPPN belum memilih referensi Satker : sistem akan menampilkan peringatan bahwa Satker belum dipilih.
 
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
