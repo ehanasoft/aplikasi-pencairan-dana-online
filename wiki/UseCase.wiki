@@ -185,6 +185,17 @@ Alternatif  :
  * Jika user Satker belum memilih kategori referensi : sistem akan menampilkan peringatan bahwa referensi belum dipilih.
  * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa hasil pencarian kosong.
 
+== UC-24 Rekam Satker ==
+Aktor : Admin.
+Sistem menampilkan halaman referensi Satuan Kerja. Admin menginput referensi Satker dengan menekan tombol "Rekam". Sistem akan menampilkan halaman pengisian referensi Satker. Admin memasukkan data pada field (kode Satker, kode Departemen, kode Unit, kode Lokasi, kode Dati II, kode KPPN dan nama Satker) kemudian menekan tombol "Simpan". Sistem mengecek apakah kode satker adalah unik, menyimpan data,  kemudian menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
+
+Alternatif  :
+
+ * Jika kode Satker, Departemen, Unit, Lokasi, Dati II dan KPPN yang diinputkan bukan angka: sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah.
+ * Jika kode Satker yang dimasukkan tidak unik : sistem akan menampilkan pesan bahwa kode Satker telah ada dan kembali pada halaman pengisian referensi tanpa menyimpan inputan yang salah.
+ * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
+ * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
 
