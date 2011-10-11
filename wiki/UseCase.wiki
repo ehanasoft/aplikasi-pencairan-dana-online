@@ -222,3 +222,259 @@ Alternatif:
  * Jika nomor kode Fungsi yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika nomor kode Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+
+== UC-49 Ubah Sub Kegiatan ==
+
+aktor : admin
+
+admin menekan tombol referensi II kemudian memilih menu referensi sub kegiatan. admin memilih satu atau lebih kode atau nama sub kegiatan dengan mencentangnya, kemudian tekan tombol ubah. sistem akan menampilkan form ubah referensi sub kegiatan. pada form admin mengganti 4 digit kode dan nama sub kegiatan dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi sub kegiatan.
+
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi sub kegiatan
+
+Pada form ubah,  jika kode sub kegiatan yang diinputkan oleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form  ubah referensi sub kegiatan
+
+Pada form ubah, jika kode sub kegiatan yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama sub kegiatan telah ada, batal menyimpan data kemudian menampilkan kembali form  ubah referensi sub kegiatan
+
+Pada form ubah, jika kode sub kegiatan yang diinputkan oleh admin kurang dari 4 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form  ubah referensi sub kegiatan
+
+Pada form ubah, jika field kode atau nama sub kegiatan diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form  ubah referensi sub kegiatan
+
+== UC-50 Hapus Referensi Sub Kegiatan ==
+
+aktor : admin 
+
+untuk menghapus referensi sub kegiatan hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi sub kegiatan, pilih satu atau lebih kode atau nama sub kegiatan dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
+
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
+
+== UC-51 Rekam kementerian ==
+
+aktor : Admin
+
+admin menekan menu referensi II, kemudian memilih referensi kementerian. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode kementerian dalam bentuk kombinasi angka yang terdiri dari 2 digit kode dan nama kementerian dalam bentuk teks. Admin mengisikan kode  dan nama kementerian atau menekan tombol batal jika ingin membatalkan rekam referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama kementerian ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
+
+alternatif :
+
+Pada form rekam, jika kode kementerian yang diinputkanoleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi kementerian
+
+Pada form rekam, jika kode kementerian yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama kementerian telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi kementerian
+
+Pada form rekam, jika kode kementerian yang diinputkanoleh admin kurang dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi kementerian
+
+Pada form rekam, jika field kode atau nama kementerian diisikan kosongoleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi kementerian
+
+== UC-52 Ubah kementerian ==
+
+aktor : admin
+
+
+admin menekan tombol referensi II kemudian memilih menu referensi kementerian. admin memilih satu atau lebih kode atau nama kementerian dengan mencentangnya, kemudian tekan tombol ubah. sistem akan menampilkan form ubah referensi kementerian. pada form admin mengganti 2 digit kode dan nama kementerian dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi kementerian.
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
+
+Pada form ubah,  jika kode kementerian yang diinputkan oleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form ubah  referensi  kementerian
+
+Pada form ubah, jika kode kementerian yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama kementerian telah ada, batal menyimpan data kemudian menampilkan kembali form ubah  referensi kementerian
+
+Pada form ubah, jika kode kementerian yang diinputkan oleh admin kurang dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form ubah  referensi kementerian
+
+Pada form ubah, jika field kode atau nama kementerian diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form ubah  referensi kementerian
+
+== UC-53 Hapus kementerian ==
+
+aktor : admin 
+
+untuk menghapus referensi kementerian hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi kementerian, pilih satu atau lebih kode atau nama kementerian dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi
+
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
+
+== UC-54 Rekam Lokasi ==
+
+aktor : Admin
+
+admin menekan menu referensi II, kemudian memilih referensi lokasi. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode lokasi dalam bentuk kombinasi angka yang terdiri dari 2 digit kode dan nama lokasi dalam bentuk teks. Admin mengisikan kode  dan nama lokasi atau menekan tombol batal jika ingin membatalkan rekam referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama lokasi ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
+
+alternatif :
+
+Pada form rekam, jika kode lokasi yang diinputkanoleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi lokasi
+
+Pada form rekam, jika kode lokasi yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama lokasi telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi lokasi
+
+Pada form rekam, jika kode lokasi yang diinputkan oleh admin kurang dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi lokasi
+
+Pada form rekam, jika field kode atau nama lokasi diisikan kosongoleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi lokasi
+
+== UC-55 Ubah lokasi ==
+
+aktor : admin
+
+admin menekan tombol referensi II kemudian memilih menu referensi lokasi. admin memilih satu atau lebih kode atau nama lokasi dengan mencentangnya, kemudian tekan tombol ubah. sistem akan menampilkan form ubah referensi lokasi. pada form admin mengganti 2 digit kode dan nama lokasi dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi lokasi.
+
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
+
+Pada form ubah,  jika kode lokasi yang diinputkan oleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form ubah  referensi  lokasi
+
+Pada form ubah, jika kode lokasi yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama lokasi telah ada, batal menyimpan data kemudian menampilkan kembali form ubah  referensi lokasi
+
+Pada form ubah, jika kode lokasi yang diinputkan oleh admin kurang dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form ubah  referensi lokasi
+
+Pada form ubah, jika field kode atau nama lokasi diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form ubah  referensi lokasi
+
+== UC-56 Hapus lokasi ==
+
+aktor : admin 
+
+untuk menghapus referensi lokasi hanya admin saja yang mempunyai hak akses. admin masuk ke menu referensi lokasi, pilih satu atau lebih kode atau nama lokasi dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi lokasi
+
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
+
+== UC-57 Rekam dati II ==
+
+aktor : Admin
+
+admin menekan menu referensi II, kemudian memilih referensi dati II. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode dati II dalam bentuk kombinasi angka yang terdiri dari 2 digit kode lokasi, 2 digit kode dan nama dati II dalam bentuk teks. Admin mengisikan kode lokasi, kode  dan nama dati II atau menekan tombol batal jika ingin membatalkan rekam referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama dati II ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
+
+alternatif :
+
+kode lokasi tidak ada dalam database : sistem akan menampilkan pesan bahwa kode lokasi tidak ada, dan menampilkan kembali form rekam referensi dati II
+
+Pada form rekam, jika kode lokasi atau dati II yang diinputkan oleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
+
+Pada form rekam, jika kode lokasi atau dati II yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama dati II telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
+
+Pada form rekam, jika kode lokasi atau dati II yang diinputkan oleh admin kurang dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
+
+Pada form rekam, jika field kode atau nama dati II diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi dati II
+
+== UC-58 Ubah dati II ==
+
+aktor : admin
+
+admin menekan tombol referensi II kemudian memilih menu referensi dati II. admin memilih satu atau lebih kode atau nama dati II dengan mencentangnya, kemudian tekan tombol ubah. sistem akan menampilkan form ubah referensi dati II. pada form admin mengganti 2 digit kode lokasi, 2 digit kode dan nama dati II dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi dati II.
+
+alternatif :
+
+kode lokasi tidak ada dalam database : sistem akan menampilkan pesan bahwa kode lokasi tidak ada, dan menampilkan kembali form rekam referensi dati II
+
+Pada form rekam, jika kode lokasi atau dati II yang diinputkan oleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
+
+Pada form rekam, jika kode lokasi atau dati II yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama dati II telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
+
+Pada form rekam, jika kode lokasi atau dati II yang diinputkan oleh admin kurang dari 2 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
+
+Pada form rekam, jika field kode atau nama dati II diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi dati II
+
+== UC-59 Hapus dati II ==
+
+aktor : admin 
+
+admin masuk ke menu referensi dati II, pilih satu atau lebih kode atau nama dati II dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi dati II
+
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
+
+== UC-60 Rekam bkpk ==
+
+aktor : Admin
+
+admin menekan menu referensi II, kemudian memilih referensi bkpk. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode bkpk dalam bentuk kombinasi angka yang terdiri dari 4 digit kode dan nama bkpk dalam bentuk teks. Admin mengisikan kode  dan nama bkpk atau menekan tombol batal jika ingin membatalkan rekam referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama bkpk ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
+
+alternatif :
+
+Pada form rekam, jika kode bkpk yang diinputkan oleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi bkpk
+
+Pada form rekam, jika kode bkpk yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama bkpk telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi bkpk
+
+Pada form rekam, jika kode bkpk yang diinputkan oleh admin kurang dari 4 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi bkpk
+
+Pada form rekam, jika field kode atau nama bkpk diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi bkpk
+
+== UC-61 Ubah bkpk ==
+
+aktor : admin
+
+admin menekan tombol referensi II kemudian memilih menu referensi bkpk. admin memilih satu atau lebih kode atau nama bkpk dengan mencentangnya, kemudian tekan tombol ubah. sistem akan menampilkan form ubah referensi bkpk. pada form admin mengganti 4 digit kode dan nama bkpk dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi bkpk.
+
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
+
+Pada form ubah,  jika kode bkpk yang diinputkan oleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form ubah  referensi  bkpk
+
+Pada form ubah, jika kode bkpk yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama bkpk telah ada, batal menyimpan data kemudian menampilkan kembali form ubah  referensi bkpk
+
+Pada form ubah, jika kode bkpk yang diinputkan oleh admin kurang dari 4 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form ubah  referensi bkpk
+
+Pada form ubah, jika field kode atau nama bkpk diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form ubah referensi bkpk
+
+== UC-62 Hapus bkpk ==
+
+aktor : admin 
+
+admin masuk ke menu referensi bkpk, pilih satu atau lebih kode atau nama bkpk dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi bkpk
+
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
+
+== UC-63 Rekam mata anggaran ==
+
+aktor : Admin
+
+admin menekan menu referensi II, kemudian memilih referensi mata anggaran. Admin menekan tombol rekam, lalu sistem menayangkan form pengisian referensi berupa nomor kode mata anggaran dalam bentuk kombinasi angka yang terdiri dari 4 digit kode bkpk, 6 digit kode dan nama mata anggaran dalam bentuk teks. Admin mengisikan kode  dan nama mata anggaran atau menekan tombol batal jika ingin membatalkan rekam referensi. Admin menekan tombol simpan untuk menyimpan data yang telah dimasukkan. sistem akan menyimpan data nomor dan nama mata anggaran ke dalam database dan menayangkan kembali data yang baru saja dimasukkan di menu awal referensi.
+
+alternatif :
+
+Pada form rekam, jika kode bkpk dan mata anggaran yang diinputkan oleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi mata anggaran
+
+Pada form rekam, jika kode bkpk dan mata anggaran yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama mata anggaran telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi mata anggaran
+
+Pada form rekam, jika kode bkpk kurang dari 4 digit dan kode mata anggaran  kurang dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form rekam referensi mata anggaran
+
+Pada form rekam, jika field kode bkpk, mata anggaran atau nama mata anggaran diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi mata anggaran
+
+== UC-64 Ubah mata anggaran ==
+
+aktor : admin
+
+admin menekan tombol referensi II kemudian memilih menu referensi mata anggaran. admin memilih satu atau lebih kode atau nama mata anggaran dengan mencentangnya, kemudian tekan tombol ubah. sistem akan menampilkan form ubah referensi mata anggaran. pada form admin mengganti kode atau nama mata anggaran dengan isian baru kemudian menekan tombol simpan untuk menyimpan ke database atau batal untuk membatalkan ubah referensi. sistem akan menyimpan perubahan ke database, menampilkan pesan bahwa perubahan berhasil dilakukan. jika referensi yang diubah lebih dari satu maka sistem menampilkan form ubah untuk referensi berikutnya, namun jika semua referensi telah atau batal dirubah, sistem menampilkan menu awal referensi mata anggaran.
+
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
+
+Pada form ubah, jika kode bkpk dan mata anggaran yang diinputkan oleh admin bukan angka maka sistem akan menampilkan peringatan kesalahan input, batal menyimpan data kemudian menampilkan kembali form ubah referensi mata anggaran
+
+Pada form ubah, jika kode bkpk dan mata anggaran yang diinputkan oleh admin telah ada dalam database maka sistem akan menampilkan pesan bahwa kode atau nama mata anggaran telah ada, batal menyimpan data kemudian menampilkan kembali form ubah referensi mata anggaran
+
+Pada form ubah, jika kode bkpk kurang dari 4 digit dan kode mata anggaran  kurang dari 6 digit maka sistem akan menampilkan pesan kesalahan input, batal menyimpan data kemudian menampilkan kembali form ubah referensi mata anggaran
+
+Pada form ubah, jika field kode bkpk, mata anggaran atau nama mata anggaran diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form ubah referensi mata anggaran
+
+== UC-65 Hapus mata anggaran ==
+
+aktor : admin 
+
+admin masuk ke menu referensi mata anggaran, pilih satu atau lebih kode atau nama mata anggaran dengan mencentangnya, kemudian tekan tombol hapus. sistem akan menampilkan pesan konfirmasi apakah data benar-benar dihapus atau tidak, kemudian sistem akan menampilkan menu awal referensi mata anggaran
+
+alternatif :
+
+admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
+
+== UC-66 Logout ==
+
+aktor : admin, satker dan KPPN
+
+admin, satker dan KPPN meng-klik tombol logout, kemudian sistem menampilkan pesan logout berhasil dan halaman depan website
