@@ -171,9 +171,19 @@ Sistem menampilkan tampilan referensi Nomor SP2D. Admin menginput referensi nomo
 
  Alternatif  :
 
-* Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+ * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
  * Jika nomor awal alokasi SP2D, nomor akhir alokasi SP2D dan nomor aktif SP2D yang diinputkan bukan angka : sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah.
  * Jika abjad alokasi SP2D yang diinputkan bukan huruf : sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+
+== UC-23 Cari Referensi ==
+Aktor : Satker.
+
+Sistem menampilkan halaman Cari Referensi. Satker memilih salah satu referensi yang diinginkan, mengklik field kata kunci lalu mengetikkan kata pencarian. Satker menekan tombol Proses. Sistem memproses pencarian dan mencari hasil yang cocok dan menampilkan halaman hasil pencarian yang berisi daftar referensi yang dicari.
+
+Alternatif  :
+
+ * Jika user Satker belum memilih kategori referensi : sistem akan menampilkan peringatan bahwa referensi belum dipilih.
+ * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa hasil pencarian kosong.
 
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
