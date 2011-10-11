@@ -33,3 +33,11 @@ Alternatif:
  * Jika nomor induk Pejabat yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Pejabat telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika nomor induk Pejabat diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+
+==UC-32 Hapus Pejabat==
+ Aktor : Admin
+ 
+ Untuk menghapus referensi Pejabat, Admin masuk ke menu referensi Pejabat, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Pejabat. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Pejabat. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
+
+Alternatif:
+ * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
