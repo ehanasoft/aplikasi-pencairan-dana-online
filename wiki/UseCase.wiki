@@ -31,6 +31,15 @@ Alternatif (Rainy-Day) :
  * Jika user KPPN belum memilih SPM : sistem akan menampilkan peringatan bahwa SPM belum dipilih..
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
+== UC-18 Cetak SP2D ==
+Aktor : KPPN.
+
+Sistem menampilkan data SPM yang telah diproses menjadi SP2D. KPPN memilih SP2D yang akan dicetak, kemudian mengklik tombol Cetak SP2D. Sistem menampilkan pratinjau SP2D yang siap dicetak. KPPN menekan tombol Cetak untuk mencetak SP2D pada media kertas.  Sistem mengirimkan paket data ke printer, menutup tampilan pratinjau lalu mengembalikan ke tampilan awal.
+
+Alternatif (Rainy-Day) :
+
+ * Jika user KPPN belum memilih SP2D : sistem akan menampilkan peringatan bahwa SP2D belum dipilih.
+
 
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
