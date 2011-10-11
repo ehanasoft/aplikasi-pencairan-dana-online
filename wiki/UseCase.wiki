@@ -2,6 +2,12 @@
 
 = Use Case APDOL =
 
-Usecase untuk APDOL dapat dilihat pada link berikut ini :
+Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
 
-http://aplikasi-pencairan-dana-online.googlecode.com/files/UseCaseAPDOL.html
+==UC Hapus Bank Pos==
+Aktor : Admin
+
+Untuk menghapus referensi Bank Pos, Admin masuk ke menu referensi Bank Pos, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Bank Pos. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Bank Pos. Admin dapat memilih referensi yang akan dihapus lebih dari satu, maka Sistem akan memprosesnya satu per satu secara berurutan.
+
+Alternatif:
+ * Jika tidak ada referensi yang dipilih untuk dihapus, maka Sistem akan menampilkan kotak dialog yang berisi.
