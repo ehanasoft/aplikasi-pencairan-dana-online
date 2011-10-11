@@ -4,6 +4,34 @@
 
 Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
 
+== UC-15 Notifikasi SPM ==
+Aktor : KPPN.
+
+Sistem menampilkan data SPM masuk. KPPN memilih SPM yang akan diverifikasi, kemudian mengklik tombol verifikasi. Sistem menampilkan data SPM yang diperlukan. KPPN melakukan proses pemeriksaan data dan setelah selesai menekan tombol simpan.  Sistem akan menampilkan konfirmasi kemudian menyimpan data, mengirimkan notifikasi kepada user Satker bahwa SPM telah diterima lalu mengembalikan ke tampilan awal.
+Alternatif (Rainy-Day) :
+
+ * Jika user KPPN belum memilih SPM : sistem akan menampilkan peringatan bahwa SPM belum dipilih.
+
+== UC-16 Tolak SPM ==
+Aktor : KPPN.
+
+Sistem menampilkan data SPM yang telah diterima dan diverifikasi. KPPN memilih SPM yang akan ditolak, kemudian mengklik tombol tolak. Sistem menampilkan halaman penolakan SPM. KPPN memasukkan data pada field (nomor surat penolakan, tanggal surat penolakan dan alasan penolakan) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi. Sistem akan menampilkan konfirmasi kemudian menyimpan data, mengirimkan notifikasi kepada user Satker bahwa SPM ditolak lalu mengembalikan ke tampilan awal.
+Alternatif (Rainy-Day) :
+
+ * Jika user KPPN belum memilih SPM : sistem akan menampilkan peringatan bahwa SPM belum dipilih..
+ * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+
+== UC-17 Proses SP2D ==
+Aktor : KPPN.
+
+Sistem menampilkan data SPM yang telah diterima dan diverifikasi. KPPN memilih SPM yang akan diproses menjadi SP2D, kemudian mengklik tombol Proses SP2D. Sistem menampilkan halaman Proses SP2D. KPPN memasukkan data pada field (tanggal SP2D dan kode bank) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi. Sistem akan memberikan nomor urut SP2D, menampilkan konfirmasi , menyimpan data lalu mengembalikan ke tampilan awal.
+
+Alternatif (Rainy-Day) :
+
+ * Jika user KPPN belum memilih SPM : sistem akan menampilkan peringatan bahwa SPM belum dipilih..
+ * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+
+
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
 
