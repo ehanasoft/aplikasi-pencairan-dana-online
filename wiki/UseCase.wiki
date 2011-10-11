@@ -68,6 +68,15 @@ Alternatif (Rainy-Day) :
 
  * Jika user KPPN belum memilih SP2D : sistem akan menampilkan peringatan bahwa SP2D belum dipilih.
 
+== UC-19 Batal SP2D ==
+Aktor : KPPN.
+
+Sistem menampilkan data SP2D yang telah dicetak. KPPN memilih SP2D yang akan dibatalkan, kemudian mengklik tombol batal. Sistem menampilkan halaman pembatalan SP2D. KPPN memasukkan data pada field (nomor surat pembatalan, tanggal surat pembatalan dan alasan pembatalan) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi. Sistem akan menampilkan konfirmasi kemudian menyimpan data lalu mengembalikan ke tampilan awal.
+Alternatif (Rainy-Day) :
+
+ * Jika user KPPN belum memilih SP2D : sistem akan menampilkan peringatan bahwa SPM belum dipilih.
+ * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+
 
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
