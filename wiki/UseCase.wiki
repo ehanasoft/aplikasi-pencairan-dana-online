@@ -4,10 +4,21 @@
 
 Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
 
-==UC Hapus Bank Pos==
+==UC-29 Hapus Bank Pos==
 Aktor : Admin
 
 Untuk menghapus referensi Bank Pos, Admin masuk ke menu referensi Bank Pos, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Bank Pos. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Bank Pos. Admin dapat memilih referensi yang akan dihapus lebih dari satu, maka Sistem akan memprosesnya satu per satu secara berurutan.
 
 Alternatif:
- * Jika tidak ada referensi yang dipilih untuk dihapus, maka Sistem akan menampilkan kotak dialog yang berisi.
+ * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
+
+==UC-30 Rekam Pejabat==
+Aktor : Admin
+
+Untuk menginput referensi Pejabat hanya bisa dilakukan oleh Admin. Admin masuk ke menu referensi Pejabat. Admin menginput referensi Pejabat melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Pejabat. Admin menginput nomor induk Pejabat sebanyak 18 (delapan belas) digit, nama Pejabat, kode golongan berupa dropdown, nama jabatan, dan keterangan jabatan. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Pejabat berupa daftar referensi Pejabat. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Pejabat dan Sistem akan kembali ke tampilan awal menu referensi Pejabat.
+
+Alternatif:
+ * Jika nomor induk Pejabat yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika nomor induk Pejabat yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Pejabat telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika nomor induk Pejabat diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
