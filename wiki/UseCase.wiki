@@ -209,12 +209,24 @@ Alternatif  :
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
 == UC-26 Hapus Satker ==
-Aktor : Admin .
+Aktor : Admin.
+
 Sistem menampilkan halaman referensi Satuan Kerja. Admin menghapus referensi Satker dengan memilih referensi Satker yang ingin dihapus kemudian menekan tombol Hapus. Sistem menampilkan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin menekan tombol "Yes" untuk menghapus referensi tersebut. Sistem akan menghapus data dan mengembalikan ke tampilan awal referensi Satker. 
 
 Alternatif: 
 
-* Jika user KPPN belum memilih referensi Satker : sistem akan menampilkan peringatan bahwa Satker belum dipilih.
+ * Jika user KPPN belum memilih referensi Satker : sistem akan menampilkan peringatan bahwa Satker belum dipilih.
+
+== UC-27 Rekam Satker ==
+Aktor : Admin.
+Sistem menampilkan halaman referensi Bank Pos. Admin menginput referensi Bank Pos dengan menekan tombol "Rekam". Sistem akan menampilkan halaman pengisian referensi Satker. Admin memasukkan data pada field (kode Bank Pos, kode KPPN, nomor rekening, kota Bank Pos dan nama Bank Pos) kemudian menekan tombol "Simpan". Sistem mengecek apakah kode Bank Pos adalah unik, menyimpan data,  kemudian menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
+
+Alternatif  :
+
+ * Jika kode Bank Pos dan KPPN  yang diinputkan bukan angka : sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah.
+ * Jika kode Bank Pos yang dimasukkan tidak unik : sistem akan menampilkan pesan bahwa kode Bank Pos telah ada dan kembali pada halaman pengisian referensi tanpa menyimpan inputan yang salah.
+ * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
+ * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
