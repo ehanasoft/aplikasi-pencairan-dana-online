@@ -125,3 +125,14 @@ Alternatif:
  * Jika nomor kode Golongan yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Golongan telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika nomor kode Golongan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+
+==UC-34 Ubah Golongan==
+Aktor : Admin
+
+Admin masuk ke menu referensi Golongan, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Golongan pada tampilan awal menu referensi Golongan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Golongan. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
+
+Alternatif:
+ * Jika nomor kode Golongan yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika nomor kode Golongan yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Golongan telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika nomor kode Golongan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
