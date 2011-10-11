@@ -154,6 +154,16 @@ Alternatif  :
  * Jika status penyelesaian belum dipilih : sistem akan menampilkan peringatan bahwa status penyelesaian belum dipilih.
  * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa hasil pencarian kosong.
 
+== UC-21 Realisasi ==
+Aktor : Satker.
+
+Sistem menampilkan halaman Realisasi. Satker memasukkan data pada field (Fungsi, Sub Fungsi, Program, Kegiatan dan Sub Kegiatan) kemudian menekan tombol Proses. Sistem memastikan semua field terisi, memproses pencarian, mencari hasil yang cocok dan menampilkan halaman hasil pencarian yang berisi daftar Realisasi Satuan Kerja.
+
+Alternatif  :
+
+ * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+ * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa realisasi belum ada / kosong.
+
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
 
