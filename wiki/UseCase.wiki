@@ -164,6 +164,17 @@ Alternatif  :
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
  * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa realisasi belum ada / kosong.
 
+== UC-22 Nomor SP2D ==
+Aktor: Admin.
+
+Sistem menampilkan tampilan referensi Nomor SP2D. Admin menginput referensi nomor SP2D dengan menekan tombol "Rekam". Sistem menampilkan halaman pengisian referensi nomor SP2D. Admin memasukkan data pada field (nomor surat alokasi, tanggal surat alokasi, nomor awal alokasi SP2D, nomor akhir alokasi SP2D, abjad alokasi SP2D dan nomor aktif SP2D) kemudian menekan tombol "Simpan". Sistem memastikan bahwa seluruh field telah terisi. Sistem akan menyimpan data kemudian menampilkan konfirmasi lalu mengembalikan ke tampilan awal. 
+
+ Alternatif  :
+
+* Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+ * Jika nomor awal alokasi SP2D, nomor akhir alokasi SP2D dan nomor aktif SP2D yang diinputkan bukan angka : sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah.
+ * Jika abjad alokasi SP2D yang diinputkan bukan huruf : sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
 
