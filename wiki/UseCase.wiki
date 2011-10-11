@@ -143,6 +143,16 @@ Alternatif (Rainy-Day) :
 
  * Jika user KPPN belum memilih SP2D : sistem akan menampilkan peringatan bahwa SPM belum dipilih.
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+== UC-20 Monitoring SPM ==
+Aktor : Satker.
+
+Sistem menampilkan halaman Monitoring SPM. Satker memasukkan cakupan tanggal SPM yang diinginkan, memilih status penyelesaian SPM yang diinginkan lalu menekan tombol Proses. Sistem memproses pencarian dan mencari hasil yang cocok dan menampilkan halaman hasil pencarian yang berisi daftar SPM yang dicari beserta status penyelesaiannya..
+
+Alternatif  :
+
+ * Jika user Satker belum memasukkan tanggal : sistem akan menampilkan peringatan bahwa cakupan tanggal harus diisi.
+ * Jika status penyelesaian belum dipilih : sistem akan menampilkan peringatan bahwa status penyelesaian belum dipilih.
+ * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa hasil pencarian kosong.
 
 ==UC-29 Hapus Bank Pos==
 Aktor : Admin
