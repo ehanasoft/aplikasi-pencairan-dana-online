@@ -4,6 +4,34 @@
 
 Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
 
+== UC-01 Registrasi Satker ==
+Aktor : Admin, Satker
+
+Registrasi Satker bisa dilakukan oleh Admin dan oleh satker sendiri. Untuk Satker sendiri, satker masuk web APDOL, kemudian pilih "buat akun baru". Kemudian satker mengisikan beberapa informasi yang ditampilkan oleh sistem berupa identitas calon user yang semuanya harus diisi, dengan rincian pengisian Username,Password,Kode Satker,Nama Satker,Alamat,Nama Bendahara,Pejabat Penandatangan SPM,Pangkat/Gol Penandatangan SPM,Bank dan Nomor Rekening. Setelah melakukan pengisian kemudian klik simpan. Setelah proses simpan sistem akan melakukan verifikasi kebenaran registrasi calon user, jika telah sesuai maka sistem akan melakukan konfirmasi bahwa akun sudah valid dan bisa digunakan. Untuk pembuatan akun Satker oleh admin, admin masuk halaman utama APDOL, kemudian pilih registrasi. Kemudian pilih registrasi satker. Sistem akan menampilkan isian yang harus diisi sama seperti proses registrasi oleh satker diatas.
+
+Alternatif :
+
+ * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi
+
+== UC-02 Registrasi KPPN ==
+Aktor : Admin, KPPN
+
+Admin berada dihalaman utama aplikasi APDOL. Sebelum masuk halaman utama Admin login terlebih dahulu dengan mengisi user name dan password administrator. Maka sistem memunculkan tampilan utama dari aplikasi. Setelah masuk ke halaman utama aplikasi maka admin KPPN bisa masuk ke menu Register. Dalam menu register terdapat pilihan registrasi KPPN dan registrasi Satker. Untuk registrasi KPPN kita pilih registrasi KPPN kemudian sistem akan memunculkan beberapa isian yang semuanya harus diisi antara lain Username, Password, Kode KPPN, Nama KPPN, Nama Petugas, Jabatan. Setelah melakukan pengisian kemudian klik simpan. Setelah proses simpan sistem akan melakukan verifikasi kebenaran registrasi calon user, jika telah sesuai maka sistem akan melakukan konfirmasi bahwa akun sudah valid dan bisa digunakan. 
+
+Alternatif :
+
+ * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi
+
+== UC-03 Login ==
+Aktor : Admin, KPPN, Satker
+
+User berada pada halaman login APDOL. Kemudian user mengisikan username dan password yang sudah diregistrasi diawal, kemudian pilih tombol “Login”. Maka sistem akan melakukan validasi terhadap data yang akan dimasukkan. Sistem membandingkan username dan password yang dimasukkan dengan yang ada dalam databasae APDOL. Kemudian jika username dan password telah valid maka sistem akan menampilkan halaman utama sesuai dengan hak akses masing-masing user. 
+
+Alternatif :
+
+ * Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password
+ * Jika username dan atau password tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa username dan atau password yang salah
+
 == UC-15 Notifikasi SPM ==
 Aktor : KPPN.
 
@@ -39,15 +67,6 @@ Sistem menampilkan data SPM yang telah diproses menjadi SP2D. KPPN memilih SP2D 
 Alternatif (Rainy-Day) :
 
  * Jika user KPPN belum memilih SP2D : sistem akan menampilkan peringatan bahwa SP2D belum dipilih.
-
-== UC-19 Batal SP2D ==
-Aktor : KPPN.
-
-Sistem menampilkan data SP2D yang telah dicetak. KPPN memilih SP2D yang akan dibatalkan, kemudian mengklik tombol batal. Sistem menampilkan halaman pembatalan SP2D. KPPN memasukkan data pada field (nomor surat pembatalan, tanggal surat pembatalan dan alasan pembatalan) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi. Sistem akan menampilkan konfirmasi kemudian menyimpan data lalu mengembalikan ke tampilan awal.
-Alternatif (Rainy-Day) :
-
-* Jika user KPPN belum memilih SP2D : sistem akan menampilkan peringatan bahwa SPM belum dipilih..
- * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
 
 ==UC-29 Hapus Bank Pos==
