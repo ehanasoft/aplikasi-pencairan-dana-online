@@ -69,6 +69,7 @@ Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
  #  R Mata Anggaran
  #  U Mata Anggaran
  #  H Mata Anggaran
+ #  Ubah Password
  #  Logout
 
 == UC-Registrasi ==
