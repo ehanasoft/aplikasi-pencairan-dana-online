@@ -71,7 +71,7 @@ Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
  #  H Mata Anggaran
  #  Logout
 
-== UC- Registrasi ==
+== UC-Registrasi ==
 Aktor : Admin.
 
 Registrasi bisa dilakukan oleh Admin. Sistem menampilkan data user. Admin menginput profil user dengan menekan tombol Rekam. Sistem akan menampilkan halaman pengisian user baru. Admin memilih jenis user (KPPN atau Satker) dan mengisikan field yang diperlukan (username, password, dll). Admin menekan tombol Simpan. Sistem mengecek apakah username unik, membuat user baru, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
@@ -82,7 +82,7 @@ Alternatif :
  * Jika username sudah terdaftar / tidak unik : sistem akan menampilkan peringatan.
  * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi.
 
-== UC- Ubah Registrasi ==
+== UC-Ubah Registrasi ==
 Aktor : Admin.
 
 Ubah Registrasi bisa dilakukan oleh Admin. Sistem menampilkan data user. Admin memilih user yang akan diubah profilnya lalu menekan tombol Ubah. Sistem akan menampilkan halaman ubah user. Admin mengubah sesuai keperluan kemudian menekan tombol Simpan. Sistem mengecek perubahan , menyimpan data, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
@@ -809,7 +809,7 @@ Alternatif :
  * Jika password lama sama dengan password baru : sistem akan menampilkan peringatan bahwa password baru adalah sama.
  * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi.
  
-== UC-66 Logout ==
+== UC-Logout ==
 
 aktor : admin, satker dan KPPN
 
