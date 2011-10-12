@@ -99,6 +99,62 @@ Alternatif :
  * Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password
  * Jika username dan atau password tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa username dan atau password yang salah
 
+== UC-09 Rekam SPM ==
+Aktor : Admin, Satker
+
+User masuk menu SPM. Kemudian pilih Rekam SPM. Sistem akan menampilkan halaman Rekam SPM. Untuk memulai proses perekaman SPM,sistem akan memunculkan tampilan beberapa isian. User harus mengisi isian yang belum disetting default oleh sistem. Isian yang harus diisi adalah tanggal pembuatan SPM, kode satker, kode KPPN, kode fungsi, sub fungsi, program. Lalu Isikan jumlah pengeluaran sesuai dengan data yang akan direkam. Lalu isi jumlah potongan SPM, apabila ada data potongan. Isian yang lain akan diisi otomatis oleh sistem. Kemudian isikan MAK/MAP dengan menekan tombol MAK/MAP. Sistem akan menampilkan pada layar isian yang harus diisi user. User mengisikan jumlah rincian per MAK (untuk pengeluaran)dan MAP (untuk penerimaan/potongan), dan pada layar menu sistem akan masuk pada menu isian Isikan kode kegiatan, sub.kegiatan, MAK dan nilai rupiah untuk MAK tersebut, kemudian sistem akan melakukan pengecekan nilai per MAK ini dengan jumlah nilai uang pengeluaran dan apabila nilai uang per MAK sudah sama dengan jumlah nilai pengeluaran, maka cursor akan langsung masuk ke kolom potongan (MAP). Kemudian user mengisikan kode MAP dan jumlah nilai potongan per MAP, jumlah nilai per MAP oleh sistem juga akan di cek dengan jumlah nilai potongan yang direkam pada menu sebelumnya. Apabila telah valid maka cursor akan berada pada pilihan kembali. user pilih kembali maka sistem akan masuk otomatis ke pilihan Bendahara/Penerima. Lalu user harus mengisi kode bendahara (sesuai dengan kode bendahara yang ada pada tabel referensi Bendahara). Uraian-uraian yang lainnya akan secara otomatis oleh sistem dimunculkan sesuai dengan isian tabel referensi Bendahara. Pada isian "untuk" user harus mengisi peruntukan dari pemabayaran SPM dengan jelas. Setelah selesai mengisi menu Bendaharawan/Penerima SPM maka cursor akan berada pada pilihan kembali. Tekan kembali, maka sistem akan masuk pada isian "Yang bersangkutan". Terakhir isikan Penandatangan SPM (NIP Kuasa Pengguna Anggaran), namanya akan otomatis oleh sistem diambil dari tabel referensi Pejabat. Isikan NIP Perekam Data, namanya akan otomatis oleh sistem diambil dari tabel referensi Pejabat. Setelah selesai mengisi menu Yang Bersangkutan tekan pilihan kembali, kemudian simpan. Maka sistem akan menyimpan perekaman data SPM kedalam database. 
+
+Alternatif :
+
+ * Jika pada saat perekaman SPM user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam SPM kembali.
+ * Jika pada saat perekaman SPM selesai user langsung pilih "kembali" belum memilih "simpan", maka sistem akan menampilkan peringatan apakah user yakin melakukan pilihan kembali tanpa melakukan penyimpanan
+
+== UC-10 Ubah SPM ==
+Aktor : Admin, Satker
+
+User berada pada menu SPM, kemudian pilih "ubah SPM". Kemudian user mengisikan tanggal SPM yang akan diubah, maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan perubahan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol ubah, maka sistem akan menayangkan kembali tampilan seperti pada saat rekam SPM, kemudian user bisa melakukan perubahan yang diinginkan. Kemudian setelah perubahan dilakukan user klik "simpan", maka sistem akan menyimpan perubahan data SPM tersebut kedalam database
+
+Alternatif :
+
+ * Jika pada saat perubahan data SPM user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam SPM kembali.
+ * Jika pada saat perubahan SPM selesai user langsung pilih "kembali" belum memilih "simpan", maka sistem akan menampilkan peringatan apakah user yakin melakukan pilihan kembali tanpa melakukan penyimpanan
+
+== UC-11 Hapus SPM ==
+Aktor : Admin, Satker
+
+User berada pada menu SPM, pilih "Hapus SPM". Kemudian isikan tanggal SPM yang akan dihapus, sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan penghapusan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol “Hapus”, maka sistem akan otomatis menghapus data SPM dari database. 
+
+Alternatif :
+
+ * Jika pada saat penghapusan data pagu user belum menempatkan kursor pada posisi data yang akan dihapus, maka sistem akan menampilkan peringatan bahwa user belum memilih data yang akan dihapus. 
+ 
+== UC-12 Cari SPM ==
+Aktor : Admin
+
+User berada pada sub menu  "Cari SPM". Kemudian sistem akan menampilkan tampilan pada layar, isikan pada kolom "cari" kata kunci dari SPM yang ingin dicari, bisa berupa kode satker, nomor SPM, tanggal SPM, nilai SPM, MAK, Status SPM. Kemudian sistem akan melakukan filter berdasarkan inputan user, dan sistem akan menampilkan pada tabel SPM yang sesuai kata kunci yang diinput user. Kemudian user tinggal memilih pada tabel yang ada pada layar untuk menentukan SPM yang dimaksud.
+
+Alternatif :
+
+ * Jika pada saat memasukkan kata kunci pencarian sistem tidak menemukan data yang dimaksud oleh user, maka sistem akan menampilkan notifikasi bahwa tidak ada yang dimaksud oleh user.
+
+== UC-13 Cetak SPM ==
+Aktor : Admin, Satker
+
+Satker berada pada sub menu Cetak SPM. Setelah satker memilih maka pada layar menu oleh sistem akan ditayangkan menu isian berupa pilihan data-data SPM yang telah direkam sebelumnya. Isikan tanggal SPM yang ingin dicetak. Maka sistem akan menampilkan SPM-SPM yang dibuat pada tanggal tersebut. Satker tinggal memilih SPM mana yang akan dicetak kemudian pilih “cetak”. Pilihan cetak ada dua macam, yaitu cetak di layar atau cetak melalui printer. User tinggal klik salah satu pilihan. Sistem mengirimkan paket data ke printer, menutup tampilan pratinjau lalu mengembalikan ke tampilan awal.
+
+Alternatif :
+
+ * Jika kondisi satker belum menentukan pilihan data SPM yang akan dicetak maka sistem akan memunculkan notifikasi bahwa pilihan SPM untuk dicetak belum ditentukan. 
+
+== UC-14 Submit SPM ==
+Aktor : Admin, Satker
+
+Satker berada pada sub menu "Submit SPM". User memasukkan tanggal SPM yang akan disubmit ke KPPN. Sistem akan memunculkan tampilan daftar SPM yang sudah siap disubmit ke KPPN. User pilih SPM mana saja yang akan disubmit dengan mengisi kolom "pilih". Klik tombol "submit". Sistem akan menyimpan dalam database untuk dapat dibaca oleh KPPN dalam notifikasi SPM. 
+
+Alternatif :
+
+ * Jika kondisi satker belum menentukan pilihan data SPM yang akan disubmit maka sistem akan memunculkan notifikasi bahwa pilihan SPM untuk disubmit belum ditentukan.
+
 == UC-15 Notifikasi SPM ==
 Aktor : KPPN.
 
