@@ -295,6 +295,7 @@ Alternatif  :
  * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa hasil pencarian kosong.
 
 == UC-Rekam Satker ==
+
 Aktor : Admin.
 Sistem menampilkan halaman referensi Satuan Kerja. Admin menginput referensi Satker dengan menekan tombol "Rekam". Sistem akan menampilkan halaman pengisian referensi Satker. Admin memasukkan data pada field (kode Satker, kode Departemen, kode Unit, kode Lokasi, kode Dati II, kode KPPN dan nama Satker) kemudian menekan tombol "Simpan". Sistem mengecek apakah kode satker adalah unik, menyimpan data,  kemudian menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
 
@@ -326,8 +327,9 @@ Alternatif:
 
  * Jika user KPPN belum memilih referensi Satker : sistem akan menampilkan peringatan bahwa Satker belum dipilih.
 
-== UC-Rekam Satker ==
+== UC-27 Rekam Bank Pos ==
 Aktor : Admin.
+
 Sistem menampilkan halaman referensi Bank Pos. Admin menginput referensi Bank Pos dengan menekan tombol "Rekam". Sistem akan menampilkan halaman pengisian referensi Satker. Admin memasukkan data pada field (kode Bank Pos, kode KPPN, nomor rekening, kota Bank Pos dan nama Bank Pos) kemudian menekan tombol "Simpan". Sistem mengecek apakah kode Bank Pos adalah unik, menyimpan data,  kemudian menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
 
 Alternatif  :
