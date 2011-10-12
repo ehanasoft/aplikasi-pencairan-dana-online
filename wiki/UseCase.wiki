@@ -10,6 +10,7 @@ Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
  #  R DIPA
  #  U DIPA
  #  H DIPA
+ #  C DIPA
  #  Tayang DIPA
  #  R SPM
  #  U SPM
