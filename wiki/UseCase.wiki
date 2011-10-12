@@ -4,8 +4,8 @@
 
 Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
 
- #  Registrasi Satker
- #  Registrasi KPPN
+ #  Registrasi
+ #  Ubah User
  #  Login
  #  R DIPA
  #  U DIPA
@@ -71,25 +71,29 @@ Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
  #  H Mata Anggaran
  #  Logout
 
-== UC-01 Registrasi Satker ==
-Aktor : Admin, Satker
+== UC- Registrasi ==
+Aktor : Admin.
 
-Registrasi Satker bisa dilakukan oleh Admin dan oleh satker sendiri. Untuk Satker sendiri, satker masuk web APDOL, kemudian pilih "buat akun baru". Kemudian satker mengisikan beberapa informasi yang ditampilkan oleh sistem berupa identitas calon user yang semuanya harus diisi, dengan rincian pengisian Username,Password,Kode Satker,Nama Satker,Alamat,Nama Bendahara,Pejabat Penandatangan SPM,Pangkat/Gol Penandatangan SPM,Bank dan Nomor Rekening. Setelah melakukan pengisian kemudian klik simpan. Setelah proses simpan sistem akan melakukan verifikasi kebenaran registrasi calon user, jika telah sesuai maka sistem akan melakukan konfirmasi bahwa akun sudah valid dan bisa digunakan. Untuk pembuatan akun Satker oleh admin, admin masuk halaman utama APDOL, kemudian pilih registrasi. Kemudian pilih registrasi satker. Sistem akan menampilkan isian yang harus diisi sama seperti proses registrasi oleh satker diatas.
-
-Alternatif :
-
- * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi
-
-== UC-02 Registrasi KPPN ==
-Aktor : Admin, KPPN
-
-Admin berada dihalaman utama aplikasi APDOL. Sebelum masuk halaman utama Admin login terlebih dahulu dengan mengisi user name dan password administrator. Maka sistem memunculkan tampilan utama dari aplikasi. Setelah masuk ke halaman utama aplikasi maka admin KPPN bisa masuk ke menu Register. Dalam menu register terdapat pilihan registrasi KPPN dan registrasi Satker. Untuk registrasi KPPN kita pilih registrasi KPPN kemudian sistem akan memunculkan beberapa isian yang semuanya harus diisi antara lain Username, Password, Kode KPPN, Nama KPPN, Nama Petugas, Jabatan. Setelah melakukan pengisian kemudian klik simpan. Setelah proses simpan sistem akan melakukan verifikasi kebenaran registrasi calon user, jika telah sesuai maka sistem akan melakukan konfirmasi bahwa akun sudah valid dan bisa digunakan. 
+Registrasi bisa dilakukan oleh Admin. Sistem menampilkan data user. Admin menginput profil user dengan menekan tombol Rekam. Sistem akan menampilkan halaman pengisian user baru. Admin memilih jenis user (KPPN atau Satker) dan mengisikan field yang diperlukan (username, password, dll). Admin menekan tombol Simpan. Sistem mengecek apakah username unik, membuat user baru, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
 
 Alternatif :
 
- * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi
+ * Jika isian password dan konfirmasi password yang diisikan tidak cocok : sistem akan menampilkan peringatan bahwa password belum sama.
+ * Jika username sudah terdaftar / tidak unik : sistem akan menampilkan peringatan.
+ * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi.
 
-== UC-03 Login ==
+== UC- Ubah Registrasi ==
+Aktor : Admin.
+
+Ubah Registrasi bisa dilakukan oleh Admin. Sistem menampilkan data user. Admin memilih user yang akan diubah profilnya lalu menekan tombol Ubah. Sistem akan menampilkan halaman ubah user. Admin mengubah sesuai keperluan kemudian menekan tombol Simpan. Sistem mengecek perubahan , menyimpan data, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
+
+Alternatif :
+
+ * Jika isian password dan konfirmasi password yang diisikan tidak cocok : sistem akan menampilkan peringatan bahwa password belum sama.
+ * Jika username yang diubah sudah terdaftar / tidak unik : sistem akan menampilkan peringatan.
+ * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi.
+ 
+== UC-Login ==
 Aktor : Admin, KPPN, Satker
 
 User berada pada halaman login APDOL. Kemudian user mengisikan username dan password yang sudah diregistrasi diawal, kemudian pilih tombol “Login”. Maka sistem akan melakukan validasi terhadap data yang akan dimasukkan. Sistem membandingkan username dan password yang dimasukkan dengan yang ada dalam databasae APDOL. Kemudian jika username dan password telah valid maka sistem akan menampilkan halaman utama sesuai dengan hak akses masing-masing user. 
@@ -99,8 +103,8 @@ Alternatif :
  * Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password
  * Jika username dan atau password tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa username dan atau password yang salah
 
-== UC-04 Rekam DIPA ==
-Aktor : Admin
+== UC-Rekam DIPA ==
+Aktor : Admin.
 
 User berada pada menu DIPA, pilih sub menu "Rekam DIPA". Kemudian sistem akan menampilkan tampilan berupa data yang harus diisi, isikan elemen-elemen data pagunya berupa Tahun Anggaran, Kode Satker, Kementerian, Unit Organisasi, Fungsi, Sub Fungsi, Program, Kegaiatan, Sub Kegiatan, BKPK, MAK, Lokasi, Dati II, KPPN, Pagu Awal. Setelah semua terisi tekan tombol “Simpan”, maka sistem akan menampilkan pada table isian apa yang telah user isikan dan sistem secara otomatis akan menyimpan data pagu DIPA kedalam database.
 
@@ -109,7 +113,7 @@ Alternatif :
  * Jika user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam pagu kembali.
 
 
-== UC-05 Ubah DIPA ==
+== UC-Ubah DIPA ==
 Aktor : Admin
 
 User berada pada menu DIPA, pilih sub menu "Ubah DIPA". Kemudian sistem akan menampilkan tampilan, user mengisikan tahun anggaran serta kode satker, kemudian sistem akan menampilkan dalam tabel data DIPA yang sudah direkam, kemudian user memilih data yang ingin diubah dengan centang "Pilih" kemudian klik "Ubah", maka sistem akan menampilkan tampilan seperti pada saat rekam DIPA, kemudian user bisa merubah data, kemudian klik "Simpan", maka sistem akan menyimpan perubahan data pada database.
@@ -119,7 +123,7 @@ Alternatif :
  * Jika user belum memilih pilihan yang akan diubah maka sistem akan memunculkan peringatan bahwa data belum dipilih 
  * Jika user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian ubah pagu kembali.
 
-== UC-06 Hapus DIPA ==
+== UC-Hapus DIPA ==
 Aktor : Admin
 
 User berada pada menu DIPA, pilih sub menu "Hapus DIPA". Kemudian sistem akan menampilkan tampilan, user mengisikan tahun anggaran serta kode satker, kemudian sistem akan menampilkan dalam tabel data DIPA yang sudah direkam, kemudian user memilih data yang ingin dihapus dengan centang "Pilih" kemudian klik "Hapus", maka sistem akan menghapus data dari database.
@@ -129,7 +133,7 @@ Alternatif :
  * Jika user belum mengisikan Tahun anggaran dan kode satker maka sistem akan memunculkan peringatan bahwa user belum melakukan pengisian Tahun anggaran dan kode satker
  * Jika user belum memilih pilihan yang akan diubah maka sistem akan memunculkan peringatan bahwa data belum dipilih 
 
-== UC-07 Cari DIPA ==
+== UC-Cari DIPA ==
 Aktor : Admin
 
 User berada pada menu DIPA, pilih sub menu "Cari DIPA". Kemudian sistem akan menampilkan tampilan di layar, user mengisikan tahun anggaran serta kode satker, kemudian sistem akan menampilkan dalam tabel data DIPA yang sudah direkam. User mengetikkan pada bagian "cari" kata kunci yang ingin dicari. Bisa berupa uraian DIPA maupun nilai DIPA. Kemudian sistem akan melakukan filter dan menampilkan pada tabel data yang sesuai inputan user.
@@ -138,7 +142,7 @@ Alternatif :
 
 * Jika pada saat memasukkan kata kunci pencarian sistem tidak menemukan data yang dimaksud oleh user, maka sistem akan menampilkan notifikasi bahwa tidak ada yang dimaksud oleh user.
 
-== UC-08 Tayang DIPA ==
+== UC-Tayang DIPA ==
 Aktor : Admin
 
 User berada pada menu DIPA, pilih sub menu "Tayang DIPA". Kemudian sistem akan menampilkan tampilan di layar, user mengisikan tahun anggaran serta kode satker, kemudian sistem akan menampilkan dalam tabel data DIPA yang sudah direkam. User memilih pada tabel diatas data yang mau ditayangkan, maka sistem akan menampilkan rincian data DIPA pada tabel yang ada dibawahnya. 
@@ -147,8 +151,8 @@ Alternatif :
 
  * Jika user tidak melakukan pilihan data yang ditayangkan, maka sistem tidak akan menayangkan rincian pada tabel rincian DIPA.
 
-== UC-09 Rekam SPM ==
-Aktor : Admin, Satker
+== UC-Rekam SPM ==
+Aktor : Satker.
 
 User masuk menu SPM. Kemudian pilih Rekam SPM. Sistem akan menampilkan halaman Rekam SPM. Untuk memulai proses perekaman SPM,sistem akan memunculkan tampilan beberapa isian. User harus mengisi isian yang belum disetting default oleh sistem. Isian yang harus diisi adalah tanggal pembuatan SPM, kode satker, kode KPPN, kode fungsi, sub fungsi, program. Lalu Isikan jumlah pengeluaran sesuai dengan data yang akan direkam. Lalu isi jumlah potongan SPM, apabila ada data potongan. Isian yang lain akan diisi otomatis oleh sistem. Kemudian isikan MAK/MAP dengan menekan tombol MAK/MAP. Sistem akan menampilkan pada layar isian yang harus diisi user. User mengisikan jumlah rincian per MAK (untuk pengeluaran)dan MAP (untuk penerimaan/potongan), dan pada layar menu sistem akan masuk pada menu isian Isikan kode kegiatan, sub.kegiatan, MAK dan nilai rupiah untuk MAK tersebut, kemudian sistem akan melakukan pengecekan nilai per MAK ini dengan jumlah nilai uang pengeluaran dan apabila nilai uang per MAK sudah sama dengan jumlah nilai pengeluaran, maka cursor akan langsung masuk ke kolom potongan (MAP). Kemudian user mengisikan kode MAP dan jumlah nilai potongan per MAP, jumlah nilai per MAP oleh sistem juga akan di cek dengan jumlah nilai potongan yang direkam pada menu sebelumnya. Apabila telah valid maka cursor akan berada pada pilihan kembali. user pilih kembali maka sistem akan masuk otomatis ke pilihan Bendahara/Penerima. Lalu user harus mengisi kode bendahara (sesuai dengan kode bendahara yang ada pada tabel referensi Bendahara). Uraian-uraian yang lainnya akan secara otomatis oleh sistem dimunculkan sesuai dengan isian tabel referensi Bendahara. Pada isian "untuk" user harus mengisi peruntukan dari pemabayaran SPM dengan jelas. Setelah selesai mengisi menu Bendaharawan/Penerima SPM maka cursor akan berada pada pilihan kembali. Tekan kembali, maka sistem akan masuk pada isian "Yang bersangkutan". Terakhir isikan Penandatangan SPM (NIP Kuasa Pengguna Anggaran), namanya akan otomatis oleh sistem diambil dari tabel referensi Pejabat. Isikan NIP Perekam Data, namanya akan otomatis oleh sistem diambil dari tabel referensi Pejabat. Setelah selesai mengisi menu Yang Bersangkutan tekan pilihan kembali, kemudian simpan. Maka sistem akan menyimpan perekaman data SPM kedalam database. 
 
@@ -157,8 +161,8 @@ Alternatif :
  * Jika pada saat perekaman SPM user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam SPM kembali.
  * Jika pada saat perekaman SPM selesai user langsung pilih "kembali" belum memilih "simpan", maka sistem akan menampilkan peringatan apakah user yakin melakukan pilihan kembali tanpa melakukan penyimpanan
 
-== UC-10 Ubah SPM ==
-Aktor : Admin, Satker
+== UC-Ubah SPM ==
+Aktor : Satker.
 
 User berada pada menu SPM, kemudian pilih "ubah SPM". Kemudian user mengisikan tanggal SPM yang akan diubah, maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan perubahan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol ubah, maka sistem akan menayangkan kembali tampilan seperti pada saat rekam SPM, kemudian user bisa melakukan perubahan yang diinginkan. Kemudian setelah perubahan dilakukan user klik "simpan", maka sistem akan menyimpan perubahan data SPM tersebut kedalam database
 
@@ -167,8 +171,8 @@ Alternatif :
  * Jika pada saat perubahan data SPM user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam SPM kembali.
  * Jika pada saat perubahan SPM selesai user langsung pilih "kembali" belum memilih "simpan", maka sistem akan menampilkan peringatan apakah user yakin melakukan pilihan kembali tanpa melakukan penyimpanan
 
-== UC-11 Hapus SPM ==
-Aktor : Admin, Satker
+== UC-Hapus SPM ==
+Aktor : Satker.
 
 User berada pada menu SPM, pilih "Hapus SPM". Kemudian isikan tanggal SPM yang akan dihapus, sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan penghapusan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol “Hapus”, maka sistem akan otomatis menghapus data SPM dari database. 
 
@@ -176,8 +180,8 @@ Alternatif :
 
  * Jika pada saat penghapusan data pagu user belum menempatkan kursor pada posisi data yang akan dihapus, maka sistem akan menampilkan peringatan bahwa user belum memilih data yang akan dihapus. 
  
-== UC-12 Cari SPM ==
-Aktor : Admin
+== UC-Cari SPM ==
+Aktor : Satker.
 
 User berada pada sub menu  "Cari SPM". Kemudian sistem akan menampilkan tampilan pada layar, isikan pada kolom "cari" kata kunci dari SPM yang ingin dicari, bisa berupa kode satker, nomor SPM, tanggal SPM, nilai SPM, MAK, Status SPM. Kemudian sistem akan melakukan filter berdasarkan inputan user, dan sistem akan menampilkan pada tabel SPM yang sesuai kata kunci yang diinput user. Kemudian user tinggal memilih pada tabel yang ada pada layar untuk menentukan SPM yang dimaksud.
 
@@ -185,8 +189,8 @@ Alternatif :
 
  * Jika pada saat memasukkan kata kunci pencarian sistem tidak menemukan data yang dimaksud oleh user, maka sistem akan menampilkan notifikasi bahwa tidak ada yang dimaksud oleh user.
 
-== UC-13 Cetak SPM ==
-Aktor : Admin, Satker
+== UC-Cetak SPM ==
+Aktor : Satker.
 
 Satker berada pada sub menu Cetak SPM. Setelah satker memilih maka pada layar menu oleh sistem akan ditayangkan menu isian berupa pilihan data-data SPM yang telah direkam sebelumnya. Isikan tanggal SPM yang ingin dicetak. Maka sistem akan menampilkan SPM-SPM yang dibuat pada tanggal tersebut. Satker tinggal memilih SPM mana yang akan dicetak kemudian pilih “cetak”. Pilihan cetak ada dua macam, yaitu cetak di layar atau cetak melalui printer. User tinggal klik salah satu pilihan. Sistem mengirimkan paket data ke printer, menutup tampilan pratinjau lalu mengembalikan ke tampilan awal.
 
@@ -194,8 +198,8 @@ Alternatif :
 
  * Jika kondisi satker belum menentukan pilihan data SPM yang akan dicetak maka sistem akan memunculkan notifikasi bahwa pilihan SPM untuk dicetak belum ditentukan. 
 
-== UC-14 Submit SPM ==
-Aktor : Admin, Satker
+== UC-Submit SPM ==
+Aktor : Satker.
 
 Satker berada pada sub menu "Submit SPM". User memasukkan tanggal SPM yang akan disubmit ke KPPN. Sistem akan memunculkan tampilan daftar SPM yang sudah siap disubmit ke KPPN. User pilih SPM mana saja yang akan disubmit dengan mengisi kolom "pilih". Klik tombol "submit". Sistem akan menyimpan dalam database untuk dapat dibaca oleh KPPN dalam notifikasi SPM. 
 
@@ -203,7 +207,7 @@ Alternatif :
 
  * Jika kondisi satker belum menentukan pilihan data SPM yang akan disubmit maka sistem akan memunculkan notifikasi bahwa pilihan SPM untuk disubmit belum ditentukan.
 
-== UC-15 Notifikasi SPM ==
+== UC-Notifikasi SPM ==
 Aktor : KPPN.
 
 Sistem menampilkan data SPM masuk. KPPN memilih SPM yang akan diverifikasi, kemudian mengklik tombol verifikasi. Sistem menampilkan data SPM yang diperlukan. KPPN melakukan proses pemeriksaan data dan setelah selesai menekan tombol simpan.  Sistem akan menampilkan konfirmasi kemudian menyimpan data, mengirimkan notifikasi kepada user Satker bahwa SPM telah diterima lalu mengembalikan ke tampilan awal.
@@ -211,7 +215,7 @@ Alternatif (Rainy-Day) :
 
  * Jika user KPPN belum memilih SPM : sistem akan menampilkan peringatan bahwa SPM belum dipilih.
 
-== UC-16 Tolak SPM ==
+== UC-Tolak SPM ==
 Aktor : KPPN.
 
 Sistem menampilkan data SPM yang telah diterima dan diverifikasi. KPPN memilih SPM yang akan ditolak, kemudian mengklik tombol tolak. Sistem menampilkan halaman penolakan SPM. KPPN memasukkan data pada field (nomor surat penolakan, tanggal surat penolakan dan alasan penolakan) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi. Sistem akan menampilkan konfirmasi kemudian menyimpan data, mengirimkan notifikasi kepada user Satker bahwa SPM ditolak lalu mengembalikan ke tampilan awal.
@@ -220,7 +224,7 @@ Alternatif (Rainy-Day) :
  * Jika user KPPN belum memilih SPM : sistem akan menampilkan peringatan bahwa SPM belum dipilih..
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
-== UC-17 Proses SP2D ==
+== UC-Proses SP2D ==
 Aktor : KPPN.
 
 Sistem menampilkan data SPM yang telah diterima dan diverifikasi. KPPN memilih SPM yang akan diproses menjadi SP2D, kemudian mengklik tombol Proses SP2D. Sistem menampilkan halaman Proses SP2D. KPPN memasukkan data pada field (tanggal SP2D dan kode bank) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi. Sistem akan memberikan nomor urut SP2D, menampilkan konfirmasi , menyimpan data lalu mengembalikan ke tampilan awal.
@@ -230,7 +234,7 @@ Alternatif (Rainy-Day) :
  * Jika user KPPN belum memilih SPM : sistem akan menampilkan peringatan bahwa SPM belum dipilih..
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
-== UC-18 Cetak SP2D ==
+== UC-Cetak SP2D ==
 Aktor : KPPN.
 
 Sistem menampilkan data SPM yang telah diproses menjadi SP2D. KPPN memasukkan tanggal SP2D dan memilih SP2D yang akan dicetak, kemudian mengklik tombol Cetak SP2D. Sistem menampilkan pratinjau SP2D yang siap dicetak. KPPN menekan tombol Cetak untuk mencetak SP2D pada media kertas.  Sistem mengirimkan paket data ke printer, menutup tampilan pratinjau lalu mengembalikan ke tampilan awal.
@@ -239,7 +243,7 @@ Alternatif (Rainy-Day) :
 
  * Jika user KPPN belum memilih SP2D : sistem akan menampilkan peringatan bahwa SP2D belum dipilih.
 
-== UC-19 Batal SP2D ==
+== UC-Batal SP2D ==
 Aktor : KPPN.
 
 Sistem menampilkan data SP2D yang telah dicetak. KPPN memilih SP2D yang akan dibatalkan, kemudian mengklik tombol batal. Sistem menampilkan halaman pembatalan SP2D. KPPN memasukkan data pada field (nomor surat pembatalan, tanggal surat pembatalan dan alasan pembatalan) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi. Sistem akan menampilkan konfirmasi kemudian menyimpan data lalu mengembalikan ke tampilan awal.
@@ -247,7 +251,8 @@ Alternatif (Rainy-Day) :
 
  * Jika user KPPN belum memilih SP2D : sistem akan menampilkan peringatan bahwa SPM belum dipilih.
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
-== UC-20 Monitoring SPM ==
+
+== UC-Monitoring SPM ==
 Aktor : Satker.
 
 Sistem menampilkan halaman Monitoring SPM. Satker memasukkan cakupan tanggal SPM yang diinginkan, memilih status penyelesaian SPM yang diinginkan lalu menekan tombol Proses. Sistem memproses pencarian dan mencari hasil yang cocok dan menampilkan halaman hasil pencarian yang berisi daftar SPM yang dicari beserta status penyelesaiannya..
@@ -258,7 +263,7 @@ Alternatif  :
  * Jika status penyelesaian belum dipilih : sistem akan menampilkan peringatan bahwa status penyelesaian belum dipilih.
  * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa hasil pencarian kosong.
 
-== UC-21 Realisasi ==
+== UC-Realisasi ==
 Aktor : Satker.
 
 Sistem menampilkan halaman Realisasi. Satker memasukkan data pada field (Fungsi, Sub Fungsi, Program, Kegiatan dan Sub Kegiatan) kemudian menekan tombol Proses. Sistem memastikan semua field terisi, memproses pencarian, mencari hasil yang cocok dan menampilkan halaman hasil pencarian yang berisi daftar Realisasi Satuan Kerja.
@@ -268,7 +273,7 @@ Alternatif  :
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
  * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa realisasi belum ada / kosong.
 
-== UC-22 Nomor SP2D ==
+== UC-Nomor SP2D ==
 Aktor: Admin.
 
 Sistem menampilkan tampilan referensi Nomor SP2D. Admin menginput referensi nomor SP2D dengan menekan tombol "Rekam". Sistem menampilkan halaman pengisian referensi nomor SP2D. Admin memasukkan data pada field (nomor surat alokasi, tanggal surat alokasi, nomor awal alokasi SP2D, nomor akhir alokasi SP2D, abjad alokasi SP2D dan nomor aktif SP2D) kemudian menekan tombol "Simpan". Sistem memastikan bahwa seluruh field telah terisi. Sistem akan menyimpan data kemudian menampilkan konfirmasi lalu mengembalikan ke tampilan awal. 
@@ -279,7 +284,7 @@ Sistem menampilkan tampilan referensi Nomor SP2D. Admin menginput referensi nomo
  * Jika nomor awal alokasi SP2D, nomor akhir alokasi SP2D dan nomor aktif SP2D yang diinputkan bukan angka : sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah.
  * Jika abjad alokasi SP2D yang diinputkan bukan huruf : sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
 
-== UC-23 Cari Referensi ==
+== UC-Cari Referensi ==
 Aktor : Satker.
 
 Sistem menampilkan halaman Cari Referensi. Satker memilih salah satu referensi yang diinginkan, mengklik field kata kunci lalu mengetikkan kata pencarian. Satker menekan tombol Proses. Sistem memproses pencarian dan mencari hasil yang cocok dan menampilkan halaman hasil pencarian yang berisi daftar referensi yang dicari.
@@ -289,7 +294,7 @@ Alternatif  :
  * Jika user Satker belum memilih kategori referensi : sistem akan menampilkan peringatan bahwa referensi belum dipilih.
  * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa hasil pencarian kosong.
 
-== UC-24 Rekam Satker ==
+== UC-Rekam Satker ==
 Aktor : Admin.
 Sistem menampilkan halaman referensi Satuan Kerja. Admin menginput referensi Satker dengan menekan tombol "Rekam". Sistem akan menampilkan halaman pengisian referensi Satker. Admin memasukkan data pada field (kode Satker, kode Departemen, kode Unit, kode Lokasi, kode Dati II, kode KPPN dan nama Satker) kemudian menekan tombol "Simpan". Sistem mengecek apakah kode satker adalah unik, menyimpan data,  kemudian menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
 
@@ -300,7 +305,7 @@ Alternatif  :
  * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
-== UC-25 Ubah Satker ==
+== UC-Ubah Satker ==
 Aktor : Admin.
 
 Sistem akan menampilkan halaman referensi Satuan Kerja. Admin memilih referensi Satker yang akan diubah kemudian menekan tombol Ubah. Admin mengubah sesuai keperluan kemudian menekan tombol Simpan. Sistem menyimpan data, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
@@ -312,7 +317,7 @@ Alternatif  :
  * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
-== UC-26 Hapus Satker ==
+== UC-Hapus Satker ==
 Aktor : Admin.
 
 Sistem menampilkan halaman referensi Satuan Kerja. Admin menghapus referensi Satker dengan memilih referensi Satker yang ingin dihapus kemudian menekan tombol Hapus. Sistem menampilkan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin menekan tombol "Yes" untuk menghapus referensi tersebut. Sistem akan menghapus data dan mengembalikan ke tampilan awal referensi Satker. 
@@ -321,7 +326,7 @@ Alternatif:
 
  * Jika user KPPN belum memilih referensi Satker : sistem akan menampilkan peringatan bahwa Satker belum dipilih.
 
-== UC-27 Rekam Satker ==
+== UC-Rekam Satker ==
 Aktor : Admin.
 Sistem menampilkan halaman referensi Bank Pos. Admin menginput referensi Bank Pos dengan menekan tombol "Rekam". Sistem akan menampilkan halaman pengisian referensi Satker. Admin memasukkan data pada field (kode Bank Pos, kode KPPN, nomor rekening, kota Bank Pos dan nama Bank Pos) kemudian menekan tombol "Simpan". Sistem mengecek apakah kode Bank Pos adalah unik, menyimpan data,  kemudian menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
 
@@ -332,7 +337,7 @@ Alternatif  :
  * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
-== UC-28 Ubah Bank Pos ==
+== UC-Ubah Bank Pos ==
 Aktor : Admin.
 
 Sistem akan menampilkan halaman referensi Bank Pos. Admin memilih referensi Bank Pos yang akan diubah kemudian menekan tombol Ubah. Admin mengubah sesuai keperluan kemudian menekan tombol Simpan. Sistem menyimpan data, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
@@ -344,7 +349,7 @@ Alternatif  :
  * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
-==UC-29 Hapus Bank Pos==
+==UC-Hapus Bank Pos==
 Aktor : Admin
 
 Admin masuk ke menu referensi I dan memilih menu Bank Pos, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Bank Pos. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Bank Pos. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -352,7 +357,7 @@ Admin masuk ke menu referensi I dan memilih menu Bank Pos, pilih dalam daftar re
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
 
-==UC-30 Rekam Pejabat==
+==UC-Rekam Pejabat==
 Aktor : Admin
 
 Admin masuk ke menu referensi I dan memilih menu Pejabat. Admin menginput referensi Pejabat melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Pejabat. Admin menginput nomor induk Pejabat sebanyak 18 (delapan belas) digit, nama Pejabat dalam bentuk teks, kode golongan sebanyak 2 (dua) digit, nama jabatan dalam bentuk teks dan keterangan jabatan sebanyak 1 (satu) digit. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Pejabat berupa daftar referensi Pejabat. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Pejabat dan Sistem akan kembali ke tampilan awal menu referensi Pejabat.
@@ -363,7 +368,7 @@ Alternatif:
  * Jika nomor induk Pejabat diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
 
-==UC-31 Ubah Pejabat==
+==UC-Ubah Pejabat==
 Aktor : Admin
 
 Admin masuk ke menu referensi I dan memilih menu Pejabat, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Pejabat pada tampilan awal menu referensi Pejabat. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Pejabat. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -374,7 +379,7 @@ Alternatif:
  * Jika nomor induk Pejabat diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  
-==UC-32 Hapus Pejabat==
+==UC-Hapus Pejabat==
 Aktor : Admin
  
 Admin masuk ke menu referensi I dan memilih menu Pejabat, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Pejabat. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Pejabat. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -382,7 +387,7 @@ Admin masuk ke menu referensi I dan memilih menu Pejabat, pilih dalam daftar ref
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
  
-==UC-33 Rekam Golongan==
+==UC-Rekam Golongan==
 Aktor : Admin
  
 Admin masuk ke menu referensi I dan memilih menu Golongan. Admin menginput referensi Golongan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Golongan. Admin menginput nomor kode Golongan dalam bentuk kombinasi angka yang terdiri dari 2 (dua) digit antara 1 sampai 4 dan nama Golongan dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Golongan berupa daftar referensi Golongan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Golongan dan Sistem akan kembali ke tampilan awal menu referensi Golongan.
@@ -393,7 +398,7 @@ Alternatif:
  * Jika nomor kode Golongan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
 
-==UC-34 Ubah Golongan==
+==UC-Ubah Golongan==
 Aktor : Admin
 
 Admin masuk ke menu referensi I dan memilih menu Golongan, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Golongan pada tampilan awal menu referensi Golongan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Golongan. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -404,7 +409,7 @@ Alternatif:
  * Jika nomor kode Golongan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
 
-==UC-35 Hapus Golongan==
+==UC-Hapus Golongan==
 Aktor : Admin
  
 Admin masuk ke menu referensi I dan memilih menu Golongan, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Golongan. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Golongan. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -412,7 +417,7 @@ Admin masuk ke menu referensi I dan memilih menu Golongan, pilih dalam daftar re
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
 
-==UC-36 Rekam Fungsi==
+==UC-Rekam Fungsi==
 Aktor : Admin 
 
 Admin masuk ke menu referensi I dan memilih menu Fungsi. Admin menginput referensi Fungsi melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Fungsi. Admin menginput nomor kode Fungsi dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Fungsi dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Fungsi berupa daftar referensi Fungsi. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Fungsi dan Sistem akan kembali ke tampilan awal menu referensi Fungsi.
@@ -423,7 +428,7 @@ Alternatif:
  * Jika nomor kode Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  
-==UC-37 Ubah Fungsi==
+==UC-Ubah Fungsi==
 Aktor : Admin
 
 Admin masuk ke menu referensi I dan memilih menu Fungsi, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Fungsi pada tampilan awal menu referensi Fungsi. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Fungsi. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -434,7 +439,7 @@ Alternatif:
  * Jika nomor kode Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  
-==UC-38 Hapus Fungsi==
+==UC-Hapus Fungsi==
 Aktor : Admin
  
 Admin masuk ke menu referensi I dan memilih menu Fungsi, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Fungsi. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Fungsi. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -442,7 +447,7 @@ Admin masuk ke menu referensi I dan memilih menu Fungsi, pilih dalam daftar refe
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
 
-==UC-39 Rekam Sub Fungsi==
+==UC-Rekam Sub Fungsi==
 Aktor : Admin 
 
 Admin masuk ke menu referensi I dan memilih menu Sub Fungsi. Admin menginput referensi Sub Fungsi melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Sub Fungsi. Admin memilih Fungsi yang ada dalam bentuk dropdown list sesuai yang diinputkan pada referensi Fungsi kemudian menginput nomor kode Sub Fungsi dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Sub Fungsi dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Sub Fungsi berupa daftar referensi Sub Fungsi. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Sub Fungsi dan Sistem akan kembali ke tampilan awal menu referensi Sub Fungsi.
@@ -453,7 +458,7 @@ Alternatif:
  * Jika nomor kode Sub Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  
-==UC-40 Ubah Sub Fungsi==
+==UC-Ubah Sub Fungsi==
 Aktor : Admin
 
 Admin masuk ke menu referensi I dan memilih menu Sub Fungsi, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Sub Fungsi pada tampilan awal menu referensi Sub Fungsi. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Sub Fungsi. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -464,7 +469,7 @@ Alternatif:
  * Jika nomor kode Sub Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  
-==UC-41 Hapus Sub Fungsi==
+==UC-Hapus Sub Fungsi==
 Aktor : Admin
  
 Admin masuk ke menu referensi I dan memilih menu Sub Fungsi, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Sub Fungsi. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Sub Fungsi. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -472,7 +477,7 @@ Admin masuk ke menu referensi I dan memilih menu Sub Fungsi, pilih dalam daftar 
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
  
-==UC-42 Rekam Program==
+==UC-Rekam Program==
 Aktor : Admin 
 
 Admin masuk ke menu referensi I dan memilih menu Program. Admin menginput referensi Program melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Program. Admin memilih Fungsi dan Sub Fungsi yang ada dalam bentuk dropdown list sesuai yang diinputkan pada referensi sebelumnya kemudian menginput nomor kode Program dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Program dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Program berupa daftar referensi Program. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Program dan Sistem akan kembali ke tampilan awal menu referensi Program.
@@ -483,7 +488,7 @@ Alternatif:
  * Jika nomor kode Program diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  
-==UC-43 Ubah Program==
+==UC-Ubah Program==
 Aktor : Admin
 
 Admin masuk ke menu referensi I dan memilih menu Program, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Program pada tampilan awal menu referensi Program. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Program. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -494,7 +499,7 @@ Alternatif:
  * Jika nomor kode Program diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  
-==UC-44 Hapus Program==
+==UC-Hapus Program==
 Aktor : Admin
  
 Admin masuk ke menu referensi I dan memilih menu Program, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Program. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Program. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -502,7 +507,7 @@ Admin masuk ke menu referensi I dan memilih menu Program, pilih dalam daftar ref
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
  
-==UC-45 Rekam Kegiatan==
+==UC-Rekam Kegiatan==
 Aktor : Admin 
 
 Admin masuk ke menu referensi I dan memilih menu Kegiatan. Admin menginput referensi Kegiatan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Kegiatan. Admin menginput nomor kode Kegiatan dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Kegiatan dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Kegiatan berupa daftar referensi Kegiatan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Kegiatan dan Sistem akan kembali ke tampilan awal menu referensi Kegiatan.
@@ -513,7 +518,7 @@ Alternatif:
  * Jika nomor kode Kegiatan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  
-==UC-46 Ubah Kegiatan==
+==UC-Ubah Kegiatan==
 Aktor : Admin
 
 Admin masuk ke menu referensi I dan memilih menu Kegiatan, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Kegiatan pada tampilan awal menu referensi Kegiatan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Kegiatan. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -524,7 +529,7 @@ Alternatif:
  * Jika nomor kode Kegiatan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  
-==UC-47 Hapus Kegiatan==
+==UC-Hapus Kegiatan==
 Aktor : Admin
  
 Admin masuk ke menu referensi I dan memilih menu Kegiatan, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Kegiatan. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Kegiatan. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
@@ -532,7 +537,7 @@ Admin masuk ke menu referensi I dan memilih menu Kegiatan, pilih dalam daftar re
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
  
-==UC-48 Rekam Sub Kegiatan==
+==UC-Rekam Sub Kegiatan==
 Aktor : Admin 
 
 Admin masuk ke menu referensi I dan memilih menu Sub Kegiatan. Admin menginput referensi Sub Kegiatan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Sub Kegiatan. Admin memilih Kegiatan yang ada dalam bentuk dropdown list sesuai yang diinputkan pada referensi sebelumnya kemudian menginput nomor kode Sub Kegiatan dalam bentuk angka yang terdiri dari 4 (empat) digit dan nama Sub Kegiatan dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Sub Kegiatan berupa daftar referensi Sub Kegiatan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Sub Kegiatan dan Sistem akan kembali ke tampilan awal menu referensi Sub Kegiatan.
@@ -543,7 +548,7 @@ Alternatif:
  * Jika nomor kode Sub Kegiatan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
  * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
 
-== UC-49 Ubah Sub Kegiatan ==
+== UC-Ubah Sub Kegiatan ==
 
 aktor : admin
 
@@ -561,7 +566,7 @@ Pada form ubah, jika kode sub kegiatan yang diinputkan oleh admin kurang dari 4 
 
 Pada form ubah, jika field kode atau nama sub kegiatan diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form  ubah referensi sub kegiatan
 
-== UC-50 Hapus Referensi Sub Kegiatan ==
+== UC-Hapus Referensi Sub Kegiatan ==
 
 aktor : admin 
 
@@ -571,7 +576,7 @@ alternatif :
 
 admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
 
-== UC-51 Rekam kementerian ==
+== UC-Rekam kementerian ==
 
 aktor : Admin
 
@@ -587,7 +592,7 @@ Pada form rekam, jika kode kementerian yang diinputkanoleh admin kurang dari 2 d
 
 Pada form rekam, jika field kode atau nama kementerian diisikan kosongoleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi kementerian
 
-== UC-52 Ubah kementerian ==
+== UC-Ubah kementerian ==
 
 aktor : admin
 
@@ -605,7 +610,7 @@ Pada form ubah, jika kode kementerian yang diinputkan oleh admin kurang dari 2 d
 
 Pada form ubah, jika field kode atau nama kementerian diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form ubah  referensi kementerian
 
-== UC-53 Hapus kementerian ==
+== UC-Hapus kementerian ==
 
 aktor : admin 
 
@@ -615,7 +620,7 @@ alternatif :
 
 admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
 
-== UC-54 Rekam Lokasi ==
+== UC-Rekam Lokasi ==
 
 aktor : Admin
 
@@ -631,7 +636,7 @@ Pada form rekam, jika kode lokasi yang diinputkan oleh admin kurang dari 2 digit
 
 Pada form rekam, jika field kode atau nama lokasi diisikan kosongoleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi lokasi
 
-== UC-55 Ubah lokasi ==
+== UC-Ubah lokasi ==
 
 aktor : admin
 
@@ -649,7 +654,7 @@ Pada form ubah, jika kode lokasi yang diinputkan oleh admin kurang dari 2 digit 
 
 Pada form ubah, jika field kode atau nama lokasi diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form ubah  referensi lokasi
 
-== UC-56 Hapus lokasi ==
+== UC-Hapus lokasi ==
 
 aktor : admin 
 
@@ -659,7 +664,7 @@ alternatif :
 
 admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
 
-== UC-57 Rekam dati II ==
+== UC-Rekam dati II ==
 
 aktor : Admin
 
@@ -677,7 +682,7 @@ Pada form rekam, jika kode lokasi atau dati II yang diinputkan oleh admin kurang
 
 Pada form rekam, jika field kode atau nama dati II diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi dati II
 
-== UC-58 Ubah dati II ==
+== UC-Ubah dati II ==
 
 aktor : admin
 
@@ -695,7 +700,7 @@ Pada form rekam, jika kode lokasi atau dati II yang diinputkan oleh admin kurang
 
 Pada form rekam, jika field kode atau nama dati II diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi dati II
 
-== UC-59 Hapus dati II ==
+== UC-Hapus dati II ==
 
 aktor : admin 
 
@@ -705,7 +710,7 @@ alternatif :
 
 admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
 
-== UC-60 Rekam bkpk ==
+== UC-Rekam BKPK ==
 
 aktor : Admin
 
@@ -721,7 +726,7 @@ Pada form rekam, jika kode bkpk yang diinputkan oleh admin kurang dari 4 digit m
 
 Pada form rekam, jika field kode atau nama bkpk diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi bkpk
 
-== UC-61 Ubah bkpk ==
+== UC-Ubah BKPK ==
 
 aktor : admin
 
@@ -739,7 +744,7 @@ Pada form ubah, jika kode bkpk yang diinputkan oleh admin kurang dari 4 digit ma
 
 Pada form ubah, jika field kode atau nama bkpk diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form ubah referensi bkpk
 
-== UC-62 Hapus bkpk ==
+== UC-Hapus BKPK ==
 
 aktor : admin 
 
@@ -749,7 +754,7 @@ alternatif :
 
 admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
 
-== UC-63 Rekam mata anggaran ==
+== UC-Rekam mata anggaran ==
 
 aktor : Admin
 
@@ -765,7 +770,7 @@ Pada form rekam, jika kode bkpk kurang dari 4 digit dan kode mata anggaran  kura
 
 Pada form rekam, jika field kode bkpk, mata anggaran atau nama mata anggaran diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form rekam referensi mata anggaran
 
-== UC-64 Ubah mata anggaran ==
+== UC-Ubah mata anggaran ==
 
 aktor : admin
 
@@ -783,7 +788,7 @@ Pada form ubah, jika kode bkpk kurang dari 4 digit dan kode mata anggaran  kuran
 
 Pada form ubah, jika field kode bkpk, mata anggaran atau nama mata anggaran diisikan kosong oleh admin maka sistem akan menampilkan pesan kesalahan input kemudian menampilkan kembali form ubah referensi mata anggaran
 
-== UC-65 Hapus mata anggaran ==
+== UC-Hapus mata anggaran ==
 
 aktor : admin 
 
@@ -793,8 +798,19 @@ alternatif :
 
 admin belum memilih referensi : sistem akan menampilkan pesan pilih satu atau lebih referensi
 
+== UC- Ubah Password ==
+Aktor : Admin, KPPN, Satker.
+
+Sistem menampilkan halaman Ubah Password. User menginput field yang diperlukan untuk mengubah password (password lama, password baru, konfirmasi password baru) kemudian menekan tombol Simpan. Sistem mengecek apakah password lama sama dengan baru, menyimpan data, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
+
+Alternatif :
+
+ * Jika isian password baru dan konfirmasi password baru yang diisikan tidak cocok : sistem akan menampilkan peringatan bahwa password belum sama.
+ * Jika password lama sama dengan password baru : sistem akan menampilkan peringatan bahwa password baru adalah sama.
+ * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi.
+ 
 == UC-66 Logout ==
 
 aktor : admin, satker dan KPPN
 
-admin, satker dan KPPN meng-klik tombol logout, kemudian sistem menampilkan pesan logout berhasil dan halaman depan website
+admin, satker dan KPPN meng-klik tombol logout, kemudian sistem menampilkan pesan logout berhasil dan halaman depan website.
