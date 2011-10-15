@@ -352,204 +352,204 @@ Alternatif  :
  * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
 
-==UC-Hapus Bank Pos==
+==UC Hapus Bank Pos==
 Aktor : Admin
 
-Admin masuk ke menu referensi I dan memilih menu Bank Pos, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Bank Pos. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Bank Pos. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
+Admin memilih menu Bank Pos pada referensi I. Sistem menampilkan halaman referensi Bank Pos. Admin memilih referensi yang akan dihapus dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" untuk menghapus dan "No" untuk batal menghapus. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari daftar Bank Pos dan kembali ke tampilan awal referensi Bank Pos.
+
+Alternatif:
+ * Jika Admin menekan tombol "Hapus" padahal Admin belum memilih referensi yang akan dihapus, maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
+
+==UC Rekam Pejabat==
+Aktor : Admin
+
+Admin memilih menu Pejabat pada referensi I. Sistem menampilkan halaman referensi Pejabat. Admin menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Pejabat. Admin menginput nomor induk Pejabat sebanyak 18 (delapan belas) digit, nama Pejabat dalam bentuk teks, kode golongan sebanyak 2 (dua) digit, nama jabatan dalam bentuk teks dan keterangan jabatan sebanyak 1 (satu) digit. Admin menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Pejabat kemudian menampilkan daftar referensi Pejabat pada tampilan awal menu referensi Pejabat.
+
+Alternatif:
+ * Jika Admin menginput nomor induk Pejabat bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor induk Pejabat yang sudah ada dalam daftar Pejabat maka Sistem akan menampilkan pesan bahwa kode Pejabat telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor induk Pejabat dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+
+==UC Ubah Pejabat==
+Aktor : Admin
+
+Admin memilih menu Pejabat pada referensi I. Sistem menampilkan halaman referensi Pejabat. Admin memilih referensi yang akan diubah dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Pejabat kemudian menampilkan daftar referensi Pejabat pada tampilan awal menu referensi Pejabat.
+
+Alternatif:
+ * Jika Admin menginput nomor induk Pejabat bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor induk Pejabat yang sudah ada dalam daftar Pejabat maka Sistem akan menampilkan pesan bahwa kode Pejabat telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor induk Pejabat dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ 
+==UC Hapus Pejabat==
+Aktor : Admin
+
+Admin memilih menu Pejabat pada referensi I. Sistem menampilkan halaman referensi Pejabat. Admin memilih referensi yang akan dihapus dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" untuk menghapus dan "No" untuk batal menghapus. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari daftar Pejabat dan kembali ke tampilan awal referensi Pejabat.
+
+Alternatif:
+ * Jika Admin menekan tombol "Hapus" padahal Admin belum memilih referensi yang akan dihapus, maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
+ 
+==UC Rekam Golongan==
+Aktor : Admin
+
+Admin memilih menu Golongan pada referensi I. Sistem menampilkan halaman referensi Golongan. Admin menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Golongan. Admin menginput nomor kode Golongan dalam bentuk kombinasi angka yang terdiri dari 2 (dua) digit antara 1 sampai 4 dan nama Golongan dalam bentuk teks. Admin menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Golongan kemudian menampilkan daftar referensi Golongan pada tampilan awal menu referensi Golongan.
+
+Alternatif:
+ * Jika Admin menginput nomor kode Golongan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Golongan yang sudah ada dalam daftar Golongan maka Sistem akan menampilkan pesan bahwa kode Golongan telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Golongan dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+
+==UC Ubah Golongan==
+Aktor : Admin
+
+Admin memilih menu Golongan pada referensi I. Sistem menampilkan halaman referensi Golongan. Admin memilih referensi yang akan diubah dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Golongan kemudian menampilkan daftar referensi Golongan pada tampilan awal menu referensi Golongan.
+
+Alternatif:
+ * Jika Admin menginput nomor kode Golongan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Golongan yang sudah ada dalam daftar Golongan maka Sistem akan menampilkan pesan bahwa kode Golongan telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Golongan dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+
+==UC Hapus Golongan==
+Aktor : Admin
+
+Admin memilih menu Golongan pada referensi I. Sistem menampilkan halaman referensi Golongan. Admin memilih referensi yang akan dihapus dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" untuk menghapus dan "No" untuk batal menghapus. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari daftar Golongan dan kembali ke tampilan awal referensi Golongan.
 
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
 
-==UC-Rekam Pejabat==
-Aktor : Admin
-
-Admin masuk ke menu referensi I dan memilih menu Pejabat. Admin menginput referensi Pejabat melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Pejabat. Admin menginput nomor induk Pejabat sebanyak 18 (delapan belas) digit, nama Pejabat dalam bentuk teks, kode golongan sebanyak 2 (dua) digit, nama jabatan dalam bentuk teks dan keterangan jabatan sebanyak 1 (satu) digit. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Pejabat berupa daftar referensi Pejabat. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Pejabat dan Sistem akan kembali ke tampilan awal menu referensi Pejabat.
-
-Alternatif:
- * Jika nomor induk Pejabat yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor induk Pejabat yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Pejabat telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor induk Pejabat diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
-
-==UC-Ubah Pejabat==
-Aktor : Admin
-
-Admin masuk ke menu referensi I dan memilih menu Pejabat, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Pejabat pada tampilan awal menu referensi Pejabat. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Pejabat. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
-
-Alternatif:
- * Jika nomor induk Pejabat yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor induk Pejabat yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Pejabat telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor induk Pejabat diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- 
-==UC-Hapus Pejabat==
-Aktor : Admin
- 
-Admin masuk ke menu referensi I dan memilih menu Pejabat, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Pejabat. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Pejabat. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
-
-Alternatif:
- * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
- 
-==UC-Rekam Golongan==
-Aktor : Admin
- 
-Admin masuk ke menu referensi I dan memilih menu Golongan. Admin menginput referensi Golongan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Golongan. Admin menginput nomor kode Golongan dalam bentuk kombinasi angka yang terdiri dari 2 (dua) digit antara 1 sampai 4 dan nama Golongan dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Golongan berupa daftar referensi Golongan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Golongan dan Sistem akan kembali ke tampilan awal menu referensi Golongan.
- 
-Alternatif:
- * Jika nomor kode Golongan yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Golongan yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Golongan telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Golongan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
-
-==UC-Ubah Golongan==
-Aktor : Admin
-
-Admin masuk ke menu referensi I dan memilih menu Golongan, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Golongan pada tampilan awal menu referensi Golongan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Golongan. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
-
-Alternatif:
- * Jika nomor kode Golongan yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Golongan yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Golongan telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Golongan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
-
-==UC-Hapus Golongan==
-Aktor : Admin
- 
-Admin masuk ke menu referensi I dan memilih menu Golongan, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Golongan. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Golongan. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
-
-Alternatif:
- * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
-
-==UC-Rekam Fungsi==
+==UC Rekam Fungsi==
 Aktor : Admin 
 
-Admin masuk ke menu referensi I dan memilih menu Fungsi. Admin menginput referensi Fungsi melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Fungsi. Admin menginput nomor kode Fungsi dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Fungsi dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Fungsi berupa daftar referensi Fungsi. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Fungsi dan Sistem akan kembali ke tampilan awal menu referensi Fungsi.
+Admin memilih menu Fungsi pada referensi I. Sistem menampilkan halaman referensi Fungsi. Admin menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Fungsi. Admin menginput nomor kode Fungsi dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Fungsi dalam bentuk teks. Admin menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Fungsi kemudian menampilkan daftar referensi Fungsi pada tampilan awal menu referensi Fungsi.
 
 Alternatif:
- * Jika nomor kode Fungsi yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Fungsi yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- 
-==UC-Ubah Fungsi==
+ * Jika Admin menginput nomor kode Fungsi bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Fungsi yang sudah ada dalam daftar Fungsi maka Sistem akan menampilkan pesan bahwa kode Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Fungsi dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+
+==UC Ubah Fungsi==
 Aktor : Admin
 
-Admin masuk ke menu referensi I dan memilih menu Fungsi, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Fungsi pada tampilan awal menu referensi Fungsi. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Fungsi. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
+Admin memilih menu Fungsi pada referensi I. Sistem menampilkan halaman referensi Fungsi. Admin memilih referensi yang akan diubah dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Fungsi kemudian menampilkan daftar referensi Fungsi pada tampilan awal menu referensi Fungsi.
 
 Alternatif:
- * Jika nomor kode Fungsi yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Fungsi yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- 
-==UC-Hapus Fungsi==
+ * Jika Admin menginput nomor kode Fungsi bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Fungsi yang sudah ada dalam daftar Fungsi maka Sistem akan menampilkan pesan bahwa kode Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Fungsi dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+
+==UC Hapus Fungsi==
 Aktor : Admin
- 
-Admin masuk ke menu referensi I dan memilih menu Fungsi, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Fungsi. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Fungsi. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
+
+Admin memilih menu Fungsi pada referensi I. Sistem menampilkan halaman referensi Fungsi. Admin memilih referensi yang akan dihapus dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" untuk menghapus dan "No" untuk batal menghapus. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari daftar Fungsi dan kembali ke tampilan awal referensi Fungsi.
 
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
 
-==UC-Rekam Sub Fungsi==
+==UC Rekam Sub Fungsi==
 Aktor : Admin 
 
-Admin masuk ke menu referensi I dan memilih menu Sub Fungsi. Admin menginput referensi Sub Fungsi melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Sub Fungsi. Admin memilih Fungsi yang ada dalam bentuk dropdown list sesuai yang diinputkan pada referensi Fungsi kemudian menginput nomor kode Sub Fungsi dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Sub Fungsi dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Sub Fungsi berupa daftar referensi Sub Fungsi. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Sub Fungsi dan Sistem akan kembali ke tampilan awal menu referensi Sub Fungsi.
+Admin memilih menu Sub Fungsi pada referensi I. Sistem menampilkan halaman referensi Sub Fungsi. Admin menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Sub Fungsi. Admin memilih Fungsi yang ada dalam bentuk dropdown list sesuai yang diinputkan pada referensi sebelumnya kemudian menginput nomor kode Sub Fungsi dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Sub Fungsi dalam bentuk teks. Admin menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Sub Fungsi kemudian menampilkan daftar referensi Sub Fungsi pada tampilan awal menu referensi Sub Fungsi.
 
 Alternatif:
- * Jika nomor kode Sub Fungsi yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika kombinasi kode Fungsi dan nomor Sub Fungsi yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Sub Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Sub Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- 
-==UC-Ubah Sub Fungsi==
+ * Jika Admin menginput nomor kode Sub Fungsi bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin memilih kode Fungsi dan menginput nomor kode Sub Fungsi yang sudah ada dalam daftar Fungsi maka Sistem akan menampilkan pesan bahwa kode Sub Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Sub Fungsi dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+
+==UC Ubah Sub Fungsi==
 Aktor : Admin
 
-Admin masuk ke menu referensi I dan memilih menu Sub Fungsi, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Sub Fungsi pada tampilan awal menu referensi Sub Fungsi. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Sub Fungsi. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
+Admin memilih menu Sub Fungsi pada referensi I. Sistem menampilkan halaman referensi Sub Fungsi. Admin memilih referensi yang akan diubah dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Sub Fungsi kemudian menampilkan daftar referensi Sub Fungsi pada tampilan awal menu referensi Sub Fungsi.
 
 Alternatif:
- * Jika nomor kode Sub Fungsi yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika kombinasi kode Fungsi dan nomor Sub Fungsi yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Sub Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Sub Fungsi diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- 
-==UC-Hapus Sub Fungsi==
+ * Jika Admin menginput nomor kode Sub Fungsi bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin memilih kode Fungsi dan menginput nomor kode Sub Fungsi yang sudah ada dalam daftar Fungsi maka Sistem akan menampilkan pesan bahwa kode Sub Fungsi telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Sub Fungsi dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+
+==UC Hapus Sub Fungsi==
 Aktor : Admin
+
+Admin memilih menu Sub Fungsi pada referensi I. Sistem menampilkan halaman referensi Sub Fungsi. Admin memilih referensi yang akan dihapus dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" untuk menghapus dan "No" untuk batal menghapus. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari daftar Sub Fungsi dan kembali ke tampilan awal referensi Sub Fungsi.
+
+Alternatif:
+ * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
+
+==UC Rekam Program==
+Aktor : Admin 
+
+Admin memilih menu Program pada referensi I. Sistem menampilkan halaman referensi Program. Admin menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Program. Admin memilih Fungsi dan Sub Fungsi yang ada dalam bentuk dropdown list sesuai yang diinputkan pada referensi sebelumnya kemudian menginput nomor kode Program dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Program dalam bentuk teks. Admin menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Program kemudian menampilkan daftar referensi Program pada tampilan awal menu referensi Program.
+
+Alternatif:
+ * Jika Admin menginput nomor kode Program bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin memilih kode Fungsi, Sub Fungsi dan menginput nomor kode Program yang sudah ada dalam daftar Program maka Sistem akan menampilkan pesan bahwa kode Program telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Program dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+
+==UC Ubah Program==
+Aktor : Admin
+
+Admin memilih menu Program pada referensi I. Sistem menampilkan halaman referensi Program. Admin memilih referensi yang akan diubah dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Program kemudian menampilkan daftar referensi Program pada tampilan awal menu referensi Program.
+
+Alternatif:
+ * Jika Admin menginput nomor kode Program bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin memilih kode Fungsi, Sub Fungsi dan menginput nomor kode Program yang sudah ada dalam daftar Program maka Sistem akan menampilkan pesan bahwa kode Program telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Program dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
  
-Admin masuk ke menu referensi I dan memilih menu Sub Fungsi, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Sub Fungsi. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Sub Fungsi. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
+==UC Hapus Program==
+Aktor : Admin
+
+Admin memilih menu Program pada referensi I. Sistem menampilkan halaman referensi Program. Admin memilih referensi yang akan dihapus dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" untuk menghapus dan "No" untuk batal menghapus. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari daftar Program dan kembali ke tampilan awal referensi Program.
 
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
  
-==UC-Rekam Program==
+==UC Rekam Kegiatan==
 Aktor : Admin 
 
-Admin masuk ke menu referensi I dan memilih menu Program. Admin menginput referensi Program melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Program. Admin memilih Fungsi dan Sub Fungsi yang ada dalam bentuk dropdown list sesuai yang diinputkan pada referensi sebelumnya kemudian menginput nomor kode Program dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Program dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Program berupa daftar referensi Program. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Program dan Sistem akan kembali ke tampilan awal menu referensi Program.
+Admin memilih menu Kegiatan pada referensi I. Sistem menampilkan halaman referensi Kegiatan. Admin menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Kegiatan. Admin menginput nomor kode Kegiatan dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Kegiatan dalam bentuk teks. Admin menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Kegiatan kemudian menampilkan daftar referensi Kegiatan pada tampilan awal menu referensi Kegiatan.
 
 Alternatif:
- * Jika nomor kode Program yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika kombinasi kode Fungsi, Sub Fungsi dan nomor Program yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Program telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Program diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika Admin menginput nomor kode Kegiatan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Kegiatan yang sudah ada dalam daftar Kegiatan maka Sistem akan menampilkan pesan bahwa kode Kegiatan telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Kegiatan dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
  
-==UC-Ubah Program==
+==UC Ubah Kegiatan==
 Aktor : Admin
 
-Admin masuk ke menu referensi I dan memilih menu Program, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Program pada tampilan awal menu referensi Program. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Program. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
+Admin memilih menu Fungsi pada referensi I. Sistem menampilkan halaman referensi Fungsi. Admin memilih referensi yang akan diubah dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Fungsi kemudian menampilkan daftar referensi Fungsi pada tampilan awal menu referensi Fungsi.
 
 Alternatif:
- * Jika nomor kode Program yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika kombinasi kode Fungsi, Sub Fungsi dan nomor Program yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Program telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Program diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika Admin menginput nomor kode Kegiatan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Kegiatan yang sudah ada dalam daftar Kegiatan maka Sistem akan menampilkan pesan bahwa kode Kegiatan telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Kegiatan dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
  
-==UC-Hapus Program==
+==UC Hapus Kegiatan==
 Aktor : Admin
  
-Admin masuk ke menu referensi I dan memilih menu Program, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Program. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Program. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
+Admin memilih menu Kegiatan pada referensi I. Sistem menampilkan halaman referensi Kegiatan. Admin memilih referensi yang akan dihapus dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" untuk menghapus dan "No" untuk batal menghapus. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari daftar Kegiatan dan kembali ke tampilan awal referensi Kegiatan.
 
 Alternatif:
  * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
- 
-==UC-Rekam Kegiatan==
+
+==UC Rekam Sub Kegiatan==
 Aktor : Admin 
 
-Admin masuk ke menu referensi I dan memilih menu Kegiatan. Admin menginput referensi Kegiatan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Kegiatan. Admin menginput nomor kode Kegiatan dalam bentuk angka yang terdiri dari 2 (dua) digit dan nama Kegiatan dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Kegiatan berupa daftar referensi Kegiatan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Kegiatan dan Sistem akan kembali ke tampilan awal menu referensi Kegiatan.
+Admin memilih menu Sub Kegiatan pada referensi I. Sistem menampilkan halaman referensi Sub Kegiatan. Admin menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Sub Kegiatan. Admin memilih Kegiatan yang ada dalam bentuk dropdown list sesuai yang diinputkan pada referensi sebelumnya kemudian menginput nomor kode Sub Kegiatan dalam bentuk angka yang terdiri dari 4 (empat) digit dan nama Sub Kegiatan dalam bentuk teks. Admin menekan tombol "Simpan". Sistem akan menyimpan ke dalam daftar Sub Kegiatan kemudian menampilkan daftar referensi Sub Kegiatan pada tampilan awal menu referensi Sub Kegiatan.
 
 Alternatif:
- * Jika nomor kode Kegiatan yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Kegiatan yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Kegiatan telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Kegiatan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- 
-==UC-Ubah Kegiatan==
-Aktor : Admin
-
-Admin masuk ke menu referensi I dan memilih menu Kegiatan, memilih dalam daftar referensi yang ada dengan memberikan checklist kemudian menekan tombol "Ubah". Sistem akan menampilkan form isian yang sudah terisi sesuai pilihan sebelumnya. Admin mengubah sesuai keperluan kemudian menekan tombol "Simpan". Sistem akan menyimpan ke dalam database kemudian menampilkan kembali daftar referensi Kegiatan pada tampilan awal menu referensi Kegiatan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan perubahan dan Sistem akan kembali ke tampilan awal menu referensi Kegiatan. Admin dapat memilih referensi yang akan diubah lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
-
-Alternatif:
- * Jika nomor kode Kegiatan yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Kegiatan yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Kegiatan telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Kegiatan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- 
-==UC-Hapus Kegiatan==
-Aktor : Admin
- 
-Admin masuk ke menu referensi I dan memilih menu Kegiatan, pilih dalam daftar referensi yang ada dengan memberikan checklist kemudian Admin menekan tombol "Hapus". Sistem akan menampilkan kotak dialog dengan tombol "Yes" dan "No" yang berisi pesan konfirmasi apakah Admin akan benar-benar menghapus referensi tersebut. Admin memilih tombol "Yes" untuk menghapus referensi tersebut dan Sistem akan menghapusnya dari database dan kembali ke tampilan awal referensi Kegiatan. Admin memilih tombol "No" maka Sistem akan kembali ke tampilan awal referensi Kegiatan. Admin dapat memilih referensi yang akan dihapus lebih dari satu dan Sistem akan memprosesnya satu per satu secara berurutan.
-
-Alternatif:
- * Jika tidak ada referensi yang dipilih untuk dihapus dan Admin menekan tombol "Hapus", maka Sistem akan menampilkan kotak dialog yang berisi pesan bahwa tidak ada record yang akan dihapus.
- 
-==UC-Rekam Sub Kegiatan==
-Aktor : Admin 
-
-Admin masuk ke menu referensi I dan memilih menu Sub Kegiatan. Admin menginput referensi Sub Kegiatan melalui APDOL dengan menekan tombol "Rekam", kemudian Sistem akan menampilkan form isian referensi Sub Kegiatan. Admin memilih Kegiatan yang ada dalam bentuk dropdown list sesuai yang diinputkan pada referensi sebelumnya kemudian menginput nomor kode Sub Kegiatan dalam bentuk angka yang terdiri dari 4 (empat) digit dan nama Sub Kegiatan dalam bentuk teks. Admin menekan tombol "Simpan" untuk menyimpan data yang telah diinput. Sistem akan menyimpan ke dalam database kemudian menampilkan kembali data yang baru saja dimasukkan pada tampilan awal menu referensi Sub Kegiatan berupa daftar referensi Sub Kegiatan. Selain itu, Admin bisa menekan tombol "Batal" untuk membatalkan isian referensi Sub Kegiatan dan Sistem akan kembali ke tampilan awal menu referensi Sub Kegiatan.
-
-Alternatif:
- * Jika nomor kode Sub Kegiatan yang diinputkan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika kombinasi nomor Kegiatan dan kode Sub Kegiatan yang diinputkan telah ada dalam database maka Sistem akan menampilkan pesan bahwa kode Sub Kegiatan telah ada dan Sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika nomor kode Sub Kegiatan diinputkan tidak sesuai dengan digit yang dimintakan maka Sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
- * Jika ada field yang diisikan kosong maka sistem akan menampilkan pesan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah tersebut.
+ * Jika Admin menginput nomor kode Sub Kegiatan bukan angka maka Sistem akan menampilkan peringatan kesalahan input bukan angka dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin memilih kode Kegiatan dan menginput nomor kode Sub Kegiatan yang sudah ada dalam daftar Kegiatan maka Sistem akan menampilkan pesan bahwa kode Sub Kegiatan telah ada dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin menginput nomor kode Sub Kegiatan dengan jumlah digit yang tidak sesuai maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
+ * Jika Admin tidak mengisi field yang tersedia maka Sistem akan menampilkan pesan kesalahan input dan Sistem akan menampilkan kembali form isian referensi.
 
 == UC-Ubah Sub Kegiatan ==
 
