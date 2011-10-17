@@ -292,11 +292,11 @@ Alternatif  :
 == UC-Nomor SP2D ==
 Aktor: Admin.
 
-Pada halaman Nomor SP2D, User menginput referensi Nomor SP2D dengan menekan tombol "Rekam". Sistem menampilkan halaman rekam referensi Nomor SP2D. User memasukkan data pada field (nomor surat alokasi (teks), tanggal surat alokasi (tanggal), nomor awal alokasi SP2D sebanyak 6 (enam) digit, nomor akhir alokasi SP2D sebanyak 6 (enam) digit,  abjad alokasi SP2D sebanyak 1 (satu) karakter huruf romawi dan nomor SP2D aktif sebanyak 6 (enam) digit) kemudian menekan tombol "Simpan". Sistem akan memastikan semua field telah terisi dan karakter field yang terisi sudah sesuai, menyimpan data kemudian mengembalikan ke tampilan awal. 
+Pada halaman Nomor SP2D, User menekan tombol "Rekam". Sistem menampilkan halaman rekam Nomor SP2D. User memasukkan data pada field (nomor surat alokasi (teks), tanggal surat alokasi (tanggal), nomor awal alokasi SP2D sebanyak 6 (enam) digit, nomor akhir alokasi SP2D sebanyak 6 (enam) digit,  abjad alokasi SP2D sebanyak 1 (satu) karakter huruf romawi dan nomor SP2D aktif sebanyak 6 (enam) digit) kemudian menekan tombol "Simpan". Sistem akan memastikan semua field telah terisi dan karakter field yang terisi sudah sesuai, menyimpan data kemudian mengembalikan ke tampilan awal. 
 
  Alternatif  :
 
-* Jika salah satu field belum diisikan : sistem akan menolak input lalu menampilkan peringatan bahwa seluruh field harus terisi, kemudian mengembalikan ke halaman rekaman Nomor SP2D.
+ * Jika salah satu field belum diisikan : sistem akan menolak input lalu menampilkan peringatan bahwa seluruh field harus terisi, kemudian mengembalikan ke halaman rekaman Nomor SP2D.
  * Jika karakter field yang terisi tidak sesuai : sistem akan menampilkan peringatan kesalahan input, kemudian mengembalikan ke halaman rekaman Nomor SP2D.
 
 == UC-Cari Referensi ==
