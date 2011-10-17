@@ -173,52 +173,55 @@ Alternatif :
  * Jika pada saat pengisian field data tidak ditemukan dalam daftar referensi maka sistem akan memunculkan pesan bahwa data tidak ditemukan
  * Jika jumlah karakter pada field yang dimasukkan tidak sesuai maka sistem akan menampilkan peringatan kesalahan input dan sistem akan kembali pada halaman rekam SPM tanpa melakukan penyimpanan.
  * Jika pada saat perekaman SPM selesai user langsung pilih "kembali" belum memilih "simpan", maka sistem akan menampilkan peringatan apakah user yakin melakukan pilihan kembali tanpa melakukan penyimpanan
-
 == UC-Ubah SPM ==
 Aktor : Satker.
 
-User berada pada menu SPM, kemudian pilih "ubah SPM". Kemudian user mengisikan tanggal SPM yang akan diubah, maka sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan perubahan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol ubah, maka sistem akan menayangkan kembali tampilan seperti pada saat rekam SPM, kemudian user bisa melakukan perubahan yang diinginkan. Kemudian setelah perubahan dilakukan user klik "simpan", maka sistem akan menyimpan perubahan data SPM tersebut kedalam database
+User berada pada menu SPM. Kemudian pilih "ubah SPM". Sistem akan menampilkan halaman ubah SPM. Isikan field tanggal SPM (tanggal SPM yang akan diubah). Sistem akan mencari data dalam daftar SPM. Apabila data ditemukan maka sistem akan menampilkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user memilih nomor SPM yang akan dilakukan perubahan dengan mengklik fieldSPM dimaksud. Kemudian pilih tombol "ubah". Sistem akan menampilkan halaman edit ubah SPM. User melakukan perubahan data SPM. Kemudian klik tombol "simpan". Sistem akan menyimpan perubahan data SPM tersebut dalam daftar SPM.
 
 Alternatif :
 
+ * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menapilkan pesan bahwa data tidak ditemukan
  * Jika pada saat perubahan data SPM user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam SPM kembali.
  * Jika pada saat perubahan SPM selesai user langsung pilih "kembali" belum memilih "simpan", maka sistem akan menampilkan peringatan apakah user yakin melakukan pilihan kembali tanpa melakukan penyimpanan
 
 == UC-Hapus SPM ==
 Aktor : Satker.
 
-User berada pada menu SPM, pilih "Hapus SPM". Kemudian isikan tanggal SPM yang akan dihapus, sistem maka menayangkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user harus melakukan pemilihan nomor SPM mana yang akan dilakukan penghapusan dengan mengklik pada tombol SPM dimaksud, kemudian tekan tombol “Hapus”, maka sistem akan otomatis menghapus data SPM dari database. 
+User berada pada menu SPM, pilih "Hapus SPM". Sistem akan menampilkan halaman hapus SPM. Isikan field tanggal SPM yang akan dihapus. Sistem akan mencari data dalam daftar SPM. Apabila  data ditemukan maka sistem akan menampilkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user memilih nomor SPM yang akan dilakukan perubahan dengan mengklik field SPM dimaksud. kemudian tekan tombol “Hapus”. Sistem akan menghapus data SPM dari daftar SPM. 
 
 Alternatif :
 
- * Jika pada saat penghapusan data pagu user belum menempatkan kursor pada posisi data yang akan dihapus, maka sistem akan menampilkan peringatan bahwa user belum memilih data yang akan dihapus. 
+ * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menampilkan pesan bahwa data tidak ditemukan
+ * Jika pada saat penghapusan data pagu user belum menempatkan kursor pada field data yang akan dihapus, maka sistem akan menampilkan peringatan bahwa user belum memilih data yang akan dihapus. 
  
 == UC-Cari SPM ==
 Aktor : Satker.
 
-User berada pada sub menu  "Cari SPM". Kemudian sistem akan menampilkan tampilan pada layar, isikan pada kolom "cari" kata kunci dari SPM yang ingin dicari, bisa berupa kode satker, nomor SPM, tanggal SPM, nilai SPM, MAK, Status SPM. Kemudian sistem akan melakukan filter berdasarkan inputan user, dan sistem akan menampilkan pada tabel SPM yang sesuai kata kunci yang diinput user. Kemudian user tinggal memilih pada tabel yang ada pada layar untuk menentukan SPM yang dimaksud.
+User berada pada sub menu  "Cari SPM". Sistem akan menampilkan halaman cari SPM. User mengetikkan data yang ingin dicari pada field "cari". Data berupa kode satker, nomor SPM, tanggal SPM, nilai SPM, MAK, Status SPM. Klik Enter. Sistem akan mencari dalam daftar SPM. Kemudian apabila data ditemukan maka sistem akan menampilkan data SPM yang dicari pada tabel. 
 
 Alternatif :
 
- * Jika pada saat memasukkan kata kunci pencarian sistem tidak menemukan data yang dimaksud oleh user, maka sistem akan menampilkan notifikasi bahwa tidak ada yang dimaksud oleh user.
+ * Jika data tidak ditemukan dalam daftar SPM, maka sistem akan menampilkan pesan bahwa data tidak ditemukan dan sistem akan mengembalikan pada halaman cari SPM.
 
 == UC-Cetak SPM ==
 Aktor : Satker.
 
-Satker berada pada sub menu Cetak SPM. Setelah satker memilih maka pada layar menu oleh sistem akan ditayangkan menu isian berupa pilihan data-data SPM yang telah direkam sebelumnya. Isikan tanggal SPM yang ingin dicetak. Maka sistem akan menampilkan SPM-SPM yang dibuat pada tanggal tersebut. Satker tinggal memilih SPM mana yang akan dicetak kemudian pilih “cetak”. Pilihan cetak ada dua macam, yaitu cetak di layar atau cetak melalui printer. User tinggal klik salah satu pilihan. Sistem mengirimkan paket data ke printer, menutup tampilan pratinjau lalu mengembalikan ke tampilan awal.
+Satker memilih sub menu cetak SPM. Sistem akan menampilkan halaman sub menu Cetak SPM. Isikan tanggal SPM yang ingin dicetak pada field tanggal SPM. Sistem akan mencari dalam daftar SPM. Apabila data ditemukan maka sistem akan menampilkan SPM-SPM yang dibuat pada tanggal tersebut. Satker memilih SPM mana yang akan dicetak dengan pilih pada field “cetak”. Satker menentukan opsi pilihan cetak (cetak di layar atau cetak melalui printer) dengan klik salah satu tombol "layar" atau "printer". Apabila user pilih tombol "layar" maka sistem akan menampilkan form SPM pada layar. Stelah selesai pilih tombol kembali, maka sistem akan menampilkan lagi ke halaman cetak SPM. Apabila user memilih tombol "printer" maka sistem mengirimkan paket data ke printer dan sistem menutup tampilan pratinjau lalu mengembalikan ke halaman cetak SPM.
 
 Alternatif :
 
- * Jika kondisi satker belum menentukan pilihan data SPM yang akan dicetak maka sistem akan memunculkan notifikasi bahwa pilihan SPM untuk dicetak belum ditentukan. 
+ * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menampilkan pesan bahwa data tidak ditemukan
+ * Jika satker belum menentukan pilihan data SPM yang akan dicetak maka sistem akan memunculkan pesan bahwa pilihan SPM untuk dicetak belum ditentukan. 
 
 == UC-Submit SPM ==
 Aktor : Satker.
 
-Satker berada pada sub menu "Submit SPM". User memasukkan tanggal SPM yang akan disubmit ke KPPN. Sistem akan memunculkan tampilan daftar SPM yang sudah siap disubmit ke KPPN. User pilih SPM mana saja yang akan disubmit dengan mengisi kolom "pilih". Klik tombol "submit". Sistem akan menyimpan dalam database untuk dapat dibaca oleh KPPN dalam notifikasi SPM. 
+Satker memilih sub menu "Submit SPM". Sistem akan menampilkan halaman submit SPM. User memasukkan tanggal SPM yang akan disubmit ke KPPN. Sistem akan mencari dalam daftar SPM. Apabila data ditemukan maka sistem akan memunculkan tampilan daftar SPM yang sudah siap disubmit ke KPPN. User pilih SPM dengan meng klik field "pilih". Klik tombol "submit". Sistem akan menyimpan dalam daftar SPM.  
 
 Alternatif :
 
- * Jika kondisi satker belum menentukan pilihan data SPM yang akan disubmit maka sistem akan memunculkan notifikasi bahwa pilihan SPM untuk disubmit belum ditentukan.
+ * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menampilkan pesan bahwa data tidak ditemukan
+ * Jika kondisi satker belum menentukan pilihan data SPM yang akan disubmit maka sistem akan memunculkan pesan bahwa pilihan SPM untuk disubmit belum ditentukan.
 
 == UC-Notifikasi SPM ==
 Aktor : KPPN.
