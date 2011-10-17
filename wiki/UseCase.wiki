@@ -312,14 +312,14 @@ Alternatif :
 == UC-Rekam Satker ==
 
 Aktor : Admin.
-Sistem menampilkan halaman referensi Satuan Kerja. Admin menginput referensi Satker dengan menekan tombol "Rekam". Sistem akan menampilkan halaman pengisian referensi Satker. Admin memasukkan data pada field (kode Satker, kode Departemen, kode Unit, kode Lokasi, kode Dati II, kode KPPN dan nama Satker) kemudian menekan tombol "Simpan". Sistem mengecek apakah kode satker adalah unik, menyimpan data,  kemudian menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
+Pada halaman Satuan Kerja, Admin menekan tombol "Rekam". Sistem akan menampilkan halaman pengisian Satker. Admin memasukkan data pada field (kode Satker sebanyak 6 (enam) digit, kode Departemen sebanyak 3 (tiga) digit, kode Unit sebanyak 2 (dua) digit, kode lokasi sebanyak 2 (dua) digit, kode Dati II sebanyak 2 (dua) digit, kode KPPN sebanyak 3 (tiga) digit dan nama Satker dalam bentuk teks) kemudian menekan tombol "Simpan". Sistem mengecek apakah seluruh field terisi, karakter field telah sesuai dan mengecek apakah kode Satker telah ada,  menyimpan data lalu mengembalikan ke tampilan awal.
 
 Alternatif  :
 
- * Jika kode Satker, Departemen, Unit, Lokasi, Dati II dan KPPN yang diinputkan bukan angka: sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah.
- * Jika kode Satker yang dimasukkan tidak unik : sistem akan menampilkan pesan bahwa kode Satker telah ada dan kembali pada halaman pengisian referensi tanpa menyimpan inputan yang salah.
- * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
- * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+* Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+* Jika karakter field yang terisi tidak sesuai : sistem akan menampilkan peringatan kesalahan input, kemudian mengembalikan ke halaman rekam Satker.
+* Jika Satker telah ada : sistem akan menampilkan peringatan bahwa data sudah ada pada sistem, kemudian mengembalikan ke halaman rekam Satker.
+
 
 == UC-Ubah Satker ==
 Aktor : Admin.
