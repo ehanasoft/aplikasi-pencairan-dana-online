@@ -97,37 +97,38 @@ Alternatif :
 == UC-Login ==
 Aktor : Admin, KPPN, Satker
 
-User berada pada halaman login APDOL. Kemudian user mengisikan username dan password yang sudah diregistrasi diawal, kemudian pilih tombol “Login”. Maka sistem akan melakukan validasi terhadap data yang akan dimasukkan. Sistem membandingkan username dan password yang dimasukkan dengan yang ada dalam databasae APDOL. Kemudian jika username dan password telah valid maka sistem akan menampilkan halaman utama sesuai dengan hak akses masing-masing user. 
+User berada pada halaman login APDOL. Kemudian user mengisikan username dan password. Username password tidak boleh kosong. Kemudian klik tombol “Login”. Kemudian sistem akan mencari username dan password dalam daftar user. Apabila user ditemukan maka sistem akan menampilkan halaman utama APDOL.  
 
 Alternatif :
 
- * Jika username dan atau password kosong maka sistem akan memunculkan peringatan bahwa user belum memasukkan username dan atau password
- * Jika username dan atau password tidak sesuai dengan yang diinputkan pada saat registrasi maka sistem akan memunculkan peringatan bahwa username dan atau password yang salah
+ * Jika username dan atau password kosong maka sistem akan menampilkan peringatan bahwa username dan atau password kosong.
+ * Jika username dan atau password tidak ditemukan dalam daftar user maka sistem akan menampilkan peringatan bahwa username password tidak ditemukan.
 
 == UC-Rekam DIPA ==
 Aktor : Admin.
 
-User berada pada menu DIPA, pilih sub menu "Rekam DIPA". Kemudian sistem akan menampilkan tampilan berupa data yang harus diisi, isikan elemen-elemen data pagunya berupa Tahun Anggaran, Kode Satker, Kementerian, Unit Organisasi, Fungsi, Sub Fungsi, Program, Kegaiatan, Sub Kegiatan, BKPK, MAK, Lokasi, Dati II, KPPN, Pagu Awal. Setelah semua terisi tekan tombol “Simpan”, maka sistem akan menampilkan pada table isian apa yang telah user isikan dan sistem secara otomatis akan menyimpan data pagu DIPA kedalam database.
+User berada pada menu DIPA, pilih sub menu "Rekam DIPA". Sistem akan menampilkan field data-data pagu (Tahun Anggaran, Kode Satker, Kementerian, Unit Organisasi, Fungsi, Sub Fungsi, Program, Kegiatan, Sub Kegiatan, BKPK, MAK, Lokasi, Dati II, KPPN, Pagu Awal). Admin memasukkan data kedalam field tersebut. Semua field tidak boleh kosong. Kemudian klik tombol “Simpan”, maka sistem akan menampilkan pada table isian apa yang user isikan dan sistem akan menyimpan data dalam daftar DIPA. Kemudian sistem akan menampilkan kembali halaman rekam DIPA.
 
 Alternatif :
 
- * Jika user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam pagu kembali.
-
+ * Jika terdapat field yang kosong maka sistem akan menampilkan peringatan bahwa ada field yang kosong
+ * Jika jumlah karakter pada field yang dimasukkan tidak sesuai maka sistem akan menampilkan peringatan kesalahan input dan sistem akan kembali pada halaman rekam DIPA tanpa melakukan penyimpanan.
 
 == UC-Ubah DIPA ==
 Aktor : Admin
 
-User berada pada menu DIPA, pilih sub menu "Ubah DIPA". Kemudian sistem akan menampilkan tampilan, user mengisikan tahun anggaran serta kode satker, kemudian sistem akan menampilkan dalam tabel data DIPA yang sudah direkam, kemudian user memilih data yang ingin diubah dengan centang "Pilih" kemudian klik "Ubah", maka sistem akan menampilkan tampilan seperti pada saat rekam DIPA, kemudian user bisa merubah data, kemudian klik "Simpan", maka sistem akan menyimpan perubahan data pada database.
+User berada pada menu DIPA, pilih sub menu "Ubah DIPA". Kemudian sistem akan menampilkan halaman ubah DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel yang berisi data DIPA yang sudah direkam. User melakukan klik "Pilih" pada field yang data yang ingin diubah. Kemudian klik tombol "Ubah". Sistem akan menampilkan halaman seperti pada saat rekam DIPA. User melakukan perubahan data. Semua field tidak boleh kosong. Kemudian klik tombol "Simpan". Sistem akan menyimpan perubahan data pada daftar DIPA.
 
 Alternatif :
 
- * Jika user belum memilih pilihan yang akan diubah maka sistem akan memunculkan peringatan bahwa data belum dipilih 
- * Jika user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian ubah pagu kembali.
+ * Jika user belum mengisikan Tahun anggaran dan kode satker maka sistem akan memunculkan peringatan bahwa user belum melakukan pengisian Tahun anggaran dan kode satker
+ * Jika user belum melakukan pilihan data yang akan diubah maka sistem akan memunculkan peringatan bahwa data belum dipilih. 
+ * Jika jumlah karakter pada field yang dimasukkan tidak sesuai maka sistem akan menampilkan peringatan kesalahan input dan sistem akan kembali pada halaman rekam DIPA tanpa melakukan penyimpanan.
 
 == UC-Hapus DIPA ==
 Aktor : Admin
 
-User berada pada menu DIPA, pilih sub menu "Hapus DIPA". Kemudian sistem akan menampilkan tampilan, user mengisikan tahun anggaran serta kode satker, kemudian sistem akan menampilkan dalam tabel data DIPA yang sudah direkam, kemudian user memilih data yang ingin dihapus dengan centang "Pilih" kemudian klik "Hapus", maka sistem akan menghapus data dari database.
+User berada pada menu DIPA, pilih sub menu "Hapus DIPA". Kemudian sistem akan menampilkan halaman Hapus DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel yang berisi data DIPA yang sudah direkam. User melakukan klik "Pilih" pada field yang data yang ingin dihapus. Kemudian pilih tombol "Hapus". Maka sistem akan menghapus data dari daftar DIPA.
 
 Alternatif :
 
@@ -137,20 +138,22 @@ Alternatif :
 == UC-Cari DIPA ==
 Aktor : Admin
 
-User berada pada menu DIPA, pilih sub menu "Cari DIPA". Kemudian sistem akan menampilkan tampilan di layar, user mengisikan tahun anggaran serta kode satker, kemudian sistem akan menampilkan dalam tabel data DIPA yang sudah direkam. User mengetikkan pada bagian "cari" kata kunci yang ingin dicari. Bisa berupa uraian DIPA maupun nilai DIPA. Kemudian sistem akan melakukan filter dan menampilkan pada tabel data yang sesuai inputan user.
+User berada pada menu DIPA, pilih sub menu "Cari DIPA". Kemudian sistem akan menampilkan halaman cari DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel data DIPA yang sudah direkam. User mengetikkan data yang ingin dicari pada field "cari". Data berupa uraian DIPA maupun nilai DIPA. Klik Enter. Sistem akan mencari dalam daftar DIPA. Kemudian apabila data ditemukan maka sistem akan menampilkan pada tabel. 
 
 Alternatif :
 
-* Jika pada saat memasukkan kata kunci pencarian sistem tidak menemukan data yang dimaksud oleh user, maka sistem akan menampilkan notifikasi bahwa tidak ada yang dimaksud oleh user.
+ * Jika user belum mengisikan Tahun anggaran dan kode satker maka sistem akan memunculkan peringatan bahwa user belum melakukan pengisian Tahun anggaran dan kode satker
+ * Jika data tidak ditemukan dalam daftar DIPA, maka sistem akan menampilkan pesan bahwa data tidak ditemukan dan sistem akan mengembalikan pada halaman cari DIPA.
 
 == UC-Tayang DIPA ==
 Aktor : Admin
 
-User berada pada menu DIPA, pilih sub menu "Tayang DIPA". Kemudian sistem akan menampilkan tampilan di layar, user mengisikan tahun anggaran serta kode satker, kemudian sistem akan menampilkan dalam tabel data DIPA yang sudah direkam. User memilih pada tabel diatas data yang mau ditayangkan, maka sistem akan menampilkan rincian data DIPA pada tabel yang ada dibawahnya. 
+User berada pada menu DIPA, pilih sub menu "Tayang DIPA". Kemudian sistem akan menampilkan halaman tayang DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel data DIPA yang sudah direkam. User memilih data yang mau ditayangkan dengan meng "klik" field data yang dimkasud. Maka sistem akan menampilkan rincian data DIPA pada tabel. 
 
 Alternatif :
 
- * Jika user tidak melakukan pilihan data yang ditayangkan, maka sistem tidak akan menayangkan rincian pada tabel rincian DIPA.
+ * Jika user belum mengisikan Tahun anggaran dan kode satker maka sistem akan memunculkan peringatan bahwa user belum melakukan pengisian Tahun anggaran dan kode satker
+ * Jika user tidak melakukan pilihan data yang ingin ditayangkan, maka sistem tidak akan menayangkan rincian pada tabel rincian DIPA.
 
 == UC-Rekam SPM ==
 Aktor : Satker.
