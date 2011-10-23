@@ -574,13 +574,9 @@ sistem menampilkan halaman referensi umum. admin menekan tombol sub kegiatan dan
 alternatif :
 
  # admin belum memilih referensi : sistem  menampilkan pesan pilih satu atau lebih referensi sub kegiatan
-
  # jika field kode atau nama sub kegiatan diisikan kosong oleh admin maka sistem  menampilkan pesan "kode atau nama harus diisi" kemudian menampilkan kembali form  ubah referensi sub kegiatan
-
  #  jika kode sub kegiatan yang diinputkan oleh admin bukan angka maka sistem  menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form  ubah referensi sub kegiatan
-
  # jika kode sub kegiatan yang diinputkan oleh admin kurang dari 4 digit maka sistem  menampilkan pesan "kode harus 4 digit", batal menyimpan data kemudian menampilkan kembali form  ubah referensi sub kegiatan
-
  # jika kode sub kegiatan yang diinputkan oleh admin telah ada dalam database maka sistem  menampilkan pesan bahwa kode atau nama sub kegiatan telah ada, batal menyimpan data kemudian menampilkan kembali form  ubah referensi sub kegiatan
 
 == UC-Hapus Referensi Sub Kegiatan ==
@@ -606,11 +602,8 @@ alternatif :
 
 
  # jika field kode atau nama kementerian diisikan kosong oleh admin maka sistem  menampilkan pesan "kode atau nama harus diisi" kemudian menampilkan kembali form rekam referensi kementerian
- 
  # jika kode kementerian yang diinputkan oleh admin bukan angka maka sistem  menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form rekam referensi kementerian
- 
  # jika kode kementerian yang diinputkan oleh admin kurang dari 2 digit maka sistem  menampilkan pesan "kode harus 2 digit", batal menyimpan data kemudian menampilkan kembali form rekam referensi kementerian
-
  # jika kode kementerian yang diinputkan oleh admin telah ada dalam referensi. maka sistem  menampilkan pesan bahwa kode atau nama kementerian telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi kementerian
 
 == UC-Ubah kementerian ==
@@ -622,13 +615,9 @@ sistem menampilkan halaman referensi umum. admin menekan tombol kementerian dan 
 alternatif :
 
  # admin belum memilih referensi : sistem menampilkan pesan pilih satu atau lebih referensi
-
  # jika field kode atau nama kementerian diisikan kosong oleh admin maka sistem  menampilkan pesan "kode atau nama harus diisi" kemudian menampilkan kembali form ubah  referensi kementerian
-
  #  jika kode kementerian yang diinputkan oleh admin bukan angka maka sistem  menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form ubah  referensi  kementerian
-
  # jika kode kementerian yang diinputkan oleh admin kurang dari 2 digit maka sistem  menampilkan pesan "kode harus 2 digit", batal menyimpan data kemudian menampilkan kembali form ubah  referensi kementerian
-
  # jika kode kementerian yang diinputkan oleh admin telah ada dalam database maka sistem  menampilkan pesan bahwa kode atau nama kementerian telah ada, batal menyimpan data kemudian menampilkan kembali form ubah  referensi kementerian
 
 == UC-Hapus kementerian ==
@@ -650,11 +639,8 @@ sistem menampilkan halaman referensi khusus kemudian admin mengklik menu referen
 alternatif :
 
  # jika field kode atau nama lokasi diisikan kosongoleh admin maka sistem  menampilkan pesan "kode atau nama harus diisi" kemudian menampilkan kembali form rekam referensi lokasi
-
  # jika kode lokasi yang diinputkanoleh admin bukan angka maka sistem  menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form rekam referensi lokasi
-
  # jika kode lokasi yang diinputkan oleh admin kurang dari 2 digit maka sistem  menampilkan pesan "kode harus 2 digit", batal menyimpan data kemudian menampilkan kembali form rekam referensi lokasi
-
  # jika kode lokasi yang diinputkan oleh admin telah ada dalam database maka sistem  menampilkan pesan bahwa kode atau nama lokasi telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi lokasi
 
 == UC-Ubah lokasi ==
@@ -666,13 +652,9 @@ sistem menampilkan halaman referensi khusus. admin menekan tombol lokasi  dan si
 alternatif :
 
  # admin belum memilih referensi : sistem  menampilkan pesan pilih satu atau lebih referensi
-
  # jika field kode atau nama lokasi diisikan kosong oleh admin maka sistem  menampilkan pesan "kode atau nama harus diisi" kemudian menampilkan kembali form ubah  referensi lokasi
-
  #  jika kode lokasi yang diinputkan oleh admin bukan angka maka sistem  menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form ubah  referensi  lokasi
-
  # jika kode lokasi yang diinputkan oleh admin kurang dari 2 digit maka sistem  menampilkan pesan "kode harus 2 digit", batal menyimpan data kemudian menampilkan kembali form ubah  referensi lokasi
-
  # jika kode lokasi yang diinputkan oleh admin telah ada dalam database maka sistem  menampilkan pesan bahwa kode atau nama lokasi telah ada, batal menyimpan data kemudian menampilkan kembali form ubah  referensi lokasi
 
 == UC-Hapus lokasi ==
@@ -694,11 +676,8 @@ sistem menampilkan halaman referensi khusus kemudian admin mengklik menu referen
 alternatif :
 
  # jika field kode atau nama dati II diisikan kosong oleh admin maka sistem  menampilkan pesan "kode atau nama harus diisi" kemudian menampilkan kembali form rekam referensi dati II
-
  # jika kode dati II yang diinputkan oleh admin bukan angka maka sistem  menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
-
  # jika kode dati II yang diinputkan oleh admin kurang dari 2 digit maka sistem  menampilkan pesan "kode harus 2 digit", batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
-
  # jika kode lokasi dan dati II atau nama dati II yang diinputkan oleh admin telah ada dalam database maka sistem  menampilkan pesan bahwa kode lokasi dan dati II atau nama dati II telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
 
 == UC-Ubah dati II ==
@@ -710,13 +689,9 @@ sistem menampilkan halaman referensi khusus. admin menekan tombol dati II  dan s
 alternatif :
 
  # admin belum memilih referensi : sistem  menampilkan pesan pilih satu atau lebih referensi
-
  # jika field kode atau nama dati II diisikan kosong oleh admin maka sistem  menampilkan pesan "kode atau nama harus diisi" kemudian menampilkan kembali form rekam referensi dati II
-
  # jika kode dati II yang diinputkan oleh admin bukan angka maka sistem  menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
-
  # jika kode dati II yang diinputkan oleh admin kurang dari 2 digit maka sistem  menampilkan pesan "kode harus 2 digit", batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
-
  # jika kode lokasi dan dati II atau nama dati II yang diinputkan oleh admin telah ada dalam database maka sistem  menampilkan pesan bahwa kode lokasi dan dati II atau nama dati II telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi dati II
 
 == UC-Hapus dati II ==
@@ -738,11 +713,8 @@ sistem menampilkan halaman referensi khusus kemudian admin mengklik menu referen
 alternatif :
 
  # jika field kode atau nama bkpk diisikan kosong oleh admin maka sistem  menampilkan pesan "kode atau nama harus diisi" kemudian menampilkan kembali form rekam referensi bkpk
-
  # jika kode bkpk yang diinputkan oleh admin bukan angka maka sistem  menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form rekam referensi bkpk
-
  # jika kode bkpk yang diinputkan oleh admin kurang dari 4 digit maka sistem  menampilkan pesan "kode harus 4 digit", batal menyimpan data kemudian menampilkan kembali form rekam referensi bkpk
-
  # jika kode bkpk yang diinputkan oleh admin telah ada dalam database maka sistem  menampilkan pesan bahwa kode atau nama bkpk telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi bkpk
 
 == UC-Ubah BKPK ==
@@ -754,13 +726,9 @@ sistem menampilkan halaman referensi khusus. admin menekan tombol bkpk  dan sist
 alternatif :
 
  # admin belum memilih referensi : sistem  menampilkan pesan pilih satu atau lebih referensi
-
  # jika field kode atau nama bkpk diisikan kosong oleh admin maka sistem  menampilkan pesan "kode atau nama harus diisi" kemudian menampilkan kembali form ubah referensi bkpk
-
  #  jika kode bkpk yang diinputkan oleh admin bukan angka maka sistem  menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form ubah  referensi  bkpk
-
  # jika kode bkpk yang diinputkan oleh admin kurang dari 4 digit maka sistem  menampilkan pesan "kode harus 4 digit", batal menyimpan data kemudian menampilkan kembali form ubah  referensi bkpk
-
  # jika kode bkpk yang diinputkan oleh admin telah ada dalam database maka sistem  menampilkan pesan bahwa kode atau nama bkpk telah ada, batal menyimpan data kemudian menampilkan kembali form ubah  referensi bkpk
 
 == UC-Hapus BKPK ==
@@ -782,11 +750,8 @@ sistem menampilkan halaman referensi khusus kemudian admin mengklik menu referen
 alternatif :
 
 # jika field kode atau nama mata anggaran diisikan kosong oleh admin maka sistem menampilkan pesan "kode atau nama harus diisi" kemudian menampilkan kembali form rekam referensi mata anggaran
-
 # jika kode mata anggaran yang diinputkan oleh admin bukan angka maka sistem menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form rekam referensi mata anggaran
-
 # jika kode mata anggaran kurang dari 6 digit maka sistem  menampilkan pesan "kode harus 6 digit", batal menyimpan data kemudian menampilkan kembali form rekam referensi mata anggaran
-
 # jika kode bkpk dan mata anggaran atau nama mata anggaran yang diinputkan oleh admin telah ada dalam database maka sistem  menampilkan pesan bahwa kode bkpk dan mata anggaran atau nama mata anggaran telah ada, batal menyimpan data kemudian menampilkan kembali form rekam referensi mata anggaran
 
 
@@ -799,13 +764,9 @@ sistem menampilkan halaman referensi khusus. admin menekan tombol mata anggaran 
 alternatif :
 
  # admin belum memilih referensi : sistem  menampilkan pesan pilih satu atau lebih referensi
-
  # jika field kode atau nama mata anggaran diisikan kosong oleh admin maka sistem  menampilkan pesan kesalahan input kemudian menampilkan kembali form ubah referensi mata anggaran
-
  # jika kode mata anggaran yang diinputkan oleh admin bukan angka maka sistem  menampilkan pesan "kode harus angka", batal menyimpan data kemudian menampilkan kembali form ubah referensi mata anggaran
-
  # jika kode mata anggaran kurang dari 6 digit maka sistem  menampilkan pesan "kode harus 6 digit", batal menyimpan data kemudian menampilkan kembali form ubah referensi mata anggaran
-
  # jika kode bkpk dan mata anggaran atau nama mata anggaran yang diinputkan oleh admin telah ada dalam database maka sistem  menampilkan pesan bahwa kode bkpk dan mata anggaran atau nama mata anggaran telah ada, batal menyimpan data kemudian menampilkan kembali form ubah referensi mata anggaran
 
 == UC-Hapus mata anggaran ==
