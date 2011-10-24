@@ -4,8 +4,8 @@
 
 Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
 
- #  Registrasi
- #  Ubah User
+ #  Registrasi KPPN
+ #  Registrasi Satker
  #  Login
  #  R DIPA
  #  U DIPA
@@ -72,32 +72,32 @@ Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
  #  Ubah Password
  #  Logout
 
-== UC-Registrasi ==
+== UC-Registrasi KPPN==
 Aktor : Admin.
 
-Registrasi bisa dilakukan oleh Admin. Sistem menampilkan data user. Admin menginput profil user dengan menekan tombol Rekam. Sistem akan menampilkan halaman pengisian user baru. Admin memilih jenis user (KPPN atau Satker) dan mengisikan field yang diperlukan (username, password, dll). Admin menekan tombol Simpan. Sistem mengecek apakah username unik, membuat user baru, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
+Admin berada pada halaman Registrasi. Admin memilih jenis user (KPPN). Sistem menampilkan form Registrasi KPPN. Admin mengisi field sesuai data yang diperlukan (username, password, konfirmasi password, nama petugas, pangkat golongan, jabatan). Admin menekan tombol "Register". Sistem mengecek isian username dan password dalam daftar user. Sistem Menampilkan konfirmasi registrasi berhasil.
 
 Alternatif :
 
  * Jika isian password dan konfirmasi password yang diisikan tidak cocok : sistem akan menampilkan peringatan bahwa password belum sama.
  * Jika username sudah terdaftar / tidak unik : sistem akan menampilkan peringatan.
- * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi.
+ * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi. 
 
-== UC-Ubah Registrasi ==
-Aktor : Admin.
+== UC-Registrasi Satker==
+Aktor : Admin
 
-Ubah Registrasi bisa dilakukan oleh Admin. Sistem menampilkan data user. Admin memilih user yang akan diubah profilnya lalu menekan tombol Ubah. Sistem akan menampilkan halaman ubah user. Admin mengubah sesuai keperluan kemudian menekan tombol Simpan. Sistem mengecek perubahan , menyimpan data, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
+Admin berada pada halaman Registrasi. Admin memilih jenis user (Satker). Sistem menampilkan form Registrasi Satker. Admin mengisikan field (username, password, kode satker, nama satker, alamat, nama bendahara, pejabat penandatangan SPM, Pangkat/gol penandatangan SPM, Bank, Nomor Rekening). Admin menekan tombol "Register". Sistem mengecek username dan password dalam daftar user. Sistem Menampilkan konfirmasi registrasi berhasil.
 
 Alternatif :
 
  * Jika isian password dan konfirmasi password yang diisikan tidak cocok : sistem akan menampilkan peringatan bahwa password belum sama.
- * Jika username yang diubah sudah terdaftar / tidak unik : sistem akan menampilkan peringatan.
- * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi.
+ * Jika username sudah terdaftar / tidak unik : sistem akan menampilkan peringatan.
+ * Jika textfield ada yang kosong maka sistem akan memunculkan peringatan bahwa ada data registrasi yang belum diisi. 
  
 == UC-Login ==
 Aktor : Admin, KPPN, Satker
 
-User berada pada halaman login APDOL. Kemudian user mengisikan username dan password. Username password tidak boleh kosong. Kemudian klik tombol “Login”. Kemudian sistem akan mencari username dan password dalam daftar user. Apabila user ditemukan maka sistem akan menampilkan halaman utama APDOL.  
+User berada pada halaman login APDOL. Kemudian user mengisikan username dan password. Kemudian klik tombol “Login”. Kemudian sistem akan mencari username dan password dalam daftar user. Apabila user ditemukan maka sistem akan menampilkan halaman utama APDOL.  
 
 Alternatif :
 
@@ -107,92 +107,84 @@ Alternatif :
 == UC-Rekam DIPA ==
 Aktor : Admin.
 
-User berada pada menu DIPA, pilih sub menu "Rekam DIPA". Sistem akan menampilkan field data-data pagu (Tahun Anggaran, Kode Satker, Kementerian, Unit Organisasi, Fungsi, Sub Fungsi, Program, Kegiatan, Sub Kegiatan, BKPK, MAK, Lokasi, Dati II, KPPN, Pagu Awal). Admin memasukkan data kedalam field tersebut. Semua field tidak boleh kosong. Kemudian klik tombol “Simpan”, maka sistem akan menampilkan pada table isian apa yang user isikan dan sistem akan menyimpan data dalam daftar DIPA. Kemudian sistem akan menampilkan kembali halaman rekam DIPA.
+User berada pada sub menu Rekam DIPA yang sudah terdapat field data-data pagu (Tahun Anggaran, Kode Satker, Kementerian, Unit Organisasi, Fungsi, Sub Fungsi, Program, Kegiatan, Sub Kegiatan, BKPK, MAK, Lokasi, Dati II, KPPN, Pagu Awal). Admin memilih data difield yang ada pilihan dropdown dan mengisi field pagu. Kemudian klik tombol “Simpan”, maka sistem akan menampilkan pada table isian apa yang user isikan dan sistem akan menyimpan data dalam Daftar DIPA.
 
 Alternatif :
 
- * Jika terdapat field yang kosong maka sistem akan menampilkan peringatan bahwa ada field yang kosong
- * Jika jumlah karakter pada field yang dimasukkan tidak sesuai maka sistem akan menampilkan peringatan kesalahan input dan sistem akan kembali pada halaman rekam DIPA tanpa melakukan penyimpanan.
+ * Jika terdapat field yang kosong belum dipilih/diisi maka sistem akan menampilkan peringatan bahwa ada field yang kosong
+ * Jika field pagu belum diisi maka sistem akan menampilkan peringatan bahwa field belum diisi
 
 == UC-Ubah DIPA ==
 Aktor : Admin
 
-User berada pada menu DIPA, pilih sub menu "Ubah DIPA". Kemudian sistem akan menampilkan halaman ubah DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel yang berisi data DIPA yang sudah direkam. User melakukan klik "Pilih" pada field yang data yang ingin diubah. Kemudian klik tombol "Ubah". Sistem akan menampilkan halaman seperti pada saat rekam DIPA. User melakukan perubahan data. Semua field tidak boleh kosong. Kemudian klik tombol "Simpan". Sistem akan menyimpan perubahan data pada daftar DIPA.
+User berada pada sub menu ubah DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel yang berisi data DIPA yang sudah direkam. User melakukan klik "Pilih" pada field yang data yang ingin diubah. Kemudian klik tombol "Ubah". User melakukan perubahan data. Kemudian klik tombol "Simpan". Sistem akan menyimpan perubahan data pada daftar DIPA.
 
 Alternatif :
 
- * Jika user belum mengisikan Tahun anggaran dan kode satker maka sistem akan memunculkan peringatan bahwa user belum melakukan pengisian Tahun anggaran dan kode satker
- * Jika user belum melakukan pilihan data yang akan diubah maka sistem akan memunculkan peringatan bahwa data belum dipilih. 
- * Jika jumlah karakter pada field yang dimasukkan tidak sesuai maka sistem akan menampilkan peringatan kesalahan input dan sistem akan kembali pada halaman rekam DIPA tanpa melakukan penyimpanan.
+ * Jika Data DIPA tidak ditemukan maka sistem akan memunculkan peringatan bahwa data tidak ditemukan
+ * Jika user belum melakukan pilihan data yang akan diubah maka sistem akan memunculkan peringatan bahwa data belum dipilih dan mengembalikan ke halaman data DIPA
 
 == UC-Hapus DIPA ==
 Aktor : Admin
 
-User berada pada menu DIPA, pilih sub menu "Hapus DIPA". Kemudian sistem akan menampilkan halaman Hapus DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel yang berisi data DIPA yang sudah direkam. User melakukan klik "Pilih" pada field yang data yang ingin dihapus. Kemudian pilih tombol "Hapus". Maka sistem akan menghapus data dari daftar DIPA.
+User berada pada menu Hapus DIPA, User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel yang berisi data DIPA yang sudah direkam. User melakukan klik "Pilih" pada field yang data yang ingin dihapus. Kemudian pilih tombol "Hapus". Maka sistem akan menghapus data dari daftar DIPA.
 
 Alternatif :
 
- * Jika user belum mengisikan Tahun anggaran dan kode satker maka sistem akan memunculkan peringatan bahwa user belum melakukan pengisian Tahun anggaran dan kode satker
- * Jika user belum memilih pilihan yang akan diubah maka sistem akan memunculkan peringatan bahwa data belum dipilih 
+ * Jika Data DIPA tidak ditemukan maka sistem akan memunculkan peringatan bahwa data tidak ditemukan
+ * Jika user belum memilih pilihan yang akan diubah maka sistem akan memunculkan peringatan bahwa data belum dipilih dan mengembalikan ke halaman data DIPA
 
 == UC-Cari DIPA ==
 Aktor : Admin
 
-User berada pada menu DIPA, pilih sub menu "Cari DIPA". Kemudian sistem akan menampilkan halaman cari DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel data DIPA yang sudah direkam. User mengetikkan data yang ingin dicari pada field "cari". Data berupa uraian DIPA maupun nilai DIPA. Klik Enter. Sistem akan mencari dalam daftar DIPA. Kemudian apabila data ditemukan maka sistem akan menampilkan pada tabel. 
+User berada pada menu Cari DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel data DIPA yang sudah direkam. User mengetikkan data yang ingin dicari pada field "cari". Data berupa uraian DIPA maupun nilai DIPA. Sistem menampilkan data yang dicari
 
 Alternatif :
 
- * Jika user belum mengisikan Tahun anggaran dan kode satker maka sistem akan memunculkan peringatan bahwa user belum melakukan pengisian Tahun anggaran dan kode satker
- * Jika data tidak ditemukan dalam daftar DIPA, maka sistem akan menampilkan pesan bahwa data tidak ditemukan dan sistem akan mengembalikan pada halaman cari DIPA.
+ * Jika data tidak ditemukan dalam daftar DIPA, maka sistem akan menampilkan pesan bahwa data tidak ditemukan 
 
 == UC-Tayang DIPA ==
 Aktor : Admin
 
-User berada pada menu DIPA, pilih sub menu "Tayang DIPA". Kemudian sistem akan menampilkan halaman tayang DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel data DIPA yang sudah direkam. User memilih data yang mau ditayangkan dengan meng "klik" field data yang dimkasud. Maka sistem akan menampilkan rincian data DIPA pada tabel. 
+User berada pada menu Tayang DIPA. User mengisikan tahun anggaran serta kode satker. Kemudian sistem akan menampilkan tabel data DIPA yang sudah direkam. User memilih data yang mau ditayangkan dengan memilih field data yang dimaksud. Maka sistem akan menampilkan rincian data DIPA pada tabel. 
 
 Alternatif :
 
- * Jika user belum mengisikan Tahun anggaran dan kode satker maka sistem akan memunculkan peringatan bahwa user belum melakukan pengisian Tahun anggaran dan kode satker
- * Jika user tidak melakukan pilihan data yang ingin ditayangkan, maka sistem tidak akan menayangkan rincian pada tabel rincian DIPA.
+ * Jika Data DIPA tidak ditemukan maka sistem akan memunculkan peringatan bahwa data tidak ditemukan
 
 == UC-Rekam SPM ==
 Aktor : Satker.
 
 User masuk menu SPM. Kemudian pilih Rekam SPM. Sistem akan menampilkan halaman Rekam SPM. Sistem akan menampilkan field data-data rekam SPM. User harus 
-mengisi field yang belum disetting default oleh sistem. Field yang harus diisi adalah tanggal pembuatan SPM, kode satker, kode KPPN, kode fungsi, sub fungsi, 
-program, jumlah pengeluaran dan jumlah potongan. Kemudian user menekan tombol "MAK/MAP". Sistem akan menampilkan tabel MAK/MAP. User mengisikan rincian per 
+memilih dan mengisi field. Field yang harus diisi/dipilih adalah tanggal pembuatan SPM, kode satker, kode KPPN, kode fungsi, sub fungsi, 
+program, jumlah pengeluaran dan jumlah potongan. Kemudian user menekan tombol "MAK/MAP". Sistem akan menampilkan tabel MAK/MAP. User memilih/mengisi rincian per 
 MAK (kode kegiatan, sub.kegiatan, MAK dan nilai rupiah MAK). Sistem akan mencocokkan jumlah MAK dengan angka yang dimasukkan dijumlah pengeluaran. Apabila 
-nilai uang per MAK sudah sama dengan jumlah nilai pengeluaran, maka sistem akan langsung meletakkan kurso ke kolom potongan (MAP). User mengisikan rincian per 
+nilai uang per MAK sudah sama dengan jumlah nilai pengeluaran, maka User memilih/mengisingisikan rincian per 
 MAP (kode MAP, Kode Lembaga, Unit, Lokasi, Kabupaten dan Nilai MAP). Sistem akan mencocokkan jumlah MAP dengan angka yang dimasukkan dijumlah potongan. 
-Apabila sudah sama maka sistem akan meletakkan cursor pada tombol "kembali". Pilih tombol "kembali". Sistem akan menampilkan kembali halaman Rekam SPM. 
-Kemudian pilih tombol "Bendahara/Penerima". Sistem akan menampilkan field Bendahara/Penerima. User mengisi kode bendahara. Sistem mencari dalam daftar referensi Pejabat. Apabila ditemukan sistem akan menampilkan uraian-uraian yang lainnya secara otomatis. Kemudian user mengisi field "untuk". Kemudian klik enter. Sistem akan meletakkan cursor pada pilihan "kembali". Pilih tombol "kembali". Sistem akan menampilkan kembali halaman Rekam SPM. Kemudian pilih tombol "Yang bersangkutan". Sistem akan menampilkan field yang bersangkutan. Isikan field Penandatangan SPM (NIP Kuasa Pengguna Anggaran) dan perekam data (NIP Perekam Data). Sistem akan mencari dalam daftar referensi Pejabat. Apabila data ditemukan kemudian sistem akan menampilkan nama kedalam field nama penandatangan SPM dan perekam data. Sistem akan meletakkan cursor pada pilihan "kembali". User pilih tombol "simpan". Maka sistem akan menyimpan perekaman data SPM kedalam daftar SPM. 
+Apabila sudah sama maka user klik tombol "Bendahara". Sistem akan menampilkan form Bendahara/Penerima. User mengisi NIP bendahara. Sistem mencari dalam daftar referensi Pejabat. Apabila ditemukan sistem akan menampilkan uraian-uraian yang lainnya secara otomatis. Kemudian user mengisi field "untuk". Kemudian pilih tombol "Yang bersangkutan". Sistem akan menampilkan form yang bersangkutan. Isikan field Penandatangan SPM (NIP Kuasa Pengguna Anggaran) dan perekam data (NIP Perekam Data). Sistem akan mencari dalam daftar referensi Pejabat. Apabila data ditemukan kemudian sistem akan menampilkan nama kedalam field nama penandatangan SPM dan perekam data. User klik tombol "simpan". Maka sistem akan menyimpan perekaman data SPM kedalam daftar SPM. 
 
 Alternatif :
 
  * Jika terdapat field yang kosong maka maka sistem akan menampilkan peringatan bahwa field kosong
  * Jika pada saat pengisian field data tidak ditemukan dalam daftar referensi maka sistem akan memunculkan pesan bahwa data tidak ditemukan
- * Jika jumlah karakter pada field yang dimasukkan tidak sesuai maka sistem akan menampilkan peringatan kesalahan input dan sistem akan kembali pada halaman rekam SPM tanpa melakukan penyimpanan.
- * Jika pada saat perekaman SPM selesai user langsung pilih "kembali" belum memilih "simpan", maka sistem akan menampilkan peringatan apakah user yakin melakukan pilihan kembali tanpa melakukan penyimpanan
+
 == UC-Ubah SPM ==
 Aktor : Satker.
 
-User berada pada menu SPM. Kemudian pilih "ubah SPM". Sistem akan menampilkan halaman ubah SPM. Isikan field tanggal SPM (tanggal SPM yang akan diubah). Sistem akan mencari data dalam daftar SPM. Apabila data ditemukan maka sistem akan menampilkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user memilih nomor SPM yang akan dilakukan perubahan dengan mengklik fieldSPM dimaksud. Kemudian pilih tombol "ubah". Sistem akan menampilkan halaman edit ubah SPM. User melakukan perubahan data SPM. Kemudian klik tombol "simpan". Sistem akan menyimpan perubahan data SPM tersebut dalam daftar SPM.
+User berada pada halaman ubah SPM. Isikan field tanggal SPM (tanggal SPM yang akan diubah). Sistem akan mencari data dalam daftar SPM. Apabila data ditemukan maka sistem akan menampilkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user memilih nomor SPM yang akan dilakukan perubahan dengan mengklik fieldSPM dimaksud. Kemudian pilih tombol "ubah". Sistem akan menampilkan halaman edit ubah SPM. User melakukan perubahan data SPM. Kemudian klik tombol "simpan". Sistem akan menyimpan perubahan data SPM tersebut dalam daftar SPM.
 
 Alternatif :
 
  * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menapilkan pesan bahwa data tidak ditemukan
- * Jika pada saat perubahan data SPM user tidak melakukan penginputan elemen dengan benar dan atau ada elemen yang belum diisikan, maka sistem akan menampilkan peringatan kesalahan dan sistem akan mengembalikan tampilan pada form isian rekam SPM kembali.
- * Jika pada saat perubahan SPM selesai user langsung pilih "kembali" belum memilih "simpan", maka sistem akan menampilkan peringatan apakah user yakin melakukan pilihan kembali tanpa melakukan penyimpanan
 
 == UC-Hapus SPM ==
 Aktor : Satker.
 
-User berada pada menu SPM, pilih "Hapus SPM". Sistem akan menampilkan halaman hapus SPM. Isikan field tanggal SPM yang akan dihapus. Sistem akan mencari data dalam daftar SPM. Apabila  data ditemukan maka sistem akan menampilkan data SPM yang telah direkam pada tanggal tersebut. Kemudian user memilih nomor SPM yang akan dilakukan perubahan dengan mengklik field SPM dimaksud. kemudian tekan tombol “Hapus”. Sistem akan menghapus data SPM dari daftar SPM. 
+User berada pada halaman "Hapus SPM".  Isikan field tanggal SPM yang akan dihapus. Sistem akan mencari data dalam daftar SPM. Apabila  data ditemukan maka sistem akan menampilkan data SPM. Kemudian user memilih nomor SPM yang akan dilakukan perubahan dengan mengklik field SPM dimaksud. kemudian tekan tombol “Hapus”. Sistem akan menghapus data SPM dari daftar SPM. 
 
 Alternatif :
 
  * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menampilkan pesan bahwa data tidak ditemukan
- * Jika pada saat penghapusan data pagu user belum menempatkan kursor pada field data yang akan dihapus, maka sistem akan menampilkan peringatan bahwa user belum memilih data yang akan dihapus. 
  
 == UC-Cari SPM ==
 Aktor : Satker.
@@ -206,22 +198,20 @@ Alternatif :
 == UC-Cetak SPM ==
 Aktor : Satker.
 
-Satker memilih sub menu cetak SPM. Sistem akan menampilkan halaman sub menu Cetak SPM. Isikan tanggal SPM yang ingin dicetak pada field tanggal SPM. Sistem akan mencari dalam daftar SPM. Apabila data ditemukan maka sistem akan menampilkan SPM-SPM yang dibuat pada tanggal tersebut. Satker memilih SPM mana yang akan dicetak dengan pilih pada field “cetak”. Satker menentukan opsi pilihan cetak (cetak di layar atau cetak melalui printer) dengan klik salah satu tombol "layar" atau "printer". Apabila user pilih tombol "layar" maka sistem akan menampilkan form SPM pada layar. Stelah selesai pilih tombol kembali, maka sistem akan menampilkan lagi ke halaman cetak SPM. Apabila user memilih tombol "printer" maka sistem mengirimkan paket data ke printer dan sistem menutup tampilan pratinjau lalu mengembalikan ke halaman cetak SPM.
+Satker berada pada  halaman sub menu Cetak SPM. Isikan tanggal SPM. Sistem akan mencari dalam daftar SPM. Apabila data ditemukan maka sistem akan menampilkan SPM-SPM yang dibuat pada tanggal tersebut. Satker memilih SPM mana yang akan dicetak dengan pilih pada field di tabel. kemudian klik cetak. sistem akan mengirimkan paket data ke printer.
 
 Alternatif :
 
- * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menampilkan pesan bahwa data tidak ditemukan
- * Jika satker belum menentukan pilihan data SPM yang akan dicetak maka sistem akan memunculkan pesan bahwa pilihan SPM untuk dicetak belum ditentukan. 
+ * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menampilkan pesan bahwa data tidak ditemukan 
 
 == UC-Submit SPM ==
 Aktor : Satker.
 
-Satker memilih sub menu "Submit SPM". Sistem akan menampilkan halaman submit SPM. User memasukkan tanggal SPM yang akan disubmit ke KPPN. Sistem akan mencari dalam daftar SPM. Apabila data ditemukan maka sistem akan memunculkan tampilan daftar SPM yang sudah siap disubmit ke KPPN. User pilih SPM dengan meng klik field "pilih". Klik tombol "submit". Sistem akan menyimpan dalam daftar SPM.  
+Satker berada pada halaman submit SPM. User memasukkan tanggal SPM yang akan disubmit ke KPPN. Sistem akan mencari dalam daftar SPM. Apabila data ditemukan maka sistem akan memunculkan tampilan daftar SPM yang sudah siap disubmit ke KPPN. User pilih SPM pada tabel. Klik tombol "submit". Sistem akan menyimpan dalam daftar SPM.  
 
 Alternatif :
 
  * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menampilkan pesan bahwa data tidak ditemukan
- * Jika kondisi satker belum menentukan pilihan data SPM yang akan disubmit maka sistem akan memunculkan pesan bahwa pilihan SPM untuk disubmit belum ditentukan.
 
 == UC-Notifikasi SPM ==
 Aktor : KPPN.
