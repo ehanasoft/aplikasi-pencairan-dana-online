@@ -19,7 +19,7 @@ import javax.persistence.Query;
 public class DaftarUsers {
     
     public DaftarUsers() {
-        emf = Persistence.createEntityManagerFactory("persistence"); 
+        emf = Persistence.createEntityManagerFactory("ApdolPU"); 
     }
     
     private EntityManagerFactory emf = null;
