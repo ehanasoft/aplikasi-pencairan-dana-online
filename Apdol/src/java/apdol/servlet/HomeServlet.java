@@ -36,6 +36,7 @@ public class HomeServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", user.getUsername());
                 session.setAttribute("Nama", user.getNama());
+                session.setAttribute("roleuser", user.getRoleuser());
                 //response.sendRedirect("home");
                 request.getRequestDispatcher("/home.jsp").forward(request, response);
             } else {

@@ -1,6 +1,6 @@
 /* 
-    Document   : style
-    Created on : Nov 1, 2011, 4:53:31 AM
+    Document   : admin
+    Created on : Nov 3, 2011, 2:45:50 AM
     Author     : Accio
     Description:
         Purpose of the stylesheet follows.
@@ -16,174 +16,63 @@ root {
 }
 
 body {
-	margin-left: 0px;
-	margin-right: 0px;
-	background-color: #616161;
+	background-image: url(images/background.jpg);
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
 }
-#layer01_holder {
-	width:563px;
-	height:157px;
-	margin:auto;
+#login {
+	background-image: url(images/login.jpg);
+	background-repeat: no-repeat;
+	width: 333px;
+	height: 317px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 150px;
+	padding: 30px 10px 10px 10px;
 }
-#layer01_holder #left {
-	background-image:url(images/loginpage_02.jpg);
-	background-repeat:no-repeat;
-	width:96px;
-	height:157px;
-	float:left;
-	display:block;
+.input {
+	background-image: url(images/input-bg.jpg);
+	height: 47px;
+	width: 260px;
+	border: 1px solid #6ba1d1;
+	margin-bottom: 20px;
+	font-size: 20pt;
+	color: #ffffff;
+	line-height: 47px;
+	padding-left: 4px;
 }
-#layer01_holder #center {
-	background-image:url(images/loginpage_03.jpg);
-	background-repeat:no-repeat;
-	width:220px;
-	height:157px;
-	float:left;
-	display:block;
+#content {
+	margin-left: auto;
+	margin-right: auto;
+	width: 293px;
 }
-#layer01_holder #right {
-	background-image:url(images/loginpage_04.jpg);
-	background-repeat:no-repeat;
-	width:247px;
-	height:157px;
-	float:left;
-	display:block;
-}
-#layer02_holder {
-	width:563px;
-	height:164px;
-	margin:auto;
-}
-#layer02_holder #left {
-	background-image:url(images/loginpage_06.jpg);
-	background-repeat:no-repeat;
-	width:96px;
-	height:164px;
-	float:left;
-	display:block;
-}
-#layer02_holder #center {
-	background-image:url(images/loginpage_07.jpg);
-	background-repeat:no-repeat;
-	width:220px;
-	height:164px;
-	float:left;
-	display:block;
-}
-#layer02_holder #right {
-	background-image:url(images/loginpage_08.jpg);
-	background-repeat:no-repeat;
-	width:247px;
-	height:164px;
-	float:left;
-	display:block;
-}
-#layer03_holder {
-	width:563px;
-	height:124px;
-	margin:auto;
-}
-#layer03_holder #left {
-	background-image:url(images/loginpage_09.jpg);
-	background-repeat:no-repeat;
-	width:96px;
-	height:124px;
-	float:left;
-	display:block;
-}
-#layer03_holder #center {
-	background-image:url(images/loginpage_10.jpg);
-	background-repeat:no-repeat;
-	width:220px;
-	height:124px;
-	float:left;
-	display:block;
-	font-family: Verdana;
-	color: #FFFF00;
-	font-size: 12px;
+.login-info {
+	font-size: 10pt;
 	font-weight: bold;
+	color: #ffffff;
+	line-height: 25px;
+	letter-spacing: 2px;
 }
-#layer03_holder #right {
-	background-image:url(images/loginpage_11.jpg);
-	background-repeat:no-repeat;
-	width:247px;
-	height:124px;
-	float:left;
-	display:block;
+.checkbox {
+	float: left;
 }
-#layer04_holder {
-	width:563px;
-	height:115px;
-	margin:auto;
+.rememberme {
+	line-height: 20px;
+	font-size: 8pt;
+	color: #ffffff;
+	float: left;
 }
-#layer04_holder #left {
-	background-image:url(images/loginpage_12.jpg);
-	background-repeat:no-repeat;
-	width:96px;
-	height:115px;
-	float:left;
-	display:block;
+#forgot-password {
+	text-align: right;
+	padding-right: 25px;
 }
-#layer04_holder #center {
-	background-image:url(images/loginpage_13.jpg);
-	background-repeat:no-repeat;
-	width:220px;
-	height:115px;
-	float:left;
-	display:block;
-	text-align:left;
-	padding-top:35px;
-	margin-bottom:-35px;
-	color: #FFFFFF;
-	font-size: 11px;
-	font-family: Arial;
+#forgot-password a {
+	color: #ffffff;
+	font-size: 8pt;
+	line-height: 20px;
 }
-#layer04_holder #center a:link, a:visited {
-	color: #FFFF00;
-	text-decoration:none;
-}
-#layer04_holder #center a:hover {
-	color: #FF9900;
-	text-decoration:underline;
-}
-#layer04_holder #right {
-	background-image:url(images/loginpage_14.jpg);
-	background-repeat:no-repeat;
-	width:247px;
-	height:115px;
-	float:left;
-	display:block;
-}
-#layer05_holder {
-	width:563px;
-	height:auto;
-	margin:auto;
-	color: #393939;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	text-align: center;
-	padding-left: 125px;
-	;
-}
-#layer03_holder #center form {
-	text-align:justify;
-	margin:0px;
-}
-#layer03_holder #center label {
-	font-size:10px;
-	color: #FFFFFF;
-}
-#layer03_holder #center input {
-	background-color:#454544;
-	border:solid 1px #d2d0b5;
-	color: #FFFFFF;
-}
-#layer03_holder #center #button {
-	margin-top:5px;
-	background-color: #CCCCCC;
-	border: 3px double #454544;
-	color: #454544;
-	margin-left: 169px;
-	right: 0px;
-	width: 50px;
+#login-buttton {
+	text-align: right;
+	padding-right: 25px;
+	padding-top: 10px;
 }

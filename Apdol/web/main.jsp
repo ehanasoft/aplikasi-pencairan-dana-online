@@ -1,31 +1,32 @@
 <%-- 
     Document   : main
-    Created on : Nov 1, 2011, 4:01:18 AM
+    Created on : Nov 3, 2011, 2:45:19 AM
     Author     : Accio
 --%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <center><h1>APDOL ALPHA</h1></center>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Apdol Testing 0.01</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
 <body>
-<center><form method="post" action="home">
-    <table border=0>
-    <tr>
-        <td>Username</td>
-        <td><input type="text" name="username"></td>
-    </tr>
-    <tr>
-        <td>Password</td>
-        <td><input type="password" name="password"></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td><input type="submit" value="login"></td>
-    </tr>
-    </table>
-    </form></center>
+
+<div id="login">
+	<div id="content">
+		<form method="post" action="home">
+			<label class="login-info">Username</label>
+			<input class="input" name="username" type="text" />
+			<label class="login-info">Password</label>
+			<input class="input" name="password" type="password" />
+				<div id="login-buttton">
+					<input name="Submit" src="images/login-button.jpg" type="image" value="Giriş" /></div>
+		</form>
+	</div>
+</div>
+
 </body>
 </html>
