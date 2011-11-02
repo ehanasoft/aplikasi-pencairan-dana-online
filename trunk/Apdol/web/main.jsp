@@ -1,12 +1,8 @@
 <%-- 
-    Document   : login
+    Document   : main
     Created on : Nov 1, 2011, 4:01:18 AM
     Author     : Accio
 --%>
-<%@page import="apdol.entity.Users"%>
-<%@page import="apdol.model.DaftarUsers"%>
-<%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +11,7 @@
     </head>
     <center><h1>APDOL ALPHA</h1></center>
 <body>
-<center><form method="post" action="Login">
+<center><form method="post" action="home">
     <table border=0>
     <tr>
         <td>Username</td>
