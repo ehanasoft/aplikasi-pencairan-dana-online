@@ -4,7 +4,7 @@
  */
 package apdol.model;
 
-import apdol.entity.Users;
+import apdol.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -16,20 +16,20 @@ import javax.persistence.Query;
  *
  * @author Accio
  */
-public class DaftarUsers {
-    
-    public DaftarUsers() {
+public class DaftarUser {
+
+    public DaftarUser() {
         emf = Persistence.createEntityManagerFactory("ApdolPU"); 
     }
-    
+
     private EntityManagerFactory emf = null;
-    
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    public List<Users> getUsers() {
-        List<Users> users = new ArrayList<Users>();
+
+    public List<User> getUsers() {
+        List<User> users = new ArrayList<User>();
 
         EntityManager em = getEntityManager();
         try {
@@ -41,17 +41,17 @@ public class DaftarUsers {
         }
         return users;
     }
-    
-    public Users findUsers(Integer id) {
+
+    public User findUsers(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Users.class, id);
+            return em.find(User.class, id);
         } finally {
             em.close();
         }
     }
-    
-        public boolean check(String username, String password) {
+
+    public boolean check(String username, String password) {
         boolean result = false;
         EntityManager em = getEntityManager();
         try {
@@ -67,9 +67,23 @@ public class DaftarUsers {
         }
         return result;
     }
-        
-        public Users getUsers(String username, String password) {
-        Users users = null;
+    
+    public void rekamUser(User users) {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            em.persist(users);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public User getUsers(String username, String password) {
+        User users = null;
         EntityManager em = getEntityManager();
         try {
             boolean hasilCheck = this.check(username, password);
@@ -77,14 +91,11 @@ public class DaftarUsers {
                 Query q = em.createQuery("SELECT a FROM Users AS a WHERE a.username=:usr AND a.password=:pswd");
                 q.setParameter("usr", username);
                 q.setParameter("pswd", password);
-                users = (Users) q.getSingleResult();
+                users = (User) q.getSingleResult();
             }
         } finally {
             em.close();
         }
         return users;
     }
-
-
-
 }
