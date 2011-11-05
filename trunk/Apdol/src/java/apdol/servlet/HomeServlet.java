@@ -26,22 +26,22 @@ public class HomeServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
 
         DaftarUser usr = new DaftarUser();
-        User user = usr.getUsers(username, password);
+        User user = usr.getUser(username, password);
         if (user != null) {
             //if(username.equals(user.getUsername())&&password.equals(user.getPassword())){
-            HttpSession session = request.getSession();
-            session.setAttribute("username", user.getUsername());
-            session.setAttribute("Nama", user.getNama());
-            session.setAttribute("roleuser", user.getRoleuser());
-            //response.sendRedirect("home");
-            request.getRequestDispatcher("/home.jsp").forward(request, response);
-        } else {
-            out.println("invalid");
-        }
+                HttpSession session = request.getSession();
+                session.setAttribute("username", user.getUsername());
+                session.setAttribute("Nama", user.getNama());
+                session.setAttribute("roleuser", user.getRoleuser());
+                //response.sendRedirect("home");
+                request.getRequestDispatcher("/home.jsp").forward(request, response);
+            } else {
+                out.println("invalid");
+            }
     }
 
     @Override
@@ -50,12 +50,12 @@ public class HomeServlet extends HttpServlet {
         processRequest(request, response);
     }
 
-    //@Override
-    //protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      //      throws ServletException, IOException {
-        //processRequest(request, response);
-        //PrintWriter out = response.getWriter();
-    //}
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+        PrintWriter out = response.getWriter();       
+    }
 
     @Override
     public String getServletInfo() {

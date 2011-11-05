@@ -28,12 +28,12 @@ public class DaftarUser {
         return emf.createEntityManager();
     }
 
-    public List<User> getUsers() {
+    public List<User> getUser() {
         List<User> users = new ArrayList<User>();
 
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT a FROM Users AS a");
+            Query q = em.createQuery("SELECT a FROM User AS a");
             users = q.getResultList();
 
         } finally {
@@ -42,7 +42,7 @@ public class DaftarUser {
         return users;
     }
 
-    public User findUsers(Integer id) {
+    public User findUser(Integer id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(User.class, id);
@@ -55,7 +55,7 @@ public class DaftarUser {
         boolean result = false;
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT count(a) FROM Users AS a WHERE a.username=:usr AND a.password=:pswd");
+            Query q = em.createQuery("SELECT count(a) FROM User AS a WHERE a.username=:usr AND a.password=:pswd");
             q.setParameter("usr", username);
             q.setParameter("pswd", password);
             int jumlahUser = ((Long) q.getSingleResult()).intValue();
@@ -82,13 +82,13 @@ public class DaftarUser {
         }
     }
 
-    public User getUsers(String username, String password) {
+    public User getUser(String username, String password) {
         User users = null;
         EntityManager em = getEntityManager();
         try {
             boolean hasilCheck = this.check(username, password);
             if (hasilCheck) {
-                Query q = em.createQuery("SELECT a FROM Users AS a WHERE a.username=:usr AND a.password=:pswd");
+                Query q = em.createQuery("SELECT a FROM User AS a WHERE a.username=:usr AND a.password=:pswd");
                 q.setParameter("usr", username);
                 q.setParameter("pswd", password);
                 users = (User) q.getSingleResult();
