@@ -21,16 +21,16 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Accio
  */
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
-    @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = :id"),
-    @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username"),
-    @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password"),
-    @NamedQuery(name = "Users.findByNama", query = "SELECT u FROM Users u WHERE u.nama = :nama"),
-    @NamedQuery(name = "Users.findByJabatan", query = "SELECT u FROM Users u WHERE u.jabatan = :jabatan"),
-    @NamedQuery(name = "Users.findByRoleuser", query = "SELECT u FROM Users u WHERE u.roleuser = :roleuser")})
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+    @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
+    @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
+    @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
+    @NamedQuery(name = "User.findByNama", query = "SELECT u FROM User u WHERE u.nama = :nama"),
+    @NamedQuery(name = "User.findByJabatan", query = "SELECT u FROM User u WHERE u.jabatan = :jabatan"),
+    @NamedQuery(name = "User.findByRoleuser", query = "SELECT u FROM User u WHERE u.roleuser = :roleuser")})
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -126,7 +126,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "apdol.entity.Users[ id=" + id + " ]";
+        return "apdol.entity.User[ id=" + id + " ]";
     }
     
 }
