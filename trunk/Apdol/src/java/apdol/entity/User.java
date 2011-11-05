@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Users.findByNama", query = "SELECT u FROM Users u WHERE u.nama = :nama"),
     @NamedQuery(name = "Users.findByJabatan", query = "SELECT u FROM Users u WHERE u.jabatan = :jabatan"),
     @NamedQuery(name = "Users.findByRoleuser", query = "SELECT u FROM Users u WHERE u.roleuser = :roleuser")})
-public class Users implements Serializable {
+public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,10 +49,10 @@ public class Users implements Serializable {
     @Column(name = "roleuser")
     private Integer roleuser;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(Integer id) {
+    public User(Integer id) {
         this.id = id;
     }
 
@@ -114,10 +114,10 @@ public class Users implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Users)) {
+        if (!(object instanceof User)) {
             return false;
         }
-        Users other = (Users) object;
+        User other = (User) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

@@ -16,5 +16,6 @@
     </head>
     <body>
         <h1><% if(logedUser!=null){ %><%="Anda Login sebagai: "+logedUser%><%}%></h1>
+        <p style="margin: 10px;"><a href="register">Register    </a></p>
     </body>
 </html>

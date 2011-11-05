@@ -4,8 +4,8 @@
  */
 package apdol.servlet;
 
-import apdol.entity.Users;
-import apdol.model.DaftarUsers;
+import apdol.entity.User;
+import apdol.model.DaftarUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,27 +21,27 @@ import javax.servlet.http.HttpSession;
 //@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class HomeServlet extends HttpServlet {
 
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
+        
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
-            DaftarUsers usr = new DaftarUsers();
-            Users user = usr.getUsers(username, password);
-            if(user!=null){
+        DaftarUser usr = new DaftarUser();
+        User user = usr.getUsers(username, password);
+        if (user != null) {
             //if(username.equals(user.getUsername())&&password.equals(user.getPassword())){
-                HttpSession session = request.getSession();
-                session.setAttribute("username", user.getUsername());
-                session.setAttribute("Nama", user.getNama());
-                session.setAttribute("roleuser", user.getRoleuser());
-                //response.sendRedirect("home");
-                request.getRequestDispatcher("/home.jsp").forward(request, response);
-            } else {
-                out.println("invalid");
-            }
+            HttpSession session = request.getSession();
+            session.setAttribute("username", user.getUsername());
+            session.setAttribute("Nama", user.getNama());
+            session.setAttribute("roleuser", user.getRoleuser());
+            //response.sendRedirect("home");
+            request.getRequestDispatcher("/home.jsp").forward(request, response);
+        } else {
+            out.println("invalid");
+        }
     }
 
     @Override
@@ -50,13 +50,12 @@ public class HomeServlet extends HttpServlet {
         processRequest(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-        PrintWriter out = response.getWriter();       
-    }
-
+    //@Override
+    //protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      //      throws ServletException, IOException {
+        //processRequest(request, response);
+        //PrintWriter out = response.getWriter();
+    //}
 
     @Override
     public String getServletInfo() {

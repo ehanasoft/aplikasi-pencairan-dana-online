@@ -22,6 +22,7 @@
 			<input class="input" name="username" type="text" />
 			<label class="login-info">Password</label>
 			<input class="input" name="password" type="password" />
+                        
 				<div id="login-buttton">
 					<input name="Submit" src="images/login-button.jpg" type="image" value="Giriş" /></div>
 		</form>
