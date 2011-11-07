@@ -21,17 +21,20 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Accio
  */
 @Entity
-@Table(name = "user")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-    @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
-    @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
-    @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
-    @NamedQuery(name = "User.findByNama", query = "SELECT u FROM User u WHERE u.nama = :nama"),
-    @NamedQuery(name = "User.findByJabatan", query = "SELECT u FROM User u WHERE u.jabatan = :jabatan"),
-    @NamedQuery(name = "User.findByRoleuser", query = "SELECT u FROM User u WHERE u.roleuser = :roleuser")})
+        @Table(name = "user")
+        @XmlRootElement
+        @NamedQueries({
+            @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+            @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
+            @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
+            @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
+            @NamedQuery(name = "User.findByNama", query = "SELECT u FROM User u WHERE u.nama = :nama"),
+            @NamedQuery(name = "User.findByJabatan", query = "SELECT u FROM User u WHERE u.jabatan = :jabatan"),
+            @NamedQuery(name = "User.findByRoleuser", query = "SELECT u FROM User u WHERE u.roleuser = :roleuser"),
+            @NamedQuery(name = "User.findByKodeSatker", query = "SELECT u FROM User u WHERE u.kodesatker = :kodesatker")})
+
 public class User implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,6 +51,11 @@ public class User implements Serializable {
     private String jabatan;
     @Column(name = "roleuser")
     private Integer roleuser;
+    @Column(name = "kodesatker")
+    private String kodesatker;
+
+    
+    
 
     public User() {
     }
@@ -63,6 +71,7 @@ public class User implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+    
 
     public String getUsername() {
         return username;
@@ -71,6 +80,15 @@ public class User implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getKodeSatker() {
+        return kodesatker;
+    }
+
+    public void setKodeSatker(String kodeSatker) {
+        this.kodesatker = kodeSatker;
+    }
+    
 
     public String getPassword() {
         return password;
@@ -128,5 +146,4 @@ public class User implements Serializable {
     public String toString() {
         return "apdol.entity.User[ id=" + id + " ]";
     }
-    
 }
