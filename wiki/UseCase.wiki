@@ -4,8 +4,8 @@
 
 Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
 
- #  Registrasi User
  #  Login
+ #  Registrasi User
  #  R Rincian Kegiatan
  #  U Rincian Kegiatan
  #  H Rincian Kegiatan
