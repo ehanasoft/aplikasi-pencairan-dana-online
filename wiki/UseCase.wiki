@@ -4,18 +4,18 @@
 
 Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
 
- #  Registrasi KPPN
- #  Registrasi Satker
+ #  Registrasi User
  #  Login
+ #  R Rincian Kegiatan
+ #  U Rincian Kegiatan
+ #  H Rincian Kegiatan
  #  R DIPA
  #  U DIPA
  #  H DIPA
- #  C DIPA
  #  Tayang DIPA
  #  R SPM
  #  U SPM
  #  H SPM
- #  C SPM
  #  Cetak SPM
  #  Submit ke KPPN
  #  Notifikasi SPM
@@ -23,10 +23,8 @@ Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
  #  Proses SP2D
  #  Cetak SP2D
  #  Batal SP2D
- #  Monitoring Penyelesaian SPM
+ #  Monitoring SPM
  #  Realisasi
- #  Nomor SP2D
- #  Cari Referensi
  #  R Satker
  #  U Satker
  #  H Satker
@@ -36,40 +34,21 @@ Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
  #  R Pejabat
  #  U Pejabat
  #  H Pejabat
- #  R Golongan
- #  U Golongan
- #  H Golongan
- #  R Fungsi
- #  U Fungsi
- #  H Fungsi
- #  R Sub Fungsi
- #  U Sub Fungsi
- #  H Sub Fungsi
  #  R Program
  #  U Program
  #  H Program
  #  R Kegiatan
  #  U Kegiatan
  #  H Kegiatan
- #  R Sub Kegiatan
- #  U Sub Kegiatan
- #  H Sub Kegiatan
- #  R Kementerian
- #  U Kementerian
- #  H Kementerian
- #  R Lokasi 
- #  U Lokasi
- #  H Lokasi
- #  R Dati II
- #  U Dati II
- #  H Dati II
- #  R BKPK
- #  U BKPK
- #  H BKPK
+ #  R Output
+ #  U Output
+ #  H Output
  #  R Mata Anggaran
  #  U Mata Anggaran
  #  H Mata Anggaran
- #  Ubah Password
+ #  R Lokasi 
+ #  U Lokasi
+ #  H Lokasi
  #  Logout
 
 == UC-Registrasi KPPN==
@@ -196,36 +175,40 @@ Alternatif :
  * Jika data tidak ditemukan dalam daftar SPM, maka sistem akan menampilkan pesan bahwa data tidak ditemukan dan sistem akan mengembalikan pada halaman cari SPM.
 
 == UC-Cetak SPM ==
-Aktor : Satker.
+Aktor : Bendahara.
 
-Satker berada pada  halaman sub menu Cetak SPM. Isikan tanggal SPM. Sistem akan mencari dalam daftar SPM. Apabila data ditemukan maka sistem akan menampilkan SPM-SPM yang dibuat pada tanggal tersebut. Satker memilih SPM mana yang akan dicetak dengan pilih pada field di tabel. kemudian klik cetak. sistem akan mengirimkan paket data ke printer.
+Satker berada pada  halaman Cetak SPM. Isikan tanggal SPM. Sistem akan mencari dalam daftar SPM. Apabila data ditemukan maka sistem akan menampilkan SPM-SPM yang dibuat pada tanggal tersebut. Satker memilih SPM mana yang akan dicetak dengan pilih pada field di tabel. kemudian klik cetak. sistem akan mengirimkan paket data ke printer.
 
 Alternatif :
 
  * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menampilkan pesan bahwa data tidak ditemukan 
 
 == UC-Submit SPM ==
-Aktor : Satker.
+Aktor : Bendahara.
 
-Satker berada pada halaman submit SPM. User memasukkan tanggal SPM yang akan disubmit ke KPPN. Sistem akan mencari dalam daftar SPM. Apabila data ditemukan maka sistem akan memunculkan tampilan daftar SPM yang sudah siap disubmit ke KPPN. User pilih SPM pada tabel. Klik tombol "submit". Sistem akan menyimpan dalam daftar SPM.  
+Bendahara berada pada halaman submit SPM. User memasukkan tanggal SPM yang akan disubmit ke KPPN. Sistem akan mencari dalam daftar SPM. Apabila data ditemukan maka sistem akan memunculkan tampilan daftar SPM yang sudah siap disubmit ke KPPN. User pilih SPM pada tabel. Klik tombol "submit". Sistem akan menyimpan dalam daftar SPM.  
 
 Alternatif :
 
- * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menampilkan pesan bahwa data tidak ditemukan
+ * Jika saat penginputan tanggal SPM data tidak ditemukan maka sistem akan menampilkan pesan bahwa data tidak ditemukan.
+ * Jika saat submit SPM belum dipilih maka sistem akan menampilkan pesan bahwa SPM belum dipilih.
 
 == UC-Notifikasi SPM ==
 Aktor : KPPN.
 
-Sistem menampilkan data SPM masuk. KPPN memilih SPM yang akan diverifikasi, kemudian mengklik tombol verifikasi. Sistem menampilkan data SPM yang diperlukan. KPPN melakukan proses pemeriksaan data dan setelah selesai menekan tombol simpan.  Sistem akan menampilkan konfirmasi kemudian menyimpan data, mengirimkan notifikasi kepada user Satker bahwa SPM telah diterima lalu mengembalikan ke tampilan awal.
-Alternatif (Rainy-Day) :
+Pada halaman Notifikasi SPM yang menampilkan daftar SPM, KPPN memilih SPM yang akan diverifikasi, kemudian mengklik tombol verifikasi. Sistem menampilkan SPM yang dipilih. KPPN melakukan proses pemeriksaan data dan setelah selesai memberikan keterangan lalu mengklik tombol Simpan. Sistem akan mengecek bahwa field keterangan telah terisi, menyimpan data lalu mengembalikan ke halaman Notifikasi SPM.
+
+Alternatif :
 
  * Jika user KPPN belum memilih SPM : sistem akan menampilkan peringatan bahwa SPM belum dipilih.
+ * Jika field keterangan belum diisikan : sistem akan menolak input lalu menampilkan pesan error bahwa field keterangan harus terisi, kemudian mengembalikan ke halaman Verifikasi SPM.
 
 == UC-Tolak SPM ==
 Aktor : KPPN.
 
-Sistem menampilkan data SPM yang telah diterima dan diverifikasi. KPPN memilih SPM yang akan ditolak, kemudian mengklik tombol tolak. Sistem menampilkan halaman penolakan SPM. KPPN memasukkan data pada field (nomor surat penolakan, tanggal surat penolakan dan alasan penolakan) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi. Sistem akan menampilkan konfirmasi kemudian menyimpan data, mengirimkan notifikasi kepada user Satker bahwa SPM ditolak lalu mengembalikan ke tampilan awal.
-Alternatif (Rainy-Day) :
+Pada halaman Tolak SPM. KPPN memilih SPM yang akan ditolak, kemudian mengklik tombol tolak. Sistem menampilkan halaman penolakan SPM. KPPN memasukkan data pada field (nomor surat pembatalan (teks), tanggal surat pembatalan (tanggal) dan alasan pembatalan (teks)) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi, mengganti status SPM dan Daftar SPM lalu mengembalikan ke halaman tolak SPM.
+
+Alternatif :
 
  * Jika user KPPN belum memilih SPM : sistem akan menampilkan peringatan bahwa SPM belum dipilih..
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
@@ -233,41 +216,48 @@ Alternatif (Rainy-Day) :
 == UC-Proses SP2D ==
 Aktor : KPPN.
 
-Sistem menampilkan data SPM yang telah diterima dan diverifikasi. KPPN memilih SPM yang akan diproses menjadi SP2D, kemudian mengklik tombol Proses SP2D. Sistem menampilkan halaman Proses SP2D. KPPN memasukkan data pada field (tanggal SP2D dan kode bank) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi. Sistem akan memberikan nomor urut SP2D, menampilkan konfirmasi , menyimpan data lalu mengembalikan ke tampilan awal.
+Pada halaman Proses SP2D, KPPN mengisi tanggal SPM yang akan diproses menjadi SP2D, kemudian mengklik tombol cari. Sistem akan mencari pada Daftar  SPM kemudian menampilkan pada halaman tayang SPM. KPPN memilih SPM yang akan diproses kemudian mengklik tombol Proses. Sistem menampilkan halaman Isi Tanggal dan Bank. KPPN memasukkan data pada field (tanggal SP2D (tanggal), mencentang kode bank kemudian menekan tombol Simpan.  Sistem mengecek bahwa seluruh field telah terisi, Bank sudah tercentang lalu memberi nomor SP2D, menyimpan data SPM, daftar SPM, SP2D dan Daftar SP2D.
 
-Alternatif (Rainy-Day) :
+Alternatif :
 
- * Jika user KPPN belum memilih SPM : sistem akan menampilkan peringatan bahwa SPM belum dipilih..
- * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+ * Jika tanggal SPM belum diisikan : sistem akan menampilkan pesan error bahwa tanggal SP2D belum diisikan, kemudian mengembalikan ke halaman Proses SP2D.
+ * Jika data SPM tidak ditemukan : sistem akan menampilkan halaman pesan error bahwa data tidak ditemukan.
+ * Jika user KPPN belum memilih SPM : sistem akan menampilkan pesan error bahwa SPM belum dipilih, kemudian mengembalikan ke halaman Proses SP2D.
+ * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan, kemudian mengembalikan ke halaman Pemrosesan SP2D.
+ * Jika checkbox Bank belum dicentang: sistem akan menampilkan peringatan bahwa checkbox Bank belum dicentang.
 
 == UC-Cetak SP2D ==
 Aktor : KPPN.
 
-Sistem menampilkan data SPM yang telah diproses menjadi SP2D. KPPN memasukkan tanggal SP2D dan memilih SP2D yang akan dicetak, kemudian mengklik tombol Cetak SP2D. Sistem menampilkan pratinjau SP2D yang siap dicetak. KPPN menekan tombol Cetak untuk mencetak SP2D pada media kertas.  Sistem mengirimkan paket data ke printer, menutup tampilan pratinjau lalu mengembalikan ke tampilan awal.
+Pada halaman Cetak SP2D, KPPN mengisi tanggal SP2D yang akan dicetak, kemudian mengklik tombol cari. Sistem akan mencari pada Daftar  SP2D kemudian menampilkan pada halaman tayang SP2D Cetak.  KPPN memilih SP2D, kemudian mengklik tombol Cetak SP2D. Sistem mengirim data SP2D untuk dicetak pada printer.
 
-Alternatif (Rainy-Day) :
+Alternatif :
 
- * Jika user KPPN belum memilih SP2D : sistem akan menampilkan peringatan bahwa SP2D belum dipilih.
+ * Jika tanggal SP2D belum diisikan : sistem akan menampilkan pesan error bahwa tanggal SP2D belum diisikan, kemudian mengembalikan ke halaman Cetak SP2D.
+ * Jika data SPM tidak ditemukan : sistem akan menampilkan halaman pesan error bahwa data tidak ditemukan.
+ * Jika user KPPN belum memilih SP2D : sistem akan menampilkan pesan error bahwa SPM belum dipilih, kemudian mengembalikan ke halaman Tayang SP2D Cetak.
 
 == UC-Batal SP2D ==
 Aktor : KPPN.
 
-Sistem menampilkan data SP2D yang telah dicetak. KPPN memilih SP2D yang akan dibatalkan, kemudian mengklik tombol batal. Sistem menampilkan halaman pembatalan SP2D. KPPN memasukkan data pada field (nomor surat pembatalan, tanggal surat pembatalan dan alasan pembatalan) kemudian menekan tombol Simpan.  Sistem memastikan bahwa seluruh field telah terisi. Sistem akan menampilkan konfirmasi kemudian menyimpan data lalu mengembalikan ke tampilan awal.
-Alternatif (Rainy-Day) :
+Pada halaman Batal SP2D, KPPN mengisi tanggal SP2D yang akan dibatalkan, kemudian mengklik tombol cari. Sistem akan mencari pada Daftar  SP2D kemudian menampilkan pada halaman tayang SP2D yang berisi Daftar SP2D. KPPN memilih SP2D yang akan dibatalkan, kemudian mengklik tombol batal. Sistem menampilkan halaman pembatalan SP2D. KPPN memasukkan data pada field (nomor surat pembatalan (teks), tanggal surat pembatalan (tanggal) dan alasan pembatalan (teks)) kemudian menekan tombol Simpan.  Sistem mengecek bahwa seluruh field telah terisi, menghapus SP2D dari Daftar SP2D lalu menampilkan halaman Sukses Batal.
 
- * Jika user KPPN belum memilih SP2D : sistem akan menampilkan peringatan bahwa SPM belum dipilih.
- * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+Alternatif :
+
+ * Jika tanggal SP2D belum diisikan : sistem akan menampilkan pesan error bahwa tanggal SP2D belum diisikan.
+ * Jika data SP2D tidak ditemukan : sistem akan menampilkan halaman pesan error bahwa data tidak ditemukan.
+ * Jika user KPPN belum memilih SP2D : sistem akan menampilkan pesan error bahwa SP2D belum dipilih.
+ * Jika salah satu field belum diisikan : sistem akan menolak input lalu menampilkan pesan error bahwa seluruh field harus terisi.
 
 == UC-Monitoring SPM ==
-Aktor : Satker.
+Aktor : Bendahara.
 
-Sistem menampilkan halaman Monitoring SPM. Satker memasukkan cakupan tanggal SPM yang diinginkan, memilih status penyelesaian SPM yang diinginkan lalu menekan tombol Proses. Sistem memproses pencarian dan mencari hasil yang cocok dan menampilkan halaman hasil pencarian yang berisi daftar SPM yang dicari beserta status penyelesaiannya..
+Pada halaman Monitoring SPM, Bendahara memasukkan tanggal SPM dan status penyelesaian SPM yang diinginkan lalu menekan tombol Cari. Sistem akan mencari pada daftar SPM dan menampilkan pada halaman Daftar Penyelesaian SPM.
 
-Alternatif  :
+Alternatif :
 
- * Jika user Satker belum memasukkan tanggal : sistem akan menampilkan peringatan bahwa cakupan tanggal harus diisi.
- * Jika status penyelesaian belum dipilih : sistem akan menampilkan peringatan bahwa status penyelesaian belum dipilih.
- * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa hasil pencarian kosong.
+* Jika field belum diisikan : sistem akan menampilkan pesan error bahwa seluruh field harus diisikan, kemudian mengembalikan ke halaman Monitoring SPM.
+* Jika data SPM tidak ditemukan: sistem akan menampilkan halaman pesan error bahwa data tidak ditemukan.
 
 == UC-Realisasi ==
 Aktor : Satker.
@@ -279,49 +269,37 @@ Alternatif  :
  * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
  * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa realisasi belum ada / kosong.
 
-== UC-Nomor SP2D ==
-Aktor: Admin.
-
-Pada halaman Nomor SP2D, User menekan tombol "Rekam". Sistem menampilkan halaman rekam Nomor SP2D. User memasukkan data pada field (nomor surat alokasi (teks), tanggal surat alokasi (tanggal), nomor awal alokasi SP2D sebanyak 6 (enam) digit, nomor akhir alokasi SP2D sebanyak 6 (enam) digit,  abjad alokasi SP2D sebanyak 1 (satu) karakter huruf romawi dan nomor SP2D aktif sebanyak 6 (enam) digit) kemudian menekan tombol "Simpan". Sistem akan memastikan semua field telah terisi dan karakter field yang terisi sudah sesuai, menyimpan data kemudian mengembalikan ke tampilan awal. 
-
  Alternatif  :
 
  * Jika salah satu field belum diisikan : sistem akan menolak input lalu menampilkan peringatan bahwa seluruh field harus terisi, kemudian mengembalikan ke halaman rekaman Nomor SP2D.
  * Jika karakter field yang terisi tidak sesuai : sistem akan menampilkan peringatan kesalahan input, kemudian mengembalikan ke halaman rekaman Nomor SP2D.
 
-== UC-Cari Referensi ==
-Aktor : Admin, KPPN, Satker
-
-Sistem menampilkan halaman Cari Referensi. User memilih salah satu referensi yang diinginkan, mengklik field kata kunci lalu mengetikkan kata pencarian. User menekan tombol Proses. Sistem memproses pencarian dan mencari hasil yang cocok dan menampilkan halaman hasil pencarian yang berisi daftar referensi yang dicari.
-
-Alternatif :
-
- * Jika User belum memilih kategori referensi : sistem akan menampilkan peringatan bahwa referensi belum dipilih.
- * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa hasil pencarian kosong.
-
 == UC-Rekam Satker ==
 
 Aktor : Admin.
-Pada halaman Satuan Kerja, Admin menekan tombol "Rekam". Sistem akan menampilkan halaman pengisian Satker. Admin memasukkan data pada field (kode Satker sebanyak 6 (enam) digit, kode Departemen sebanyak 3 (tiga) digit, kode Unit sebanyak 2 (dua) digit, kode lokasi sebanyak 2 (dua) digit, kode Dati II sebanyak 2 (dua) digit, kode KPPN sebanyak 3 (tiga) digit dan nama Satker dalam bentuk teks) kemudian menekan tombol "Simpan". Sistem mengecek apakah seluruh field terisi, karakter field telah sesuai dan mengecek apakah kode Satker telah ada,  menyimpan data lalu mengembalikan ke tampilan awal.
+Pada halaman Satuan Kerja yang berisi Daftar Satker, Admin mengklik tombol "Rekam". Sistem akan menampilkan halaman Perekaman Satker. Admin memasukkan data dengan memilih Departemen, Unit, Lokasi dan mengetikkan pada field (kode Satker dan nama Satker) kemudian menekan tombol "Simpan". Sistem mengecek seluruh field terisi, seluruh pilihan sudah terpilih, kode satker adalah angka, kode satker sudah 6 digit, kode satker unik/belum ada pada Daftar Satker, menyimpan data, kemudian mengembalikan ke halaman Satker.
 
 Alternatif  :
 
-* Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
-* Jika karakter field yang terisi tidak sesuai : sistem akan menampilkan peringatan kesalahan input, kemudian mengembalikan ke halaman rekam Satker.
-* Jika Satker telah ada : sistem akan menampilkan peringatan bahwa data sudah ada pada sistem, kemudian mengembalikan ke halaman rekam Satker.
-
+ * Jika field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan. 
+ * Jika kode Satker, Departemen, Unit, Lokasi, Dati II dan KPPN belum dipilih : sistem akan menampilkan peringatan kesalahan input dan menampilkan kembali halaman Perekaman Satker tanpa menyimpan data.
+ * Jika kode Satker bukan angka : sistem akan menampilkan peringatan kesalahan input dan menampilkan kembali halaman Perekaman Satker tanpa menyimpan data.
+ * Jika kode Satker kurang dari 6 digit : sistem akan menampilkan peringatan kesalahan input dan menampilkan kembali halaman Perekaman Satker tanpa menyimpan data.
+ * Jika kode Satker yang dimasukkan tidak unik / sudah ada : sistem akan menampilkan pesan bahwa kode Satker telah ada dan kembali pada halaman Perekaman Satker tanpa menyimpan data.
 
 == UC-Ubah Satker ==
 Aktor : Admin.
 
-Sistem akan menampilkan halaman referensi Satuan Kerja. Admin memilih referensi Satker yang akan diubah kemudian menekan tombol Ubah. Admin mengubah sesuai keperluan kemudian menekan tombol Simpan. Sistem menyimpan data, menampilkan konfirmasi lalu mengembalikan ke tampilan awal.
+Pada halaman Satuan Kerja yang berisi Daftar Satker. Admin memilih Satker lalu mengklik tombol "Ubah". Sistem akan menampilkan halaman Pengubahan Satker. Admin mengganti data dengan mengganti pilihan kode Departemen, kode Unit, kode Lokasi dan mengetikkan pada field (kode Satker dan nama Satker) dengan isian baru, kemudian menekan tombol "Simpan". Sistem mengecek seluruh field terisi, seluruh pilihan sudah terpilih, kode satker adalah angka, kode satker sudah 6 digit, kode satker unik/belum ada pada Daftar Satker, menyimpan data, kemudian mengembalikan ke halaman Satker.
 
-Alternatif  :
+Alternatif :
 
- * Jika kode Satker, Departemen, Unit, Lokasi, Dati II dan KPPN yang diinputkan bukan angka: sistem akan menampilkan peringatan kesalahan input dan sistem akan menampilkan kembali form isian referensi tanpa menyimpan inputan yang salah.
- * Jika kode Satker yang dimasukkan tidak unik : sistem akan menampilkan pesan bahwa kode Satker telah ada dan kembali pada halaman pengisian referensi tanpa menyimpan inputan yang salah.
- * Jika jumlah karakter pada field yang dimasukkan tidak sesuai : sistem akan menampilkan pesan kesalahan input dan kembali form padahalam pengisian referensi tanpa menyimpan inputan yang salah.
- * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
+ * Jika satker belum dipilih : sistem akan menampilkan peringatan bahwa Satker belum dipilih dan menampilkan kembali halaman Satker.
+ * Jika field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan dan menampilkan kembali halaman Perekaman Satker tanpa menyimpan data. 
+ * Jika kode Satker, Departemen, Unit, Lokasi belum dipilih : sistem akan menampilkan peringatan kesalahan input dan menampilkan kembali halaman Perekaman Satker tanpa menyimpan data.
+ * Jika kode Satker bukan angka : sistem akan menampilkan peringatan kesalahan input dan menampilkan kembali halaman Perekaman Satker tanpa menyimpan data.
+ * Jika kode Satker kurang dari 6 digit : sistem akan menampilkan peringatan kesalahan input dan menampilkan kembali halaman Perekaman Satker tanpa menyimpan data.
+ * Jika kode Satker yang dimasukkan tidak unik / sudah ada : sistem akan menampilkan pesan bahwa kode Satker telah ada dan kembali pada halaman Perekaman Satker tanpa menyimpan data.
 
 == UC-Hapus Satker ==
 Aktor : Admin.
