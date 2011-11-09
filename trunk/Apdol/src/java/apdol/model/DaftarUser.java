@@ -55,9 +55,9 @@ public class DaftarUser {
         boolean result = false;
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT count(a) FROM User AS a WHERE a.username=:usr AND a.password=:pswd");
-            q.setParameter("usr", username);
-            q.setParameter("pswd", password);
+            Query q = em.createQuery("SELECT count(a) FROM User AS a WHERE a.username=:uname AND a.password=:pass");
+            q.setParameter("uname", username);
+            q.setParameter("pass", password);
             int jumlahUser = ((Long) q.getSingleResult()).intValue();
             if (jumlahUser > 0) {
                 result = true;
@@ -68,12 +68,12 @@ public class DaftarUser {
         return result;
     }
     
-    public void rekamUser(User users) {
+    public void rekamUser(User user) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(users);
+            em.persist(user);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -83,19 +83,19 @@ public class DaftarUser {
     }
 
     public User getUser(String username, String password) {
-        User users = null;
+        User user = null;
         EntityManager em = getEntityManager();
         try {
             boolean hasilCheck = this.check(username, password);
             if (hasilCheck) {
-                Query q = em.createQuery("SELECT a FROM User AS a WHERE a.username=:usr AND a.password=:pswd");
-                q.setParameter("usr", username);
-                q.setParameter("pswd", password);
-                users = (User) q.getSingleResult();
+                Query q = em.createQuery("SELECT a FROM User AS a WHERE a.username=:uname AND a.password=:pass");
+                q.setParameter("uname", username);
+                q.setParameter("pass", password);
+                user = (User) q.getSingleResult();
             }
         } finally {
             em.close();
         }
-        return users;
+        return user;
     }
 }

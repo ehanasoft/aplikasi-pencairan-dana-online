@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="style.css" rel="stylesheet" type="text/css" />
         <title>JSP Page</title>
     </head>
     <body>
@@ -17,27 +18,27 @@
     <table border=0>
     <tr>
         <td>Username</td>
-        <td><input type="text" name="username"></td>
+        <td><input class="input" type="text" name="username"></td>
     </tr>
     <tr>
         <td>Password</td>
-        <td><input type="password" name="password"></td>
+        <td><input class="input" type="password" name="password"></td>
     </tr>
     <tr>
         <td>Nama</td>
-        <td><input type="name" name="name"></td>
+        <td><input class="input" type="name" name="name"></td>
     </tr>
     <tr>
         <td>Jabatan</td>
-        <td><input type="jabatan" name="jabatan"></td>
+        <td><input class="input" type="jabatan" name="jabatan"></td>
     </tr>
     <tr>
         <td>Role User</td>
-        <td><input type="roleUser" name="roleUser"></td>
+        <td><input class="input" type="roleUser" name="roleUser"></td>
     </tr>
     <tr>
         <td></td>
-        <td><input type="submit" value="login"></td>
+        <td><input name="Submit" src="images/login-button.jpg" type="image" value="Giriş" /></td>
     </tr>
     </table>
     </form></center>
