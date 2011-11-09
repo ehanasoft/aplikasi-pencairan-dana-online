@@ -30,19 +30,21 @@ public class HomeServlet extends HttpServlet {
             String password = request.getParameter("password");
 
         DaftarUser usr = new DaftarUser();
-        User user = usr.getUser(username, password);
-        if (user != null) {
-            //if(username.equals(user.getUsername())&&password.equals(user.getPassword())){
-                HttpSession session = request.getSession();
-                session.setAttribute("username", user.getUsername());
-                session.setAttribute("Nama", user.getNama());
-                session.setAttribute("roleuser", user.getRoleuser());
-                //response.sendRedirect("home");
+        User user = new User();
+        HttpSession session = request.getSession();
+        user = usr.getUser(username, password);
+        
+        if (username.equals("") || password.equals("")){
+                request.getRequestDispatcher("/error.jsp").forward(request, response);
+        } else if(user.getUsername().equals(username) && user.getPassword().equals(password)){
+                session.setAttribute("username", username);
                 request.getRequestDispatcher("/home.jsp").forward(request, response);
             } else {
-                out.println("invalid");
-            }
-    }
+                request.getRequestDispatcher("/error.jsp").forward(request, response);
+            }      
+    
+    
+}
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
