@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Accio
  */
-//@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
+//@WebServlet(name = "HomeServlet", urlPatterns = {"/main"})
 public class HomeServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -32,17 +32,24 @@ public class HomeServlet extends HttpServlet {
         DaftarUser usr = new DaftarUser();
         User user = new User();
         HttpSession session = request.getSession();
+        boolean resultCheck = usr.check(username, password);
         user = usr.getUser(username, password);
-        
-        if (username.equals("") || password.equals("")){
-                request.getRequestDispatcher("/error.jsp").forward(request, response);
-        } else if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-                session.setAttribute("username", username);
-                request.getRequestDispatcher("/home.jsp").forward(request, response);
+                
+        if(username.equals("") || password.equals("")){            
+                request.setAttribute("error", "Username/Password tidak boleh kosong!");
+                request.getRequestDispatcher("/main.jsp").forward(request, response);
             } else {
-                request.getRequestDispatcher("/error.jsp").forward(request, response);
-            }      
-    
+                if(resultCheck){
+                    //if(username.equals(user.getUsername()) && password.equals(user.getPassword())){
+                        session.setAttribute("username", username);
+                        request.getRequestDispatcher("/home.jsp").forward(request, response);
+                    } else {
+                            request.setAttribute("error2", "Username/Password tidak terdaftar");
+                            request.getRequestDispatcher("/main.jsp").forward(request, response);
+                    }      
+                }
+        //}
+        
     
 }
 
