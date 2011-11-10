@@ -9,12 +9,12 @@
         <servlet-class>apdol.servlet.RekamServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>HomeServlet</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>RekamUser</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
