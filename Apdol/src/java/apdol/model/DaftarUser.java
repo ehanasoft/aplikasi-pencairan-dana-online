@@ -59,7 +59,7 @@ public class DaftarUser {
             q.setParameter("uname", username);
             q.setParameter("pass", password);
             int jumlahUser = ((Long) q.getSingleResult()).intValue();
-            if (jumlahUser > 0) {
+            if (jumlahUser == 1) {
                 result = true;
             }
         } finally {
