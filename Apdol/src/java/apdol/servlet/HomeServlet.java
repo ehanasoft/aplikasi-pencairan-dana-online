@@ -40,15 +40,31 @@ public class HomeServlet extends HttpServlet {
             request.getRequestDispatcher("/main.jsp").forward(request, response);
         } else {
             if(resultCheck){
+                if(user.getRoleuser().equals(1)){
                 session.setAttribute("username", username);
+                session.setAttribute("roleuser", user.getRoleuser());
                 request.getRequestDispatcher("/home.jsp").forward(request, response);
-            } else {
-                request.setAttribute("error2", "Username/Password tidak terdaftar");
-                request.getRequestDispatcher("/main.jsp").forward(request, response);
+                //Halaman redirect sesuai role dari masing2 user, tampilan menyusul.
+                }else {
+                    if(user.getRoleuser().equals(2)){
+                    session.setAttribute("username", username);
+                    session.setAttribute("roleuser", user.getRoleuser());
+                    request.getRequestDispatcher("/home.jsp").forward(request, response);
+                    }else {
+                        if(user.getRoleuser().equals(3)){
+                            session.setAttribute("username", username);
+                            session.setAttribute("roleuser", user.getRoleuser());
+                            request.getRequestDispatcher("/home.jsp").forward(request, response);
+                        }else {
+                    request.setAttribute("error2", "Username/Password tidak terdaftar");
+                    request.getRequestDispatcher("/main.jsp").forward(request, response);
+                        }
+                    }
+                }
             }
         }
     }
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
