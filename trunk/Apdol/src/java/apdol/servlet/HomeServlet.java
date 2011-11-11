@@ -35,23 +35,19 @@ public class HomeServlet extends HttpServlet {
         boolean resultCheck = usr.check(username, password);
         user = usr.getUser(username, password);
                 
-        if(username.equals("") || password.equals("")){            
-                request.setAttribute("error", "Username/Password tidak boleh kosong!");
-                request.getRequestDispatcher("/main.jsp").forward(request, response);
+        if(username.equals("") || password.equals("")){
+            request.setAttribute("error", "Username/Password tidak boleh kosong!");
+            request.getRequestDispatcher("/main.jsp").forward(request, response);
+        } else {
+            if(resultCheck){
+                session.setAttribute("username", username);
+                request.getRequestDispatcher("/home.jsp").forward(request, response);
             } else {
-                if(resultCheck){
-                    //if(username.equals(user.getUsername()) && password.equals(user.getPassword())){
-                        session.setAttribute("username", username);
-                        request.getRequestDispatcher("/home.jsp").forward(request, response);
-                    } else {
-                            request.setAttribute("error2", "Username/Password tidak terdaftar");
-                            request.getRequestDispatcher("/main.jsp").forward(request, response);
-                    }      
-                }
-        //}
-        
-    
-}
+                request.setAttribute("error2", "Username/Password tidak terdaftar");
+                request.getRequestDispatcher("/main.jsp").forward(request, response);
+            }
+        }
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
