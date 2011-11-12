@@ -50,7 +50,7 @@ public class User implements Serializable {
     @Column(name = "jabatan")
     private String jabatan;
     @Column(name = "roleuser")
-    private Integer roleuser;
+    private String roleuser;
     @Column(name = "kodesatker")
     private String kodesatker;
 
@@ -114,11 +114,11 @@ public class User implements Serializable {
         this.jabatan = jabatan;
     }
 
-    public Integer getRoleuser() {
+    public String getRoleuser() {
         return roleuser;
     }
 
-    public void setRoleuser(Integer roleuser) {
+    public void setRoleuser(String roleuser) {
         this.roleuser = roleuser;
     }
 

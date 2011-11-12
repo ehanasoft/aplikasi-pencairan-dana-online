@@ -14,7 +14,7 @@
     </head>
     <body>
     
-<center><form method="post" action="prosesrekam">
+<center><form method="post" action="register">
     <table border=0>
     <tr>
         <td>Username</td>
@@ -26,7 +26,7 @@
     </tr>
     <tr>
         <td>Nama</td>
-        <td><input class="input" type="name" name="name"></td>
+        <td><input class="input" type="name" name="nama"></td>
     </tr>
     <tr>
         <td>Jabatan</td>
@@ -34,7 +34,10 @@
     </tr>
     <tr>
         <td>Role User</td>
-        <td><input class="input" type="roleUser" name="roleUser"></td>
+        <td><select name="roleuser">
+            <option value="2">Bendahara</option>
+            <option value="3">KPPN</option>
+            </select></td>
     </tr>
     <tr>
         <td></td>

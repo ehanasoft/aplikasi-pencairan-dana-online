@@ -4,9 +4,14 @@
     Author     : Accio
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="apdol.model.DaftarUser"%>
+<%@page import="apdol.entity.User"%>
+<% DaftarUser usr = new DaftarUser();%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%String logedUser = (String)session.getAttribute("username");%>
-<%Integer roleUser = (Integer) session.getAttribute("roleuser");%>
+<%String roleUser = (String) session.getAttribute("roleuser");%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,6 +21,12 @@
     </head>
     <body>
         <h1><% if(logedUser!=null){ %><%="Anda Login sebagai: "+logedUser+" "+ roleUser%><%}%></h1>
+        <% List<User> users = usr.getUser(); %>
+        <% Iterator<User> iterator = users.iterator();%>
+        <% while (iterator.hasNext()){%><% User next = iterator.next();%> 
+        <% out.println(next.getUsername());%><%}%>
+        
         <p style="margin: 10px;"><a href="register">Register    </a></p>
+        <p style="margin: 10px;"><a href="logout">Log Out    </a></p>
     </body>
 </html>
