@@ -5,10 +5,12 @@
 package apdol.model;
 
 import apdol.entity.User;
+import apdol.model.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -74,6 +76,38 @@ public class DaftarUser {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(user);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+    
+    public void updateUser(User user) {
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(user);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public void deleteUser(Integer id) throws NonexistentEntityException {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            User user;
+            try {
+                user = em.getReference(User.class, id);
+                user.getId();
+            } catch (EntityNotFoundException enfe) {
+                throw new NonexistentEntityException("The user with id " + id + " no longer exists.", enfe);
+            }
+            em.remove(user);
             em.getTransaction().commit();
         } finally {
             if (em != null) {

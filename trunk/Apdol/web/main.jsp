@@ -17,7 +17,7 @@
 
 <div id="login">
 	<div id="content">
-		<form method="post" action="home">
+		<form method="post" action="main">
 			<label class="login-info">Username</label>
 			<input class="input" name="username" type="text" />
 			<label class="login-info">Password</label>
