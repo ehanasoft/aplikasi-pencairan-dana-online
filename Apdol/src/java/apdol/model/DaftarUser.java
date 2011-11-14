@@ -132,4 +132,13 @@ public class DaftarUser {
         }
         return user;
     }
+
+    public User findUser(Long id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(User.class, id);
+        } finally {
+            em.close();
+        }
+    }
 }

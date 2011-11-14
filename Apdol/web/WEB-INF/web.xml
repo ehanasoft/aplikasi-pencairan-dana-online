@@ -5,7 +5,7 @@
         <servlet-class>apdol.servlet.MainServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RekamUser</servlet-name>
+        <servlet-name>RekamServlet</servlet-name>
         <servlet-class>apdol.servlet.RekamServlet</servlet-class>
     </servlet>
     <servlet>
@@ -16,8 +16,20 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>apdol.servlet.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>apdol.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UbahServlet</servlet-name>
+        <servlet-class>apdol.servlet.UbahServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>apdol.servlet.EditServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>RekamUser</servlet-name>
+        <servlet-name>RekamServlet</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/simpan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UbahServlet</servlet-name>
+        <url-pattern>/Ubah</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/Edit</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
