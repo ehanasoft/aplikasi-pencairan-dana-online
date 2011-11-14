@@ -4,20 +4,23 @@
  */
 package apdol.servlet;
 
+import apdol.entity.User;
+import apdol.model.DaftarUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Hari RZ
+ * @author wahid
  */
-//@WebServlet(name = "RekamUser", urlPatterns = {"/RekamUser"})
-public class RekamServlet extends HttpServlet {
+@WebServlet(name = "RegisterServlet", urlPatterns = {"/simpan"})
+public class RegisterServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,38 +33,48 @@ public class RekamServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        RequestDispatcher rdp = request.getRequestDispatcher("/pages/rekamUser.jsp");
-        rdp.forward(request, response);
+        RequestDispatcher rdp = null;
         
-        //String username = request.getParameter("username");
-        //String password = request.getParameter("password");
-        //String nama = request.getParameter("nama");
-        //String jabatan = request.getParameter("jabatan");
-        //String roleuser = request.getParameter("roleuser");
-        //String kodesatker = request.getParameter("kodesatker");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String nama = request.getParameter("nama");
+        String jabatan = request.getParameter("jabatan");
+        String roleuser = request.getParameter("roleuser");
+        String kodesatker = request.getParameter("kodesatker");
         
-        //DaftarUser usr = new DaftarUser();
-        //User user = new User();
+        DaftarUser usr = new DaftarUser();
+        User user = new User();
         
-      //  if(username.equals("") && password.equals("") && nama.equals("") && jabatan.equals("") && roleuser.equals("")/*&& kodesatker.equals("")*/){
-        //    request.setAttribute("error", "errortes");
+        if(username.equals("") && password.equals("") && nama.equals("") && jabatan.equals("") && roleuser.equals("")&& kodesatker.equals("")){
+           request.setAttribute("error", "errortes");
           //  request.getRequestDispatcher("/rekamUser.jsp");
             
-        //} else {
-           // user.setUsername(username);
-            //user.setPassword(password);
-            //user.setNama(nama);
-            //user.setJabatan(jabatan);
-            //user.setRoleuser(roleuser);
-            //user.setKodeSatker(kodesatker);
-            //usr.rekamUser(user);
+        } else {
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setNama(nama);
+            user.setJabatan(jabatan);
+            user.setRoleuser(roleuser);
+            user.setKodeSatker(kodesatker);
+            usr.rekamUser(user);
+            response.sendRedirect("home");
         
         //}
         
-          // String jsp = "pages/rekamUser.jsp";
-           //RequestDispatcher rdp = request.getRequestDispatcher("/pages/rekamUser.jsp");
-           //rdp.forward(request, response);
-
+        //try {
+            /* TODO output your page here
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet RegisterServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet RegisterServlet at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+             */
+        //} finally {            
+            //out.close();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

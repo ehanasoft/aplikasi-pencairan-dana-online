@@ -14,7 +14,7 @@
     </head>
     <body>
     
-<center><form method="post" action="register">
+<center><form method="post" action="simpan">
     <table border=0>
     <tr>
         <td>Username</td>
