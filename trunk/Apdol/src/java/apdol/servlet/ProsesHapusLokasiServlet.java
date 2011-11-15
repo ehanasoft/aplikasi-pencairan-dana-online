@@ -8,7 +8,7 @@ import apdol.entity.Lokasi;
 import apdol.model.DaftarLokasi;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Hari RZ
  */
 @WebServlet(name = "ProsesRekamLokasiServlet", urlPatterns = {"/ProsesRekamLokasiServlet"})
-public class ProsesEditLokasiServlet extends HttpServlet {
+public class ProsesHapusLokasiServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -45,7 +45,6 @@ public class ProsesEditLokasiServlet extends HttpServlet {
             out.println("</html>");
              */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
-           // List<Lokasi> listlokasi = daftarLokasi.getLokasi();
            
             String kodeLokasi = request.getParameter("kodelokasi");
             String namaKota = request.getParameter("namakota");
@@ -59,11 +58,9 @@ public class ProsesEditLokasiServlet extends HttpServlet {
             lokasi.setNamaPropinsi(namaPropinsi);
             daftarLokasi.edit(lokasi);
             
-            //request.setAttribute("listlokasi", listlokasi);
-            response.sendRedirect("home.jsp");
-            //String jsp = "/pages/lokasi.jsp";
-            //RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-            //requestDispatcher.forward(request, response);
+            String jsp = "/pages/lokasi.jsp";
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+            requestDispatcher.forward(request, response);
         } finally {            
             out.close();
         }

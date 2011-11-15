@@ -9,6 +9,7 @@
 <%@page import="apdol.entity.Lokasi"%>
 
 <% List<Lokasi> listLokasi = (List<Lokasi>) request.getAttribute("listlokasi");%>
+<% Lokasi lokasi;%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,12 +19,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-         
-            <h1>Hello World!</h1> 
             <h3>Daftar Lokasi</h3>
             <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
             <% while (iterator.hasNext()) {
-                    Lokasi lokasi = iterator.next();%>
+                    lokasi = iterator.next();%>
             
                     <form >
                         <p style="margin: 10px;">
@@ -32,7 +31,7 @@
             
                     
                    <input type="submit" value="edit" name="edit" formaction="editlokasi" formmethod="post"/>
-                   <input type="submit" value="rekam" name="rekam" formaction="rekamlokasi" formmethod="post"/>
+                   <input type="submit" value="hapus" name="hapus" formaction="hapuslokasi" formmethod="post"/>
                     </form>
             <%}%>
             <p style="margin: 15px;color : yellow;"><a href="rekamlokasi">Rekam Lokasi    </a></p>
