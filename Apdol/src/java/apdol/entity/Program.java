@@ -15,55 +15,46 @@ import javax.persistence.Id;
  * @author AlfieSaHid
  */
 @Entity
-public class Pejabat implements Serializable {
+public class Program implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nip;
-    private String nama;
-    private String kdgol;
-    private String nmjabatan;
-    private String ketjabatan;
+    private String kdfungsi;
+    private String kdsubfungsi;
+    private String kdprogram;
+    private String nmprogram;
 
-    public String getKdgol() {
-        return kdgol;
+    public String getKdfungsi() {
+        return kdfungsi;
     }
 
-    public void setKdgol(String kdgol) {
-        this.kdgol = kdgol;
+    public void setKdfungsi(String kdfungsi) {
+        this.kdfungsi = kdfungsi;
     }
 
-    public String getKetjabatan() {
-        return ketjabatan;
+    public String getKdprogram() {
+        return kdprogram;
     }
 
-    public void setKetjabatan(String ketjabatan) {
-        this.ketjabatan = ketjabatan;
+    public void setKdprogram(String kdprogram) {
+        this.kdprogram = kdprogram;
     }
 
-    public String getNama() {
-        return nama;
+    public String getKdsubfungsi() {
+        return kdsubfungsi;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setKdsubfungsi(String kdsubfungsi) {
+        this.kdsubfungsi = kdsubfungsi;
     }
 
-    public String getNip() {
-        return nip;
+    public String getNmprogram() {
+        return nmprogram;
     }
 
-    public void setNip(String nip) {
-        this.nip = nip;
-    }
-
-    public String getNmjabatan() {
-        return nmjabatan;
-    }
-
-    public void setNmjabatan(String nmjabatan) {
-        this.nmjabatan = nmjabatan;
+    public void setNmprogram(String nmprogram) {
+        this.nmprogram = nmprogram;
     }
     
     public Long getId() {
@@ -84,10 +75,10 @@ public class Pejabat implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Pejabat)) {
+        if (!(object instanceof Program)) {
             return false;
         }
-        Pejabat other = (Pejabat) object;
+        Program other = (Program) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -96,7 +87,7 @@ public class Pejabat implements Serializable {
 
     @Override
     public String toString() {
-        return "apdol.entity.Pejabat[ id=" + id + " ]";
+        return "apdol.entity.Program[ id=" + id + " ]";
     }
     
 }

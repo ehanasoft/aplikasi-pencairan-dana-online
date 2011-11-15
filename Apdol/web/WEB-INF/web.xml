@@ -1,65 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
+        <servlet-name>MainServlet</servlet-name>
+        <servlet-class>apdol.servlet.MainServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RekamUser</servlet-name>
+        <servlet-class>apdol.servlet.RekamServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>apdol.servlet.HomeServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RekamUser</servlet-name>
-        <servlet-class>apdol.servlet.ProsesRekamLokasiServlet</servlet-class>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>apdol.servlet.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
-        <description>halaman rekam lokasi</description>
-        <servlet-name>RekamLokasiServlet</servlet-name>
-        <servlet-class>apdol.servlet.RekamLokasiServlet</servlet-class>
+        <servlet-name>AddBankPosServlet</servlet-name>
+        <servlet-class>apdol.servlet.AddBankPosServlet</servlet-class>
     </servlet>
     <servlet>
-        <description>proses rekam lokasi servlet</description>
-        <servlet-name>ProsesRekamLokasiServlet</servlet-name>
-        <servlet-class>apdol.servlet.ProsesRekamLokasiServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LokasiServlet</servlet-name>
-        <servlet-class>apdol.servlet.LokasiServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>EditLokasiServlet</servlet-name>
-        <servlet-class>apdol.servlet.EditLokasiServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ProsesEditLokasiServlet</servlet-name>
-        <servlet-class>apdol.servlet.ProsesEditLokasiServlet</servlet-class>
+        <servlet-name>AddBankPosPageServlet</servlet-name>
+        <servlet-class>apdol.servlet.AddBankPosPageServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RekamUser</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RekamLokasiServlet</servlet-name>
-        <url-pattern>/rekamlokasi</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProsesRekamLokasiServlet</servlet-name>
-        <url-pattern>/prosesrekamlokasi</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LokasiServlet</servlet-name>
-        <url-pattern>/lokasi</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EditLokasiServlet</servlet-name>
-        <url-pattern>/editlokasi</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProsesEditLokasiServlet</servlet-name>
-        <url-pattern>/proseseditlokasi</url-pattern>
+        <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/main</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
-        <url-pattern>/main</url-pattern>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddBankPosServlet</servlet-name>
+        <url-pattern>/AddBankPos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddBankPosPageServlet</servlet-name>
+        <url-pattern>/AddBankPosPage</url-pattern>
     </servlet-mapping>
     <session-config>
-        <session-timeout>30</session-timeout>
+        <session-timeout>
+            30
+        </session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>main.jsp</welcome-file>
