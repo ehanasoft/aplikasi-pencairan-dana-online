@@ -40,6 +40,10 @@
             </select></td>
     </tr>
     <tr>
+        <td>Kode Satker</td>
+        <td><input class="input" type="kodesatker" name="kodesatker"></td>
+    </tr>
+    <tr>
         <td></td>
         <td><input name="Submit" src="images/login-button.jpg" type="image" value="Giriş" /></td>
     </tr>
