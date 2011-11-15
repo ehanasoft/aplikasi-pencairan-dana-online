@@ -26,7 +26,8 @@
         <% while (iterator.hasNext()){%><% User next = iterator.next();%> 
         <% out.println(next.getUsername());%><%}%>
         
-        <p style="margin: 10px;"><a href="register">Register    </a></p>
+        <p style="margin: 10px ;color : yellow;"><a href="register">Register    </a></p>
+        <p style="margin: 10px;color : yellow;"><a href="lokasi">Lokasi    </a></p>
         <p style="margin: 10px;"><a href="logout">Log Out    </a></p>
     </body>
 </html>
