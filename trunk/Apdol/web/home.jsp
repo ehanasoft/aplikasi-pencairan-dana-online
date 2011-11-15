@@ -29,5 +29,6 @@
         <p style="margin: 10px ;color : yellow;"><a href="register">Register    </a></p>
         <p style="margin: 10px;color : yellow;"><a href="lokasi">Lokasi    </a></p>
         <p style="margin: 10px;"><a href="logout">Log Out    </a></p>
+        <p style="margin: 10px;"><a href="bankpos">Bank Pos    </a></p>
     </body>
 </html>

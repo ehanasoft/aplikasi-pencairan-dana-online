@@ -20,14 +20,14 @@ public class BankPos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int kdbankpos;
+    private String kdbankpos;
     private String nmbankpos;
 
-    public int getKdbankpos() {
+    public String getKdbankpos() {
         return kdbankpos;
     }
 
-    public void setKdbankpos(int kdbankpos) {
+    public void setKdbankpos(String kdbankpos) {
         this.kdbankpos = kdbankpos;
     }
 
