@@ -44,6 +44,10 @@
         <servlet-name>proses edit lokasi</servlet-name>
         <servlet-class>apdol.servlet.ProsesEditLokasiServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>hapus lokasi</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusLokasiServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RekamUser</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>proses edit lokasi</servlet-name>
         <url-pattern>/proseseditlokasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>hapus lokasi</servlet-name>
+        <url-pattern>/proseshapuslokasi</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
