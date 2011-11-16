@@ -56,7 +56,7 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
             lokasi.setNamaPropinsi(namaPropinsi);
             daftarLokasi.rekamLokasi(lokasi);
             
-            String jsp = "/pages/lokasi.jsp";
+            String jsp = "home.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {            
