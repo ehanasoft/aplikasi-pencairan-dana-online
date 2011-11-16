@@ -19,22 +19,21 @@
         <title>JSP Page</title>
     </head>
     <body>
-            <h3>Daftar Lokasi</h3>
-            <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
-            <% while (iterator.hasNext()) {
+        <h3>Daftar Lokasi</h3>
+        <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
+        <% while (iterator.hasNext()) {
                     lokasi = iterator.next();%>
-            
-                    <form >
-                        <p style="margin: 10px;">
-                <b style="color: blue;"> <%=lokasi.getNamaKota()%>  Dan <%=lokasi.getNamaPropinsi()%> Dan <%=lokasi.getId()%></b>
-                <input type="hidden" name="idlokasi" value="<%=lokasi.getId()%>">
-            
-                    
-                   <input type="submit" value="edit" name="edit" formaction="editlokasi" formmethod="post"/>
-                   <input type="submit" value="hapus" name="hapus" formaction="hapuslokasi" formmethod="post"/>
-                    </form>
-            <%}%>
-            <p style="margin: 15px;color : yellow;"><a href="rekamlokasi">Rekam Lokasi    </a></p>
-        
+
+        <form >
+            <p style="margin: 10px;">
+                <input  type="checkbox"  name="ceklokasi" value="<%=lokasi.getId()%>"><%=lokasi.getNamaKota()%>  Dan <%=lokasi.getNamaPropinsi()%> Dan <%=lokasi.getId()%>"
+                <input type="hidden" name="idlokasi" value="<%=lokasi.getId()%>" >
+                <input type="submit" value="edit" name="edit" formaction="editlokasi" formmethod="post"/> <BR>               
+                <%}%>
+                
+                <input type="submit" value="hapus" name="hapus" formaction="proseshapuslokasi" formmethod="post"/>
+        </form>
+        <p style="margin: 15px;color : yellow;"><a href="rekamlokasi">Rekam Lokasi    </a></p>
+
     </body>
 </html>

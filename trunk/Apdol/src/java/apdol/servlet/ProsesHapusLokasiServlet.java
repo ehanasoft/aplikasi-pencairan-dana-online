@@ -6,14 +6,18 @@ package apdol.servlet;
 
 import apdol.entity.Lokasi;
 import apdol.model.DaftarLokasi;
+import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,7 +34,7 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, NonexistentEntityException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
@@ -45,23 +49,23 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
             out.println("</html>");
              */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
-           
-            String kodeLokasi = request.getParameter("kodelokasi");
-            String namaKota = request.getParameter("namakota");
-            String namaPropinsi = request.getParameter("namapropinsi");
-            Long idlokasi = Long.parseLong(request.getParameter("idlokasi"));
-            
-            Lokasi lokasi = daftarLokasi.findLokasi(idlokasi);
-            
-            lokasi.setKodeLokasi(kodeLokasi);
-            lokasi.setNamaKota(namaKota);
-            lokasi.setNamaPropinsi(namaPropinsi);
-            daftarLokasi.edit(lokasi);
-            
-            String jsp = "/pages/lokasi.jsp";
+
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin menghapus ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY,JOptionPane.YES_NO_OPTION);
+
+            if (j == JOptionPane.YES_OPTION) {
+                String ceklokasi[] = request.getParameterValues("ceklokasi");
+                for (int i = 0; i < ceklokasi.length; i++) {
+                    long idlokasi = Long.parseLong(ceklokasi[i]);
+                    Lokasi lokasi = daftarLokasi.findLokasi(idlokasi);
+                    daftarLokasi.destroy(idlokasi);
+                }
+            }
+
+            String jsp = "home.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }
@@ -77,7 +81,11 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusLokasiServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 
@@ -90,8 +98,12 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        
+        try {
+            processRequest(request, response);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusLokasiServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /** 
