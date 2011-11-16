@@ -24,6 +24,26 @@
         <servlet-name>AddBankPosPageServlet</servlet-name>
         <servlet-class>apdol.servlet.AddBankPosPageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>lokasi</servlet-name>
+        <servlet-class>apdol.servlet.LokasiServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>rekam lokasi</servlet-name>
+        <servlet-class>apdol.servlet.RekamLokasiServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>proses rekam lokasi</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamLokasiServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editlokasi</servlet-name>
+        <servlet-class>apdol.servlet.EditLokasiServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>proses edit lokasi</servlet-name>
+        <servlet-class>apdol.servlet.ProsesEditLokasiServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RekamUser</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -48,10 +68,28 @@
         <servlet-name>AddBankPosPageServlet</servlet-name>
         <url-pattern>/AddBankPosPage</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>lokasi</servlet-name>
+        <url-pattern>/lokasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>rekam lokasi</servlet-name>
+        <url-pattern>/rekamlokasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>proses rekam lokasi</servlet-name>
+        <url-pattern>/prosesrekamlokasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editlokasi</servlet-name>
+        <url-pattern>/editlokasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>proses edit lokasi</servlet-name>
+        <url-pattern>/proseseditlokasi</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>main.jsp</welcome-file>
