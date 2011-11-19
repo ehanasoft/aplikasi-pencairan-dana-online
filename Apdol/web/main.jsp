@@ -26,7 +26,7 @@
                         <label class="error-message">${error2}</label>
                         
 				<div id="login-buttton">
-					<input name="Submit" src="images/login-button.jpg" type="image" value="Giriş" /></div>
+					<input name="Submit" src="images/login-button.png" type="image" value="Giriş" /></div>
 		</form>
 	</div>
 </div>
