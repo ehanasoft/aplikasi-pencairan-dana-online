@@ -32,8 +32,8 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = request.getSession();
         if(session.getAttribute("username")!=null && session.getAttribute("roleuser")!=null){
         session.invalidate();
-        request.getRequestDispatcher("main.jsp").forward(request, response);
-        //response.sendRedirect("main");
+        //request.getRequestDispatcher("main.jsp").forward(request, response);
+        response.sendRedirect("main.jsp");
         }
     }
 
