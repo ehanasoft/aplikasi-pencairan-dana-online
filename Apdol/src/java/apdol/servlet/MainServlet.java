@@ -10,13 +10,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Accio
  */
-public class LogoutServlet extends HttpServlet {
+public class MainServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -29,11 +28,21 @@ public class LogoutServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
-        if(session.getAttribute("username")!=null && session.getAttribute("roleuser")!=null){
-        session.invalidate();
-        //request.getRequestDispatcher("main.jsp").forward(request, response);
-        response.sendRedirect("main");
+        
+        request.getRequestDispatcher("/main.jsp").forward(request, response);
+        try {
+            /* TODO output your page here
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet MainServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet MainServlet at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+             */
+        } finally {            
+            out.close();
         }
     }
 

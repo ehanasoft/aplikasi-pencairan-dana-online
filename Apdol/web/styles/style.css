@@ -16,12 +16,12 @@ root {
 }
 
 body {
-	background-image: url(images/background.jpg);
+	background-image: url(../images/background.jpg);
 	margin: 0px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 #login {
-	background-image: url(images/login.jpg);
+	background-image: url(../images/login.jpg);
 	background-repeat: no-repeat;
 	width: 333px;
 	height: 317px;
@@ -31,7 +31,7 @@ body {
 	padding: 30px 10px 10px 10px;
 }
 .input {
-	background-image: url(images/input-bg.jpg);
+	background-image: url(../images/input-bg.jpg);
 	height: 47px;
 	width: 260px;
 	border: 1px solid #6ba1d1;

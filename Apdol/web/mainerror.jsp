@@ -22,6 +22,8 @@
 			<input class="input" name="username" type="text" />
 			<label class="login-info">Password</label>
 			<input class="input" name="password" type="password" />
+                        <label class="error-message">${error}</label>
+                        <label class="error-message">${error2}</label>
                         
 				<div id="login-buttton">
 					<input name="Submit" src="images/login-button.png" type="image" value="Giriş" /></div>

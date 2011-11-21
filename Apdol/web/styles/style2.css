@@ -1,0 +1,112 @@
+@charset "utf-8";
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-image: url(../images/background.jpg);
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+.header {
+        height: 93px;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl {
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+a img {
+	border: none;
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color:#414958;
+	text-decoration: underline;
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus {
+	text-decoration: none;
+}
+
+/* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+.container {
+	width: 80%;
+	max-width: 950px;
+	min-width: 780px;
+	background: #FFF;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/* ~~ These are the columns for the layout. ~~ */
+.sidebar1 {
+	float: left;
+	width: 20%;
+	background-image: url(../images/background2.jpg);
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0;
+	width: 80%;
+	float: left;
+}
+
+.logout {
+	padding: 10px 0;
+	width: 80%;
+	height: 10px;
+	float: left;
+	text-align:right;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px;
+}
+
+/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+ul.nav {
+	list-style: none;
+	border-top: 1px solid #666;
+	margin-bottom: 15px;
+}
+ul.nav li {
+	border-bottom: 1px solid #666;
+}
+ul.nav a, ul.nav a:visited {
+	padding: 5px 5px 5px 15px;
+	display: block;
+	text-decoration: none;
+	background-image: url(../images/background3.jpg);
+	color: #000;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
+	background-image: url(../images/background2.jpg);
+	color: #FFF;
+}
+
+/* ~~miscellaneous float/clear classes~~ */
+.fltrt {
+	float: right;
+	margin-left: 8px;
+}
+.fltlft {
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { 
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
