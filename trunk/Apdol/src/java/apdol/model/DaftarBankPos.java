@@ -104,7 +104,7 @@ public class DaftarBankPos {
                 bank = em.getReference(BankPos.class, id);
                 bank.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The user with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("Bank Pos belum dipilih", enfe);
             }
             em.remove(bank);
             em.getTransaction().commit();

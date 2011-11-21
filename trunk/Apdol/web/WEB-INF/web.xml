@@ -21,8 +21,8 @@
         <servlet-class>apdol.servlet.AddBankPosServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddBankPosPageServlet</servlet-name>
-        <servlet-class>apdol.servlet.AddBankPosPageServlet</servlet-class>
+        <servlet-name>BankPosServlet</servlet-name>
+        <servlet-class>apdol.servlet.BankPosServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>lokasi</servlet-name>
@@ -65,14 +65,6 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddBankPosServlet</servlet-name>
-        <url-pattern>/AddBankPos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddBankPosPageServlet</servlet-name>
-        <url-pattern>/AddBankPosPage</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>lokasi</servlet-name>
         <url-pattern>/lokasi</url-pattern>
     </servlet-mapping>
@@ -103,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
         <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BankPosServlet</servlet-name>
+        <url-pattern>/bankpos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddBankPosServlet</servlet-name>
+        <url-pattern>/RekamBankPos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
