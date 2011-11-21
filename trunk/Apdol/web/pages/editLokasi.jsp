@@ -4,8 +4,13 @@
     Author     : ahza
 --%>
 
+<%@page import="apdol.model.DaftarLokasi"%>
 <%@page import="apdol.entity.Lokasi"%>
+<%@page import="javax.swing.JOptionPane"%>
+
+
 <% Lokasi lokasi = (Lokasi) request.getAttribute("lokasiedit");%>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,14 +30,14 @@
                                     <form action="proseseditlokasi" method="post" >
                                     <table width="450">
                                         <tr>
-                                            <td width="100">Kode Lokasi</td><td><input type="text" name="kodelokasi" value ="<%=lokasi.getKodeLokasi()%>" style="width: 300px"></td>
+                                            <td width="100">Kode Lokasi</td><td><input name="kodelokasi" type="text" style="width: 50px" value ="<%=lokasi.getKodeLokasi()%>" size="4" maxlength="4"></td>
                                         </tr>
                                         <tr>
                                             <td>Nama Kota</td><td><input type="text" name="namakota" value="<%=lokasi.getNamaKota()%>" style="width: 300px" ></td>
                                         </tr>
                                         <tr>
-                                            <td>Nama Propinsi </td><td><input type="text" name="namapropinsi" value="<%=lokasi.getNamaPropinsi()%>" style="width: 100px"></td>      
-                                        <td> <input type="hidden" name="idlokasi" value="<%=lokasi.getId()%>"> </td>
+                                            <td>Nama Propinsi </td><td><input type="text" name="namapropinsi" value="<%=lokasi.getNamaPropinsi()%>" style="width: 300px"></td>      
+                                        <td> <input type="hidden" name="ideditlokasi" value="<%=lokasi.getId()%>"> </td>
                                         </tr>
                                         <tr>
                                             <td></td><td><input type="reset"><input type="submit" value="Simpan" ></td>

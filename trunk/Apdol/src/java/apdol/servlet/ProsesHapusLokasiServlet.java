@@ -9,6 +9,7 @@ import apdol.model.DaftarLokasi;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -50,7 +51,7 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
              */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
 
-            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin menghapus ?",
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
                     JOptionPane.MESSAGE_TYPE_PROPERTY,JOptionPane.YES_NO_OPTION);
 
             if (j == JOptionPane.YES_OPTION) {
@@ -62,7 +63,10 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
                 }
             }
 
-            String jsp = "home.jsp";
+            List<Lokasi> listLokasi = daftarLokasi.getLokasi();
+            request.setAttribute("listlokasi", listLokasi);
+            
+            String jsp = "pages/lokasi.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

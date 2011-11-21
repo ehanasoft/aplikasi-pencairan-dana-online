@@ -22,13 +22,13 @@
                                     <form action="prosesrekamlokasi" method="post" >
                                     <table width="450">
                                         <tr>
-                                            <td width="100">Kode Lokasi</td><td><input type="text" name="kodelokasi" style="width: 300px"></td>
+                                            <td width="100">Kode Lokasi</td><td><input name="kodelokasi" type="text" style="width: 50px" size="4" maxlength="4"></td>
                                         </tr>
                                         <tr>
                                             <td>Nama Kota</td><td><input type="text" name="namakota" style="width: 300px"></td>
                                         </tr>
                                         <tr>
-                                            <td>Nama Propinsi</td><td><input type="text" name="namapropinsi" style="width: 100px"></td>
+                                            <td>Nama Propinsi</td><td><input type="text" name="namapropinsi" style="width: 300px"></td>
                                         </tr>
                                         <tr>
                                             <td></td><td><input type="reset"><input type="submit" value="Simpan" ></td>

@@ -4,7 +4,6 @@
  */
 package apdol.servlet;
 
-
 import apdol.entity.Lokasi;
 import apdol.model.DaftarLokasi;
 import java.io.IOException;
@@ -16,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,15 +48,26 @@ public class EditLokasiServlet extends HttpServlet {
             out.println("</html>");
              */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
+            String cekLokasi[] = request.getParameterValues("ceklokasi");
+
+            if (cekLokasi == null) {
+                JOptionPane.showMessageDialog(null, "Lokasi tidak ada yang dipilih");
+            } else if (cekLokasi.length > 1) {
+                JOptionPane.showMessageDialog(null, "Centang lebih dari satu, pilih salah satu lokasi saja");
+            } else {
+                Long idLokasi = Long.parseLong(cekLokasi[0]);
+                Lokasi lokasi = daftarLokasi.findLokasi(idLokasi);
+                request.setAttribute("lokasiedit", lokasi);
+
+                String jsp = "/pages/editLokasi.jsp";
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+                requestDispatcher.forward(request, response);
+            }
+            
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
-            Long idlokasi = Long.parseLong(request.getParameter("idlokasi"));
+            request.setAttribute("listlokasi", listLokasi);
             
-                      
-            Lokasi lokasi = daftarLokasi.findLokasi(idlokasi);
-            
-            request.setAttribute("lokasiedit", lokasi);
-            
-            String jsp = "/pages/editLokasi.jsp";
+            String jsp = "pages/lokasi.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
 
