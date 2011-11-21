@@ -4,10 +4,14 @@
  */
 package apdol.servlet;
 
+import apdol.entity.BankPos;
+import apdol.model.DaftarBankPos;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author AlfieSaHid
  */
-public class AddBankPosPageServlet extends HttpServlet {
+@WebServlet(name = "BankPosServlet", urlPatterns = {"/bankpos"})
+public class BankPosServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,7 +35,11 @@ public class AddBankPosPageServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        RequestDispatcher rdp = request.getRequestDispatcher("rekam.jsp");
+        DaftarBankPos daftarBank = new DaftarBankPos ();
+        List<BankPos> listBank = daftarBank.getBankPos();
+        request.setAttribute("listbank", listBank);
+        
+        RequestDispatcher rdp = request.getRequestDispatcher("pages/Referensi/BankPos.jsp");
         rdp.forward(request, response);
     }
 

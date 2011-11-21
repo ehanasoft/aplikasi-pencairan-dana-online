@@ -4,9 +4,13 @@
  */
 package apdol.servlet;
 
+import apdol.entity.BankPos;
+import apdol.model.DaftarBankPos;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author AlfieSaHid
  */
+@WebServlet(name = "AddBankPosServlet", urlPatterns = {"/RekamBankPos"})
 public class AddBankPosServlet extends HttpServlet {
 
     /** 
@@ -39,6 +44,19 @@ public class AddBankPosServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
              */
+            String kodeBank = request.getParameter("kdbankpos");
+            String namaBank = request.getParameter("nmbankpos");
+            
+            BankPos bankpos = new BankPos ();
+            DaftarBankPos daftarBankPos = new DaftarBankPos ();
+            
+            bankpos.setKdbankpos(kodeBank);
+            bankpos.setNmbankpos(namaBank);            
+            daftarBankPos.rekamBankPos(bankpos);
+            
+            String jsp = "pages/Referensi/rekamBankPos.jsp";
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+            requestDispatcher.forward(request, response);
         } finally {            
             out.close();
         }
