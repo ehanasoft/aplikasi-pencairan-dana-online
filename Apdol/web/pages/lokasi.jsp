@@ -21,19 +21,36 @@
     <body>
         <h3>Daftar Lokasi</h3>
         <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
-        <% while (iterator.hasNext()) {
-                    lokasi = iterator.next();%>
-
         <form >
-            <p style="margin: 10px;">
-                <input  type="checkbox"  name="ceklokasi" value="<%=lokasi.getId()%>"><%=lokasi.getNamaKota()%>  Dan <%=lokasi.getNamaPropinsi()%> Dan <%=lokasi.getId()%>"
-                <input type="hidden" name="idlokasi" value="<%=lokasi.getId()%>" >
-                <input type="submit" value="edit" name="edit" formaction="editlokasi" formmethod="post"/> <BR>               
+            <p style="margin: 10px;"><BR>
+            <table width="671" border="1">
+                <tr>
+                    <td width="46"><p style="margin: 10px;">Cek<BR>
+                        </p></td>
+                    <td width="112"><span style="margin: 10px;">Kode Lokasi</span></td>
+                    <td width="205"><p style="margin: 10px;">Nama Kota</p></td>
+                    <td width="280"><span style="margin: 10px;">Nama Propinsi</span></td>
+                </tr>
+                <% while (iterator.hasNext()) {
+                              lokasi = iterator.next();%>
+                <tr>
+                    <td width="46" height="45"><p style="margin: 10px;">
+                            <input  type="checkbox"  name="ceklokasi" value="<%=lokasi.getId()%>">
+                            <BR>
+                        </p></td>
+                    <td width="112"><span style="margin: 10px;"><%=lokasi.getKodeLokasi()%></span></td>
+                    <td width="205"><p style="margin: 10px;"><%=lokasi.getNamaKota()%></p></td>
+                    <td width="280"><span style="margin: 10px;"><%=lokasi.getNamaPropinsi()%></span></td>
+                </tr>
                 <%}%>
-                
+            </table>
+            <span style="margin: 10px;">
+            </span>
+            <p style="margin: 10px;"><BR>
+                <input type="submit" value="rekam" name="rekam" formaction="rekamlokasi" formmethod="post"/>
+                <input type="submit" value="edit" name="edit" formaction="editlokasi" formmethod="post"/> 
                 <input type="submit" value="hapus" name="hapus" formaction="proseshapuslokasi" formmethod="post"/>
         </form>
-        <p style="margin: 15px;color : yellow;"><a href="rekamlokasi">Rekam Lokasi    </a></p>
 
     </body>
 </html>
