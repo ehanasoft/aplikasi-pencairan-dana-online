@@ -6,9 +6,12 @@ package apdol.servlet;
 
 import apdol.entity.Lokasi;
 import apdol.model.DaftarLokasi;
+import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,7 +35,7 @@ public class ProsesEditLokasiServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, NonexistentEntityException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
@@ -59,11 +62,6 @@ public class ProsesEditLokasiServlet extends HttpServlet {
             Long longIdLokasi = Long.parseLong(idLokasi);
             Lokasi lokasi = daftarLokasi.findLokasi(longIdLokasi);
 
-            lokasi.setKodeLokasi(kodeLokasi);
-            lokasi.setNamaKota(namaKota);
-            lokasi.setNamaPropinsi(namaPropinsi);
-
-            //validate blank field
             if (kodeLokasi == "") {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi tidak boleh kosong !");
                 request.setAttribute("lokasiedit", lokasi);
@@ -92,16 +90,20 @@ public class ProsesEditLokasiServlet extends HttpServlet {
                 request.setAttribute("lokasiedit", lokasi);
                 jsp = "pages/editLokasi.jsp";
             } //validate record on database
-            else if (lokasi.valKodeLokasi()) {
+            else if (lokasi.valKodeLokasi(kodeLokasi)) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi sudah ada dalam data base !");
                 request.setAttribute("lokasiedit", lokasi);
                 jsp = "pages/editLokasi.jsp";
-            } else if (lokasi.valNamaKota()) {
+            } else if (lokasi.valNamaKota(namaKota)) {
                 JOptionPane.showMessageDialog(null, "Kota sudah ada dalam data base !");
                 request.setAttribute("lokasiedit", lokasi);
                 jsp = "pages/editLokasi.jsp";
             } else {
+                lokasi.setKodeLokasi(kodeLokasi);
+                lokasi.setNamaKota(namaKota);
+                lokasi.setNamaPropinsi(namaPropinsi);
                 daftarLokasi.edit(lokasi);
+                listLokasi = daftarLokasi.getLokasi();
                 request.setAttribute("listlokasi", listLokasi);
                 jsp = "pages/lokasi.jsp";
             }
@@ -123,7 +125,11 @@ public class ProsesEditLokasiServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesEditLokasiServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 
@@ -136,7 +142,11 @@ public class ProsesEditLokasiServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesEditLokasiServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

@@ -56,7 +56,7 @@ public class Lokasi implements Serializable {
     }
     return true;
     }*/
-    public boolean valKodeLokasi() {
+    public boolean valKodeLokasi(String def) {
         DaftarLokasi daftarLokasi = new DaftarLokasi();
         List<Lokasi> listLokasi = daftarLokasi.getLokasi();
         Iterator<Lokasi> iterator = listLokasi.iterator();
@@ -64,14 +64,19 @@ public class Lokasi implements Serializable {
 
         while (iterator.hasNext()) {
             tes = iterator.next();
-            if (tes.kodeLokasi.equalsIgnoreCase(this.kodeLokasi)) {
-                return true;
+            if (def.equalsIgnoreCase(tes.kodeLokasi)) {
+                //validate if user doesn't change the field
+                if (def.equalsIgnoreCase(this.kodeLokasi)) {
+                    return false;
+                } else {
+                    return true;
+                }
             }
         }
         return false;
     }
 
-    public boolean valNamaKota() {
+    public boolean valNamaKota(String def) {
         DaftarLokasi daftarLokasi = new DaftarLokasi();
         List<Lokasi> listLokasi = daftarLokasi.getLokasi();
         Iterator<Lokasi> iterator = listLokasi.iterator();
@@ -79,8 +84,13 @@ public class Lokasi implements Serializable {
 
         while (iterator.hasNext()) {
             tes = iterator.next();
-            if (tes.namaKota.equalsIgnoreCase(this.namaKota)) {
-                return true;
+            if (def.equalsIgnoreCase(tes.namaKota)) {
+                //validate if user doesn't change the field
+                if (def.equalsIgnoreCase(this.namaKota)) {
+                    return false;
+                } else {
+                    return true;
+                }
             }
         }
         return false;
@@ -89,9 +99,11 @@ public class Lokasi implements Serializable {
     public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);
+            //validate minus input
             if (i > 0) {
                 return true;
-            } return false;
+            }
+            return false;
         } catch (Exception e) {
             return false;
         }
