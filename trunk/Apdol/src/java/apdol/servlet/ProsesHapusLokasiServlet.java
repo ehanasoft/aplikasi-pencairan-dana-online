@@ -50,23 +50,30 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
             out.println("</html>");
              */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
-
-            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
-                    JOptionPane.MESSAGE_TYPE_PROPERTY,JOptionPane.YES_NO_OPTION);
-
-            if (j == JOptionPane.YES_OPTION) {
-                String ceklokasi[] = request.getParameterValues("ceklokasi");
-                for (int i = 0; i < ceklokasi.length; i++) {
-                    long idlokasi = Long.parseLong(ceklokasi[i]);
-                    Lokasi lokasi = daftarLokasi.findLokasi(idlokasi);
-                    daftarLokasi.destroy(idlokasi);
-                }
-            }
-
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
-            request.setAttribute("listlokasi", listLokasi);
-            
-            String jsp = "pages/lokasi.jsp";
+            String cekLokasi[] = request.getParameterValues("ceklokasi");
+            String jsp = "";
+
+            if (cekLokasi == null) {
+                JOptionPane.showMessageDialog(null, "Lokasi tidak ada yang dipilih");
+                request.setAttribute("listlokasi", listLokasi);
+                jsp = "pages/lokasi.jsp";
+            } else {
+                int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
+                        JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+
+                if (j == JOptionPane.YES_OPTION) {
+                    String ceklokasi[] = request.getParameterValues("ceklokasi");
+                    for (int i = 0; i < ceklokasi.length; i++) {
+                        long idlokasi = Long.parseLong(ceklokasi[i]);
+                        Lokasi lokasi = daftarLokasi.findLokasi(idlokasi);
+                        daftarLokasi.destroy(idlokasi);
+                    }
+                }
+                listLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("listlokasi", listLokasi);
+                jsp = "pages/lokasi.jsp";
+            }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

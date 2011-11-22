@@ -54,9 +54,6 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
             String kodeLokasi = request.getParameter("kodelokasi");
             String namaKota = request.getParameter("namakota");
             String namaPropinsi = request.getParameter("namapropinsi");
-            lokasi.setKodeLokasi(kodeLokasi);
-            lokasi.setNamaKota(namaKota);
-            lokasi.setNamaPropinsi(namaPropinsi);
 
             //validate blank field
             if (kodeLokasi == "") {
@@ -68,30 +65,29 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
             } else if (namaPropinsi == null) {
                 JOptionPane.showMessageDialog(null, "Nama Propinsi tidak boleh kosong !");
                 jsp = "pages/rekamLokasi.jsp";
-            } 
-            //validate zero value
+            } //validate zero value
             else if (kodeLokasi.equalsIgnoreCase("0000")) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi tidak boleh bernilai nol !");
                 jsp = "pages/rekamLokasi.jsp";
-            } 
-            //validate length field
+            } //validate length field
             else if (kodeLokasi.length() < 4) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi harus 4 angka !");
                 jsp = "pages/rekamLokasi.jsp";
-            } 
-            //validate kodeLokasi are numbers
+            } //validate kodeLokasi are numbers
             else if (!lokasi.valNumber(kodeLokasi)) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi harus angka !");
                 jsp = "pages/rekamLokasi.jsp";
-            } 
-            //validate record on database
-            else if (lokasi.valKodeLokasi()) {
+            } //validate record on database
+            else if (lokasi.valKodeLokasi(kodeLokasi)) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi sudah ada dalam data base !");
                 jsp = "pages/rekamLokasi.jsp";
-            } else if (lokasi.valNamaKota()) {
+            } else if (lokasi.valNamaKota(namaKota)) {
                 JOptionPane.showMessageDialog(null, "Kota sudah ada dalam data base !");
                 jsp = "pages/rekamLokasi.jsp";
             } else {
+                lokasi.setKodeLokasi(kodeLokasi);
+                lokasi.setNamaKota(namaKota);
+                lokasi.setNamaPropinsi(namaPropinsi);
                 daftarLokasi.rekamLokasi(lokasi);
                 jsp = "pages/lokasi.jsp";
             }
