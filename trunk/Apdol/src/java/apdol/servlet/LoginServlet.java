@@ -32,12 +32,8 @@ public class LoginServlet extends HttpServlet {
 
         DaftarUser usr = new DaftarUser();
         User user = new User();
-        //HttpSession session = request.getSession();
-        //boolean resultCheck = usr.check(username, password);
         user = usr.getUser(username, password);
-        
-        //RequestDispatcher rdp = request.getRequestDispatcher("main.jsp");
-                
+                     
         if(username.equals("") || password.equals("")){
             request.setAttribute("error", "Username/Password tidak boleh kosong!");
             request.getRequestDispatcher("/mainerror.jsp").forward(request, response);
@@ -50,8 +46,6 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("username", username);
                 session.setAttribute("roleuser", user.getRoleuser());
                 response.sendRedirect("home");
-                //request.getRequestDispatcher("home").forward(request, response);
-                //Halaman redirect sesuai role dari masing2 user, tampilan menyusul.
                 } else if(user.getRoleuser().equals("2")){
                     session.setAttribute("username", username);
                     session.setAttribute("roleuser", user.getRoleuser());
