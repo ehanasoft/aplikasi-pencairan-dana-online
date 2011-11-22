@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
+<link href="style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
 <style>
 .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
 ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
@@ -33,7 +33,7 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
       <li><a href="#">Kegiatan</a></li>
       <li><a href="#">Output</a></li>
       <li><a href="#">Mata Anggaran</a></li>
-      <li><a href="lokasi">Lokasi</a></li>
+      <li><a href="#">Lokasi</a></li>
     </ul>
     <p><strong>Utilitas</strong></p>
     <ul class="nav">
@@ -87,6 +87,38 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
   <!-- end .logout --></div>
   <div class="content">
       <p><% if(logedUser!=null){ %><%="Anda Login sebagai: "+logedUser+" "+ roleUser%><%}%></p>
+      
+       <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
+        <form >
+            <p style="margin: 10px;"><BR>
+            <table id="rounded-corner">
+                <thead>
+                    <tr>
+                        <th scope="col" class="rounded-company">Cek</th>
+                        <th scope="col" class="rounded-q1">Kode Lokasi</th>
+                        <th scope="col" class="rounded-q2">Nama Kota</th>
+                        <th scope="col" class="rounded-q4">Nama Propinsi</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                    <% while (iterator.hasNext()) {
+                                  lokasi = iterator.next();%>
+                    <tr>
+                        <td><input  type="checkbox"  name="ceklokasi" value="<%=lokasi.getId()%>"></td>
+                        <td><%=lokasi.getKodeLokasi()%></td>
+                        <td><%=lokasi.getNamaKota()%></td>
+                        <td><%=lokasi.getNamaPropinsi()%></td>
+                    </tr>
+                    <%}%>
+                    </tbody>
+            </table>
+            <span style="margin: 10px;">
+            </span>
+            <p style="margin: 10px;"><BR>
+                <input type="submit" value="rekam" name="rekam" formaction="rekamlokasi" formmethod="post"/>
+                <input type="submit" value="edit" name="edit" formaction="editlokasi" formmethod="post"/> 
+                <input type="submit" value="hapus" name="hapus" formaction="proseshapuslokasi" formmethod="post"/>
+        </form>
     <!-- end .content --></div>
   <!-- end .container --></div>
 </body>

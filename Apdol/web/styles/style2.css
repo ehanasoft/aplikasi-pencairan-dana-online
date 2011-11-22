@@ -1,14 +1,15 @@
 @charset "utf-8";
 body {
 	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-	background-image: url(../images/background.jpg);
+	background-image: url(free-login-page-template-xhmtl.rar/blue/images/background.jpg);
 	margin: 0;
 	padding: 0;
 	color: #000;
 }
 
 .header {
-        height: 93px;
+	
+	height: 93px;
 }
 
 /* ~~ Element/tag selectors ~~ */
@@ -52,13 +53,8 @@ a:hover, a:active, a:focus {
 .sidebar1 {
 	float: left;
 	width: 20%;
-	background-image: url(../images/background2.jpg);
+	background-image: url(background2.jpg);
 	padding-bottom: 10px;
-}
-.content {
-	padding: 10px 0;
-	width: 80%;
-	float: left;
 }
 
 .logout {
@@ -67,6 +63,12 @@ a:hover, a:active, a:focus {
 	height: 10px;
 	float: left;
 	text-align:right;
+}
+	
+.content {
+	padding: 10px 0;
+	width: 80%;
+	float: left;
 }
 
 /* ~~ This grouped selector gives the lists in the .content area space ~~ */
@@ -87,11 +89,11 @@ ul.nav a, ul.nav a:visited {
 	padding: 5px 5px 5px 15px;
 	display: block;
 	text-decoration: none;
-	background-image: url(../images/background3.jpg);
+	background-image: url(background3.jpg);
 	color: #000;
 }
 ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
-	background-image: url(../images/background2.jpg);
+	background-image: url(background2.jpg);
 	color: #FFF;
 }
 
@@ -109,4 +111,52 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
 	height:0;
 	font-size: 1px;
 	line-height: 0px;
+}
+
+
+/* ~~ this group is for table area~~ */
+
+#rounded-corner
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 45px;
+	width: 480px;
+	text-align: left;
+	border-collapse: collapse;
+}
+#rounded-corner thead th.rounded-company
+{
+	background: #b9c9fe url('images/left.png') left -1px no-repeat;
+}
+#rounded-corner thead th.rounded-q4
+{
+	background: #b9c9fe url('images/right.png') right -1px no-repeat;
+}
+#rounded-corner th
+{
+	padding: 8px;
+	font-weight: normal;
+	font-size: 13px;
+	color: #039;
+	background: #b9c9fe;
+}
+#rounded-corner td
+{
+	padding: 8px;
+	background: #e8edff;
+	border-top: 1px solid #fff;
+	color: #669;
+}
+#rounded-corner tfoot td.rounded-foot-left
+{
+	background: #e8edff url('images/botleft.png') left bottom no-repeat;
+}
+#rounded-corner tfoot td.rounded-foot-right
+{
+	background: #e8edff url('images/botright.png') right bottom no-repeat;
+}
+#rounded-corner tbody tr:hover td
+{
+	background: #d0dafd;
 }
