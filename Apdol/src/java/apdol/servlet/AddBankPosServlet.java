@@ -8,18 +8,20 @@ import apdol.entity.BankPos;
 import apdol.model.DaftarBankPos;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author AlfieSaHid
  */
-@WebServlet(name = "AddBankPosServlet", urlPatterns = {"/RekamBankPos"})
+@WebServlet(name = "AddBankPosServlet", urlPatterns = {"/AddBankPosServlet"})
 public class AddBankPosServlet extends HttpServlet {
 
     /** 
@@ -44,20 +46,61 @@ public class AddBankPosServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
              */
+
+            BankPos bankpos = new BankPos();
+            DaftarBankPos daftarBankPos = new DaftarBankPos();
+            String jsp = "index.jsp";
+
             String kodeBank = request.getParameter("kdbankpos");
             String namaBank = request.getParameter("nmbankpos");
-            
-            BankPos bankpos = new BankPos ();
-            DaftarBankPos daftarBankPos = new DaftarBankPos ();
-            
             bankpos.setKdbankpos(kodeBank);
-            bankpos.setNmbankpos(namaBank);            
+            bankpos.setNmbankpos(namaBank);
             daftarBankPos.rekamBankPos(bankpos);
+
+            //validate blank field
+            if (kodeBank == "") {
+                JOptionPane.showMessageDialog(null, "Kode Bank Pos tidak boleh kosong !");
+                jsp = "pages/Referensi/rekambankpos.jsp";
+            } else if (namaBank == null) {
+                JOptionPane.showMessageDialog(null, "Nama Bank Pos tidak boleh kosong !");
+                jsp = "pages/rekambankpos.jsp";
+            } 
             
-            String jsp = "pages/Referensi/rekamBankPos.jsp";
+            //validate zero value
+            else if (kodeBank.equalsIgnoreCase("000")) {
+                JOptionPane.showMessageDialog(null, "Kode Bank Pos tidak boleh bernilai nol !");
+                jsp = "pages/rekambankpos.jsp";
+            } 
+            
+            //validate length field
+            else if (kodeBank.length() < 3) {
+                JOptionPane.showMessageDialog(null, "Kode Bank Pos harus 3 angka !");
+                jsp = "pages/rekambankpos.jsp";
+            } 
+            
+            //validate kodeLokasi are numbers
+            else if (!bankpos.valNumber(kodeBank)) {
+                JOptionPane.showMessageDialog(null, "Kode Bank Pos harus angka !");
+                jsp = "pages/rekambankpos.jsp";
+            } 
+            
+            //validate record on database
+            else if (bankpos.valKodeBank()) {
+                JOptionPane.showMessageDialog(null, "Kode Bank Pos sudah ada dalam database !");
+                jsp = "pages/rekambankpos.jsp";
+            } else if (bankpos.valNamaBank()) {
+                JOptionPane.showMessageDialog(null, "Bank Pos sudah ada dalam database !");
+                jsp = "pages/rekambankpos.jsp";
+            } else {
+                daftarBankPos.rekamBankPos(bankpos);
+                jsp = "pages/bankpos.jsp";
+            }
+
+            List<BankPos> listBank = daftarBankPos.getBankPos();
+            request.setAttribute("listbank", listBank);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }

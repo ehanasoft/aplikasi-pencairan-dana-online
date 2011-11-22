@@ -102,7 +102,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddBankPosServlet</servlet-name>
-        <url-pattern>/RekamBankPos</url-pattern>
+        <url-pattern>/rekambankpos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

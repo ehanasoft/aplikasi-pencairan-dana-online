@@ -4,7 +4,10 @@
  */
 package apdol.entity;
 
+import apdol.model.DaftarBankPos;
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -70,6 +73,47 @@ public class BankPos implements Serializable {
     @Override
     public String toString() {
         return "apdol.entity.BankPos[ id=" + id + " ]";
+    }
+    
+    public boolean valKodeBank() {
+        DaftarBankPos daftarBank = new DaftarBankPos();
+        List<BankPos> listBank = daftarBank.getBankPos();
+        Iterator<BankPos> iterator = listBank.iterator();
+        BankPos tes = new BankPos();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (tes.kdbankpos.equalsIgnoreCase(this.kdbankpos)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean valNamaBank() {
+        DaftarBankPos daftarBank = new DaftarBankPos();
+        List<BankPos> listBank = daftarBank.getBankPos();
+        Iterator<BankPos> iterator = listBank.iterator();
+        BankPos tes = new BankPos();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (tes.nmbankpos.equalsIgnoreCase(this.nmbankpos)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean valNumber(String kode) {
+        try {
+            int i = Integer.parseInt(kode);
+            if (i > 0) {
+                return true;
+            } return false;
+        } catch (Exception e) {
+            return false;
+        }
     }
     
 }
