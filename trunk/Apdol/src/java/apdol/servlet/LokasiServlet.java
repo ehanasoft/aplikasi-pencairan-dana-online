@@ -4,10 +4,12 @@
  */
 package apdol.servlet;
 
+import apdol.comparator.LokasiComparator;
 import apdol.entity.Lokasi;
 import apdol.model.DaftarLokasi;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,14 +47,15 @@ public class LokasiServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
              */
-            DaftarLokasi daftarLokasi = new DaftarLokasi ();
+            DaftarLokasi daftarLokasi = new DaftarLokasi();
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
+            Collections.sort(listLokasi, new LokasiComparator());
             request.setAttribute("listlokasi", listLokasi);
-            
+
             String jsp = "pages/lokasi2.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }

@@ -111,7 +111,7 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
                     <% while (iterator.hasNext()) {
                                   lokasi = iterator.next();%>
                     <tr>
-                        <td><input  type="checkbox"  name="ceklokasi" value="<%=lokasi.getId()%>">></td>
+                        <td><input  type="checkbox"  name="ceklokasi" value="<%=lokasi.getId()%>"></td>
                         <td><%=lokasi.getKodeLokasi()%></td>
                         <td><%=lokasi.getNamaKota()%></td>
                         <td><%=lokasi.getNamaPropinsi()%></td>
