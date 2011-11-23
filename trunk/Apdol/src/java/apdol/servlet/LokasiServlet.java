@@ -49,7 +49,7 @@ public class LokasiServlet extends HttpServlet {
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
             request.setAttribute("listlokasi", listLokasi);
             
-            String jsp = "pages/lokasi.jsp";
+            String jsp = "pages/lokasi2.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {            

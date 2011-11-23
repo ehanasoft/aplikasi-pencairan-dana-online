@@ -1,3 +1,10 @@
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="apdol.model.DaftarLokasi"%>
+<%@page import="apdol.entity.Lokasi"%>
+
+<% List<Lokasi> listLokasi = (List<Lokasi>) request.getAttribute("listlokasi");%>
+<% Lokasi lokasi;%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -6,7 +13,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<link href="style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
+<link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
 <style>
 .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
 ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
@@ -104,7 +111,7 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
                     <% while (iterator.hasNext()) {
                                   lokasi = iterator.next();%>
                     <tr>
-                        <td><input  type="checkbox"  name="ceklokasi" value="<%=lokasi.getId()%>"></td>
+                        <td><input  type="checkbox"  name="ceklokasi" value="<%=lokasi.getId()%>">></td>
                         <td><%=lokasi.getKodeLokasi()%></td>
                         <td><%=lokasi.getNamaKota()%></td>
                         <td><%=lokasi.getNamaPropinsi()%></td>
