@@ -4,10 +4,12 @@
  */
 package apdol.servlet;
 
+import apdol.comparator.LokasiComparator;
 import apdol.entity.Lokasi;
 import apdol.model.DaftarLokasi;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -59,10 +61,10 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
             if (kodeLokasi == "") {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi tidak boleh kosong !");
                 jsp = "pages/rekamLokasi.jsp";
-            } else if (namaKota == null) {
+            } else if (namaKota == "") {
                 JOptionPane.showMessageDialog(null, "Nama Kota tidak boleh kosong !");
                 jsp = "pages/rekamLokasi.jsp";
-            } else if (namaPropinsi == null) {
+            } else if (namaPropinsi == "") {
                 JOptionPane.showMessageDialog(null, "Nama Propinsi tidak boleh kosong !");
                 jsp = "pages/rekamLokasi.jsp";
             } //validate zero value
@@ -89,10 +91,11 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
                 lokasi.setNamaKota(namaKota);
                 lokasi.setNamaPropinsi(namaPropinsi);
                 daftarLokasi.rekamLokasi(lokasi);
-                jsp = "pages/lokasi.jsp";
+                jsp = "pages/lokasi2.jsp";
             }
 
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
+            Collections.sort(listLokasi, new LokasiComparator());
             request.setAttribute("listlokasi", listLokasi);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

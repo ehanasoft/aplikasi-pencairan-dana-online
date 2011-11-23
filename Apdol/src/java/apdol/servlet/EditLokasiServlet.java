@@ -4,10 +4,12 @@
  */
 package apdol.servlet;
 
+import apdol.comparator.LokasiComparator;
 import apdol.entity.Lokasi;
 import apdol.model.DaftarLokasi;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,29 +50,27 @@ public class EditLokasiServlet extends HttpServlet {
             out.println("</html>");
              */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
+            List<Lokasi> listLokasi = daftarLokasi.getLokasi();
+            Collections.sort(listLokasi, new LokasiComparator());
+            request.setAttribute("listlokasi", listLokasi);
+            String jsp = "";
             String cekLokasi[] = request.getParameterValues("ceklokasi");
 
             if (cekLokasi == null) {
                 JOptionPane.showMessageDialog(null, "Lokasi tidak ada yang dipilih");
+                jsp = "pages/lokasi2.jsp";
             } else if (cekLokasi.length > 1) {
-                JOptionPane.showMessageDialog(null, "Centang lebih dari satu, pilih salah satu lokasi saja");
+                JOptionPane.showMessageDialog(null, "Centang tidak boleh lebih dari satu, pilih salah satu lokasi saja !");
+                jsp = "pages/lokasi2.jsp";
             } else {
                 Long idLokasi = Long.parseLong(cekLokasi[0]);
                 Lokasi lokasi = daftarLokasi.findLokasi(idLokasi);
                 request.setAttribute("lokasiedit", lokasi);
-
-                String jsp = "/pages/editLokasi.jsp";
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-                requestDispatcher.forward(request, response);
+                jsp = "/pages/editLokasi.jsp";
             }
-            
-            List<Lokasi> listLokasi = daftarLokasi.getLokasi();
-            request.setAttribute("listlokasi", listLokasi);
-            
-            String jsp = "pages/lokasi.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-
         } finally {
             out.close();
         }

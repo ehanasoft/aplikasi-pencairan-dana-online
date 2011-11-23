@@ -4,11 +4,13 @@
  */
 package apdol.servlet;
 
+import apdol.comparator.LokasiComparator;
 import apdol.entity.Lokasi;
 import apdol.model.DaftarLokasi;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,13 +53,14 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
              */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
+            Collections.sort(listLokasi, new LokasiComparator());
             String cekLokasi[] = request.getParameterValues("ceklokasi");
             String jsp = "";
 
             if (cekLokasi == null) {
                 JOptionPane.showMessageDialog(null, "Lokasi tidak ada yang dipilih");
                 request.setAttribute("listlokasi", listLokasi);
-                jsp = "pages/lokasi.jsp";
+                jsp = "pages/lokasi2.jsp";
             } else {
                 int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
                         JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
@@ -71,8 +74,9 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
                     }
                 }
                 listLokasi = daftarLokasi.getLokasi();
+                Collections.sort(listLokasi, new LokasiComparator());
                 request.setAttribute("listlokasi", listLokasi);
-                jsp = "pages/lokasi.jsp";
+                jsp = "pages/lokasi2.jsp";
             }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

@@ -4,11 +4,13 @@
  */
 package apdol.servlet;
 
+import apdol.comparator.LokasiComparator;
 import apdol.entity.Lokasi;
 import apdol.model.DaftarLokasi;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,7 +52,6 @@ public class ProsesEditLokasiServlet extends HttpServlet {
             out.println("</html>");
              */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
-            List<Lokasi> listLokasi = daftarLokasi.getLokasi();
             String jsp = "";
             // List<Lokasi> listlokasi = daftarLokasi.getLokasi();
 
@@ -103,9 +104,11 @@ public class ProsesEditLokasiServlet extends HttpServlet {
                 lokasi.setNamaKota(namaKota);
                 lokasi.setNamaPropinsi(namaPropinsi);
                 daftarLokasi.edit(lokasi);
+                List<Lokasi> listLokasi = daftarLokasi.getLokasi();
                 listLokasi = daftarLokasi.getLokasi();
+                Collections.sort(listLokasi, new LokasiComparator());
                 request.setAttribute("listlokasi", listLokasi);
-                jsp = "pages/lokasi.jsp";
+                jsp = "pages/lokasi2.jsp";
             }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
