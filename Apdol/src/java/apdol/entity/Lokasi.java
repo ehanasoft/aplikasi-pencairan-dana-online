@@ -37,6 +37,30 @@ public class Lokasi implements Serializable {
         this.id = id;
     }
 
+    public String getKodeLokasi() {
+        return kodeLokasi;
+    }
+
+    public void setKodeLokasi(String kodeLokasi) {
+        this.kodeLokasi = kodeLokasi;
+    }
+
+    public String getNamaKota() {
+        return namaKota;
+    }
+
+    public void setNamaKota(String namaKota) {
+        this.namaKota = namaKota;
+    }
+
+    public String getNamaPropinsi() {
+        return namaPropinsi;
+    }
+
+    public void setNamaPropinsi(String namaPropinsi) {
+        this.namaPropinsi = namaPropinsi;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -112,29 +136,5 @@ public class Lokasi implements Serializable {
     @Override
     public String toString() {
         return "apdol.entity.Lokasi[ id=" + id + " ]";
-    }
-
-    public String getKodeLokasi() {
-        return kodeLokasi;
-    }
-
-    public void setKodeLokasi(String kodeLokasi) {
-        this.kodeLokasi = kodeLokasi;
-    }
-
-    public String getNamaKota() {
-        return namaKota;
-    }
-
-    public void setNamaKota(String namaKota) {
-        this.namaKota = namaKota;
-    }
-
-    public String getNamaPropinsi() {
-        return namaPropinsi;
-    }
-
-    public void setNamaPropinsi(String namaPropinsi) {
-        this.namaPropinsi = namaPropinsi;
     }
 }

@@ -1,7 +1,7 @@
 @charset "utf-8";
 body {
 	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-	background-image: url(free-login-page-template-xhmtl.rar/blue/images/background.jpg);
+	background-image: url(../images/background.jpg);
 	margin: 0;
 	padding: 0;
 	color: #000;
@@ -53,7 +53,7 @@ a:hover, a:active, a:focus {
 .sidebar1 {
 	float: left;
 	width: 20%;
-	background-image: url(background2.jpg);
+	background-image: url(../images/background2.jpg);
 	padding-bottom: 10px;
 }
 
@@ -89,11 +89,11 @@ ul.nav a, ul.nav a:visited {
 	padding: 5px 5px 5px 15px;
 	display: block;
 	text-decoration: none;
-	background-image: url(background3.jpg);
+	background-image: url(../images/background3.jpg);
 	color: #000;
 }
 ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
-	background-image: url(background2.jpg);
+	background-image: url(../images/background2.jpg);
 	color: #FFF;
 }
 
@@ -127,11 +127,11 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
 }
 #rounded-corner thead th.rounded-company
 {
-	background: #b9c9fe url('images/left.png') left -1px no-repeat;
+	background: #b9c9fe url(../images/left.png) left -1px no-repeat;
 }
 #rounded-corner thead th.rounded-q4
 {
-	background: #b9c9fe url('images/right.png') right -1px no-repeat;
+	background: #b9c9fe url(../images/right.png) right -1px no-repeat;
 }
 #rounded-corner th
 {
@@ -150,11 +150,11 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
 }
 #rounded-corner tfoot td.rounded-foot-left
 {
-	background: #e8edff url('images/botleft.png') left bottom no-repeat;
+	background: #e8edff url(../images/botleft.png) left bottom no-repeat;
 }
 #rounded-corner tfoot td.rounded-foot-right
 {
-	background: #e8edff url('images/botright.png') right bottom no-repeat;
+	background: #e8edff url(../images/botright.png) right bottom no-repeat;
 }
 #rounded-corner tbody tr:hover td
 {
