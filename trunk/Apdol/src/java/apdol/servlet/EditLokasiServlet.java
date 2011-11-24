@@ -39,34 +39,24 @@ public class EditLokasiServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
             Collections.sort(listLokasi, new LokasiComparator());
-            request.setAttribute("listlokasi", listLokasi);
+            request.setAttribute("list_lokasi", listLokasi);
             String jsp = "";
-            String cekLokasi[] = request.getParameterValues("ceklokasi");
+            String cekLokasi[] = request.getParameterValues("cek_lokasi");
 
             if (cekLokasi == null) {
                 JOptionPane.showMessageDialog(null, "Lokasi tidak ada yang dipilih");
-                jsp = "pages/lokasi2.jsp";
+                jsp = "pages/lokasi.jsp";
             } else if (cekLokasi.length > 1) {
                 JOptionPane.showMessageDialog(null, "Centang tidak boleh lebih dari satu, pilih salah satu lokasi saja !");
-                jsp = "pages/lokasi2.jsp";
+                jsp = "pages/lokasi.jsp";
             } else {
                 Long idLokasi = Long.parseLong(cekLokasi[0]);
                 Lokasi lokasi = daftarLokasi.findLokasi(idLokasi);
-                request.setAttribute("lokasiedit", lokasi);
-                jsp = "/pages/editLokasi.jsp";
+                request.setAttribute("lokasi_edit", lokasi);
+                jsp = "/pages/edit_lokasi.jsp";
             }
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);

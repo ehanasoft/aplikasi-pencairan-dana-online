@@ -4,21 +4,27 @@
  */
 package apdol.servlet;
 
+import apdol.comparator.MataAnggaranComparator;
+import apdol.entity.MataAnggaran;
+import apdol.model.DaftarMataAnggaran;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Hari RZ
+ * @author Accio
  */
-@WebServlet(name = "RekamLokasiServlet", urlPatterns = {"/RekamLokasiServlet"})
-public class RekamLokasiServlet extends HttpServlet {
+@WebServlet(name = "EditMataAnggaranServlet", urlPatterns = {"/EditMataAnggaranServlet"})
+public class EditMataAnggaranServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -32,20 +38,29 @@ public class RekamLokasiServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RekamServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RekamServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
-            String jsp = "pages/rekam_lokasi.jsp";
+            DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran();
+            List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+            Collections.sort(listMataAnggaran, new MataAnggaranComparator());
+            request.setAttribute("list_mata_anggaran", listMataAnggaran);
+            String jsp = "";
+            String cekMataAnggaran[] = request.getParameterValues("cek_mata_anggaran");
+
+            if (cekMataAnggaran == null) {
+                JOptionPane.showMessageDialog(null, "Mata anggaran tidak ada yang dipilih");
+                jsp = "pages/mata_anggaran.jsp";
+            } else if (cekMataAnggaran.length > 1) {
+                JOptionPane.showMessageDialog(null, "Centang tidak boleh lebih dari satu, pilih salah satu mataAnggaran saja !");
+                jsp = "pages/mata_anggaran.jsp";
+            } else {
+                Long idMataAnggaran = Long.parseLong(cekMataAnggaran[0]);
+                MataAnggaran mataAnggaran = daftarMataAnggaran.findMataAnggaran(idMataAnggaran);
+                request.setAttribute("mata_anggaran_edit", mataAnggaran);
+                jsp = "/pages/edit_mata_anggaran.jsp";
+            }
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }
@@ -65,7 +80,8 @@ public class RekamLokasiServlet extends HttpServlet {
     }
 
     /** 
-     * Handles the HTTP <code>POST</code> method.
+     * Handles the HTTP <code>
+     * POST</code> method.
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -75,6 +91,20 @@ public class RekamLokasiServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
+        /*DaftarUser usr = new DaftarUser();
+        User users = new User();
+        if (usr.check(users.getUsername(), users.getPassword()) == false) {
+        System.out.println("Login Fail");
+        } else {
+        session.setAttribute("username", users.getNama());
+        session.setAttribute("users", users);
+        session.setAttribute("role", users.getRoleuser());
+        response.sendRedirect("home");
+        }*/
+        //boolean check = usr.check(username, password);
+        //users = usr.getUsers(username, password);
+
     }
 
     /** 

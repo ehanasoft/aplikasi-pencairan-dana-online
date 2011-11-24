@@ -1,10 +1,10 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="apdol.model.DaftarLokasi"%>
-<%@page import="apdol.entity.Lokasi"%>
+<%@page import="apdol.model.DaftarMataAnggaran"%>
+<%@page import="apdol.entity.MataAnggaran"%>
 
-<% List<Lokasi> listLokasi = (List<Lokasi>) request.getAttribute("listlokasi");%>
-<% Lokasi lokasi;%>
+<% List<MataAnggaran> listMataAnggaran = (List<MataAnggaran>) request.getAttribute("list_mata_anggaran");%>
+<% MataAnggaran mataAnggaran;%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,8 +39,8 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
       <li><a href="#">Program</a></li>
       <li><a href="#">Kegiatan</a></li>
       <li><a href="#">Output</a></li>
-      <li><a href="#">Mata Anggaran</a></li>
-      <li><a href="#">Lokasi</a></li>
+      <li><a href="mata_anggaran">Mata Anggaran</a></li>
+      <li><a href="lokasi">Lokasi</a></li>
     </ul>
     <p><strong>Utilitas</strong></p>
     <ul class="nav">
@@ -95,26 +95,26 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
   <div class="content">
       <p><% if(logedUser!=null){ %><%="Anda Login sebagai: "+logedUser+" "+ roleUser%><%}%></p>
       
-       <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
+       <% Iterator<MataAnggaran> iterator = listMataAnggaran.iterator();%>
         <form >
             <p style="margin: 10px;"><BR>
             <table id="rounded-corner">
                 <thead>
                     <tr>
                         <th scope="col" class="rounded-company">Cek</th>
-                        <th scope="col" class="rounded-q1">Kode Lokasi</th>
-                        <th scope="col" class="rounded-q2">Nama Kota</th>
-                        <th scope="col" class="rounded-q4">Nama Propinsi</th>
+                        <th scope="col" class="rounded-q1">Kode Mata Anggaran</th>
+                        <th scope="col" class="rounded-q2">Nama Mata Anggaran</th>
+                        <th scope="col" class="rounded-q4">Nama BKPK</th>
                     </tr>
                 </thead>
                     <tbody>
                     <% while (iterator.hasNext()) {
-                                  lokasi = iterator.next();%>
+                                  mataAnggaran = iterator.next();%>
                     <tr>
-                        <td><input  type="checkbox"  name="ceklokasi" value="<%=lokasi.getId()%>"></td>
-                        <td><%=lokasi.getKodeLokasi()%></td>
-                        <td><%=lokasi.getNamaKota()%></td>
-                        <td><%=lokasi.getNamaPropinsi()%></td>
+                        <td><input  type="checkbox"  name="cek_mata_anggaran" value="<%=mataAnggaran.getId()%>"></td>
+                        <td><%=mataAnggaran.getKodeMataAnggaran()%></td>
+                        <td><%=mataAnggaran.getNamaMataAnggaran()%></td>
+                        <td><%=mataAnggaran.getNamaBKPK()%></td>
                     </tr>
                     <%}%>
                     </tbody>
@@ -122,9 +122,9 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
             <span style="margin: 10px;">
             </span>
             <p style="margin: 10px;"><BR>
-                <input type="submit" value="rekam" name="rekam" formaction="rekamlokasi" formmethod="post"/>
-                <input type="submit" value="edit" name="edit" formaction="editlokasi" formmethod="post"/> 
-                <input type="submit" value="hapus" name="hapus" formaction="proseshapuslokasi" formmethod="post"/>
+                <input type="submit" value="rekam" name="rekam" formaction="rekam_mata_anggaran" formmethod="post"/>
+                <input type="submit" value="edit" name="edit" formaction="edit_mata_anggaran" formmethod="post"/> 
+                <input type="submit" value="hapus" name="hapus" formaction="proses_hapus_mata_anggaran" formmethod="post"/>
         </form>
     <!-- end .content --></div>
   <!-- end .container --></div>

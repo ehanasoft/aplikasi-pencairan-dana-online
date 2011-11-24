@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Hari RZ
  */
-@WebServlet(name = "RekamLokasiServlet", urlPatterns = {"/RekamLokasiServlet"})
-public class RekamLokasiServlet extends HttpServlet {
+@WebServlet(name = "RekamMataAnggaranServlet", urlPatterns = {"/RekamMataAnggaranServlet"})
+public class RekamMataAnggaranServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -42,7 +42,7 @@ public class RekamLokasiServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
              */
-            String jsp = "pages/rekam_lokasi.jsp";
+            String jsp = "pages/rekam_mata_anggaran.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {            

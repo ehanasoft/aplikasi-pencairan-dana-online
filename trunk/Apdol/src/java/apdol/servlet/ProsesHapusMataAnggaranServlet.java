@@ -4,9 +4,9 @@
  */
 package apdol.servlet;
 
-import apdol.comparator.LokasiComparator;
-import apdol.entity.Lokasi;
-import apdol.model.DaftarLokasi;
+import apdol.comparator.MataAnggaranComparator;
+import apdol.entity.MataAnggaran;
+import apdol.model.DaftarMataAnggaran;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,8 +26,8 @@ import javax.swing.JOptionPane;
  *
  * @author Hari RZ
  */
-@WebServlet(name = "ProsesRekamLokasiServlet", urlPatterns = {"/ProsesRekamLokasiServlet"})
-public class ProsesHapusLokasiServlet extends HttpServlet {
+@WebServlet(name = "ProsesRekamMataAnggaranServlet", urlPatterns = {"/ProsesRekamMataAnggaranServlet"})
+public class ProsesHapusMataAnggaranServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -41,41 +41,31 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProsesRekamLokasiServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProsesRekamLokasiServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
-            DaftarLokasi daftarLokasi = new DaftarLokasi();
-            List<Lokasi> listLokasi = daftarLokasi.getLokasi();
-            Collections.sort(listLokasi, new LokasiComparator());
-            String cekLokasi[] = request.getParameterValues("cek_lokasi");
+            DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran();
+            List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+            Collections.sort(listMataAnggaran, new MataAnggaranComparator());
+            String cekMataAnggaran[] = request.getParameterValues("cek_mata_anggaran");
             String jsp = "";
 
-            if (cekLokasi == null) {
-                JOptionPane.showMessageDialog(null, "Lokasi tidak ada yang dipilih");
-                request.setAttribute("list_lokasi", listLokasi);
-                jsp = "pages/lokasi.jsp";
+            if (cekMataAnggaran == null) {
+                JOptionPane.showMessageDialog(null, "Mata Anggaran tidak ada yang dipilih");
+                request.setAttribute("list_mata_anggaran", listMataAnggaran);
+                jsp = "pages/mata_anggaran.jsp";
             } else {
                 int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
                         JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
                 if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekLokasi.length; i++) {
-                        long idlokasi = Long.parseLong(cekLokasi[i]);
-                        Lokasi lokasi = daftarLokasi.findLokasi(idlokasi);
-                        daftarLokasi.destroy(idlokasi);
+                    for (int i = 0; i < cekMataAnggaran.length; i++) {
+                        long idMataAnggaran = Long.parseLong(cekMataAnggaran[i]);
+                        MataAnggaran mataAnggaran = daftarMataAnggaran.findMataAnggaran(idMataAnggaran);
+                        daftarMataAnggaran.destroy(idMataAnggaran);
                     }
                 }
-                listLokasi = daftarLokasi.getLokasi();
-                Collections.sort(listLokasi, new LokasiComparator());
-                request.setAttribute("list_lokasi", listLokasi);
-                jsp = "pages/lokasi.jsp";
+                listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+                Collections.sort(listMataAnggaran, new MataAnggaranComparator());
+                request.setAttribute("list_mata_anggaran", listMataAnggaran);
+                jsp = "pages/mata_anggaran.jsp";
             }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
@@ -98,7 +88,7 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusLokasiServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProsesHapusMataAnggaranServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -115,7 +105,7 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusLokasiServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProsesHapusMataAnggaranServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

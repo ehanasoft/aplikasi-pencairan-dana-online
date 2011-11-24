@@ -37,22 +37,12 @@ public class LokasiServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RekamServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RekamServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
             Collections.sort(listLokasi, new LokasiComparator());
-            request.setAttribute("listlokasi", listLokasi);
+            request.setAttribute("list_lokasi", listLokasi);
 
-            String jsp = "pages/lokasi2.jsp";
+            String jsp = "pages/lokasi.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
