@@ -4,21 +4,27 @@
  */
 package apdol.servlet;
 
+import apdol.comparator.MataAnggaranComparator;
+import apdol.entity.MataAnggaran;
+import apdol.model.DaftarMataAnggaran;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Hari RZ
  */
-@WebServlet(name = "RekamLokasiServlet", urlPatterns = {"/RekamLokasiServlet"})
-public class RekamLokasiServlet extends HttpServlet {
+@WebServlet(name = "MataAnggaranServlet", urlPatterns = {"/mata_anggaran"})
+public class MataAnggaranServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -32,20 +38,15 @@ public class RekamLokasiServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RekamServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RekamServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
-            String jsp = "pages/rekam_lokasi.jsp";
+            DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran();
+            List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+            Collections.sort(listMataAnggaran, new MataAnggaranComparator());
+            request.setAttribute("list_mata_anggaran", listMataAnggaran);
+
+            String jsp = "pages/mata_anggaran.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }

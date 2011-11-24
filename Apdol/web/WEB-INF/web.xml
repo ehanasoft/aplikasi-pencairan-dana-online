@@ -52,6 +52,30 @@
         <servlet-name>MainServlet</servlet-name>
         <servlet-class>apdol.servlet.MainServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Mata Anggaran</servlet-name>
+        <servlet-class>apdol.servlet.MataAnggaranServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Rekam Mata Anggaran</servlet-name>
+        <servlet-class>apdol.servlet.RekamMataAnggaranServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses Rekam Mata Anggaran</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamMataAnggaranServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Edit Mata Anggaran</servlet-name>
+        <servlet-class>apdol.servlet.EditMataAnggaranServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses Edit Mata Anggaran</servlet-name>
+        <servlet-class>apdol.servlet.ProsesEditMataAnggaranServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Hapus Mata Anggaran</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusMataAnggaranServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RekamUser</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -69,26 +93,6 @@
         <url-pattern>/lokasi</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>rekam lokasi</servlet-name>
-        <url-pattern>/rekamlokasi</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>proses rekam lokasi</servlet-name>
-        <url-pattern>/prosesrekamlokasi</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>editlokasi</servlet-name>
-        <url-pattern>/editlokasi</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>proses edit lokasi</servlet-name>
-        <url-pattern>/proseseditlokasi</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>hapus lokasi</servlet-name>
-        <url-pattern>/proseshapuslokasi</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/maindo</url-pattern>
     </servlet-mapping>
@@ -103,6 +107,50 @@
     <servlet-mapping>
         <servlet-name>AddBankPosServlet</servlet-name>
         <url-pattern>/rekambankpos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>rekam lokasi</servlet-name>
+        <url-pattern>/rekam_lokasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>proses rekam lokasi</servlet-name>
+        <url-pattern>/proses_rekam_lokasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editlokasi</servlet-name>
+        <url-pattern>/edit_lokasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>proses edit lokasi</servlet-name>
+        <url-pattern>/proses_edit_lokasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>hapus lokasi</servlet-name>
+        <url-pattern>/proses_hapus_lokasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Mata Anggaran</servlet-name>
+        <url-pattern>/mata_anggaran</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Rekam Mata Anggaran</servlet-name>
+        <url-pattern>/rekam_mata_anggaran</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Rekam Mata Anggaran</servlet-name>
+        <url-pattern>/proses_rekam_mata_anggaran</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Edit Mata Anggaran</servlet-name>
+        <url-pattern>/edit_mata_anggaran</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Edit Mata Anggaran</servlet-name>
+        <url-pattern>/proses_edit_mata_anggaran</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Hapus Mata Anggaran</servlet-name>
+        <url-pattern>/proses_hapus_mata_anggaran</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

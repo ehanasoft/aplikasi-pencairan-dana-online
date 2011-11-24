@@ -55,50 +55,50 @@ public class ProsesEditLokasiServlet extends HttpServlet {
             String jsp = "";
             // List<Lokasi> listlokasi = daftarLokasi.getLokasi();
 
-            String kodeLokasi = request.getParameter("kodelokasi");
-            String namaKota = request.getParameter("namakota");
-            String namaPropinsi = request.getParameter("namapropinsi");
+            String kodeLokasi = request.getParameter("kode_lokasi");
+            String namaKota = request.getParameter("nama_kota");
+            String namaPropinsi = request.getParameter("nama_propinsi");
 
-            String idLokasi = request.getParameter("ideditlokasi");
+            String idLokasi = request.getParameter("id_edit_lokasi");
             Long longIdLokasi = Long.parseLong(idLokasi);
             Lokasi lokasi = daftarLokasi.findLokasi(longIdLokasi);
 
             if (kodeLokasi == "") {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi tidak boleh kosong !");
-                request.setAttribute("lokasiedit", lokasi);
-                jsp = "pages/editLokasi.jsp";
-            } else if (namaKota == null) {
+                request.setAttribute("lokasi_edit", lokasi);
+                jsp = "pages/edit_lokasi.jsp";
+            } else if (namaKota == "") {
                 JOptionPane.showMessageDialog(null, "Nama Kota tidak boleh kosong !");
-                request.setAttribute("lokasiedit", lokasi);
-                jsp = "pages/editLokasi.jsp";
-            } else if (namaPropinsi == null) {
+                request.setAttribute("lokasi_edit", lokasi);
+                jsp = "pages/edit_lokasi.jsp";
+            } else if (namaPropinsi == "") {
                 JOptionPane.showMessageDialog(null, "Nama Propinsi tidak boleh kosong !");
-                request.setAttribute("lokasiedit", lokasi);
-                jsp = "pages/editLokasi.jsp";
+                request.setAttribute("lokasi_edit", lokasi);
+                jsp = "pages/edit_lokasi.jsp";
             } //validate zero value
             else if (kodeLokasi.equalsIgnoreCase("0000")) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi tidak boleh bernilai nol !");
-                request.setAttribute("lokasiedit", lokasi);
-                jsp = "pages/editLokasi.jsp";
+                request.setAttribute("lokasi_edit", lokasi);
+                jsp = "pages/edit_lokasi.jsp";
             } //validate length field
             else if (kodeLokasi.length() < 4) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi harus 4 angka !");
-                request.setAttribute("lokasiedit", lokasi);
-                jsp = "pages/editLokasi.jsp";
+                request.setAttribute("lokasi_edit", lokasi);
+                jsp = "pages/edit_lokasi.jsp";
             } //validate kodeLokasi are numbers
             else if (!lokasi.valNumber(kodeLokasi)) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi harus angka !");
-                request.setAttribute("lokasiedit", lokasi);
-                jsp = "pages/editLokasi.jsp";
+                request.setAttribute("lokasi_edit", lokasi);
+                jsp = "pages/edit_lokasi.jsp";
             } //validate record on database
             else if (lokasi.valKodeLokasi(kodeLokasi)) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi sudah ada dalam data base !");
-                request.setAttribute("lokasiedit", lokasi);
-                jsp = "pages/editLokasi.jsp";
+                request.setAttribute("lokasi_edit", lokasi);
+                jsp = "pages/edit_lokasi.jsp";
             } else if (lokasi.valNamaKota(namaKota)) {
                 JOptionPane.showMessageDialog(null, "Kota sudah ada dalam data base !");
-                request.setAttribute("lokasiedit", lokasi);
-                jsp = "pages/editLokasi.jsp";
+                request.setAttribute("lokasi_edit", lokasi);
+                jsp = "pages/edit_lokasi.jsp";
             } else {
                 lokasi.setKodeLokasi(kodeLokasi);
                 lokasi.setNamaKota(namaKota);
@@ -107,8 +107,8 @@ public class ProsesEditLokasiServlet extends HttpServlet {
                 List<Lokasi> listLokasi = daftarLokasi.getLokasi();
                 listLokasi = daftarLokasi.getLokasi();
                 Collections.sort(listLokasi, new LokasiComparator());
-                request.setAttribute("listlokasi", listLokasi);
-                jsp = "pages/lokasi2.jsp";
+                request.setAttribute("list_lokasi", listLokasi);
+                jsp = "pages/lokasi.jsp";
             }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

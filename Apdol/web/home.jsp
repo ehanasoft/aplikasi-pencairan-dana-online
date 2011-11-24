@@ -5,7 +5,7 @@
 <%String roleUser = (String) session.getAttribute("roleuser");%>    
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Halaman Awal</title>
 <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
 <style>
 .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -32,7 +32,7 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
       <li><a href="#">Program</a></li>
       <li><a href="#">Kegiatan</a></li>
       <li><a href="#">Output</a></li>
-      <li><a href="#">Mata Anggaran</a></li>
+      <li><a href="mata_anggaran">Mata Anggaran</a></li>
       <li><a href="lokasi">Lokasi</a></li>
     </ul>
     <p><strong>Utilitas</strong></p>

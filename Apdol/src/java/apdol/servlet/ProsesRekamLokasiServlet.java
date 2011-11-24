@@ -51,52 +51,52 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
 
             Lokasi lokasi = new Lokasi();
             DaftarLokasi daftarLokasi = new DaftarLokasi();
-            String jsp = "index.jsp";
+            String jsp = "";
 
-            String kodeLokasi = request.getParameter("kodelokasi");
-            String namaKota = request.getParameter("namakota");
-            String namaPropinsi = request.getParameter("namapropinsi");
+            String kodeLokasi = request.getParameter("kode_lokasi");
+            String namaKota = request.getParameter("nama_kota");
+            String namaPropinsi = request.getParameter("nama_propinsi");
 
             //validate blank field
             if (kodeLokasi == "") {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi tidak boleh kosong !");
-                jsp = "pages/rekamLokasi.jsp";
+                jsp = "pages/rekam_lokasi.jsp";
             } else if (namaKota == "") {
                 JOptionPane.showMessageDialog(null, "Nama Kota tidak boleh kosong !");
-                jsp = "pages/rekamLokasi.jsp";
+                jsp = "pages/rekam_lokasi.jsp";
             } else if (namaPropinsi == "") {
                 JOptionPane.showMessageDialog(null, "Nama Propinsi tidak boleh kosong !");
-                jsp = "pages/rekamLokasi.jsp";
+                jsp = "pages/rekam_lokasi.jsp";
             } //validate zero value
             else if (kodeLokasi.equalsIgnoreCase("0000")) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi tidak boleh bernilai nol !");
-                jsp = "pages/rekamLokasi.jsp";
+                jsp = "pages/rekam_lokasi.jsp";
             } //validate length field
             else if (kodeLokasi.length() < 4) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi harus 4 angka !");
-                jsp = "pages/rekamLokasi.jsp";
+                jsp = "pages/rekam_lokasi.jsp";
             } //validate kodeLokasi are numbers
             else if (!lokasi.valNumber(kodeLokasi)) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi harus angka !");
-                jsp = "pages/rekamLokasi.jsp";
+                jsp = "pages/rekam_lokasi.jsp";
             } //validate record on database
             else if (lokasi.valKodeLokasi(kodeLokasi)) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi sudah ada dalam data base !");
-                jsp = "pages/rekamLokasi.jsp";
+                jsp = "pages/rekam_lokasi.jsp";
             } else if (lokasi.valNamaKota(namaKota)) {
                 JOptionPane.showMessageDialog(null, "Kota sudah ada dalam data base !");
-                jsp = "pages/rekamLokasi.jsp";
+                jsp = "pages/rekam_lokasi.jsp";
             } else {
                 lokasi.setKodeLokasi(kodeLokasi);
                 lokasi.setNamaKota(namaKota);
                 lokasi.setNamaPropinsi(namaPropinsi);
                 daftarLokasi.rekamLokasi(lokasi);
-                jsp = "pages/lokasi2.jsp";
+                jsp = "pages/lokasi.jsp";
             }
 
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
             Collections.sort(listLokasi, new LokasiComparator());
-            request.setAttribute("listlokasi", listLokasi);
+            request.setAttribute("list_lokasi", listLokasi);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
