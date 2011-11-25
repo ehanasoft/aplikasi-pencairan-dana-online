@@ -68,73 +68,25 @@ public class Lokasi implements Serializable {
         return hash;
     }
 
-    /*@Override
-    public boolean equals(Object object) {
-    // TODO: Warning - this method won't work in the case the id fields are not set
-    if (!(object instanceof Lokasi)) {
-    return false;
-    }
-    Lokasi other = (Lokasi) object;
-    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-    return false;
-    }
-    return true;
-    }*/
-    public boolean valKodeLokasi(String def) {
-        DaftarLokasi daftarLokasi = new DaftarLokasi();
-        List<Lokasi> listLokasi = daftarLokasi.getLokasi();
-        Iterator<Lokasi> iterator = listLokasi.iterator();
-        Lokasi tes = new Lokasi();
-
-        while (iterator.hasNext()) {
-            tes = iterator.next();
-            if (def.equalsIgnoreCase(tes.kodeLokasi)) {
-                //validate if user doesn't change the field
-                if (def.equalsIgnoreCase(this.kodeLokasi)) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public boolean valNamaKota(String def) {
-        DaftarLokasi daftarLokasi = new DaftarLokasi();
-        List<Lokasi> listLokasi = daftarLokasi.getLokasi();
-        Iterator<Lokasi> iterator = listLokasi.iterator();
-        Lokasi tes = new Lokasi();
-
-        while (iterator.hasNext()) {
-            tes = iterator.next();
-            if (def.equalsIgnoreCase(tes.namaKota)) {
-                //validate if user doesn't change the field
-                if (def.equalsIgnoreCase(this.namaKota)) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public boolean valNumber(String kode) {
-        try {
-            int i = Integer.parseInt(kode);
-            //validate minus input
-            if (i > 0) {
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
     @Override
     public String toString() {
         return "apdol.entity.Lokasi[ id=" + id + " ]";
     }
+    
+    public boolean isKodeNoChange(String kode) {
+        if (kode.equalsIgnoreCase(this.kodeLokasi)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isNamaNoChange(String nama) {
+        if (nama.equalsIgnoreCase(this.namaKota)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

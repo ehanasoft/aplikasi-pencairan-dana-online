@@ -5,9 +5,9 @@
 package apdol.model;
 
 import apdol.entity.Lokasi;
-import apdol.entity.User;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -100,5 +100,33 @@ public class DaftarLokasi {
                 em.close();
             }
         }
+    }
+    
+    public boolean isKodeExist(String kode) {
+        DaftarLokasi daftarLokasi = new DaftarLokasi();
+        List<Lokasi> listLokasi = daftarLokasi.getLokasi();
+        Iterator<Lokasi> iterator = listLokasi.iterator();
+        Lokasi tes = new Lokasi();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (kode.equalsIgnoreCase(tes.getKodeLokasi())) {
+                return true;
+            }
+        } return false;
+    }
+    
+    public boolean isKotaExist(String nama) {
+        DaftarLokasi daftarLokasi = new DaftarLokasi();
+        List<Lokasi> listLokasi = daftarLokasi.getLokasi();
+        Iterator<Lokasi> iterator = listLokasi.iterator();
+        Lokasi tes = new Lokasi();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (nama.equalsIgnoreCase(tes.getNamaKota())) {
+                return true;
+            }
+        } return false;
     }
 }

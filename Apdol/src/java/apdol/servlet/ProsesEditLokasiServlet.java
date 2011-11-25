@@ -41,16 +41,6 @@ public class ProsesEditLokasiServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProsesRekamLokasiServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProsesRekamLokasiServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
             String jsp = "";
             // List<Lokasi> listlokasi = daftarLokasi.getLokasi();
@@ -75,27 +65,28 @@ public class ProsesEditLokasiServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Nama Propinsi tidak boleh kosong !");
                 request.setAttribute("lokasi_edit", lokasi);
                 jsp = "pages/edit_lokasi.jsp";
-            } //validate zero value
-            else if (kodeLokasi.equalsIgnoreCase("0000")) {
-                JOptionPane.showMessageDialog(null, "Kode Lokasi tidak boleh bernilai nol !");
-                request.setAttribute("lokasi_edit", lokasi);
-                jsp = "pages/edit_lokasi.jsp";
             } //validate length field
             else if (kodeLokasi.length() < 4) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi harus 4 angka !");
                 request.setAttribute("lokasi_edit", lokasi);
                 jsp = "pages/edit_lokasi.jsp";
-            } //validate kodeLokasi are numbers
-            else if (!lokasi.valNumber(kodeLokasi)) {
+            } //validate kodeLokasi are numbers and not minus
+            else if (!this.valNumber(kodeLokasi)) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi harus angka !");
                 request.setAttribute("lokasi_edit", lokasi);
                 jsp = "pages/edit_lokasi.jsp";
-            } //validate record on database
-            else if (lokasi.valKodeLokasi(kodeLokasi)) {
+            } //validate zero value
+            else if (kodeLokasi.equalsIgnoreCase("0000")) {
+                JOptionPane.showMessageDialog(null, "Kode Lokasi tidak boleh bernilai nol !");
+                request.setAttribute("lokasi_edit", lokasi);
+                jsp = "pages/edit_lokasi.jsp";
+            } //validate kodeLokasi on database
+            else if (daftarLokasi.isKodeExist(kodeLokasi) && !lokasi.isKodeNoChange(kodeLokasi)) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi sudah ada dalam data base !");
                 request.setAttribute("lokasi_edit", lokasi);
                 jsp = "pages/edit_lokasi.jsp";
-            } else if (lokasi.valNamaKota(namaKota)) {
+            } //validate namaKota on database
+            else if (daftarLokasi.isKotaExist(namaKota) && !lokasi.isNamaNoChange(namaKota)) {
                 JOptionPane.showMessageDialog(null, "Kota sudah ada dalam data base !");
                 request.setAttribute("lokasi_edit", lokasi);
                 jsp = "pages/edit_lokasi.jsp";
@@ -114,6 +105,19 @@ public class ProsesEditLokasiServlet extends HttpServlet {
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
+        }
+    }
+
+    public boolean valNumber(String kode) {
+        try {
+            int i = Integer.parseInt(kode);
+            //validate minus input
+            if (i > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
         }
     }
 

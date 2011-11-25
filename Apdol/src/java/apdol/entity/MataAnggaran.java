@@ -42,55 +42,19 @@ public class MataAnggaran implements Serializable {
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
-    public boolean valKodeMataAnggaran(String def) {
-        DaftarMataAnggaran daftarMA = new DaftarMataAnggaran();
-        List<MataAnggaran> listMA = daftarMA.getMataAnggaran();
-        Iterator<MataAnggaran> iterator = listMA.iterator();
-        MataAnggaran tes = new MataAnggaran();
 
-        while (iterator.hasNext()) {
-            tes = iterator.next();
-            if (def.equalsIgnoreCase(tes.kodeMataAnggaran)) {
-                //validate if user doesn't change the field
-                if (def.equalsIgnoreCase(this.kodeMataAnggaran)) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public boolean valNamaMataAnggaran(String def) {
-        DaftarMataAnggaran daftarMA = new DaftarMataAnggaran();
-        List<MataAnggaran> listMA = daftarMA.getMataAnggaran();
-        Iterator<MataAnggaran> iterator = listMA.iterator();
-        MataAnggaran tes = new MataAnggaran();
-
-        while (iterator.hasNext()) {
-            tes = iterator.next();
-            if (def.equalsIgnoreCase(tes.namaMataAnggaran)) {
-                //validate if user doesn't change the field
-                if (def.equalsIgnoreCase(this.namaMataAnggaran)) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public boolean valNumber(String kode) {
-        try {
-            int i = Integer.parseInt(kode);
-            //validate minus input
-            if (i > 0) {
-                return true;
-            }
+    public boolean isKodeNoChange(String kode) {
+        if (kode.equalsIgnoreCase(this.kodeMataAnggaran)) {
+            return true;
+        } else {
             return false;
-        } catch (Exception e) {
+        }
+    }
+
+    public boolean isNamaNoChange(String nama) {
+        if (nama.equalsIgnoreCase(this.namaMataAnggaran)) {
+            return true;
+        } else {
             return false;
         }
     }

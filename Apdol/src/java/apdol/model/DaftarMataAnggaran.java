@@ -7,6 +7,7 @@ package apdol.model;
 import apdol.entity.MataAnggaran;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -99,5 +100,33 @@ public class DaftarMataAnggaran {
                 em.close();
             }
         }
+    }
+    
+    public boolean isKodeExist(String kode) {
+        DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran();
+        List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+        Iterator<MataAnggaran> iterator = listMataAnggaran.iterator();
+        MataAnggaran tes = new MataAnggaran();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (kode.equalsIgnoreCase(tes.getKodeMataAnggaran())) {
+                return true;
+            }
+        } return false;
+    }
+    
+    public boolean isNamaExist(String nama) {
+        DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran();
+        List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+        Iterator<MataAnggaran> iterator = listMataAnggaran.iterator();
+        MataAnggaran tes = new MataAnggaran();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (nama.equalsIgnoreCase(tes.getNamaMataAnggaran())) {
+                return true;
+            }
+        } return false;
     }
 }

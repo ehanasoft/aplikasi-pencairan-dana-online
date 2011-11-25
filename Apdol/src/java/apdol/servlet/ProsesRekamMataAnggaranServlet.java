@@ -57,23 +57,23 @@ public class ProsesRekamMataAnggaranServlet extends HttpServlet {
             } else if (namaBKPK == "") {
                 JOptionPane.showMessageDialog(null, "Nama BKPK tidak boleh kosong !");
                 jsp = "pages/rekam_mata_anggaran.jsp";
+            } //validate length field
+            else if (kodeMataAnggaran.length() < 6) {
+                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus 6 angka !");
+                jsp = "pages/rekam_mata_anggaran.jsp";
+            } //validate kodeMataAnggaran are numbers
+            else if (!this.valNumber(kodeMataAnggaran)) {
+                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus angka !");
+                jsp = "pages/rekam_mata_anggaran.jsp";
             } //validate zero value
             else if (kodeMataAnggaran.equalsIgnoreCase("0000")) {
                 JOptionPane.showMessageDialog(null, "Kode Mata Anggaran tidak boleh bernilai nol !");
                 jsp = "pages/rekam_mata_anggaran.jsp";
-            } //validate length field
-            else if (kodeMataAnggaran.length() < 4) {
-                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus 4 angka !");
-                jsp = "pages/rekam_mata_anggaran.jsp";
-            } //validate kodeMataAnggaran are numbers
-            else if (!mataAnggaran.valNumber(kodeMataAnggaran)) {
-                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus angka !");
-                jsp = "pages/rekam_mata_anggaran.jsp";
             } //validate record on database
-            else if (mataAnggaran.valKodeMataAnggaran(kodeMataAnggaran)) {
+            else if (daftarMataAnggaran.isKodeExist(kodeMataAnggaran)) {
                 JOptionPane.showMessageDialog(null, "Kode Mata Anggaran sudah ada dalam data base !");
                 jsp = "pages/rekam_mata_anggaran.jsp";
-            } else if (mataAnggaran.valNamaMataAnggaran(namaMataAnggaran)) {
+            } else if (daftarMataAnggaran.isNamaExist(namaMataAnggaran)) {
                 JOptionPane.showMessageDialog(null, "Mata Anggaran sudah ada dalam data base !");
                 jsp = "pages/rekam_mata_anggaran.jsp";
             } else {
@@ -91,6 +91,19 @@ public class ProsesRekamMataAnggaranServlet extends HttpServlet {
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
+        }
+    }
+    
+    public boolean valNumber(String kode) {
+        try {
+            int i = Integer.parseInt(kode);
+            //validate minus input
+            if (i >= 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
         }
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
