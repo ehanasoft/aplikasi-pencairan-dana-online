@@ -112,7 +112,7 @@ public class ProsesEditLokasiServlet extends HttpServlet {
         try {
             int i = Integer.parseInt(kode);
             //validate minus input
-            if (i > 0) {
+            if (i >= 0) {
                 return true;
             }
             return false;
