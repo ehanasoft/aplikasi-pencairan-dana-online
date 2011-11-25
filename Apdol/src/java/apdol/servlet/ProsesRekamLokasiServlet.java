@@ -66,7 +66,7 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi harus angka !");
                 jsp = "pages/rekam_lokasi.jsp";
             } //validate zero value
-            else if (kodeLokasi.equalsIgnoreCase("0000")) {
+            else if (kodeLokasi.equalsIgnoreCase("000000")) {
                 JOptionPane.showMessageDialog(null, "Kode Lokasi tidak boleh bernilai nol !");
                 jsp = "pages/rekam_lokasi.jsp";
             } //validate record on database

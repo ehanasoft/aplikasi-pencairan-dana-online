@@ -57,11 +57,11 @@ public class ProsesEditMataAnggaranServlet extends HttpServlet {
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
             } else if (namaMataAnggaran == "") {
-                JOptionPane.showMessageDialog(null, "Nama MataAnggaran tidak boleh kosong !");
+                JOptionPane.showMessageDialog(null, "Nama Mata Anggaran tidak boleh kosong !");
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
             } else if (namaMataAnggaran == "") {
-                JOptionPane.showMessageDialog(null, "Nama MataAnggaran tidak boleh kosong !");
+                JOptionPane.showMessageDialog(null, "Nama Mata Anggaran tidak boleh kosong !");
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
             } //validate length field
@@ -75,7 +75,7 @@ public class ProsesEditMataAnggaranServlet extends HttpServlet {
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
             } //validate zero value
-            else if (kodeMataAnggaran.equalsIgnoreCase("0000")) {
+            else if (kodeMataAnggaran.equalsIgnoreCase("000000")) {
                 JOptionPane.showMessageDialog(null, "Kode Mata Anggaran tidak boleh bernilai nol !");
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
@@ -111,7 +111,7 @@ public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);
             //validate minus input
-            if (i > 0) {
+            if (i >= 0) {
                 return true;
             }
             return false;
