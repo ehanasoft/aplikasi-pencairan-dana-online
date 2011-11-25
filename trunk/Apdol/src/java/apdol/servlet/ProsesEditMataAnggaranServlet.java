@@ -64,28 +64,29 @@ public class ProsesEditMataAnggaranServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Nama MataAnggaran tidak boleh kosong !");
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
+            } //validate length field
+            else if (kodeMataAnggaran.length() < 6) {
+                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus 6 angka !");
+                request.setAttribute("mata_anggaran_edit", mataAnggaran);
+                jsp = "pages/edit_mata_anggaran.jsp";
+            } //validate kodeMataAnggaran are numbers
+            else if (!this.valNumber(kodeMataAnggaran)) {
+                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus angka !");
+                request.setAttribute("mata_anggaran_edit", mataAnggaran);
+                jsp = "pages/edit_mata_anggaran.jsp";
             } //validate zero value
             else if (kodeMataAnggaran.equalsIgnoreCase("0000")) {
                 JOptionPane.showMessageDialog(null, "Kode Mata Anggaran tidak boleh bernilai nol !");
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
-            } //validate length field
-            else if (kodeMataAnggaran.length() < 4) {
-                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus 4 angka !");
-                request.setAttribute("mata_anggaran_edit", mataAnggaran);
-                jsp = "pages/edit_mata_anggaran.jsp";
-            } //validate kodeMataAnggaran are numbers
-            else if (!mataAnggaran.valNumber(kodeMataAnggaran)) {
-                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus angka !");
-                request.setAttribute("mata_anggaran_edit", mataAnggaran);
-                jsp = "pages/edit_mata_anggaran.jsp";
-            } //validate record on database
-            else if (mataAnggaran.valKodeMataAnggaran(kodeMataAnggaran)) {
+            } //validate kodeMataAnggaran on database
+            else if (daftarMataAnggaran.isKodeExist(kodeMataAnggaran) && !mataAnggaran.isKodeNoChange(kodeMataAnggaran)) {
                 JOptionPane.showMessageDialog(null, "Kode Mata Anggaran sudah ada dalam data base !");
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
-            } else if (mataAnggaran.valNamaMataAnggaran(namaMataAnggaran)) {
-                JOptionPane.showMessageDialog(null, "MataAnggaran sudah ada dalam data base !");
+            } //validate namaMataAnggaran on database
+            else if (daftarMataAnggaran.isNamaExist(namaMataAnggaran) && !mataAnggaran.isNamaNoChange(namaMataAnggaran)) {
+                JOptionPane.showMessageDialog(null, "Mata Anggaran sudah ada dalam data base !");
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
             } else {
@@ -105,6 +106,19 @@ public class ProsesEditMataAnggaranServlet extends HttpServlet {
             out.close();
         }
     }
+    
+public boolean valNumber(String kode) {
+        try {
+            int i = Integer.parseInt(kode);
+            //validate minus input
+            if (i > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -115,12 +129,16 @@ public class ProsesEditMataAnggaranServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesEditMataAnggaranServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesEditMataAnggaranServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -132,12 +150,16 @@ public class ProsesEditMataAnggaranServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesEditMataAnggaranServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesEditMataAnggaranServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -147,7 +169,7 @@ public class ProsesEditMataAnggaranServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 }
