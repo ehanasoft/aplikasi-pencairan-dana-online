@@ -23,8 +23,8 @@ import javax.swing.JOptionPane;
  *
  * @author AlfieSaHid
  */
-@WebServlet(name = "ProsesRekamBankPosServlet", urlPatterns = {"/proses_rekam_bank_pos"})
-public class ProsesRekamBankPosServlet extends HttpServlet {
+@WebServlet(name = "EditBankPosServlet", urlPatterns = {"/edit_bank_pos"})
+public class EditBankPosServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -38,75 +38,33 @@ public class ProsesRekamBankPosServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-
-            BankPos bankpos = new BankPos();
+            
             DaftarBankPos daftarBankPos = new DaftarBankPos();
-            String jsp = "";
-
-            String kdbankpos = request.getParameter("kode_lokasi");
-            String nmbankpos = request.getParameter("nama_kota");
-
-            //validate blank field
-            if (kdbankpos == "") {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos tidak boleh kosong !", 
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
-            } else if (nmbankpos == "") {
-                JOptionPane.showMessageDialog(null, "Nama Bank Pos tidak boleh kosong !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";            
-            } //validate length field
-            else if (kdbankpos.length() < 3) {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos harus 3 angka !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
-            } //validate kdbankpos are numbers
-            else if (!this.valNumber(kdbankpos)) {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos harus angka !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
-            } //validate zero value
-            else if (kdbankpos.equalsIgnoreCase("000000")) {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos tidak boleh bernilai nol !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
-            } //validate record on database
-            else if (daftarBankPos.isKodeExist(kdbankpos)) {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos sudah ada dalam database !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
-            } //validate record on database
-            else if (daftarBankPos.isNamaExist(nmbankpos)) {
-                JOptionPane.showMessageDialog(null, "Nama Bank Pos sudah ada dalam database !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
-            } else {
-                bankpos.setKdbankpos(kdbankpos);
-                bankpos.setNmbankpos(nmbankpos);                
-                daftarBankPos.rekamBankPos(bankpos);
-                jsp = "pages/bank_pos.jsp";
-            }
-
             List<BankPos> listBankPos = daftarBankPos.getBankPos();
             Collections.sort(listBankPos, new BankPosComparator());
             request.setAttribute("list_bankpos", listBankPos);
+            String jsp = "";
+            String cekBankPos[] = request.getParameterValues("cek_bankpos");
+
+            if (cekBankPos == null) {
+                JOptionPane.showMessageDialog(null, "Bank Pos tidak ada yang dipilih",
+                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                jsp = "pages/bank_pos.jsp";
+            } else if (cekBankPos.length > 1) {
+                JOptionPane.showMessageDialog(null, "Pilih salah satu Bank Pos saja !",
+                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                jsp = "pages/bank_pos.jsp";
+            } else {
+                Long idBankPos = Long.parseLong(cekBankPos[0]);
+                BankPos bankpos = daftarBankPos.findBankPos(idBankPos);
+                request.setAttribute("bankpos_edit", bankpos);
+                jsp = "/pages/edit_bank_pos.jsp";
+            }
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
-        }
-    }
-    
-    public boolean valNumber(String kode) {
-        try {
-            int i = Integer.parseInt(kode);
-            //validate minus input
-            if (i >= 0) {
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            return false;
         }
     }
 

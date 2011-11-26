@@ -1,16 +1,13 @@
 <%-- 
-    Document   : bank_pos
-    Created on : Nov 15, 2011, 9:08:49 AM
+    Document   : edit_bank_pos
+    Created on : Nov 26, 2011, 12:11:26 PM
     Author     : AlfieSaHid
 --%>
-
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
 <%@page import="apdol.model.DaftarBankPos"%>
 <%@page import="apdol.entity.BankPos"%>
+<%@page import="javax.swing.JOptionPane"%>
 
-<% List<BankPos> listBankPos = (List<BankPos>) request.getAttribute("list_bankpos");%>
-<% BankPos bankpos;%>
+<% BankPos bankpos = (BankPos) request.getAttribute("bankpos_edit");%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,7 +15,7 @@
     <%String roleUser = (String) session.getAttribute("roleuser");%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Bank Pos</title>
+        <title> Edit Bank Pos</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -99,59 +96,34 @@
             <div class="logout"><a href="logout">[Log Out]</a>
                 <!-- end .logout --></div>
             <div class="content">
-                <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
-
-                <% Iterator<BankPos> iterator = listBankPos.iterator();%>
-                <form >
-                    <p style="margin: 10px;"><BR>
-                            <table id="rounded-corner">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="rounded-company">Cek</th>
-                                        <th scope="col" class="rounded-q1">Kode Bank Pos</th>
-                                        <th scope="col" class="rounded-q2">Nama Bank Pos</th>                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% while (iterator.hasNext()) {
-                            bankpos = iterator.next();%>
-                                    <tr>
-                                        <td><input  type="checkbox"  name="cek_bankpos" value="<%=bankpos.getId()%>"></td>
-                                        <td><%=bankpos.getKdbankpos()%></td>
-                                        <td><%=bankpos.getNmbankpos()%></td>
-                                    </tr>
-                                    <%}%>
-                                </tbody>
-                            </table>
-                            <span style="margin: 10px;">
-                            </span>
-                            <p style="margin: 10px;"><BR>
-                                    <input type="submit" value="rekam" name="rekam" formaction="rekam_bank_pos" formmethod="post"/>
-                                    <input type="submit" value="edit" name="edit" formaction="edit_bank_pos" formmethod="post"/> 
-                                    <input type="submit" value="hapus" name="hapus" formaction="hapus_bank_pos" formmethod="post"/>
+                <table border="0" cellspacing="0" cellpadding="0" width="800">
+                <tr>
+                    <td>
+                        <table border="0" width="800">
+                            <tr style="vertical-align: top">
+                                <td width="500" style="vertical-align: top"  align="left">                                    
+                                    <h3 style="color: blue;">Edit Data Bank Pos</h3>
+                                    <form action="proses_edit_bank_pos" method="post" >
+                                    <table width="450">
+                                        <tr>
+                                            <td width="150">Kode Bank Pos</td><td><input name="kode_bankpos" type="text" style="width: 50px" value ="<%=bankpos.getKdbankpos()%>" size="3" maxlength="3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nama Bank Pos</td><td><input type="text" name="nama_bankpos" value="<%=bankpos.getNmbankpos()%>" style="width: 300px" ></td>
+                                            <td> <input type="hidden" name="id_edit_bankpos" value="<%=bankpos.getId()%>"> </td>                                        
+                                        </tr>                                       
+                                        <tr>
+                                            <td></td><td><input type="reset"><input type="submit" value="Simpan" ></td>
+                                        </tr>
+                                    </table>
                                     </form>
-            <!-- end .content --></div>
-        <!-- end .container --></div>
+                                </td>
+                                </tr>
+                        </table>
+                    </td>
+                </tr>
+                </table>
+             <!-- end .content --></div>
+         <!-- end .container --></div>
     </body>
 </html>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                

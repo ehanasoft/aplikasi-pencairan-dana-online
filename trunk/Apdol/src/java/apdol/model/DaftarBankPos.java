@@ -32,20 +32,20 @@ public class DaftarBankPos {
     }
 
     public List<BankPos> getBankPos() {
-        List<BankPos> banks = new ArrayList<BankPos>();
+        List<BankPos> bankpos = new ArrayList<BankPos>();
 
         EntityManager em = getEntityManager();
         try {
             Query q = em.createQuery("SELECT a FROM BankPos AS a");
-            banks = q.getResultList();
+            bankpos = q.getResultList();
 
         } finally {
             em.close();
         }
-        return banks;
+        return bankpos;
     }
 
-    public BankPos findBankPos(Integer id) {
+    public BankPos findBankPos(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(BankPos.class, id);
@@ -54,12 +54,12 @@ public class DaftarBankPos {
         }
     }
     
-    public void rekamBankPos(BankPos bank) {
+    public void rekamBankPos(BankPos bankpos) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(bank);
+            em.persist(bankpos);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -82,19 +82,18 @@ public class DaftarBankPos {
         }
     }
     
-    public void deleteBankPos(Integer id) throws NonexistentEntityException {
+    public void destroy(long  id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            BankPos bank;
+            BankPos bankpos;
             try {
-                bank = em.getReference(BankPos.class, id);
-                bank.getId();
+                bankpos = em.getReference(BankPos.class, id);
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("Bank Pos belum dipilih", enfe);
+                throw new NonexistentEntityException("Bank Pos belum dipilih.", enfe);
             }
-            em.remove(bank);
+            em.remove(bankpos);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
