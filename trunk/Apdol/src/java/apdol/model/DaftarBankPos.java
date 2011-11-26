@@ -7,6 +7,7 @@ package apdol.model;
 import apdol.entity.BankPos;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -52,22 +53,6 @@ public class DaftarBankPos {
             em.close();
         }
     }
-
-    public boolean check(String kdbankpos) {
-        boolean result = false;
-        EntityManager em = getEntityManager();
-        try {
-            Query q = em.createQuery("SELECT count(a) FROM BankPos AS a WHERE a.kdbankpos=:kdbank");
-            q.setParameter("kdbank", kdbankpos);
-            int jumlahBankPos = ((Long) q.getSingleResult()).intValue();
-            if (jumlahBankPos == 1) {
-                result = true;
-            }
-        } finally {
-            em.close();
-        }
-        return result;
-    }
     
     public void rekamBankPos(BankPos bank) {
         EntityManager em = null;
@@ -83,14 +68,17 @@ public class DaftarBankPos {
         }
     }
     
-    public void updateBankPos(BankPos bank) {
-        EntityManager em = getEntityManager();
+    public void edit(BankPos bankpos)  {
+        EntityManager em = null;
         try {
+            em = getEntityManager();
             em.getTransaction().begin();
-            em.merge(bank);
+            bankpos = em.merge(bankpos);
             em.getTransaction().commit();
         } finally {
-            em.close();
+            if (em != null) {
+                em.close();
+            }
         }
     }
     
@@ -114,21 +102,32 @@ public class DaftarBankPos {
             }
         }
     }
+    public boolean isKodeExist(String kode) {
+        DaftarBankPos daftarBankPos = new DaftarBankPos();
+        List<BankPos> listBankPos = daftarBankPos.getBankPos();
+        Iterator<BankPos> iterator = listBankPos.iterator();
+        BankPos tes = new BankPos();
 
-    public BankPos getUser(String kdbankpos) {
-        BankPos bank = null;
-        EntityManager em = getEntityManager();
-        try {
-            boolean hasilCheck = this.check(kdbankpos);
-            if (hasilCheck) {
-                Query q = em.createQuery("SELECT a FROM BankPos AS a WHERE a.kdbankpos=:kdbank");
-                q.setParameter("kdbank", kdbankpos);     
-                bank = (BankPos) q.getSingleResult();
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (kode.equalsIgnoreCase(tes.getKdbankpos())) {
+                return true;
             }
-        } finally {
-            em.close();
-        }
-        return bank;
+        } return false;
+    }
+    
+    public boolean isNamaExist(String nama) {
+        DaftarBankPos daftarBankPos = new DaftarBankPos();
+        List<BankPos> listBankPos = daftarBankPos.getBankPos();
+        Iterator<BankPos> iterator = listBankPos.iterator();
+        BankPos tes = new BankPos();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (nama.equalsIgnoreCase(tes.getNmbankpos())) {
+                return true;
+            }
+        } return false;
     }
     
 }

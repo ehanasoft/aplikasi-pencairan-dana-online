@@ -27,7 +27,7 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
   <p><strong>Referensi</strong></p> 
     <ul class="nav">
       <li><a href="#">Satuan Kerja</a></li>
-      <li><a href="#">Bank Pos</a></li>
+      <li><a href="bank_pos">Bank Pos</a></li>
       <li><a href="#">Pejabat</a></li>
       <li><a href="#">Program</a></li>
       <li><a href="#">Kegiatan</a></li>
