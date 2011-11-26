@@ -17,7 +17,7 @@
         <servlet-class>apdol.servlet.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddBankPosServlet</servlet-name>
+        <servlet-name>RekamBankPosServlet</servlet-name>
         <servlet-class>apdol.servlet.RekamBankPosServlet</servlet-class>
     </servlet>
     <servlet>
@@ -79,6 +79,18 @@
     <servlet>
         <servlet-name>ProsesRekamBankPosServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesRekamBankPosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesEditBankPosServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesEditBankPosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditBankPosServlet</servlet-name>
+        <servlet-class>apdol.servlet.EditBankPosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesHapusBankPosServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusBankPosServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RekamUser</servlet-name>
@@ -153,12 +165,24 @@
         <url-pattern>/bank_pos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddBankPosServlet</servlet-name>
+        <servlet-name>RekamBankPosServlet</servlet-name>
         <url-pattern>/rekam_bank_pos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProsesRekamBankPosServlet</servlet-name>
         <url-pattern>/proses_rekam_bank_pos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesEditBankPosServlet</servlet-name>
+        <url-pattern>/proses_edit_bank_pos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditBankPosServlet</servlet-name>
+        <url-pattern>/edit_bank_pos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesHapusBankPosServlet</servlet-name>
+        <url-pattern>/hapus_bank_pos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

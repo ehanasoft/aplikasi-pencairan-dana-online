@@ -46,7 +46,7 @@ public class BankPos implements Serializable {
     public void setNmbankpos(String nmbankpos) {
         this.nmbankpos = nmbankpos;
     }    
-
+    
     @Override
     public String toString() {
         return "apdol.entity.BankPos[ id=" + id + " ]";
