@@ -18,7 +18,7 @@
     </servlet>
     <servlet>
         <servlet-name>AddBankPosServlet</servlet-name>
-        <servlet-class>apdol.servlet.AddBankPosServlet</servlet-class>
+        <servlet-class>apdol.servlet.RekamBankPosServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BankPosServlet</servlet-name>
@@ -76,6 +76,10 @@
         <servlet-name>Hapus Mata Anggaran</servlet-name>
         <servlet-class>apdol.servlet.ProsesHapusMataAnggaranServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProsesRekamBankPosServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamBankPosServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RekamUser</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -99,14 +103,6 @@
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
         <url-pattern>/main</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BankPosServlet</servlet-name>
-        <url-pattern>/bankpos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddBankPosServlet</servlet-name>
-        <url-pattern>/rekambankpos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>rekam lokasi</servlet-name>
@@ -151,6 +147,18 @@
     <servlet-mapping>
         <servlet-name>Hapus Mata Anggaran</servlet-name>
         <url-pattern>/proses_hapus_mata_anggaran</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BankPosServlet</servlet-name>
+        <url-pattern>/bank_pos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddBankPosServlet</servlet-name>
+        <url-pattern>/rekam_bank_pos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesRekamBankPosServlet</servlet-name>
+        <url-pattern>/proses_rekam_bank_pos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
