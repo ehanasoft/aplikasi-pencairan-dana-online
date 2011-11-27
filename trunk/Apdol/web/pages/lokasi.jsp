@@ -29,22 +29,22 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
       <% if(roleUser.equals("1")) {%>
   <p><strong>Dokumen</strong></p> 
     <ul class="nav">
-      <li><a href="dipa">DIPA</a></li>
+      <li><a href="../../NetBeansProjects/Apdol/web/pages/dipa">DIPA</a></li>
     </ul>
   <p><strong>Referensi</strong></p> 
     <ul class="nav">
       <li><a href="#">Satuan Kerja</a></li>
-      <li><a href="bank_pos">Bank Pos</a></li>
+      <li><a href="#">Bank Pos</a></li>
       <li><a href="#">Pejabat</a></li>
       <li><a href="#">Program</a></li>
       <li><a href="#">Kegiatan</a></li>
       <li><a href="#">Output</a></li>
-      <li><a href="mata_anggaran">Mata Anggaran</a></li>
-      <li><a href="lokasi">Lokasi</a></li>
+      <li><a href="../../NetBeansProjects/Apdol/web/pages/mata_anggaran">Mata Anggaran</a></li>
+      <li><a href="../../NetBeansProjects/Apdol/web/pages/lokasi">Lokasi</a></li>
     </ul>
     <p><strong>Utilitas</strong></p>
     <ul class="nav">
-      <li><a href="register">Registrasi User</a></li>
+      <li><a href="../../NetBeansProjects/Apdol/web/pages/register">Registrasi User</a></li>
     </ul>
     <% } else if(roleUser.equals("2")) {%>
           <p><strong>Dokumen</strong></p> 
@@ -94,27 +94,27 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
   <!-- end .logout --></div>
   <div class="content">
       <p><% if(logedUser!=null){ %><%="Anda Login sebagai: "+logedUser+" "+ roleUser%><%}%></p>
-      
+      <center><p><h3>Lokasi</h3></p>
+          
        <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
-        <form >
-            <p style="margin: 10px;"><BR>
+        <center><form >
             <table id="rounded-corner">
                 <thead>
                     <tr>
-                        <th scope="col" class="rounded-company">Cek</th>
-                        <th scope="col" class="rounded-q1">Kode Lokasi</th>
-                        <th scope="col" class="rounded-q2">Nama Kota</th>
-                        <th scope="col" class="rounded-q4">Nama Propinsi</th>
+                        <th scope="col" class="rounded-company">Kode Lokasi</th>
+                        <th scope="col" class="rounded-q1">Nama Kota</th>
+                        <th scope="col" class="rounded-q2">Nama Propinsi</th>
+                        <th scope="col" class="rounded-q4">Cek</th>
                     </tr>
                 </thead>
                     <tbody>
                     <% while (iterator.hasNext()) {
                                   lokasi = iterator.next();%>
                     <tr>
-                        <td><input  type="checkbox"  name="cek_lokasi" value="<%=lokasi.getId()%>"></td>
                         <td><%=lokasi.getKodeLokasi()%></td>
                         <td><%=lokasi.getNamaKota()%></td>
                         <td><%=lokasi.getNamaPropinsi()%></td>
+                        <td><input  type="checkbox"  name="cek_lokasi" value="<%=lokasi.getId()%>"></td>
                     </tr>
                     <%}%>
                     </tbody>
@@ -122,10 +122,10 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
             <span style="margin: 10px;">
             </span>
             <p style="margin: 10px;"><BR>
-                <input type="submit" value="rekam" name="rekam" formaction="rekam_lokasi" formmethod="post"/>
-                <input type="submit" value="edit" name="edit" formaction="edit_lokasi" formmethod="post"/> 
-                <input type="submit" value="hapus" name="hapus" formaction="proses_hapus_lokasi" formmethod="post"/>
-        </form>
+			<input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_lokasi" />
+            <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_lokasi" />
+            <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_lokasi" />
+        </form></center>
     <!-- end .content --></div>
   <!-- end .container --></div>
 </body>

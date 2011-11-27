@@ -82,7 +82,7 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
                 lokasi.setNamaKota(namaKota);
                 lokasi.setNamaPropinsi(namaPropinsi);
                 daftarLokasi.rekamLokasi(lokasi);
-                jsp = "pages/lokasi.jsp";
+                response.sendRedirect("lokasi");
             }
 
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
