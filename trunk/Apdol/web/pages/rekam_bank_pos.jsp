@@ -34,9 +34,9 @@
                 <ul class="nav">
                     <li><a href="#">Satuan Kerja</a></li>
                     <li><a href="bank_pos">Bank Pos</a></li>
-                    <li><a href="#">Pejabat</a></li>
-                    <li><a href="#">Program</a></li>
-                    <li><a href="#">Kegiatan</a></li>
+                    <li><a href="pejabat">Pejabat</a></li>
+                    <li><a href="program">Program</a></li>
+                    <li><a href="kegiatan">Kegiatan</a></li>
                     <li><a href="#">Output</a></li>
                     <li><a href="mata_anggaran">Mata Anggaran</a></li>
                     <li><a href="lokasi">Lokasi</a></li>
@@ -102,10 +102,10 @@
                                     <form action="proses_rekam_bank_pos" method="post" >
                                     <table width="450">
                                         <tr>
-                                            <td width="150">Kode Bank Pos</td><td><input name="kode_lokasi" type="text" style="width: 40px" size="3" maxlength="3"></td>
+                                            <td width="150">Kode Bank Pos</td><td><input name="kode_bankpos" type="text" style="width: 30px" size="3" maxlength="3"></td>
                                         </tr>
                                         <tr>
-                                            <td>Nama Bank Pos</td><td><input type="text" name="nama_kota" style="width: 300px"></td>
+                                            <td>Nama Bank Pos</td><td><input type="text" name="nama_bankpos" style="width: 300px"></td>
                                         </tr>                                       
                                         <tr>
                                             <td></td><td><input type="reset"><input type="submit" value="Simpan" ></td>

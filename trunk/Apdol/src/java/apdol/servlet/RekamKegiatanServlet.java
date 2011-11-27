@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author AlfieSaHid
  */
-public class RekamBankPosServlet extends HttpServlet {
+@WebServlet(name = "RekamKegiatanServlet", urlPatterns = {"/rekam_kegiatan"})
+public class RekamKegiatanServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,15 +35,14 @@ public class RekamBankPosServlet extends HttpServlet {
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RekamBankPosServlet</title>");  
+            out.println("<title>Servlet RekamKegiatanServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RekamBankPosServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet RekamKegiatanServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
              */
-
-            String jsp = "pages/rekam_bank_pos.jsp";
+            String jsp = "pages/rekam_kegiatan.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {            

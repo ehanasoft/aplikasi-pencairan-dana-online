@@ -92,6 +92,30 @@
         <servlet-name>ProsesHapusBankPosServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesHapusBankPosServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PejabatServlet</servlet-name>
+        <servlet-class>apdol.servlet.PejabatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RekamPejabatServlet</servlet-name>
+        <servlet-class>apdol.servlet.RekamPejabatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesRekamPejabatServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamPejabatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>KegiatanServlet</servlet-name>
+        <servlet-class>apdol.servlet.KegiatanServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RekamKegiatanServlet</servlet-name>
+        <servlet-class>apdol.servlet.RekamKegiatanServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesRekamKegiatanServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamKegiatanServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RekamUser</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -183,6 +207,30 @@
     <servlet-mapping>
         <servlet-name>ProsesHapusBankPosServlet</servlet-name>
         <url-pattern>/hapus_bank_pos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PejabatServlet</servlet-name>
+        <url-pattern>/pejabat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RekamPejabatServlet</servlet-name>
+        <url-pattern>/rekam_pejabat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesRekamPejabatServlet</servlet-name>
+        <url-pattern>/proses_rekam_pejabat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>KegiatanServlet</servlet-name>
+        <url-pattern>/kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RekamKegiatanServlet</servlet-name>
+        <url-pattern>/rekam_kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesRekamKegiatanServlet</servlet-name>
+        <url-pattern>/proses_rekam_kegiatan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

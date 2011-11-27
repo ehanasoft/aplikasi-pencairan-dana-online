@@ -7,6 +7,7 @@ package apdol.model;
 import apdol.entity.Kegiatan;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -99,6 +100,34 @@ public class DaftarKegiatan {
                 em.close();
             }
         }
+    }
+    
+    public boolean isKodeExist(String kode) {
+        DaftarKegiatan daftarKegiatan = new DaftarKegiatan();
+        List<Kegiatan> listKegiatan = daftarKegiatan.getKegiatan();
+        Iterator<Kegiatan> iterator = listKegiatan.iterator();
+        Kegiatan tes = new Kegiatan();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (kode.equalsIgnoreCase(tes.getKdgiat())) {
+                return true;
+            }
+        } return false;
+    }
+    
+    public boolean isNamaExist(String nama) {
+        DaftarKegiatan daftarKegiatan = new DaftarKegiatan();
+        List<Kegiatan> listKegiatan = daftarKegiatan.getKegiatan();
+        Iterator<Kegiatan> iterator = listKegiatan.iterator();
+        Kegiatan tes = new Kegiatan();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (nama.equalsIgnoreCase(tes.getNmgiat())) {
+                return true;
+            }
+        } return false;
     }
     
 }
