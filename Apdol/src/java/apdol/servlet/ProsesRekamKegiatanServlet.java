@@ -4,9 +4,9 @@
  */
 package apdol.servlet;
 
-import apdol.comparator.BankPosComparator;
-import apdol.entity.BankPos;
-import apdol.model.DaftarBankPos;
+import apdol.comparator.KegiatanComparator;
+import apdol.entity.Kegiatan;
+import apdol.model.DaftarKegiatan;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -23,8 +23,8 @@ import javax.swing.JOptionPane;
  *
  * @author AlfieSaHid
  */
-@WebServlet(name = "ProsesRekamBankPosServlet", urlPatterns = {"/proses_rekam_bank_pos"})
-public class ProsesRekamBankPosServlet extends HttpServlet {
+@WebServlet(name = "ProsesRekamKegiatanServlet", urlPatterns = {"/proses_rekam_kegiatan"})
+public class ProsesRekamKegiatanServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -39,57 +39,57 @@ public class ProsesRekamBankPosServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            BankPos bankpos = new BankPos();
-            DaftarBankPos daftarBankPos = new DaftarBankPos();
+            Kegiatan kegiatan = new Kegiatan();
+            DaftarKegiatan daftarKegiatan = new DaftarKegiatan();
             String jsp = "";
 
-            String kdbankpos = request.getParameter("kode_bankpos");
-            String nmbankpos = request.getParameter("nama_bankpos");
+            String kdgiat = request.getParameter("kode_kegiatan");
+            String nmgiat = request.getParameter("nama_kegiatan");
 
             //validate blank field
-            if (kdbankpos == "") {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos tidak boleh kosong !", 
+            if (kdgiat == "") {
+                JOptionPane.showMessageDialog(null, "Kode Kegiatan tidak boleh kosong !", 
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
-            } else if (nmbankpos == "") {
-                JOptionPane.showMessageDialog(null, "Nama Bank Pos tidak boleh kosong !",
+                jsp = "pages/rekam_kegiatan.jsp";
+            } else if (nmgiat == "") {
+                JOptionPane.showMessageDialog(null, "Nama Kegiatan tidak boleh kosong !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";            
+                jsp = "pages/rekam_kegiatan.jsp";            
             } //validate length field
-            else if (kdbankpos.length() < 3) {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos harus 3 angka !",
+            else if (kdgiat.length() < 4) {
+                JOptionPane.showMessageDialog(null, "Kode Kegiatan harus 4 angka !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
-            } //validate kdbankpos are numbers
-            else if (!this.valNumber(kdbankpos)) {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos harus angka !",
+                jsp = "pages/rekam_kegiatan.jsp";
+            } //validate kdgiat are numbers
+            else if (!this.valNumber(kdgiat)) {
+                JOptionPane.showMessageDialog(null, "Kode Kegiatan harus angka !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
+                jsp = "pages/rekam_kegiatan.jsp";
             } //validate zero value
-            else if (kdbankpos.equalsIgnoreCase("000000")) {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos tidak boleh bernilai nol !",
+            else if (kdgiat.equalsIgnoreCase("000000")) {
+                JOptionPane.showMessageDialog(null, "Kode Kegiatan tidak boleh bernilai nol !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
+                jsp = "pages/rekam_kegiatan.jsp";
             } //validate record on database
-            else if (daftarBankPos.isKodeExist(kdbankpos)) {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos sudah ada dalam database !",
+            else if (daftarKegiatan.isKodeExist(kdgiat)) {
+                JOptionPane.showMessageDialog(null, "Kode Kegiatan sudah ada dalam database !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
+                jsp = "pages/rekam_kegiatan.jsp";
             } //validate record on database
-            else if (daftarBankPos.isNamaExist(nmbankpos)) {
-                JOptionPane.showMessageDialog(null, "Nama Bank Pos sudah ada dalam database !",
+            else if (daftarKegiatan.isNamaExist(nmgiat)) {
+                JOptionPane.showMessageDialog(null, "Nama Kegiatan sudah ada dalam database !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
+                jsp = "pages/rekam_kegiatan.jsp";
             } else {
-                bankpos.setKdbankpos(kdbankpos);
-                bankpos.setNmbankpos(nmbankpos);                
-                daftarBankPos.rekamBankPos(bankpos);
-                jsp = "pages/bank_pos.jsp";
+                kegiatan.setKdgiat(kdgiat);
+                kegiatan.setNmgiat(nmgiat);                
+                daftarKegiatan.rekamKegiatan(kegiatan);
+                jsp = "pages/kegiatan.jsp";
             }
 
-            List<BankPos> listBankPos = daftarBankPos.getBankPos();
-            Collections.sort(listBankPos, new BankPosComparator());
-            request.setAttribute("list_bankpos", listBankPos);
+            List<Kegiatan> listKegiatan = daftarKegiatan.getKegiatan();
+            Collections.sort(listKegiatan, new KegiatanComparator());
+            request.setAttribute("list_kegiatan", listKegiatan);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

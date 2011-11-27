@@ -1,16 +1,16 @@
 <%-- 
-    Document   : bank_pos
-    Created on : Nov 15, 2011, 9:08:49 AM
+    Document   : kegiatan
+    Created on : Nov 27, 2011, 3:25:04 PM
     Author     : AlfieSaHid
 --%>
 
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="apdol.model.DaftarBankPos"%>
-<%@page import="apdol.entity.BankPos"%>
+<%@page import="apdol.model.DaftarKegiatan"%>
+<%@page import="apdol.entity.Kegiatan"%>
 
-<% List<BankPos> listBankPos = (List<BankPos>) request.getAttribute("list_bankpos");%>
-<% BankPos bankpos;%>
+<% List<Kegiatan> listKegiatan = (List<Kegiatan>) request.getAttribute("list_kegiatan");%>
+<% Kegiatan kegiatan;%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,7 +18,7 @@
     <%String roleUser = (String) session.getAttribute("roleuser");%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Bank Pos</title>
+        <title>Kegiatan</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -101,24 +101,24 @@
             <div class="content">
                 <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
 
-                <% Iterator<BankPos> iterator = listBankPos.iterator();%>
+                <% Iterator<Kegiatan> iterator = listKegiatan.iterator();%>
                 <form >
                     <p style="margin: 10px;"><BR>
                             <table id="rounded-corner">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="rounded-company">Cek</th>
-                                        <th scope="col" class="rounded-q1">Kode Bank Pos</th>
-                                        <th scope="col" class="rounded-q4">Nama Bank Pos</th>                        
+                                        <th scope="col" class="rounded-q1">Kode Kegiatan</th>
+                                        <th scope="col" class="rounded-q4">Nama Kegiatan</th>                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <% while (iterator.hasNext()) {
-                            bankpos = iterator.next();%>
+                            kegiatan = iterator.next();%>
                                     <tr>
-                                        <td><input  type="checkbox"  name="cek_bankpos" value="<%=bankpos.getId()%>"></td>
-                                        <td><%=bankpos.getKdbankpos()%></td>
-                                        <td><%=bankpos.getNmbankpos()%></td>
+                                        <td><input  type="checkbox"  name="cek_kegiatan" value="<%=kegiatan.getId()%>"></td>
+                                        <td><%=kegiatan.getKdgiat()%></td>
+                                        <td><%=kegiatan.getNmgiat()%></td>
                                     </tr>
                                     <%}%>
                                 </tbody>
@@ -126,32 +126,11 @@
                             <span style="margin: 10px;">
                             </span>
                             <p style="margin: 10px;"><BR>
-                                    <input type="submit" value="rekam" name="rekam" formaction="rekam_bank_pos" formmethod="post"/>
-                                    <input type="submit" value="edit" name="edit" formaction="edit_bank_pos" formmethod="post"/> 
-                                    <input type="submit" value="hapus" name="hapus" formaction="hapus_bank_pos" formmethod="post"/>
+                                    <input type="submit" value="rekam" name="rekam" formaction="rekam_kegiatan" formmethod="post"/>
+                                    <input type="submit" value="edit" name="edit" formaction="edit_kegiatan" formmethod="post"/> 
+                                    <input type="submit" value="hapus" name="hapus" formaction="hapus_kegiatan" formmethod="post"/>
                                     </form>
             <!-- end .content --></div>
         <!-- end .container --></div>
     </body>
 </html>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                

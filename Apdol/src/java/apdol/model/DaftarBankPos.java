@@ -101,6 +101,7 @@ public class DaftarBankPos {
             }
         }
     }
+    
     public boolean isKodeExist(String kode) {
         DaftarBankPos daftarBankPos = new DaftarBankPos();
         List<BankPos> listBankPos = daftarBankPos.getBankPos();

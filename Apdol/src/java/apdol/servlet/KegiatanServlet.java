@@ -4,8 +4,13 @@
  */
 package apdol.servlet;
 
+import apdol.comparator.KegiatanComparator;
+import apdol.entity.Kegiatan;
+import apdol.model.DaftarKegiatan;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author AlfieSaHid
  */
-public class RekamBankPosServlet extends HttpServlet {
+public class KegiatanServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,15 +38,19 @@ public class RekamBankPosServlet extends HttpServlet {
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RekamBankPosServlet</title>");  
+            out.println("<title>Servlet KegiatanServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RekamBankPosServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet KegiatanServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
              */
+            DaftarKegiatan daftarKegiatan = new DaftarKegiatan();
+            List<Kegiatan> listKegiatan = daftarKegiatan.getKegiatan();
+            Collections.sort(listKegiatan, new KegiatanComparator());
+            request.setAttribute("list_kegiatan", listKegiatan);
 
-            String jsp = "pages/rekam_bank_pos.jsp";
+            String jsp = "pages/kegiatan.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {            
