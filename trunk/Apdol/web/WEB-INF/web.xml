@@ -116,6 +116,30 @@
         <servlet-name>ProsesRekamKegiatanServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesRekamKegiatanServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Output</servlet-name>
+        <servlet-class>apdol.servlet.OutputServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Edit Output</servlet-name>
+        <servlet-class>apdol.servlet.EditOutputServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses Edit Output</servlet-name>
+        <servlet-class>apdol.servlet.ProsesEditOutputServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses hapus output</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusOutputServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses Rekam Ouput</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamOutputServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Rekam Ouput</servlet-name>
+        <servlet-class>apdol.servlet.RekamOutputServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RekamUser</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -231,6 +255,30 @@
     <servlet-mapping>
         <servlet-name>ProsesRekamKegiatanServlet</servlet-name>
         <url-pattern>/proses_rekam_kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Output</servlet-name>
+        <url-pattern>/output</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Edit Output</servlet-name>
+        <url-pattern>/edit_output</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Edit Output</servlet-name>
+        <url-pattern>/proses_edit_output</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses hapus output</servlet-name>
+        <url-pattern>/proses_hapus_output</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Rekam Ouput</servlet-name>
+        <url-pattern>/proses_rekam_output</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Rekam Ouput</servlet-name>
+        <url-pattern>/rekam_output</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

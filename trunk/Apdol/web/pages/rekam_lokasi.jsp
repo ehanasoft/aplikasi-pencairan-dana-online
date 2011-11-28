@@ -38,9 +38,9 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
       <li><a href="#">Pejabat</a></li>
       <li><a href="#">Program</a></li>
       <li><a href="#">Kegiatan</a></li>
-      <li><a href="#">Output</a></li>
-      <li><a href="../../NetBeansProjects/Apdol/web/pages/mata_anggaran">Mata Anggaran</a></li>
-      <li><a href="../../NetBeansProjects/Apdol/web/pages/lokasi">Lokasi</a></li>
+      <li><a href="output">Output</a></li>
+      <li><a href="mata_anggaran">Mata Anggaran</a></li>
+      <li><a href="lokasi">Lokasi</a></li>
     </ul>
     <p><strong>Utilitas</strong></p>
     <ul class="nav">
