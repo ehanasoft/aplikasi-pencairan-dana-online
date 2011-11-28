@@ -5,8 +5,8 @@
         <servlet-class>apdol.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RekamUser</servlet-name>
-        <servlet-class>apdol.servlet.RekamServlet</servlet-class>
+        <servlet-name>Register User</servlet-name>
+        <servlet-class>apdol.servlet.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HomeServlet</servlet-name>
@@ -140,8 +140,28 @@
         <servlet-name>Rekam Ouput</servlet-name>
         <servlet-class>apdol.servlet.RekamOutputServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Rekam Register</servlet-name>
+        <servlet-class>apdol.servlet.RekamRegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses Rekam User</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamRegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditUserServlet</servlet-name>
+        <servlet-class>apdol.servlet.EditUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesEditUserServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesEditUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesHapusUserServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>RekamUser</servlet-name>
+        <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -279,6 +299,26 @@
     <servlet-mapping>
         <servlet-name>Rekam Ouput</servlet-name>
         <url-pattern>/rekam_output</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Rekam User</servlet-name>
+        <url-pattern>/proses_rekam_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Rekam Register</servlet-name>
+        <url-pattern>/rekam_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesEditUserServlet</servlet-name>
+        <url-pattern>/proses_edit_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditUserServlet</servlet-name>
+        <url-pattern>/edit_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesHapusUserServlet</servlet-name>
+        <url-pattern>/proses_hapus_user</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
