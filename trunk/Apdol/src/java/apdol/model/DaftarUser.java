@@ -7,6 +7,7 @@ package apdol.model;
 import apdol.entity.User;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -141,4 +142,66 @@ public class DaftarUser {
             em.close();
         }
     }
+    public boolean isUsernameExist(String kode) {
+        DaftarUser daftarUser = new DaftarUser();
+        List<User> listUser = daftarUser.getUser();
+        Iterator<User> iterator = listUser.iterator();
+        User tes = new User();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (kode.equalsIgnoreCase(tes.getUsername())) {
+                return true;
+            }
+        } return false;
+    }
+    
+    public boolean isPasswordExist(String nama) {
+        DaftarUser daftarUser = new DaftarUser();
+        List<User> listUser = daftarUser.getUser();
+        Iterator<User> iterator = listUser.iterator();
+        User tes = new User();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (nama.equalsIgnoreCase(tes.getPassword())) {
+                return true;
+            }
+        } return false;
+    }
+
+    public void edit(User user) {
+       EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            user = em.merge(user);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public void destroy(long iduser) throws NonexistentEntityException {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            User user;
+            try {
+                user = em.getReference(User.class, iduser);
+            } catch (EntityNotFoundException enfe) {
+                throw new NonexistentEntityException("user belum dipilih.", enfe);
+            }
+            em.remove(user);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+          }
+    }
 }
+    

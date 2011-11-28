@@ -4,7 +4,10 @@
  */
 package apdol.entity;
 
+import apdol.model.DaftarUser;
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +18,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  *
@@ -147,6 +151,55 @@ public class User implements Serializable {
         return "apdol.entity.User[ id=" + id + " ]";
     }
 
+    public boolean valUsername() {
+        DaftarUser daftarUser = new DaftarUser();
+        List<User> listUser = daftarUser.getUser();
+        Iterator<User> iterator = listUser.iterator();
+        User tes = new User();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (tes.username.equalsIgnoreCase(this.username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean valKodeSatker() {
+        DaftarUser daftarUser = new DaftarUser();
+        List<User> listUser = daftarUser.getUser();
+        Iterator<User> iterator = listUser.iterator();
+        User tes = new User();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (tes.kodesatker.equalsIgnoreCase(this.kodesatker)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Object getKodeUser() {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    public boolean isUsernameNoChange(String username) {
+        if (username.equalsIgnoreCase(this.username)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isPasswordNoChange(String password) {
+       if (password.equalsIgnoreCase(this.password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
  }
 

@@ -15,13 +15,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author wahid
  */
-@WebServlet(name = "RegisterServlet", urlPatterns = {"/register"})
-public class RegisterServlet extends HttpServlet {
+@WebServlet(name = "EditUserServlet", urlPatterns = {"/edit_user"})
+public class EditUserServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,23 +35,33 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        RequestDispatcher rdp = null;
         try {
-        
-        DaftarUser daftarUser = new DaftarUser();
-        List<User> listUser = daftarUser.getUser();
-        request.setAttribute("listuser", listUser);
-      
-        String jsp = "pages/register.jsp";
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-        requestDispatcher.forward(request, response);
-        
-        } finally {            
+
+            DaftarUser daftarUser = new DaftarUser();
+            List<User> listUser = daftarUser.getUser();
+            request.setAttribute("list_user", listUser);
+            String jsp = "";
+            String cekUser[] = request.getParameterValues("cek_user");
+
+            if (cekUser == null) {
+                JOptionPane.showMessageDialog(null, "User tidak ada yang dipilih");
+                jsp = "pages/register.jsp";
+            } else if (cekUser.length > 1) {
+                JOptionPane.showMessageDialog(null, "Centang tidak boleh lebih dari satu, pilih salah satu user saja !");
+                jsp = "pages/register.jsp";
+            } else {
+                Long idUser = Long.parseLong(cekUser[0]);
+                User user = daftarUser.findUser(idUser);
+                request.setAttribute("user_edit", user);
+                jsp = "/pages/edit_user.jsp";
+            }
+
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+            requestDispatcher.forward(request, response);
+        } finally {
             out.close();
-          }
+        }
     }
-        
-       
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
