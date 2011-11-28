@@ -4,7 +4,7 @@ body {
 	background-image: url(../images/background.jpg);
 	margin: 0;
 	padding: 0;
-	color: #039;
+	color: #000;
 }
 
 .header {
@@ -69,6 +69,7 @@ a:hover, a:active, a:focus {
 	padding: 10px 0;
 	width: 80%;
 	float: left;
+        color: #039;
 }
 
 /* ~~ This grouped selector gives the lists in the .content area space ~~ */
