@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@page import="apdol.model.DaftarLokasi"%>
 <%@page import="apdol.entity.Lokasi"%>
+<%@page import="javax.swing.JOptionPane"%>
 
 <% List<Lokasi> listLokasi = (List<Lokasi>) request.getAttribute("list_lokasi");%>
 <% Lokasi lokasi;%>
@@ -12,7 +13,7 @@
 <%String roleUser = (String) session.getAttribute("roleuser");%>    
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Lokasi</title>
 <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
 <style>
 .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -93,28 +94,26 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
       <div class="logout"><a href="logout">[Log Out]</a>
   <!-- end .logout --></div>
   <div class="content">
-      <p><% if(logedUser!=null){ %><%="Anda Login sebagai: "+logedUser+" "+ roleUser%><%}%></p>
-      
+      <center><p ><h3>Lokasi</h3></p>
        <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
-        <form >
-            <p style="margin: 10px;"><BR>
+        <center><form >
             <table id="rounded-corner">
                 <thead>
                     <tr>
-                        <th scope="col" class="rounded-company">Cek</th>
-                        <th scope="col" class="rounded-q1">Kode Lokasi</th>
-                        <th scope="col" class="rounded-q2">Nama Kota</th>
-                        <th scope="col" class="rounded-q4">Nama Propinsi</th>
+                        <th scope="col" class="rounded-company">Kode Lokasi</th>
+                        <th scope="col" class="rounded-q1">Nama Kota</th>
+                        <th scope="col" class="rounded-q2">Nama Propinsi</th>
+                        <th scope="col" class="rounded-q4">Cek</th>
                     </tr>
                 </thead>
                     <tbody>
                     <% while (iterator.hasNext()) {
                                   lokasi = iterator.next();%>
                     <tr>
-                        <td><input  type="checkbox"  name="cek_lokasi" value="<%=lokasi.getId()%>"></td>
                         <td><%=lokasi.getKodeLokasi()%></td>
                         <td><%=lokasi.getNamaKota()%></td>
                         <td><%=lokasi.getNamaPropinsi()%></td>
+                        <td><input  type="checkbox"  name="cek_lokasi" value="<%=lokasi.getId()%>"></td>
                     </tr>
                     <%}%>
                     </tbody>
@@ -122,10 +121,10 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
             <span style="margin: 10px;">
             </span>
             <p style="margin: 10px;"><BR>
-                <input type="submit" value="rekam" name="rekam" formaction="rekam_lokasi" formmethod="post"/>
-                <input type="submit" value="edit" name="edit" formaction="edit_lokasi" formmethod="post"/> 
-                <input type="submit" value="hapus" name="hapus" formaction="proses_hapus_lokasi" formmethod="post"/>
-        </form>
+			<input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_lokasi" />
+            <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_lokasi" />
+            <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_lokasi" />
+        </form></center>
     <!-- end .content --></div>
   <!-- end .container --></div>
 </body>
