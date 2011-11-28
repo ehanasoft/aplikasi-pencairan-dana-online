@@ -24,7 +24,7 @@
                       <table border="0" width="800">
                             <tr style="vertical-align: top">
                                 <td width="500" style="vertical-align: top"  align="left">
-                                    <h1 style="color: blue;">Halaman Register</h1>
+                                    <h1 style="color: blue;">Halaman Edit</h1>
                                     <h2 style="color: blue;">Silahkan isi data Mata Anggaran</h2>
                                     
                                     <form action="proses_edit_mata_anggaran" method="post" >
