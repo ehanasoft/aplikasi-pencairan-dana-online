@@ -26,7 +26,6 @@ import javax.swing.JOptionPane;
  */
 @WebServlet(name = "ProsesEditUserServlet", urlPatterns = {"/proses_edit_user"})
 public class ProsesEditUserServlet extends HttpServlet {
-    private String kodeUser;
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -55,11 +54,7 @@ public class ProsesEditUserServlet extends HttpServlet {
             Long longIdUser = Long.parseLong(idUser);
             User user = daftarUser.findUser(longIdUser);
 
-            if (kodeUser == "") {
-                JOptionPane.showMessageDialog(null, "Kode User tidak boleh kosong !");
-                request.setAttribute("user_edit", user);
-                jsp = "pages/edit_user.jsp";
-            } else if (username == "") {
+            if (username == "") {
                 JOptionPane.showMessageDialog(null, "Username tidak boleh kosong !");
                 request.setAttribute("user_edit", user);
                 jsp = "pages/edit_user.jsp";
@@ -84,19 +79,14 @@ public class ProsesEditUserServlet extends HttpServlet {
                 request.setAttribute("user_edit", user);
                 jsp = "pages/edit_user.jsp";
             }
-           //validate kodeUser are numbers 
-            else if (!this.valNumber(kodeUser)) {
-                JOptionPane.showMessageDialog(null, "Kode User harus angka !");
-                request.setAttribute("user_edit", user);
-                jsp = "pages/edit_user.jsp";
-            } //validate username on database
+           //validate username on database
             else if (daftarUser.isUsernameExist(username) && !user.isUsernameNoChange(username)) {
                 JOptionPane.showMessageDialog(null, "Username sudah ada dalam data base !");
                 request.setAttribute("user_edit", user);
                 jsp = "pages/edit_user.jsp";
-            } //validate namaKota on database
+            } //validate password on database
             else if (daftarUser.isPasswordExist(password) && !user.isPasswordNoChange(password)) {
-                JOptionPane.showMessageDialog(null, "Kota sudah ada dalam data base !");
+                JOptionPane.showMessageDialog(null, "Password sudah ada dalam data base !");
                 request.setAttribute("user_edit", user);
                 jsp = "pages/edit_user.jsp";
             } else {

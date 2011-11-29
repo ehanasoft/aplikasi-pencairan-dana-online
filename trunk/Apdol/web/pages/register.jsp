@@ -8,7 +8,7 @@
 <%@page import="apdol.model.DaftarUser"%>
 <%@page import="apdol.entity.User"%>
 
-<% List<User> listUser = (List<User>) request.getAttribute("listuser");%>
+<% List<User> listUser = (List<User>) request.getAttribute("list_user");%>
 <% User user;%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -43,7 +43,7 @@
                     <td width="175"><span style="margin: 10px;"><%=user.getJabatan()%></span></td>
                     <td width="112"><p style="margin: 10px;"><%=user.getRoleuser()%></p></td>
                     <td width="46" height="45"><p style="margin: 10px;">
-                            <input  type="checkbox"  name="cekuser" value="<%=user.getId()%>">
+                            <input  type="checkbox"  name="cek_user" value="<%=user.getId()%>">
                             <BR>
                         </p></td>
                 </tr>
