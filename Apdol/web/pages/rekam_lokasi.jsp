@@ -8,32 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%String logedUser = (String)session.getAttribute("username");%>
 <%String roleUser = (String) session.getAttribute("roleuser");%>    
-<script  language = "Javascript">
 
-function ResetForm(which){
-var pass=true
-var first=-1
-if (document.images){
-for (i=0;i<which.length;i++){
-var tempobj=which.elements[i]
- if (tempobj.type=="text"){
-  eval(tempobj.value="")
-  if (first==-1) {first=i}
- }
- else if (tempobj.type=="checkbox") {
-  eval(tempobj.checked=0)
-  if (first==-1) {first=i}
- }
- else if (tempobj.col!="") {
-  eval(tempobj.value="")
-  if (first==-1) {first=i}
- }
-}
-}
-which.elements[first].focus()
-return false
-}
-</script>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -120,7 +95,7 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
   <div class="content">
       <p><% if(logedUser!=null){ %><%="Anda Login sebagai: "+logedUser+" "+ roleUser%><%}%></p>
       <center><p><h3> Rekam Lokasi</h3></p>
-      <form onSubmit="return ResetForm(this)" action="proses_rekam_lokasi" method="post" >
+      <form name="rekamlokasi" action="proses_rekam_lokasi" method="post" >
         <table width="400px">
             <tr>
                 <td width="150px">Kode Lokasi</td><td><input name="kode_lokasi" type="text" style="width: 50px" size="4" maxlength="4"></td>
@@ -133,7 +108,7 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
             </tr></table>
 <p></p>
             <table width="400px"><tr>
-<td align="center"><input type="image" name="imgReset" src="images/reset.png"/> <input name="Submit" src="images/simpan.png" type="image" value="Simpan" /></td>
+                    <td align="center"><a href="javascript:document.rekamlokasi.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
             </tr>
         </table>
                                     </form>
