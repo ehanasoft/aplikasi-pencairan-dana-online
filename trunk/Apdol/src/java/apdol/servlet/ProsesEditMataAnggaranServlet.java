@@ -60,8 +60,8 @@ public class ProsesEditMataAnggaranServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Nama Mata Anggaran tidak boleh kosong !");
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
-            } else if (namaMataAnggaran == "") {
-                JOptionPane.showMessageDialog(null, "Nama Mata Anggaran tidak boleh kosong !");
+            } else if (namaBKPK == "") {
+                JOptionPane.showMessageDialog(null, "Nama BKPK tidak boleh kosong !");
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
             } //validate length field
