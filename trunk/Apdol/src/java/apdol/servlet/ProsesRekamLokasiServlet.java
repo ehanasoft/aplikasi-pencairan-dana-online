@@ -63,7 +63,7 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
                 jsp = "pages/rekam_lokasi.jsp";
             } //validate kodeLokasi are numbers
             else if (!this.valNumber(kodeLokasi)) {
-                JOptionPane.showMessageDialog(null, "Kode Lokasi harus angka !");
+                JOptionPane.showMessageDialog(null, "Kode Lokasi harus angka dan tidak boleh minus !");
                 jsp = "pages/rekam_lokasi.jsp";
             } //validate zero value
             else if (kodeLokasi.equalsIgnoreCase("000000")) {
@@ -82,7 +82,7 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
                 lokasi.setNamaKota(namaKota);
                 lokasi.setNamaPropinsi(namaPropinsi);
                 daftarLokasi.rekamLokasi(lokasi);
-                response.sendRedirect("lokasi");
+                jsp = "pages/lokasi.jsp";
             }
 
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();

@@ -62,7 +62,7 @@ public class ProsesRekamBankPosServlet extends HttpServlet {
                 jsp = "pages/rekam_bank_pos.jsp";
             } //validate kdbankpos are numbers
             else if (!this.valNumber(kdbankpos)) {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos harus angka !",
+                JOptionPane.showMessageDialog(null, "Kode Bank Pos harus angka dan tidak boleh minus !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_bank_pos.jsp";
             } //validate zero value

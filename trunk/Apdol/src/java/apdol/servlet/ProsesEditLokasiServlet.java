@@ -72,7 +72,7 @@ public class ProsesEditLokasiServlet extends HttpServlet {
                 jsp = "pages/edit_lokasi.jsp";
             } //validate kodeLokasi are numbers and not minus
             else if (!this.valNumber(kodeLokasi)) {
-                JOptionPane.showMessageDialog(null, "Kode Lokasi harus angka !");
+                JOptionPane.showMessageDialog(null, "Kode Lokasi harus angka dan tidak boleh minus !");
                 request.setAttribute("lokasi_edit", lokasi);
                 jsp = "pages/edit_lokasi.jsp";
             } //validate zero value

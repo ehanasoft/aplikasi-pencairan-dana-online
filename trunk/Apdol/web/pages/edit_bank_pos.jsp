@@ -41,7 +41,7 @@
                     <li><a href="pejabat">Pejabat</a></li>
                     <li><a href="program">Program</a></li>
                     <li><a href="kegiatan">Kegiatan</a></li>
-                    <li><a href="#">Output</a></li>
+                    <li><a href="output">Output</a></li>
                     <li><a href="mata_anggaran">Mata Anggaran</a></li>
                     <li><a href="lokasi">Lokasi</a></li>
                 </ul>
@@ -99,28 +99,29 @@
                 <table border="0" cellspacing="0" cellpadding="0" width="800">
                 <tr>
                     <td>
-                        <table border="0" width="800">
+                        <table width="997" border="0" align="left">
                             <tr style="vertical-align: top">
-                                <td width="500" style="vertical-align: top"  align="left">                                    
-                                    <h3 style="color: blue;">Edit Data Bank Pos</h3>
+                                <td width="987" style="vertical-align: top"  align="left">                                    
+                                    <center><p><h3 style="color: blue;">Edit Data Bank Pos</h3></p>
                                     <form action="proses_edit_bank_pos" method="post" >
-                                    <table width="450">
+                                    <table width="509" height="89">
                                         <tr>
                                             <td width="150">Kode Bank Pos</td><td><input name="kode_bankpos" type="text" style="width: 30px" value ="<%=bankpos.getKdbankpos()%>" size="3" maxlength="3"></td>
                                         </tr>
                                         <tr>
-                                            <td>Nama Bank Pos</td><td><input type="text" name="nama_bankpos" value="<%=bankpos.getNmbankpos()%>" style="width: 300px" ></td>
-                                            <td> <input type="hidden" name="id_edit_bankpos" value="<%=bankpos.getId()%>"> </td>                                        
+                                            <td>Nama Bank Pos</td><td><input type="text" name="nama_bankpos" value="<%=bankpos.getNmbankpos()%>" style="width: 300px" >
+                                              <input type="hidden" name="id_edit_bankpos" value="<%=bankpos.getId()%>" /></td>
+                                            <td>&nbsp;</td>                                        
                                         </tr>                                       
                                         <tr>
                                             <td></td><td><input type="reset"><input type="submit" value="Simpan" ></td>
                                         </tr>
                                     </table>
-                                    </form>
+                                    </form> </center>
                                 </td>
                                 </tr>
                         </table>
-                    </td>
+                  </td>
                 </tr>
                 </table>
              <!-- end .content --></div>

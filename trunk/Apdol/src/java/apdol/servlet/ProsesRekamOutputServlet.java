@@ -59,7 +59,7 @@ public class ProsesRekamOutputServlet extends HttpServlet {
                 jsp = "pages/rekam_output.jsp";
             } //validate kodeOutput are numbers
             else if (!this.valNumber(kodeOutput)) {
-                JOptionPane.showMessageDialog(null, "Kode Output harus angka !");
+                JOptionPane.showMessageDialog(null, "Kode Output harus angka dan tidak boleh minus !");
                 jsp = "pages/rekam_output.jsp";
             } //validate zero value
             else if (kodeOutput.equalsIgnoreCase("000000")) {

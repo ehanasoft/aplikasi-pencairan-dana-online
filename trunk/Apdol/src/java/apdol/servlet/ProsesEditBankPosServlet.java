@@ -66,7 +66,7 @@ public class ProsesEditBankPosServlet extends HttpServlet {
                 jsp = "pages/edit_bank_pos.jsp";
             } //validate kdbankpos are numbers and not minus
             else if (!this.valNumber(kdbankpos)) {
-                JOptionPane.showMessageDialog(null, "Kode Bank Pos harus angka !",
+                JOptionPane.showMessageDialog(null, "Kode Bank Pos harus angka dan tidak boleh minus !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
                 request.setAttribute("bankpos_edit", bankpos);
                 jsp = "pages/edit_bank_pos.jsp";

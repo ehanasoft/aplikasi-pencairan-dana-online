@@ -45,7 +45,7 @@ public class ProsesRekamMataAnggaranServlet extends HttpServlet {
 
             String kodeMataAnggaran = request.getParameter("kode_mata_anggaran");
             String namaMataAnggaran = request.getParameter("nama_mata_anggaran");
-            String namaBKPK = request.getParameter("nama_BKPK");
+            String namaBKPK = request.getParameter("nama_bkpk");
 
             //validate blank field
             if (kodeMataAnggaran == "") {
@@ -63,7 +63,7 @@ public class ProsesRekamMataAnggaranServlet extends HttpServlet {
                 jsp = "pages/rekam_mata_anggaran.jsp";
             } //validate kodeMataAnggaran are numbers
             else if (!this.valNumber(kodeMataAnggaran)) {
-                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus angka !");
+                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus angka dan tidak boleh minus !");
                 jsp = "pages/rekam_mata_anggaran.jsp";
             } //validate zero value
             else if (kodeMataAnggaran.equalsIgnoreCase("0000")) {

@@ -1,7 +1,7 @@
-<%@page import="apdol.model.DaftarLokasi"%>
-<%@page import="apdol.entity.Lokasi"%>
+<%@page import="apdol.model.DaftarKegiatan"%>
+<%@page import="apdol.entity.Kegiatan"%>
 <%@page import="javax.swing.JOptionPane"%>
-<% Lokasi lokasi = (Lokasi) request.getAttribute("lokasi_edit");%>
+<% Kegiatan kegiatan = (Kegiatan) request.getAttribute("kegiatan_edit");%>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -12,7 +12,7 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Edit Lokasi</title>
+        <title>Edit Kegiatan</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -94,21 +94,18 @@
                 <!-- end .logout --></div>
             <div class="content">
                 <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
-                <center><p><h3> Edit Lokasi</h3></p>
-                    <form name="form_edit_lokasi" action="proses_edit_lokasi" method="post" >
+                <center><p><h3> Edit Kegiatan</h3></p>
+                    <form name="form_edit_kegiatan" action="proses_edit_kegiatan" method="post" >
                         <table width="400px">
                             <tr>
-                                <td width="150px">Kode Lokasi</td><td><input name="kode_lokasi" type="text" style="width: 50px" value="<%=lokasi.getKodeLokasi()%>" size="4" maxlength="4"></td>
+                                <td width="150px">Kode Kegiatan</td><td><input name="kode_kegiatan" type="text" style="width: 50px" value="<%=kegiatan.getKdgiat()%>" size="4" maxlength="4"></td>
                             </tr>
                             <tr>
-                                <td>Nama Kota</td><td><input type="text" name="nama_kota" style="width: 200px" value="<%=lokasi.getNamaKota()%>"></td>
-                            </tr>
-                            <tr>
-                                <td>Nama Propinsi</td><td><input type="text" name="nama_propinsi" style="width: 200px" value="<%=lokasi.getNamaPropinsi()%>"></td>
+                                <td>Nama Kegiatan</td><td><input type="text" name="nama_kegiatan" style="width: 200px" value="<%=kegiatan.getNmgiat()%>"></td>
                             </tr></table>
-                        <p><input type="hidden" name="id_edit_lokasi" value="<%=lokasi.getId()%>"></p>
+                        <p><input type="hidden" name="id_edit_kegiatan" value="<%=kegiatan.getId()%>"></p>
                         <table width="400px"><tr>
-                                <td align="center"><a href="javascript:document.form_edit_lokasi.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan" /></td>
+                                <td align="center"><a href="javascript:document.form_edit_kegiatan.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan" /></td>
                             </tr>
                         </table>
                     </form>

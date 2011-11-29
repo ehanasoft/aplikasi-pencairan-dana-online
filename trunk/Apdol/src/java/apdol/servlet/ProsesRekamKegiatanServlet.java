@@ -62,7 +62,7 @@ public class ProsesRekamKegiatanServlet extends HttpServlet {
                 jsp = "pages/rekam_kegiatan.jsp";
             } //validate kdgiat are numbers
             else if (!this.valNumber(kdgiat)) {
-                JOptionPane.showMessageDialog(null, "Kode Kegiatan harus angka !",
+                JOptionPane.showMessageDialog(null, "Kode Kegiatan harus angka dan tidak boleh minus !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_kegiatan.jsp";
             } //validate zero value
