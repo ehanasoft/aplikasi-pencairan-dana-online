@@ -39,7 +39,7 @@ public class RegisterServlet extends HttpServlet {
         
         DaftarUser daftarUser = new DaftarUser();
         List<User> listUser = daftarUser.getUser();
-        request.setAttribute("listuser", listUser);
+        request.setAttribute("list_user", listUser);
       
         String jsp = "pages/register.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);

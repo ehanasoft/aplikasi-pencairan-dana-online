@@ -181,9 +181,6 @@ public class User implements Serializable {
         return false;
     }
 
-    public Object getKodeUser() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
 
     public boolean isUsernameNoChange(String username) {
         if (username.equalsIgnoreCase(this.username)) {
@@ -195,6 +192,34 @@ public class User implements Serializable {
 
     public boolean isPasswordNoChange(String password) {
        if (password.equalsIgnoreCase(this.password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean isNamaNoChange(String nama) {
+       if (nama.equalsIgnoreCase(this.nama)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean isKodeSatkerNoChange(String kodesatker) {
+       if (kodesatker.equalsIgnoreCase(this.kodesatker)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean isJabatanNoChange(String jabatan) {
+       if (jabatan.equalsIgnoreCase(this.jabatan)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean isRoleUserNoChange(String roleuser) {
+       if (roleuser.equalsIgnoreCase(this.roleuser)) {
             return true;
         } else {
             return false;

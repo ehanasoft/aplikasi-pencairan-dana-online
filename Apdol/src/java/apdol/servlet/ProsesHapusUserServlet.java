@@ -57,7 +57,7 @@ public class ProsesHapusUserServlet extends HttpServlet {
             if (cekUser == null) {
                 JOptionPane.showMessageDialog(null, "User tidak ada yang dipilih");
                 request.setAttribute("list_user", listUser);
-                jsp = "pages/user.jsp";
+                jsp = "pages/register.jsp";
             } else {
                 int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
                         JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
@@ -71,7 +71,7 @@ public class ProsesHapusUserServlet extends HttpServlet {
                 }
                 listUser = daftarUser.getUser();
                 request.setAttribute("list_user", listUser);
-                jsp = "pages/user.jsp";
+                jsp = "pages/register.jsp";
             }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
