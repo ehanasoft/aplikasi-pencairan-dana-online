@@ -1,13 +1,8 @@
-<%-- 
-    Document   : kegiatan
-    Created on : Nov 27, 2011, 3:25:04 PM
-    Author     : AlfieSaHid
---%>
-
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="apdol.model.DaftarKegiatan"%>
 <%@page import="apdol.entity.Kegiatan"%>
+<%@page import="javax.swing.JOptionPane"%>
 
 <% List<Kegiatan> listKegiatan = (List<Kegiatan>) request.getAttribute("list_kegiatan");%>
 <% Kegiatan kegiatan;%>
@@ -15,7 +10,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
-    <%String roleUser = (String) session.getAttribute("roleuser");%>
+    <%String roleUser = (String) session.getAttribute("roleuser");%>    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Kegiatan</title>
@@ -44,7 +39,7 @@
                     <li><a href="pejabat">Pejabat</a></li>
                     <li><a href="program">Program</a></li>
                     <li><a href="kegiatan">Kegiatan</a></li>
-                    <li><a href="#">Output</a></li>
+                    <li><a href="output">Output</a></li>
                     <li><a href="mata_anggaran">Mata Anggaran</a></li>
                     <li><a href="lokasi">Lokasi</a></li>
                 </ul>
@@ -100,37 +95,36 @@
                 <!-- end .logout --></div>
             <div class="content">
                 <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
-
-                <% Iterator<Kegiatan> iterator = listKegiatan.iterator();%>
-                <form >
-                    <p style="margin: 10px;"><BR>
-                            <table id="rounded-corner">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="rounded-company">Cek</th>
-                                        <th scope="col" class="rounded-q1">Kode Kegiatan</th>
-                                        <th scope="col" class="rounded-q4">Nama Kegiatan</th>                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% while (iterator.hasNext()) {
+                <center><p ><h3>Kegiatan</h3></p>
+                    <% Iterator<Kegiatan> iterator = listKegiatan.iterator();%>
+                    <form >
+                        <table id="rounded-corner">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="rounded-company">Kode Kegiatan</th>
+                                    <th scope="col" class="rounded-q1">Nama Kegiatan</th>
+                                    <th scope="col" class="rounded-q4">Cek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% while (iterator.hasNext()) {
                             kegiatan = iterator.next();%>
-                                    <tr>
-                                        <td><input  type="checkbox"  name="cek_kegiatan" value="<%=kegiatan.getId()%>"></td>
-                                        <td><%=kegiatan.getKdgiat()%></td>
-                                        <td><%=kegiatan.getNmgiat()%></td>
-                                    </tr>
-                                    <%}%>
-                                </tbody>
-                            </table>
-                            <span style="margin: 10px;">
-                            </span>
-                            <p style="margin: 10px;"><BR>
-                                    <input type="submit" value="rekam" name="rekam" formaction="rekam_kegiatan" formmethod="post"/>
-                                    <input type="submit" value="edit" name="edit" formaction="edit_kegiatan" formmethod="post"/> 
-                                    <input type="submit" value="hapus" name="hapus" formaction="hapus_kegiatan" formmethod="post"/>
-                                    </form>
-            <!-- end .content --></div>
-        <!-- end .container --></div>
-    </body>
-</html>
+                                <tr>
+                                    <td><%=kegiatan.getKdgiat()%></td>
+                                    <td><%=kegiatan.getNmgiat()%></td>
+                                    <td><input  type="checkbox"  name="cek_kegiatan" value="<%=kegiatan.getId()%>"></td>
+                                </tr>
+                                <%}%>
+                            </tbody>
+                        </table>
+                        <span style="margin: 10px;">
+                        </span>
+                        <p style="margin: 10px;"><BR>
+                                <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_kegiatan" />
+                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_kegiatan" />
+                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_kegiatan" />
+                                </form></center>
+                                <!-- end .content --></div>
+                                <!-- end .container --></div>
+                                </body>
+                                </html>

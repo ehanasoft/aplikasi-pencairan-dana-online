@@ -67,7 +67,7 @@ public class ProsesEditOutputServlet extends HttpServlet {
                 jsp = "pages/edit_output.jsp";
             } //validate kodeOutput are numbers and not minus
             else if (!this.valNumber(kodeOutput)) {
-                JOptionPane.showMessageDialog(null, "Kode Output harus angka !");
+                JOptionPane.showMessageDialog(null, "Kode Output harus angka dan tidak boleh minus !");
                 request.setAttribute("output_edit", output);
                 jsp = "pages/edit_output.jsp";
             } //validate zero value

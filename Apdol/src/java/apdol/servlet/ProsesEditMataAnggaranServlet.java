@@ -46,7 +46,7 @@ public class ProsesEditMataAnggaranServlet extends HttpServlet {
 
             String kodeMataAnggaran = request.getParameter("kode_mata_anggaran");
             String namaMataAnggaran = request.getParameter("nama_mata_anggaran");
-            String namaBKPK = request.getParameter("nama_BKPK");
+            String namaBKPK = request.getParameter("nama_bkpk");
 
             String idMataAnggaran = request.getParameter("id_edit_mata_anggaran");
             Long longIdMataAnggaran = Long.parseLong(idMataAnggaran);
@@ -71,7 +71,7 @@ public class ProsesEditMataAnggaranServlet extends HttpServlet {
                 jsp = "pages/edit_mata_anggaran.jsp";
             } //validate kodeMataAnggaran are numbers
             else if (!this.valNumber(kodeMataAnggaran)) {
-                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus angka !");
+                JOptionPane.showMessageDialog(null, "Kode Mata Anggaran harus angka dan tidak boleh minus !");
                 request.setAttribute("mata_anggaran_edit", mataAnggaran);
                 jsp = "pages/edit_mata_anggaran.jsp";
             } //validate zero value

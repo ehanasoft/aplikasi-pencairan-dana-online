@@ -160,6 +160,18 @@
         <servlet-name>ProsesHapusUserServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesHapusUserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Edit Kegiatan</servlet-name>
+        <servlet-class>apdol.servlet.EditKegiatanServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses Edit Kegiatan</servlet-name>
+        <servlet-class>apdol.servlet.ProsesEditKegiatanServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Hapus Kegiatan</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusKegiatanServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -319,6 +331,18 @@
     <servlet-mapping>
         <servlet-name>ProsesHapusUserServlet</servlet-name>
         <url-pattern>/proses_hapus_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Edit Kegiatan</servlet-name>
+        <url-pattern>/edit_kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Edit Kegiatan</servlet-name>
+        <url-pattern>/proses_edit_kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Hapus Kegiatan</servlet-name>
+        <url-pattern>/proses_hapus_kegiatan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
