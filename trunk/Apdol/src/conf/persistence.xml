@@ -9,6 +9,7 @@
     <class>apdol.model.DaftarBankPos</class>
     <class>apdol.entity.Program</class>
     <class>apdol.entity.Kegiatan</class>
+    <class>apdol.entity.Dipa</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/apdolapp"/>
