@@ -50,7 +50,7 @@ public class EditOutputServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Output tidak ada yang dipilih");
                 jsp = "pages/output.jsp";
             } else if (cekOutput.length > 1) {
-                JOptionPane.showMessageDialog(null, "Centang tidak boleh lebih dari satu, pilih salah satu output saja !");
+                JOptionPane.showMessageDialog(null, "Edit salah satu output saja !");
                 jsp = "pages/output.jsp";
             } else {
                 Long idOutput = Long.parseLong(cekOutput[0]);
