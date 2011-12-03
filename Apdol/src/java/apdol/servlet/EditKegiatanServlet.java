@@ -50,7 +50,7 @@ public class EditKegiatanServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Kegiatan tidak ada yang dipilih");
                 jsp = "pages/kegiatan.jsp";
             } else if (cekKegiatan.length > 1) {
-                JOptionPane.showMessageDialog(null, "Centang tidak boleh lebih dari satu, pilih salah satu kegiatan saja !");
+                JOptionPane.showMessageDialog(null, "Edit salah satu kegiatan saja !");
                 jsp = "pages/kegiatan.jsp";
             } else {
                 Long idKegiatan = Long.parseLong(cekKegiatan[0]);

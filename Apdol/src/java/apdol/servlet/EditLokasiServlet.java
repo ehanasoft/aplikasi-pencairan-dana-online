@@ -50,7 +50,7 @@ public class EditLokasiServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Lokasi tidak ada yang dipilih");
                 jsp = "pages/lokasi.jsp";
             } else if (cekLokasi.length > 1) {
-                JOptionPane.showMessageDialog(null, "Centang tidak boleh lebih dari satu, pilih salah satu lokasi saja !");
+                JOptionPane.showMessageDialog(null, "Edit salah satu lokasi saja !");
                 jsp = "pages/lokasi.jsp";
             } else {
                 Long idLokasi = Long.parseLong(cekLokasi[0]);

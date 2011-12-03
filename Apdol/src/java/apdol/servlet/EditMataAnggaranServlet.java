@@ -49,7 +49,7 @@ public class EditMataAnggaranServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Mata anggaran tidak ada yang dipilih");
                 jsp = "pages/mata_anggaran.jsp";
             } else if (cekMataAnggaran.length > 1) {
-                JOptionPane.showMessageDialog(null, "Centang tidak boleh lebih dari satu, pilih salah satu mataAnggaran saja !");
+                JOptionPane.showMessageDialog(null, "Edit salah satu mataAnggaran saja !");
                 jsp = "pages/mata_anggaran.jsp";
             } else {
                 Long idMataAnggaran = Long.parseLong(cekMataAnggaran[0]);
