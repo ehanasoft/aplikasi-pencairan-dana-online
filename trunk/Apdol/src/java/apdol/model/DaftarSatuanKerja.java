@@ -4,7 +4,6 @@
  */
 package apdol.model;
 
-import apdol.entity.Dipa;
 import apdol.entity.SatuanKerja;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.io.Serializable;
@@ -101,6 +100,34 @@ public class DaftarSatuanKerja implements Serializable {
                 em.close();
             }
         }
+    }
+
+    public boolean isKodeExist(String kode) {
+        DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
+        List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
+        Iterator<SatuanKerja> iterator = listSatker.iterator();
+        SatuanKerja tes = new SatuanKerja();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (kode.equalsIgnoreCase(tes.getKodeSatker())) {
+                return true;
+            }
+        } return false;
+    }
+    
+    public boolean isNamaSatkerExist(String nama) {
+        DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
+        List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
+        Iterator<SatuanKerja> iterator = listSatker.iterator();
+        SatuanKerja tes = new SatuanKerja();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (nama.equalsIgnoreCase(tes.getNamaSatker())) {
+                return true;
+            }
+        } return false;
     }
 
 }
