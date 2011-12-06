@@ -172,6 +172,22 @@
         <servlet-name>Hapus Kegiatan</servlet-name>
         <servlet-class>apdol.servlet.ProsesHapusKegiatanServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SatkerServlet</servlet-name>
+        <servlet-class>apdol.servlet.SatkerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RekamSatkerServlet</servlet-name>
+        <servlet-class>apdol.servlet.RekamSatkerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesEditSatuanKerjaServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesEditSatuanKerjaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesRekamSatuanKerjaServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamSatuanKerjaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -343,6 +359,22 @@
     <servlet-mapping>
         <servlet-name>Hapus Kegiatan</servlet-name>
         <url-pattern>/proses_hapus_kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SatkerServlet</servlet-name>
+        <url-pattern>/satker</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RekamSatkerServlet</servlet-name>
+        <url-pattern>/rekam_satker</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesEditSatuanKerjaServlet</servlet-name>
+        <url-pattern>/proses_edit_satker</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesRekamSatuanKerjaServlet</servlet-name>
+        <url-pattern>/proses_rekam_satker</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -23,7 +25,46 @@ public class SatuanKerja implements Serializable {
     private String kodeSatker;
     private String kodeUnit;
     private String kodeDept;
-    private Lokasi kodeLokasi;
+    private String namaSatker;
+    private String namaDept;
+    private String namaUnit;
+    @ManyToOne
+    @JoinColumn(name="kodeLokasi")
+    private Lokasi lokasi;
+
+    public Lokasi getLokasi() {
+        return lokasi;
+    }
+
+    public void setLokasi(Lokasi lokasi) {
+        this.lokasi = lokasi;
+    }
+
+    public String getNamaDept() {
+        return namaDept;
+    }
+
+    public void setNamaDept(String namaDept) {
+        this.namaDept = namaDept;
+    }
+
+    public String getNamaUnit() {
+        return namaUnit;
+    }
+
+    public void setNamaUnit(String namaUnit) {
+        this.namaUnit = namaUnit;
+    }
+
+    
+    public String getNamaSatker() {
+        return namaSatker;
+    }
+
+    public void setNamaSatker(String namaSatker) {
+        this.namaSatker = namaSatker;
+    }
+
 
     public String getKodeDept() {
         return kodeDept;
@@ -31,14 +72,6 @@ public class SatuanKerja implements Serializable {
 
     public void setKodeDept(String kodeDept) {
         this.kodeDept = kodeDept;
-    }
-
-    public Lokasi getKodeLokasi() {
-        return kodeLokasi;
-    }
-
-    public void setKodeLokasi(Lokasi kodeLokasi) {
-        this.kodeLokasi = kodeLokasi;
     }
 
     public String getKodeSatker() {
@@ -89,5 +122,19 @@ public class SatuanKerja implements Serializable {
     public String toString() {
         return "apdol.entity.SatuanKerja[ id=" + id + " ]";
     }
-    
+    public boolean isKodeNoChange(String kode) {
+        if (kode.equalsIgnoreCase(this.kodeSatker)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isNamaSatkerNoChange(String nama) {
+        if (nama.equalsIgnoreCase(this.namaSatker)) {
+            return true;
+        } else {
+            return false;
+        }
+    }    
 }
