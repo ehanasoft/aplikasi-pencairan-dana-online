@@ -5,7 +5,9 @@
 package apdol.servlet;
 
 import apdol.comparator.SatuanKerjaComparator;
+import apdol.entity.Lokasi;
 import apdol.entity.SatuanKerja;
+import apdol.model.DaftarLokasi;
 import apdol.model.DaftarSatuanKerja;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -36,6 +38,10 @@ public class EditSatkerServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            DaftarLokasi daftarLokasi = new DaftarLokasi();
+            List<Lokasi> listLokasi = daftarLokasi.getLokasi();
+            request.setAttribute("list_lokasi", listLokasi);
+            
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
             List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
             Collections.sort(listSatker, new SatuanKerjaComparator());
