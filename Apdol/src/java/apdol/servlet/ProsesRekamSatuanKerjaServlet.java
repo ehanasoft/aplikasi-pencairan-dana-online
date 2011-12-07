@@ -8,6 +8,7 @@ import apdol.comparator.SatuanKerjaComparator;
 import apdol.entity.SatuanKerja;
 import apdol.model.DaftarSatuanKerja;
 import apdol.entity.Lokasi;
+import apdol.model.DaftarLokasi;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -39,7 +40,7 @@ public class ProsesRekamSatuanKerjaServlet extends HttpServlet {
         try {
             SatuanKerja satker = new SatuanKerja();
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
-            Lokasi lokasi = new Lokasi();
+
             String jsp = "";
 
             //String kodeLokasi = 
@@ -49,8 +50,10 @@ public class ProsesRekamSatuanKerjaServlet extends HttpServlet {
             String namaMenteri = request.getParameter("nama_dept");
             String kodeUnit = request.getParameter("kode_unit");
             String namaUnit = request.getParameter("nama_unit");
-            String kodeLokasi = request.getParameter("lokasi");
-
+            Long idLokasi = Long.parseLong(request.getParameter("lokasi"));
+            Lokasi lokasi = new Lokasi();
+            DaftarLokasi daftarLokasi = new DaftarLokasi();
+            lokasi = daftarLokasi.findLokasi(idLokasi);
             //validate blank field
             if (kodeSatker.equals("")) {
                 JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh kosong !");
@@ -107,7 +110,7 @@ public class ProsesRekamSatuanKerjaServlet extends HttpServlet {
                 satker.setNamaDept(namaMenteri);
                 satker.setKodeUnit(kodeUnit);
                 satker.setNamaUnit(namaUnit);
-                //satker.setLokasi(kodeLokasi);
+                satker.setLokasi(lokasi);
                 daftarSatker.rekamSatuanKerja(satker);
                 jsp = "pages/satker.jsp";
             }
