@@ -54,6 +54,17 @@ public class DaftarOutput {
         }
     }
     
+    public List<Output> findOutputByKode(String kode){
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Output.findByKode");
+            query.setParameter("kodeOutput", "%"+kode+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
     public void rekamOutput(Output output) {
         EntityManager em = null;
         try {

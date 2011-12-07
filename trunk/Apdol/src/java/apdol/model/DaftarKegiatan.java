@@ -54,6 +54,17 @@ public class DaftarKegiatan {
         }
     }
     
+    public List<Kegiatan> findKegiatanByKode(String kode){
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Kegiatan.findByKode");
+            query.setParameter("kdgiat", "%"+kode+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
     public void rekamKegiatan(Kegiatan kegiatan) {
         EntityManager em = null;
         try {

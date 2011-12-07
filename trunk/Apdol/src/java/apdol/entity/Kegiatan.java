@@ -9,13 +9,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author AlfieSaHid
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Kegiatan.findByKode", query = "SELECT l FROM Kegiatan l where l.kdgiat like :kdgiat"),})
 public class Kegiatan implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,7 +35,7 @@ public class Kegiatan implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     public String getKdgiat() {
         return kdgiat;
     }
@@ -51,6 +56,7 @@ public class Kegiatan implements Serializable {
     public String toString() {
         return "apdol.entity.Kegiatan[ id=" + id + " ]";
     }
+
     public boolean isKodeNoChange(String kode) {
         if (kode.equalsIgnoreCase(this.kdgiat)) {
             return true;
@@ -66,5 +72,4 @@ public class Kegiatan implements Serializable {
             return false;
         }
     }
-    
 }

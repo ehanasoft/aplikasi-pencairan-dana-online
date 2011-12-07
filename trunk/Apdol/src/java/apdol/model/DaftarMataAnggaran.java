@@ -54,6 +54,17 @@ public class DaftarMataAnggaran {
         }
     }
     
+    public List<MataAnggaran> findMataAnggaranByKode(String kode){
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("MataAnggaran.findByKode");
+            query.setParameter("kodeMataAnggaran", "%"+kode+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
     public void rekamMataAnggaran(MataAnggaran mataAnggaran) {
         EntityManager em = null;
         try {
