@@ -192,6 +192,10 @@
         <servlet-name>ProsesHapusSatkerServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesHapusSatkerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditSatkerServlet</servlet-name>
+        <servlet-class>apdol.servlet.EditSatkerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -383,6 +387,10 @@
     <servlet-mapping>
         <servlet-name>ProsesHapusSatkerServlet</servlet-name>
         <url-pattern>/proses_hapus_satker</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditSatkerServlet</servlet-name>
+        <url-pattern>/edit_satker</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
