@@ -29,7 +29,6 @@ public class SatuanKerja implements Serializable {
     private String namaDept;
     private String namaUnit;
     @ManyToOne
-    @JoinColumn(name="kodeLokasi")
     private Lokasi lokasi;
 
     public Lokasi getLokasi() {

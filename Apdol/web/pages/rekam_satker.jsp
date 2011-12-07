@@ -122,7 +122,7 @@
                                 <td>Nama Unit</td><td><input type="text" name="nama_unit" style="width: 200px"></td>
                                 </tr>                            
                                 <td>Lokasi</td><td><select name="lokasi"><% while (iterator.hasNext()) {
-                            lokasi = iterator.next();%><option value="<%=lokasi.getId()%>"><%=lokasi.getNamaKota()%></option><%}%></select>
+                            lokasi = iterator.next();%><option value="<%=lokasi.getKodeLokasi()%>"><%=lokasi.getNamaKota()%></option><%}%></select>
                                 </td>
                                 </tr>
                                 </table>
