@@ -4,20 +4,21 @@
  */
 package apdol.entity;
 
-import apdol.model.DaftarMataAnggaran;
 import java.io.Serializable;
-import java.util.Iterator;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author Hari RZ
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "MataAnggaran.findByKode", query = "SELECT l FROM MataAnggaran l where l.kodeMataAnggaran like :kodeMataAnggaran"),})
 public class MataAnggaran implements Serializable {
 
     private static final long serialVersionUID = 1L;

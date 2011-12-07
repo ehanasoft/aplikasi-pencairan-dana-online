@@ -54,6 +54,17 @@ public class DaftarLokasi {
         }
     }
     
+    public List<Lokasi> findLokasiByKode(String kode){
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Lokasi.findByKode");
+            query.setParameter("kodeLokasi", "%"+kode+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
     public void rekamLokasi(Lokasi lokasi) {
         EntityManager em = null;
         try {
