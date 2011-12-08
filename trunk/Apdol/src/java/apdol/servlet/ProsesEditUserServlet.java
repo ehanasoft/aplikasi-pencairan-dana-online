@@ -89,7 +89,18 @@ public class ProsesEditUserServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Password sudah ada dalam data base !");
                 request.setAttribute("user_edit", user);
                 jsp = "pages/edit_user.jsp";
-            } else {
+            } // validate length 
+            else if (kodesatker.length() < 6) {
+                JOptionPane.showMessageDialog(null, "Kode Satker harus 6 angka !");
+                request.setAttribute("user_edit", user);
+                jsp = "pages/edit_user.jsp";
+            }// validate kode satker are number
+            else if (!this.valNumber(kodesatker)) {
+                JOptionPane.showMessageDialog(null, "Kode Satker harus angka dan tidak boleh minus !");
+                request.setAttribute("user_edit", user);
+                jsp = "pages/edit_user.jsp";
+            }
+            else {
                 user.setUsername(username);
                 user.setPassword(password);
                 user.setNama(nama);

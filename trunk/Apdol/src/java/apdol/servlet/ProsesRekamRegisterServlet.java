@@ -89,15 +89,25 @@ public class ProsesRekamRegisterServlet extends HttpServlet {
             else if (user.valKodeSatker()) {
                 JOptionPane.showMessageDialog(null, "Kode Satker sudah ada dalam data base !");
                 jsp = "pages/rekam_user.jsp";
-            } else if (user.valUsername()) {
+            }
+            else if (user.valUsername()) {
                 JOptionPane.showMessageDialog(null, "Username sudah ada dalam data base !");
                 jsp = "pages/rekam_user.jsp";
-            } else {
+            } // validate lenght field
+            else if (kodesatker.length() < 6) {
+                JOptionPane.showMessageDialog(null, "Kode Lokasi harus 6 angka !");
+                jsp = "pages/rekam_user.jsp";
+            }// validate kode satker are number
+            else if (!this.valNumber(kodesatker)) {
+                JOptionPane.showMessageDialog(null, "Kode Satker harus angka dan tidak boleh minus !");
+                jsp = "pages/rekam_user.jsp";
+            }
+            else {
                 daftarUser.rekamUser(user);
                 jsp = "pages/register.jsp";
             }
             List<User> listUser = daftarUser.getUser();
-            request.setAttribute("listuser", listUser);
+            request.setAttribute("list_user", listUser);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {            
@@ -140,4 +150,17 @@ public class ProsesRekamRegisterServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private boolean valNumber(String kodesatker) {
+       try {
+            int i = Integer.parseInt(kodesatker);
+            //validate minus input
+            if (i >= 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
