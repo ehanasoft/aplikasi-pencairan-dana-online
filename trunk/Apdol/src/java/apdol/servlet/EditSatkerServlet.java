@@ -42,7 +42,9 @@ public class EditSatkerServlet extends HttpServlet {
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
             request.setAttribute("list_lokasi", listLokasi);
             
+            
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
+            SatuanKerja lokasiSatker = new SatuanKerja();
             List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
             Collections.sort(listSatker, new SatuanKerjaComparator());
             request.setAttribute("list_satker", listSatker);
@@ -59,6 +61,7 @@ public class EditSatkerServlet extends HttpServlet {
                 Long idSatker = Long.parseLong(cekSatker[0]);
                 SatuanKerja satker = daftarSatker.findSatuanKerja(idSatker);
                 request.setAttribute("satker_edit", satker);
+                request.setAttribute("lokasiSatker", lokasiSatker.getLokasi());
                 jsp = "/pages/edit_satker.jsp";
             }
 

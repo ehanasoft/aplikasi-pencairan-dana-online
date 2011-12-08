@@ -16,6 +16,7 @@
 <% List<Lokasi> listLokasi = (List<Lokasi>) request.getAttribute("list_lokasi");%>
 <% Lokasi lokasi;%>
 <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
+<% Lokasi lokasiSatker = (Lokasi) request.getAttribute("lokasiSatker");%>
 
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
@@ -129,7 +130,11 @@
                                 <td>Nama Unit</td><td><input type="text" name="nama_unit" style="width: 200px" value="<%=satker.getNamaUnit()%>"></td>
                                 </tr>                            
                                 <td>Lokasi</td><td><select name="lokasi"><% while (iterator.hasNext()) {
-                            lokasi = iterator.next();%><option value="<%=lokasi.getKodeLokasi()%>"><%=lokasi.getNamaKota()%></option><%}%></select>
+                            lokasi = iterator.next();
+                            if (satker.getLokasi().equals(lokasi)) %>
+                                <option value="<%=lokasi.getKodeLokasi()%>" selected="selected"><%=lokasi.getNamaKota()%></option>
+                                <option value="<%=lokasi.getKodeLokasi()%>"><%=lokasi.getNamaKota()%></option>
+                                <%}%></select>
                                 </td>
                                 </tr>
                                 </table>
