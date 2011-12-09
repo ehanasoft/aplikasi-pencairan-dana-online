@@ -28,7 +28,7 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Rekam Lokasi</title>
+        <title>Edit Satuan Kerja</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -134,13 +134,12 @@
                                         <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
                                         
                                         <% while (iterator.hasNext()) { lokasi = iterator.next();
-                                        out.println(lokasi);
-                                        if(satker.getLokasi().getId().equals(lokasi.getId())){
-                                            out.println("<option value=" + lokasi.getKodeLokasi() + " selected=\"selected\">" + lokasi.getNamaKota() + "</option>");
-                                        } else {
-                                                out.println("<option value=" + lokasi.getKodeLokasi() + ">" + lokasi.getNamaKota() + "</option>");
-                                          }
-                                       }%></select>
+                                            if(satker.getLokasi().getId().equals(lokasi.getId())){
+                                                out.println("<option value=" + lokasi.getKodeLokasi() + " selected=\"selected\">" + lokasi.getNamaKota() + "</option>");
+                                            }   else {
+                                                   out.println("<option value=" + lokasi.getKodeLokasi() + ">" + lokasi.getNamaKota() + "</option>");
+                                                }
+                                        }%></select>
                                 </td>
                                 </tr>
                                 </table>
