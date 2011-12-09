@@ -15,7 +15,7 @@
 <% SatuanKerja satker = (SatuanKerja) request.getAttribute("satker_edit");%>
 <% List<Lokasi> listLokasi = (List<Lokasi>) request.getAttribute("list_lokasi");%>
 <% Lokasi lokasi;%>
-<% Iterator<Lokasi> iterator = listLokasi.iterator();%>
+
 <% Lokasi lokasiSatker = (Lokasi) request.getAttribute("lokasiSatker");%>
 
 
@@ -126,19 +126,25 @@
                             </tr>
                                 <td width="175px">Kode Unit</td><td><input name="kode_unit" type="text" style="width: 40px" size="3" maxlength="3" value="<%=satker.getKodeUnit()%>"></td>
                             </tr>
-                            <tr>
+                            <tr><input type="hidden" name="id_edit_satker" value="<%=satker.getId()%>">
                                 <td>Nama Unit</td><td><input type="text" name="nama_unit" style="width: 200px" value="<%=satker.getNamaUnit()%>"></td>
-                                </tr>                            
-                                <td>Lokasi</td><td><select name="lokasi"><% while (iterator.hasNext()) {
-                            lokasi = iterator.next();
-                            if (satker.getLokasi().equals(lokasi)) %>
-                                <option value="<%=lokasi.getKodeLokasi()%>" selected="selected"><%=lokasi.getNamaKota()%></option>
-                                <option value="<%=lokasi.getKodeLokasi()%>"><%=lokasi.getNamaKota()%></option>
-                                <%}%></select>
+                                </tr>  <%out.println(satker.getLokasi().getId()); %>
+                                <%out.println(listLokasi.iterator().next().getId()); %>
+                                <td>Lokasi</td><td><select name="lokasi">
+                                        <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
+                                        
+                                        <% while (iterator.hasNext()) { lokasi = iterator.next();
+                                        out.println(lokasi);
+                                        if(satker.getLokasi().getId().equals(lokasi.getId())){
+                                            out.println("<option value=" + lokasi.getKodeLokasi() + " selected=\"selected\">" + lokasi.getNamaKota() + "</option>");
+                                        } else {
+                                                out.println("<option value=" + lokasi.getKodeLokasi() + ">" + lokasi.getNamaKota() + "</option>");
+                                          }
+                                       }%></select>
                                 </td>
                                 </tr>
                                 </table>
-                        <p><input type="hidden" name="id_edit_satker" value="<%=satker.getId()%>"></p>
+                        <p></p>
                         <table width="400px"><tr>
                                 <td align="center"><a href="javascript:document.form_rekam_satker.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
                             </tr>

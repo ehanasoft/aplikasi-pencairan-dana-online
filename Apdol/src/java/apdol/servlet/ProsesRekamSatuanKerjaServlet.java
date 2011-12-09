@@ -43,7 +43,6 @@ public class ProsesRekamSatuanKerjaServlet extends HttpServlet {
 
             String jsp = "";
 
-            //String kodeLokasi = 
             String kodeSatker = request.getParameter("kode_satker");
             String namaSatker = request.getParameter("nama_satker");
             String kodeMenteri = request.getParameter("kode_dept");
@@ -51,10 +50,12 @@ public class ProsesRekamSatuanKerjaServlet extends HttpServlet {
             String kodeUnit = request.getParameter("kode_unit");
             String namaUnit = request.getParameter("nama_unit");
             String kodeLokasi = request.getParameter("lokasi");
+            
             Lokasi lokasi = new Lokasi();
             DaftarLokasi daftarLokasi = new DaftarLokasi();
             List<Lokasi> listLokasi = daftarLokasi.findLokasiByKode(kodeLokasi);
             lokasi = listLokasi.get(0);
+            
             //validate blank field
             if (kodeSatker.equals("")) {
                 JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh kosong !");
