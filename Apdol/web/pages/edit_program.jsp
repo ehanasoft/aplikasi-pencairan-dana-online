@@ -1,16 +1,15 @@
 <%-- 
-    Document   : bank_pos
-    Created on : Nov 15, 2011, 9:08:49 AM
+    Document   : edit_program
+    Created on : Dec 9, 2011, 8:48:45 PM
     Author     : AlfieSaHid
 --%>
 
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
-<%@page import="apdol.model.DaftarBankPos"%>
-<%@page import="apdol.entity.BankPos"%>
+<%@page import="apdol.model.DaftarProgram"%>
+<%@page import="apdol.entity.Program"%>
+<%@page import="javax.swing.JOptionPane"%>
 
-<% List<BankPos> listBankPos = (List<BankPos>) request.getAttribute("list_bankpos");%>
-<% BankPos bankpos;%>
+<% Program program = (Program) request.getAttribute("program_edit");%>
+
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,7 +17,7 @@
     <%String roleUser = (String) session.getAttribute("roleuser");%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Bank Pos</title>
+        <title> Edit Program</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -100,58 +99,24 @@
                 <!-- end .logout --></div>
             <div class="content">
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
-                <center><p ><h3>BankPos</h3></p>
-                <% Iterator<BankPos> iterator = listBankPos.iterator();%>
-                <center><form >
-                    <p style="margin: 10px;"><BR>
-                            <table id="rounded-corner">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="rounded-company">Kode Bank Pos</th>
-                                        <th scope="col" class="rounded-q1">Nama Bank Pos</th>
-                                        <th scope="col" class="rounded-q4">Cek</th>                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% while (iterator.hasNext()) {
-                            bankpos = iterator.next();%>
-                                    <tr>
-                                        <td><%=bankpos.getKdbankpos()%></td>
-                                        <td><%=bankpos.getNmbankpos()%></td>
-                                        <td><input  type="checkbox"  name="cek_bankpos" value="<%=bankpos.getId()%>"></td>                                        
-                                    </tr>
-                                    <%}%>
-                                </tbody>
-                            </table>
-                            <span style="margin: 10px;">
-                            </span>
-                            <p style="margin: 10px;"><BR>
-                                    <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_bank_pos" />
-                                    <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_bank_pos" />
-                                    <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_bank_pos" />
-                                    </form></center>                                    
-            <!-- end .content --></div>
-        <!-- end .container --></div>
+                <center><p><h3> Edit Program</h3></p>
+                    <form name="form_edit_program" action="proses_edit_program" method="post" >
+                        <table width="400px">
+                            <tr>
+                                <td width="150px">Kode Program</td><td><input name="kode_program" type="text" style="width: 30px" value="<%=program.getKdprogram()%>" size="3" maxlength="3"></td>
+                            </tr>
+                            <tr>
+                                <td>Nama Program</td><td><input type="text" name="nama_program" style="width: 200px" value="<%=program.getNmprogram()%>"></td>
+                            </tr>
+                        </table>
+                        <p><input type="hidden" name="id_edit_program" value="<%=program.getId()%>"></p>
+                        <table width="400px"><tr>
+                                <td align="center"><a href="javascript:document.form_edit_program.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan" /></td>
+                            </tr>
+                        </table>
+                    </form>
+                </center>
+             <!-- end .content --></div>
+         <!-- end .container --></div>
     </body>
 </html>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
