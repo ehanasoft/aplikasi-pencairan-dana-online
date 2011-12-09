@@ -10,6 +10,11 @@
     <class>apdol.entity.Program</class>
     <class>apdol.entity.Kegiatan</class>
     <class>apdol.entity.Satker</class>
+    <class>apdol.entity.SatuanKerja</class>
+    <class>apdol.entity.RincianKegiatan</class>
+    <class>apdol.entity.Output</class>
+    <class>apdol.entity.MataAnggaran</class>
+    <class>apdol.entity.Dipa</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/apdolapp"/>

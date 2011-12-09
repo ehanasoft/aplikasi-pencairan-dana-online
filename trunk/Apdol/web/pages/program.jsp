@@ -1,16 +1,16 @@
 <%-- 
-    Document   : bank_pos
-    Created on : Nov 15, 2011, 9:08:49 AM
+    Document   : program
+    Created on : Dec 9, 2011, 7:54:11 PM
     Author     : AlfieSaHid
 --%>
 
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="apdol.model.DaftarBankPos"%>
-<%@page import="apdol.entity.BankPos"%>
+<%@page import="apdol.model.DaftarProgram"%>
+<%@page import="apdol.entity.Program"%>
 
-<% List<BankPos> listBankPos = (List<BankPos>) request.getAttribute("list_bankpos");%>
-<% BankPos bankpos;%>
+<% List<Program> listProgram = (List<Program>) request.getAttribute("list_program");%>
+<% Program program;%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,7 +18,7 @@
     <%String roleUser = (String) session.getAttribute("roleuser");%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Bank Pos</title>
+        <title>Program</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -100,25 +100,25 @@
                 <!-- end .logout --></div>
             <div class="content">
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
-                <center><p ><h3>BankPos</h3></p>
-                <% Iterator<BankPos> iterator = listBankPos.iterator();%>
+                <center><p ><h3>Program</h3></p>
+                <% Iterator<Program> iterator = listProgram.iterator();%>
                 <center><form >
                     <p style="margin: 10px;"><BR>
                             <table id="rounded-corner">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="rounded-company">Kode Bank Pos</th>
-                                        <th scope="col" class="rounded-q1">Nama Bank Pos</th>
+                                        <th scope="col" class="rounded-company">Kode Program</th>
+                                        <th scope="col" class="rounded-q1">Nama Program</th>
                                         <th scope="col" class="rounded-q4">Cek</th>                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <% while (iterator.hasNext()) {
-                            bankpos = iterator.next();%>
+                            program = iterator.next();%>
                                     <tr>
-                                        <td><%=bankpos.getKdbankpos()%></td>
-                                        <td><%=bankpos.getNmbankpos()%></td>
-                                        <td><input  type="checkbox"  name="cek_bankpos" value="<%=bankpos.getId()%>"></td>                                        
+                                        <td><%=program.getKdprogram()%></td>
+                                        <td><%=program.getNmprogram()%></td>
+                                        <td><input  type="checkbox"  name="cek_program" value="<%=program.getId()%>"></td>                                        
                                     </tr>
                                     <%}%>
                                 </tbody>
@@ -126,32 +126,11 @@
                             <span style="margin: 10px;">
                             </span>
                             <p style="margin: 10px;"><BR>
-                                    <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_bank_pos" />
-                                    <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_bank_pos" />
-                                    <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_bank_pos" />
+                                    <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_program" />
+                                    <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_program" />
+                                    <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_program" />
                                     </form></center>                                    
             <!-- end .content --></div>
         <!-- end .container --></div>
     </body>
 </html>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                

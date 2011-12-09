@@ -20,17 +20,15 @@ public class Program implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String kdfungsi;
-    private String kdsubfungsi;
     private String kdprogram;
     private String nmprogram;
 
-    public String getKdfungsi() {
-        return kdfungsi;
+    public Long getId() {
+        return id;
     }
 
-    public void setKdfungsi(String kdfungsi) {
-        this.kdfungsi = kdfungsi;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getKdprogram() {
@@ -41,14 +39,6 @@ public class Program implements Serializable {
         this.kdprogram = kdprogram;
     }
 
-    public String getKdsubfungsi() {
-        return kdsubfungsi;
-    }
-
-    public void setKdsubfungsi(String kdsubfungsi) {
-        this.kdsubfungsi = kdsubfungsi;
-    }
-
     public String getNmprogram() {
         return nmprogram;
     }
@@ -56,38 +46,25 @@ public class Program implements Serializable {
     public void setNmprogram(String nmprogram) {
         this.nmprogram = nmprogram;
     }
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Program)) {
-            return false;
-        }
-        Program other = (Program) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public String toString() {
         return "apdol.entity.Program[ id=" + id + " ]";
+    }
+    public boolean isKodeNoChange(String kode) {
+        if (kode.equalsIgnoreCase(this.kdprogram)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isNamaNoChange(String nama) {
+        if (nama.equalsIgnoreCase(this.nmprogram)) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
 }

@@ -9,6 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
     <%String roleUser = (String) session.getAttribute("roleuser");%>
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title> Rekam Bank Pos</title>
@@ -32,12 +33,12 @@
                 </ul>
                 <p><strong>Referensi</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Satuan Kerja</a></li>
+                    <li><a href="satker">Satuan Kerja</a></li>
                     <li><a href="bank_pos">Bank Pos</a></li>
                     <li><a href="pejabat">Pejabat</a></li>
                     <li><a href="program">Program</a></li>
                     <li><a href="kegiatan">Kegiatan</a></li>
-                    <li><a href="#">Output</a></li>
+                    <li><a href="output">Output</a></li>
                     <li><a href="mata_anggaran">Mata Anggaran</a></li>
                     <li><a href="lokasi">Lokasi</a></li>
                 </ul>
@@ -89,36 +90,28 @@
 
 
                 <!-- end .sidebar1 --></div>
-            <div class="logout"><a href="logout">[Log Out]</a>
+            <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
-                <table border="0" cellspacing="0" cellpadding="0" width="800">
-                <tr>
-                    <td>
-                        <table border="0" width="800">
-                            <tr style="vertical-align: top">
-                                <td width="500" style="vertical-align: top"  align="left">                                    
-                                    <h3 style="color: blue;">Rekam Data Bank Pos</h3>
-                                    <form action="proses_rekam_bank_pos" method="post" >
-                                    <table width="450">
-                                        <tr>
-                                            <td width="150">Kode Bank Pos</td><td><input name="kode_bankpos" type="text" style="width: 30px" size="3" maxlength="3"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Bank Pos</td><td><input type="text" name="nama_bankpos" style="width: 300px"></td>
-                                        </tr>                                       
-                                        <tr>
-                                            <td></td><td><input type="reset"><input type="submit" value="Simpan" ></td>
-                                        </tr>
-                                    </table>
-                                    </form>
-                                </td>
-                                </tr>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
+                <center><p><h3> Rekam Bank Pos</h3></p>
+                    <form name="form_rekam_bank_pos" action="proses_rekam_bank_pos" method="post" >
+                        <table width="400px">
+                            <tr>
+                                <td width="150px">Kode Bank Pos</td><td><input name="kode_bankpos" type="text" style="width: 30px" size="3" maxlength="3"></td>
+                            </tr>
+                            <tr>
+                                <td>Nama Bank Pos</td><td><input type="text" name="nama_bankpos" style="width: 200px"></td>
+                            </tr>
                         </table>
-                    </td>
-                </tr>
-                </table>
-             <!-- end .content --></div>
-         <!-- end .container --></div>
+                        <p></p>
+                        <table width="400px"><tr>
+                                <td align="center"><a href="javascript:document.form_rekam_bank_pos.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
+                            </tr>
+                        </table>
+                    </form>
+                </center>
+                <!-- end .content --></div>
+                <!-- end .container --></div>
     </body>
 </html>

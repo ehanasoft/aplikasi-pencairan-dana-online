@@ -196,6 +196,30 @@
         <servlet-name>EditSatkerServlet</servlet-name>
         <servlet-class>apdol.servlet.EditSatkerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProgramServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProgramServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProgramServlet</servlet-name>
+        <servlet-class>apdol.servlet.EditProgramServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesEditProgramServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesEditProgramServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RekamProgramServlet</servlet-name>
+        <servlet-class>apdol.servlet.RekamProgramServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesRekamProgramServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamProgramServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesHapusProgramServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusProgramServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -391,6 +415,30 @@
     <servlet-mapping>
         <servlet-name>EditSatkerServlet</servlet-name>
         <url-pattern>/edit_satker</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProgramServlet</servlet-name>
+        <url-pattern>/program</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProgramServlet</servlet-name>
+        <url-pattern>/edit_program</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesEditProgramServlet</servlet-name>
+        <url-pattern>/proses_edit_program</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RekamProgramServlet</servlet-name>
+        <url-pattern>/rekam_program</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesRekamProgramServlet</servlet-name>
+        <url-pattern>/proses_rekam_program</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesHapusProgramServlet</servlet-name>
+        <url-pattern>/hapus_program</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

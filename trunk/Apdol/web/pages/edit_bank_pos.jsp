@@ -8,6 +8,7 @@
 <%@page import="javax.swing.JOptionPane"%>
 
 <% BankPos bankpos = (BankPos) request.getAttribute("bankpos_edit");%>
+
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,7 +37,7 @@
                 </ul>
                 <p><strong>Referensi</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Satuan Kerja</a></li>
+                    <li><a href="satker">Satuan Kerja</a></li>
                     <li><a href="bank_pos">Bank Pos</a></li>
                     <li><a href="pejabat">Pejabat</a></li>
                     <li><a href="program">Program</a></li>
@@ -93,37 +94,27 @@
 
 
                 <!-- end .sidebar1 --></div>
-            <div class="logout"><a href="logout">[Log Out]</a>
+            <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
-                <table border="0" cellspacing="0" cellpadding="0" width="800">
-                <tr>
-                    <td>
-                        <table width="997" border="0" align="left">
-                            <tr style="vertical-align: top">
-                                <td width="987" style="vertical-align: top"  align="left">                                    
-                                    <center><p><h3 style="color: blue;">Edit Data Bank Pos</h3></p>
-                                    <form action="proses_edit_bank_pos" method="post" >
-                                    <table width="509" height="89">
-                                        <tr>
-                                            <td width="150">Kode Bank Pos</td><td><input name="kode_bankpos" type="text" style="width: 30px" value ="<%=bankpos.getKdbankpos()%>" size="3" maxlength="3"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Bank Pos</td><td><input type="text" name="nama_bankpos" value="<%=bankpos.getNmbankpos()%>" style="width: 300px" >
-                                              <input type="hidden" name="id_edit_bankpos" value="<%=bankpos.getId()%>" /></td>
-                                            <td>&nbsp;</td>                                        
-                                        </tr>                                       
-                                        <tr>
-                                            <td></td><td><input type="reset"><input type="submit" value="Simpan" ></td>
-                                        </tr>
-                                    </table>
-                                    </form> </center>
-                                </td>
-                                </tr>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
+                <center><p><h3> Edit Bank Pos</h3></p>
+                    <form name="form_edit_bank_pos" action="proses_edit_bank_pos" method="post" >
+                        <table width="400px">
+                            <tr>
+                                <td width="150px">Kode Bank Pos</td><td><input name="kode_bankpos" type="text" style="width: 30px" value="<%=bankpos.getKdbankpos()%>" size="3" maxlength="3"></td>
+                            </tr>
+                            <tr>
+                                <td>Nama Bank Pos</td><td><input type="text" name="nama_bankpos" style="width: 200px" value="<%=bankpos.getNmbankpos()%>"></td>
+                            </tr>
                         </table>
-                  </td>
-                </tr>
-                </table>
+                        <p><input type="hidden" name="id_edit_bankpos" value="<%=bankpos.getId()%>"></p>
+                        <table width="400px"><tr>
+                                <td align="center"><a href="javascript:document.form_edit_bank_pos.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan" /></td>
+                            </tr>
+                        </table>
+                    </form>
+                </center>
              <!-- end .content --></div>
          <!-- end .container --></div>
     </body>
