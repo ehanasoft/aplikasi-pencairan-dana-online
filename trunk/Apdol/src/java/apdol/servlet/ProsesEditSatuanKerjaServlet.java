@@ -4,12 +4,21 @@
  */
 package apdol.servlet;
 
+import apdol.comparator.SatuanKerjaComparator;
+import apdol.entity.Lokasi;
+import apdol.entity.SatuanKerja;
+import apdol.model.DaftarLokasi;
+import apdol.model.DaftarSatuanKerja;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,18 +38,105 @@ public class ProsesEditSatuanKerjaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProsesEditSatuanKerjaServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProsesEditSatuanKerjaServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+            SatuanKerja satker = new SatuanKerja();
+            DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
+
+            String jsp = "";
+
+            String kodeSatker = request.getParameter("kode_satker");
+            String namaSatker = request.getParameter("nama_satker");
+            String kodeMenteri = request.getParameter("kode_dept");
+            String namaMenteri = request.getParameter("nama_dept");
+            String kodeUnit = request.getParameter("kode_unit");
+            String namaUnit = request.getParameter("nama_unit");
+            String kodeLokasi = request.getParameter("lokasi");
+            
+            Lokasi lokasi = new Lokasi();
+            DaftarLokasi daftarLokasi = new DaftarLokasi();
+            List<Lokasi> listLokasi = daftarLokasi.findLokasiByKode(kodeLokasi);
+            lokasi = listLokasi.get(0);
+            
+            //validate blank field
+            if (kodeSatker.equals("")) {
+                JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh kosong !");
+                //response.sendRedirect("rekam_satker");
+                jsp = "pages/edit_satker.jsp";
+            } else if (namaSatker.equals("")) {
+                JOptionPane.showMessageDialog(null, "Nama Satker tidak boleh kosong !");
+                //response.sendRedirect("rekam_satker");
+                jsp = "pages/edit_satker.jsp";
+            } else if (kodeMenteri.equals("")) {
+                JOptionPane.showMessageDialog(null, "Kode Kementerian tidak boleh kosong !");
+                //response.sendRedirect("rekam_satker");
+                jsp = "pages/edit_satker.jsp";
+            } else if (namaMenteri.equals("")) {
+                JOptionPane.showMessageDialog(null, "Nama Kementerian tidak boleh kosong !");
+                //response.sendRedirect("rekam_satker");
+                jsp = "pages/edit_satker.jsp";
+            } else if (kodeUnit.equals("")) {
+                JOptionPane.showMessageDialog(null, "Kode Kementerian tidak boleh kosong !");
+                //response.sendRedirect("rekam_satker");
+                jsp = "pages/edit_satker.jsp";
+            } else if (namaUnit.equals("")) {
+                JOptionPane.showMessageDialog(null, "Nama Kementerian tidak boleh kosong !");
+                //response.sendRedirect("rekam_satker");
+                jsp = "pages/edit_satker.jsp";
+            } //validate length field
+            else if (kodeSatker.length() < 6) {
+                JOptionPane.showMessageDialog(null, "Kode Satker harus 6 angka !");
+                //response.sendRedirect("rekam_satker");
+                jsp = "pages/edit_satker.jsp";
+            } //validate kodeSatker are numbers
+            else if (!this.valNumber(kodeSatker)) {
+                JOptionPane.showMessageDialog(null, "Kode Satker harus angka dan tidak boleh minus !");
+                //response.sendRedirect("rekam_satker");
+                jsp = "pages/edit_satker.jsp";
+            } //validate zero value
+            else if (kodeSatker.equalsIgnoreCase("000000")) {
+                JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh bernilai nol !");
+                //response.sendRedirect("rekam_satker");
+                jsp = "pages/edit_satker.jsp";
+            } //validate record on database
+            else if (daftarSatker.isKodeExist(kodeSatker)) {
+                JOptionPane.showMessageDialog(null, "Kode Satker sudah ada dalam database !");
+                //response.sendRedirect("rekam_satker");
+                jsp = "pages/edit_satker.jsp";
+            } //validate record on database
+            else if (daftarSatker.isNamaSatkerExist(namaSatker)) {
+                JOptionPane.showMessageDialog(null, "Nama Satker sudah ada dalam database !");
+                jsp = "pages/edit_satker.jsp";
+            } else {
+                satker.setKodeSatker(kodeSatker);
+                satker.setNamaSatker(namaSatker);
+                satker.setKodeDept(kodeMenteri);
+                satker.setNamaDept(namaMenteri);
+                satker.setKodeUnit(kodeUnit);
+                satker.setNamaUnit(namaUnit);
+                satker.setLokasi(lokasi);
+                daftarSatker.rekamSatuanKerja(satker);
+                jsp = "pages/satker.jsp";
+            }
+            
+            List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
+            Collections.sort(listSatker, new SatuanKerjaComparator());
+            request.setAttribute("list_satker", listSatker);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+            requestDispatcher.forward(request, response);
         } finally {            
             out.close();
+        }
+    }
+    
+    public boolean valNumber(String kode) {
+        try {
+            int i = Integer.parseInt(kode);
+            //validate minus input
+            if (i >= 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
         }
     }
 
