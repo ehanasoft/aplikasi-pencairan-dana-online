@@ -42,6 +42,7 @@ public class DaftarSatuanKerjaTest {
     /**
      * Test of getEntityManager method, of class DaftarSatuanKerja.
      */
+    /*
     @Test
     public void testGetEntityManager() {
         System.out.println("getEntityManager");
