@@ -30,7 +30,7 @@ public class TolakSPMServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String jsp = "pages/dipa.jsp";
+            String jsp = "pages/tolak_spm.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {            
