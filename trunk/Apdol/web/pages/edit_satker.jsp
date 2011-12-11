@@ -126,7 +126,7 @@
                             </tr>
                                 <td width="175px">Kode Unit</td><td><input name="kode_unit" type="text" style="width: 40px" size="3" maxlength="3" value="<%=satker.getKodeUnit()%>"></td>
                             </tr>
-                            <tr><input type="hidden" name="id_edit_satker" value="<%=satker.getId()%>">
+                            <tr>
                                 <td>Nama Unit</td><td><input type="text" name="nama_unit" style="width: 200px" value="<%=satker.getNamaUnit()%>"></td>
                                 </tr>  <%out.println(satker.getLokasi().getId()); %>
                                 <%out.println(listLokasi.iterator().next().getId()); %>
@@ -143,7 +143,7 @@
                                 </td>
                                 </tr>
                                 </table>
-                        <p></p>
+                        <p><input type="hidden" name="id_edit_satker" value="<%=satker.getId()%>"></p>
                         <table width="400px"><tr>
                                 <td align="center"><a href="javascript:document.form_rekam_satker.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
                             </tr>
