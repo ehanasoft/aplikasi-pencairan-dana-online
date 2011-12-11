@@ -220,6 +220,42 @@
         <servlet-name>ProsesHapusProgramServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesHapusProgramServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CetakSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.CetakSPMServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SubmitSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.SubmitSPMServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RealisasiServlet</servlet-name>
+        <servlet-class>apdol.servlet.RealisasiServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NotifikasiSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.NotifikasiSPMServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TolakSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.TolakSPMServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SP2DServlet</servlet-name>
+        <servlet-class>apdol.servlet.SP2DServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BatalSP2DServlet</servlet-name>
+        <servlet-class>apdol.servlet.BatalSP2DServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CetakSP2DServlet</servlet-name>
+        <servlet-class>apdol.servlet.CetakSP2DServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MonitoringSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.MonitoringSPMServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -439,6 +475,42 @@
     <servlet-mapping>
         <servlet-name>ProsesHapusProgramServlet</servlet-name>
         <url-pattern>/hapus_program</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CetakSPMServlet</servlet-name>
+        <url-pattern>/cetak_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubmitSPMServlet</servlet-name>
+        <url-pattern>/submit_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RealisasiServlet</servlet-name>
+        <url-pattern>/realisasi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NotifikasiSPMServlet</servlet-name>
+        <url-pattern>/notifikasi_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TolakSPMServlet</servlet-name>
+        <url-pattern>/tolak_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SP2DServlet</servlet-name>
+        <url-pattern>/proses_sp2d</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BatalSP2DServlet</servlet-name>
+        <url-pattern>/batal_sp2d</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CetakSP2DServlet</servlet-name>
+        <url-pattern>/cetak_sp2d</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MonitoringSPMServlet</servlet-name>
+        <url-pattern>/monitoring_spm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
