@@ -110,13 +110,13 @@ public class ProsesEditSatuanKerjaServlet extends HttpServlet {
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } //validate record on database
-            else if (daftarSatker.isKodeExist(kodeSatker)) {
+            else if (daftarSatker.isKodeExist(kodeSatker) && !satker.isKodeNoChange(kodeSatker)) {
                 JOptionPane.showMessageDialog(null, "Kode Satker sudah ada dalam database !");
                 request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } //validate record on database
-            else if (daftarSatker.isNamaSatkerExist(namaSatker)) {
+            else if (daftarSatker.isNamaSatkerExist(namaSatker) && !satker.isNamaSatkerNoChange(namaSatker)) {
                 JOptionPane.showMessageDialog(null, "Nama Satker sudah ada dalam database !");
                 request.setAttribute("satker_edit", satker);
                 jsp = "pages/edit_satker.jsp";
