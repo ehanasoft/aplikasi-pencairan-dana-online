@@ -122,7 +122,7 @@
                                             <td><%=pejabat.getNip()%></td>
                                             <td><%=pejabat.getNama()%></td>                                                                                
                                             <td><%=pejabat.getKetjabatan()%></td>
-                                            <td><%=pejabat.getSatker()%></td>
+                                            <td><%=pejabat.getSatker().getKodeSatker()%></td>
                                             <td><input  type="checkbox"  name="cek_pejabat" value="<%=pejabat.getId()%>"></td>
                                         </tr>
                                         <%}%>

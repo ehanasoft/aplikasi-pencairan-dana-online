@@ -27,6 +27,24 @@
         ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
         </style>
         <![endif]-->
+        <script language="JavaScript">
+            function showhidekppn(){
+                // enable one
+                document.getElementById("ketkppn").style.display = 'block';
+                document.getElementById("ketkppn").disabled = false;
+                // disable two
+                document.getElementById("ketsatker").disabled = true;
+                document.getElementById("ketsatker").style.display = 'none';
+            }
+            function showhidesatker(){
+                // disable one
+                document.getElementById("ketkppn").disabled = true;
+                document.getElementById("ketkppn").style.display = 'none';	
+                // enable two
+                document.getElementById("ketsatker").style.display = 'block';
+                document.getElementById("ketsatker").disabled = false;
+            }
+        </script>
     </head>
 
     <body>
@@ -115,38 +133,49 @@
                                 <td>Golongan</td>
                                 <td>
                                     <select name="golongan">
-                                        <option value="III/a">III/a Penata Muda</option>
-                                        <option value="III/b">III/b Penata Muda Tk. I</option>
-                                        <option value="III/c">III/c Penata</option>
-                                        <option value="III/d">III/d Penata Tk. I</option>
-                                        <option value="IV/a">IV/a Pembina</option>
-                                        <option value="IV/b">IV/b Pembina Tk. I</option>
-                                        <option value="IV/c">IV/c Pembina Utama Muda</option>
-                                        <option value="IV/d">IV/d Pembina Utama Madya</option>
-                                        <option value="IV/e">IV/e Pembina Utama</option>
+                                        <option value="31">III/a Penata Muda</option>
+                                        <option value="32">III/b Penata Muda Tk. I</option>
+                                        <option value="33">III/c Penata</option>
+                                        <option value="34">III/d Penata Tk. I</option>
+                                        <option value="41">IV/a Pembina</option>
+                                        <option value="42">IV/b Pembina Tk. I</option>
+                                        <option value="43">IV/c Pembina Utama Muda</option>
+                                        <option value="44">IV/d Pembina Utama Madya</option>
+                                        <option value="45">IV/e Pembina Utama</option>
                                     </select>
                                 </td>
-                            <tr>
-                                <td>Jabatan</td><td><input type="text" name="jabatan" style="width: 300px"></td>
-                            </tr>
-                            <tr>
-                                <td>Keterangan</td><td><input type="text" name="keterangan" style="width: 300px"></td>
-                            </tr>
-                            <tr>
-                                <td>Pilih</td>
-                                <td>
-                                    <input type="radio" name="pilih" value="1" onclick="document.form_rekam_pejabat.satker.disabled=true"/>KPPN
-                                    <input type="radio" name="pilih" value="2" onclick="document.form_rekam_pejabat.satker.disabled=false"/>Satker
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kode Satker</td>
-                                <td>
-                                    <select name="satker"><% while (iterator.hasNext()) {
-                                    satker = iterator.next();%><option value="<%=satker.getKodeSatker()%>"><%=satker.getKodeSatker() + " " + satker.getNamaSatker()%></option><%}%>
-                                    </select>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>Jabatan</td><td><input type="text" name="jabatan" style="width: 300px"></td>
+                                </tr>                            
+                                <tr>
+                                    <td>Pilih</td>
+                                    <td>
+                                        <input type="radio" onClick="javascript:showhidesatker();document.form_rekam_pejabat.satker.disabled=false;" checked="checked" name="keterangan"/>Satker
+                                        <input type="radio" onClick="javascript:showhidekppn();document.form_rekam_pejabat.satker.disabled=true;" name="keterangan"/>KPPN
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Keterangan</td>
+                                    <td>
+                                        <select id="ketkppn" name="keterangan" style="display: none;">
+                                            <option value="Kasi Pencairan Dana">Kasi Pencairan Dana</option>
+                                            <option value="Kasi Bank/Giro Pos">Kasi Bank/Giro Pos</option>
+                                        </select>
+                                        <select id="ketsatker" name="keterangan">
+                                                <option value="KPA">KPA</option>
+                                            <option value="Penandatangan SPM">Penandatangan SPM</option>
+                                        </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kode Satker</td>
+                                    <td>
+                                        <select name="satker"><% while (iterator.hasNext()){
+                                            satker = iterator.next();%><option value="<%=satker.getKodeSatker()%>"><%=satker.getKodeSatker() + " " + satker.getNamaSatker()%> </option><%}%>
+                                        </select>
+                                    </td>
+                                </tr>
                         </table>
                         <p></p>
                         <table width="400px"><tr>
