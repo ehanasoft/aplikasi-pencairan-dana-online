@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -25,6 +26,16 @@ public class Pejabat implements Serializable {
     private String kdgol;
     private String nmjabatan;
     private String ketjabatan;
+    @ManyToOne    
+    private SatuanKerja satker;
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getKdgol() {
         return kdgol;
@@ -65,38 +76,34 @@ public class Pejabat implements Serializable {
     public void setNmjabatan(String nmjabatan) {
         this.nmjabatan = nmjabatan;
     }
-    
-    public Long getId() {
-        return id;
+
+    public SatuanKerja getSatker() {
+        return satker;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Pejabat)) {
-            return false;
-        }
-        Pejabat other = (Pejabat) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setSatker(SatuanKerja satker) {
+        this.satker = satker;
     }
 
     @Override
     public String toString() {
         return "apdol.entity.Pejabat[ id=" + id + " ]";
+    }
+    
+    public boolean isKodeNoChange(String kode) {
+        if (kode.equalsIgnoreCase(this.nip)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isNamaNoChange(String nama) {
+        if (nama.equalsIgnoreCase(this.nama)) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
 }

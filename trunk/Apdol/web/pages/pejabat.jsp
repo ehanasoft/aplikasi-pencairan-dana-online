@@ -1,25 +1,24 @@
 <%-- 
-    Document   : satker
-    Created on : Dec 6, 2011, 11:36:32 PM
-    Author     : Accio
+    Document   : pejabat
+    Created on : Nov 27, 2011, 6:02:06 AM
+    Author     : AlfieSaHid
 --%>
 
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="apdol.model.DaftarSatuanKerja"%>
-<%@page import="apdol.entity.SatuanKerja"%>
-<%@page import="javax.swing.JOptionPane"%>
+<%@page import="apdol.model.DaftarPejabat"%>
+<%@page import="apdol.entity.Pejabat"%>
 
-<% List<SatuanKerja> listSatker = (List<SatuanKerja>) request.getAttribute("list_satker");%>
-<% SatuanKerja satker;%>
+<% List<Pejabat> listPejabat = (List<Pejabat>) request.getAttribute("list_pejabat");%>
+<% Pejabat pejabat;%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
-    <%String roleUser = (String) session.getAttribute("roleuser");%>    
+    <%String roleUser = (String) session.getAttribute("roleuser");%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Satuan Kerja</title>
+        <title>Pejabat</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -96,43 +95,48 @@
                 <p></p>
 
 
-    <!-- end .sidebar1 --></div>
-    <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
-  <!-- end .logout --></div>
+                <!-- end .sidebar1 --></div>
+            <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
+                <!-- end .logout --></div>
             <div class="content">
-                <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
-                <center><p >
-                <h3>Satuan Kerja</h3></p>
-                    <% Iterator<SatuanKerja> iterator = listSatker.iterator();%>
-                    <form >
-                        <table id="rounded-corner">
-                            <thead>
-                                <tr>
-                                    <th width="187" class="rounded-company" scope="col">Kode Satker</th>
-                                    <th width="232" class="rounded-q1" scope="col">Nama Satker</th>                                    
-                                    <th width="45" class="rounded-q4" scope="col">Cek</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% while (iterator.hasNext()) {
-                            satker = iterator.next();%>
-                                <tr>
-                                    <td><%=satker.getKodeSatker()%></td>
-                                    <td><%=satker.getNamaSatker()%></td>                                    
-                                    <td><input  type="checkbox"  name="cek_satker" value="<%=satker.getId()%>"></td>
-                                </tr>
-                                <%}%>
-                            </tbody>
-                        </table>
-                        <span style="margin: 10px;">
-                        </span>
-                        <p style="margin: 10px;"><BR>
-                                <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_satker" />
-                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_satker" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_satker" />
-                  </form></center>
-                                <!-- end .content --></div>
-                                <!-- end .container --></div>
-                                </body>
-                                </html>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
+                <center><p ><h3>Pejabat</h3></p>
 
+                    <% Iterator<Pejabat> iterator = listPejabat.iterator();%>
+                    <form >
+                        <p style="margin: 10px;"><BR>
+                                <table id="rounded-corner">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="rounded-company">NIP</th>
+                                            <th scope="col" class="rounded-q1">Nama Pejabat</th>
+                                            <th scope="col" class="rounded-q2">Keterangan</th>
+                                            <th scope="col" class="rounded-q3">Satker</th>                                        
+                                            <th scope="col" class="rounded-q4">Cek</th>                                        
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% while (iterator.hasNext()) {
+                                                pejabat = iterator.next();%>
+                                        <tr>
+                                            <td><%=pejabat.getNip()%></td>
+                                            <td><%=pejabat.getNama()%></td>                                                                                
+                                            <td><%=pejabat.getKetjabatan()%></td>
+                                            <td><%=pejabat.getSatker()%></td>
+                                            <td><input  type="checkbox"  name="cek_pejabat" value="<%=pejabat.getId()%>"></td>
+                                        </tr>
+                                        <%}%>
+                                        </body>
+                                </table>
+                                <span style="margin: 10px;">
+                                </span>
+                                <p style="margin: 10px;"><BR>
+                                        <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_pejabat" />
+                                        <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_pejabat" />
+                                        <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_pejabat" />
+                                        </form>
+                                        </center>
+                                        <!-- end .content --></div>
+                                        <!-- end .container --></div>
+                                        </body>
+                                        </html>

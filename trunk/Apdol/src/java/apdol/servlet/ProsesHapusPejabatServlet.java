@@ -4,9 +4,9 @@
  */
 package apdol.servlet;
 
-import apdol.comparator.SatuanKerjaComparator;
-import apdol.entity.SatuanKerja;
-import apdol.model.DaftarSatuanKerja;
+import apdol.comparator.PejabatComparator;
+import apdol.entity.Pejabat;
+import apdol.model.DaftarPejabat;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,8 +25,7 @@ import javax.swing.JOptionPane;
  *
  * @author AlfieSaHid
  */
-@WebServlet(name = "ProsesHapusSatkerServlet", urlPatterns = {"/proses_hapus_satker"})
-public class ProsesHapusSatkerServlet extends HttpServlet {
+public class ProsesHapusPejabatServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -44,39 +42,39 @@ public class ProsesHapusSatkerServlet extends HttpServlet {
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProsesHapusSatkerServlet</title>");  
+            out.println("<title>Servlet ProsesHapusPejabatServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProsesHapusSatkerServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet ProsesHapusPejabatServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
              */
-            DaftarSatuanKerja daftarSatuanKerja = new DaftarSatuanKerja();
-            List<SatuanKerja> listSatuanKerja = daftarSatuanKerja.getSatuanKerja();
-            Collections.sort(listSatuanKerja, new SatuanKerjaComparator());
-            String cekSatker[] = request.getParameterValues("cek_satker");
+            DaftarPejabat daftarPejabat = new DaftarPejabat();
+            List<Pejabat> listPejabat = daftarPejabat.getPejabat();
+            Collections.sort(listPejabat, new PejabatComparator());
+            String cekPejabat[] = request.getParameterValues("cek_pejabat");
             String jsp = "";
             
-            if (cekSatker == null) {
-                JOptionPane.showMessageDialog(null, "Satuan Kerja tidak ada yang dipilih",
+            if (cekPejabat == null) {
+                JOptionPane.showMessageDialog(null, "Pejabat tidak ada yang dipilih",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                request.setAttribute("list_satker", listSatuanKerja);
-                jsp = "pages/satker.jsp";
+                request.setAttribute("list_pejabat", listPejabat);
+                jsp = "pages/pejabat.jsp";
             } else {
                 int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
                         JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
                 if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekSatker.length; i++) {
-                        long idsatuankerja = Long.parseLong(cekSatker[i]);
-                        SatuanKerja satker = daftarSatuanKerja.findSatuanKerja(idsatuankerja);
-                        daftarSatuanKerja.destroy(idsatuankerja);
+                    for (int i = 0; i < cekPejabat.length; i++) {
+                        long idpejabat = Long.parseLong(cekPejabat[i]);
+                        Pejabat pejabat = daftarPejabat.findPejabat(idpejabat);
+                        daftarPejabat.destroy(idpejabat);
                     }
                 }
-                listSatuanKerja = daftarSatuanKerja.getSatuanKerja();
-                Collections.sort(listSatuanKerja, new SatuanKerjaComparator()); 
-                request.setAttribute("list_satker", listSatuanKerja);
-                jsp = "pages/satker.jsp";
+                listPejabat = daftarPejabat.getPejabat();
+                Collections.sort(listPejabat, new PejabatComparator()); 
+                request.setAttribute("list_pejabat", listPejabat);
+                jsp = "pages/pejabat.jsp";
             }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
@@ -100,7 +98,7 @@ public class ProsesHapusSatkerServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusBankPosServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProsesHapusPejabatServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -117,7 +115,7 @@ public class ProsesHapusSatkerServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusBankPosServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProsesHapusPejabatServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
