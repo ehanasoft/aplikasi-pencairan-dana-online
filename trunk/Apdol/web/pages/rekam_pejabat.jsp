@@ -162,7 +162,7 @@
                                             <option value="Kasi Bank/Giro Pos">Kasi Bank/Giro Pos</option>
                                         </select>
                                         <select id="ketsatker" name="keterangan">
-                                                <option value="KPA">KPA</option>
+                                            <option value="KPA">KPA</option>
                                             <option value="Penandatangan SPM">Penandatangan SPM</option>
                                         </select>
                                         </div>
@@ -171,8 +171,8 @@
                                 <tr>
                                     <td>Kode Satker</td>
                                     <td>
-                                        <select name="satker"><% while (iterator.hasNext()){
-                                            satker = iterator.next();%><option value="<%=satker.getKodeSatker()%>"><%=satker.getKodeSatker() + " " + satker.getNamaSatker()%> </option><%}%>
+                                            <select name="satker"><% while (iterator.hasNext()) {
+                                                satker = iterator.next();%><option value="<%=satker.getKodeSatker()%>"><%=satker.getKodeSatker() + " " + satker.getNamaSatker()%> </option><%}%>
                                         </select>
                                     </td>
                                 </tr>
