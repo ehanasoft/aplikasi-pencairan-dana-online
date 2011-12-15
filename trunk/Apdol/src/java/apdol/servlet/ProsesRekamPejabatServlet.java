@@ -63,7 +63,11 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
             SatuanKerja satker = new SatuanKerja();
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
             List<SatuanKerja> listSatker = daftarSatker.findSatkerByKode(kodeSatker);
-            satker = listSatker.get(0);
+            if(listSatker.isEmpty()){
+            satker = null;
+            } else {
+                satker = listSatker.get(0);
+            }
 
             //validate blank field
             if (nip == "") {

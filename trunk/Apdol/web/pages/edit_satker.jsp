@@ -128,8 +128,7 @@
                             </tr>
                             <tr>
                                 <td>Nama Unit</td><td><input type="text" name="nama_unit" style="width: 200px" value="<%=satker.getNamaUnit()%>"></td>
-                                </tr>  <%out.println(satker.getLokasi().getId()); %>
-                                <%out.println(listLokasi.iterator().next().getId()); %>
+                                </tr>
                                 <td>Lokasi</td><td><select name="lokasi">
                                         <% Iterator<Lokasi> iterator = listLokasi.iterator();%>
                                         

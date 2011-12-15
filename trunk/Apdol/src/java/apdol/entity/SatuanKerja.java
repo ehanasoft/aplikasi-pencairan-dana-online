@@ -9,14 +9,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author Accio
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "SatuanKerja.findByKode", query = "SELECT l FROM SatuanKerja l where l.kodeSatker like :kodeSatker"),})
 public class SatuanKerja implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
