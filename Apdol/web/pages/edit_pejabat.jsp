@@ -1,25 +1,22 @@
 <%-- 
-    Document   : satker
-    Created on : Dec 6, 2011, 11:36:32 PM
-    Author     : Accio
+    Document   : edit_pejabat
+    Created on : Nov 27, 2011, 6:33:30 AM
+    Author     : AlfieSaHid
 --%>
 
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
-<%@page import="apdol.model.DaftarSatuanKerja"%>
-<%@page import="apdol.entity.SatuanKerja"%>
+<%@page import="apdol.model.DaftarPejabat"%>
+<%@page import="apdol.entity.Pejabat"%>
 <%@page import="javax.swing.JOptionPane"%>
 
-<% List<SatuanKerja> listSatker = (List<SatuanKerja>) request.getAttribute("list_satker");%>
-<% SatuanKerja satker;%>
+<% Pejabat pejabat = (Pejabat) request.getAttribute("pejabat_edit");%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
-    <%String roleUser = (String) session.getAttribute("roleuser");%>    
+    <%String roleUser = (String) session.getAttribute("roleuser");%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Satuan Kerja</title>
+        <title> Edit Pejabat</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -96,43 +93,47 @@
                 <p></p>
 
 
-    <!-- end .sidebar1 --></div>
-    <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
-  <!-- end .logout --></div>
+                <!-- end .sidebar1 --></div>
+            <div class="logout"><a href="logout">[Log Out]</a>
+                <!-- end .logout --></div>
             <div class="content">
-                <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
-                <center><p >
-                <h3>Satuan Kerja</h3></p>
-                    <% Iterator<SatuanKerja> iterator = listSatker.iterator();%>
-                    <form >
-                        <table id="rounded-corner">
-                            <thead>
-                                <tr>
-                                    <th width="187" class="rounded-company" scope="col">Kode Satker</th>
-                                    <th width="232" class="rounded-q1" scope="col">Nama Satker</th>                                    
-                                    <th width="45" class="rounded-q4" scope="col">Cek</th>
+                <table border="0" cellspacing="0" cellpadding="0" width="800">
+                <tr>
+                    <td>
+                        <table border="0" width="800">
+                            <tr style="vertical-align: top">
+                                <td width="500" style="vertical-align: top"  align="left">                                    
+                                    <h3 style="color: blue;">Edit Data Bank Pos</h3>
+                                    <form action="proses_edit_pejabat" method="post" >
+                                    <table width="450">
+                                        <tr>
+                                            <td width="150">NIP</td><td><input name="nip" type="text" style="width: 50px" value ="<%=pejabat.getNip()%>" size="18" maxlength="18"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nama Pejabat</td><td><input type="text" name="nama" value="<%=pejabat.getNama()%>" style="width: 300px" ></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Golongan</td><td><input type="text" name="golongan" value="<%=pejabat.getKdgol()%>" style="width: 300px" ></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jabatan</td><td><input type="text" name="jabatan" value="<%=pejabat.getNmjabatan()%>" style="width: 300px" ></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Keterangan</td><td><input type="text" name="keterangan" value="<%=pejabat.getKetjabatan()%>" style="width: 300px" ></td>
+                                            <td> <input type="hidden" name="id_edit_pejabat" value="<%=pejabat.getId()%>"> </td>                                        
+                                        </tr>                                       
+                                        <tr>
+                                            <td></td><td><input type="reset"><input type="submit" value="Simpan" ></td>
+                                        </tr>
+                                    </table>
+                                    </form>
+                                </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <% while (iterator.hasNext()) {
-                            satker = iterator.next();%>
-                                <tr>
-                                    <td><%=satker.getKodeSatker()%></td>
-                                    <td><%=satker.getNamaSatker()%></td>                                    
-                                    <td><input  type="checkbox"  name="cek_satker" value="<%=satker.getId()%>"></td>
-                                </tr>
-                                <%}%>
-                            </tbody>
                         </table>
-                        <span style="margin: 10px;">
-                        </span>
-                        <p style="margin: 10px;"><BR>
-                                <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_satker" />
-                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_satker" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_satker" />
-                  </form></center>
-                                <!-- end .content --></div>
-                                <!-- end .container --></div>
-                                </body>
-                                </html>
-
+                    </td>
+                </tr>
+                </table>
+             <!-- end .content --></div>
+         <!-- end .container --></div>
+    </body>
+</html>

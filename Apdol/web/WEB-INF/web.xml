@@ -256,6 +256,10 @@
         <servlet-name>MonitoringSPMServlet</servlet-name>
         <servlet-class>apdol.servlet.MonitoringSPMServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProsesHapusPejabatServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusPejabatServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -511,6 +515,10 @@
     <servlet-mapping>
         <servlet-name>MonitoringSPMServlet</servlet-name>
         <url-pattern>/monitoring_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesHapusPejabatServlet</servlet-name>
+        <url-pattern>/hapus_pejabat</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

@@ -4,73 +4,62 @@
  */
 package apdol.model;
 
-import apdol.entity.SatuanKerja;
+import apdol.entity.Pejabat;
 import apdol.model.exceptions.NonexistentEntityException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
- * @author Accio
+ * @author AlfieSaHid
  */
-public class DaftarSatuanKerja implements Serializable {
-
-    public DaftarSatuanKerja() {
-        emf = Persistence.createEntityManagerFactory("ApdolPU");
+public class DaftarPejabat {
+    
+    public DaftarPejabat() {
+        emf = Persistence.createEntityManagerFactory("ApdolPU"); 
     }
+
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-    public List<SatuanKerja> getSatuanKerja() {
-        List<SatuanKerja> satker = new ArrayList<SatuanKerja>();
+    public List<Pejabat> getPejabat() {
+        List<Pejabat> pejabat = new ArrayList<Pejabat>();
 
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT a FROM SatuanKerja AS a");
-            satker = q.getResultList();
+            Query q = em.createQuery("SELECT a FROM Pejabat AS a");
+            pejabat = q.getResultList();
 
         } finally {
             em.close();
         }
-        return satker;
+        return pejabat;
     }
 
-    public SatuanKerja findSatuanKerja(Long id) {
+    public Pejabat findPejabat(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(SatuanKerja.class, id);
+            return em.find(Pejabat.class, id);
         } finally {
             em.close();
         }
     }
     
-    public List<SatuanKerja> findSatkerByKode(String kode){
-        EntityManager em = getEntityManager();
-        try {
-            Query query = em.createNamedQuery("SatuanKerja.findByKode");
-            query.setParameter("kodeSatker", "%"+kode+"%");
-            return query.getResultList();
-        } finally {
-            em.close();
-        }
-    }
-
-    public void rekamSatuanKerja(SatuanKerja satker) {
+    public void rekamPejabat(Pejabat pejabat) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(satker);
+            em.persist(pejabat);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -78,13 +67,13 @@ public class DaftarSatuanKerja implements Serializable {
             }
         }
     }
-
-    public void edit(SatuanKerja satker) {
+    
+    public void edit(Pejabat pejabat)  {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            satker = em.merge(satker);
+            pejabat = em.merge(pejabat);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -92,19 +81,19 @@ public class DaftarSatuanKerja implements Serializable {
             }
         }
     }
-
-    public void destroy(long id) throws NonexistentEntityException {
+    
+    public void destroy(long  id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            SatuanKerja satker;
+            Pejabat pejabat;
             try {
-                satker = em.getReference(SatuanKerja.class, id);
+                pejabat = em.getReference(Pejabat.class, id);
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("satker belum dipilih.", enfe);
+                throw new NonexistentEntityException("Pejabat belum dipilih.", enfe);
             }
-            em.remove(satker);
+            em.remove(pejabat);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -112,33 +101,32 @@ public class DaftarSatuanKerja implements Serializable {
             }
         }
     }
-
     public boolean isKodeExist(String kode) {
-        DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
-        List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
-        Iterator<SatuanKerja> iterator = listSatker.iterator();
-        SatuanKerja tes = new SatuanKerja();
+        DaftarPejabat daftarPejabat = new DaftarPejabat();
+        List<Pejabat> listPejabat = daftarPejabat.getPejabat();
+        Iterator<Pejabat> iterator = listPejabat.iterator();
+        Pejabat tes = new Pejabat();
 
         while (iterator.hasNext()) {
             tes = iterator.next();
-            if (kode.equalsIgnoreCase(tes.getKodeSatker())) {
+            if (kode.equalsIgnoreCase(tes.getNip())) {
                 return true;
             }
         } return false;
     }
     
-    public boolean isNamaSatkerExist(String nama) {
-        DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
-        List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
-        Iterator<SatuanKerja> iterator = listSatker.iterator();
-        SatuanKerja tes = new SatuanKerja();
+    public boolean isNamaExist(String nama) {
+        DaftarPejabat daftarPejabat = new DaftarPejabat();
+        List<Pejabat> listPejabat = daftarPejabat.getPejabat();
+        Iterator<Pejabat> iterator = listPejabat.iterator();
+        Pejabat tes = new Pejabat();
 
         while (iterator.hasNext()) {
             tes = iterator.next();
-            if (nama.equalsIgnoreCase(tes.getNamaSatker())) {
+            if (nama.equalsIgnoreCase(tes.getNama())) {
                 return true;
             }
         } return false;
     }
-
+    
 }
