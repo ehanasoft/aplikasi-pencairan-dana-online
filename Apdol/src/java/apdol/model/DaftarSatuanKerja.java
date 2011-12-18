@@ -141,4 +141,15 @@ public class DaftarSatuanKerja implements Serializable {
         } return false;
     }
 
+    public List<SatuanKerja> findSatuanKerjaByKode(String kode){
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("SatuanKerja.findByKode");
+            query.setParameter("kodeSatker", "%"+kode+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
 }

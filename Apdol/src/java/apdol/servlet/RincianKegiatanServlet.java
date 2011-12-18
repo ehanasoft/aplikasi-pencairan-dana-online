@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Hari RZ
  */
-@WebServlet(name = "RincianKegiatanServlet", urlPatterns = {"/rincian_kegiatan_servlet"})
+@WebServlet(name = "RincianKegiatanServlet", urlPatterns = {"/rincian_kegiatan"})
 public class RincianKegiatanServlet extends HttpServlet {
 
     /** 

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Hari RZ
  */
-@WebServlet(name = "RekamRincianKegiatanServlet", urlPatterns = {"/rekam_rincian_kegiatan_servlet"})
+@WebServlet(name = "RekamRincianKegiatanServlet", urlPatterns = {"/rekam_rincian_kegiatan"})
 public class RekamRincianKegiatanServlet extends HttpServlet {
 
     /** 
