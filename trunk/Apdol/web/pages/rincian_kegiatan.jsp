@@ -102,11 +102,11 @@
                         <table id="rounded-corner">
                             <thead>
                                 <tr>  
-                                    <th scope="col" class="rounded-q1">Satuan Kerja</th>
+                                    <th scope="col" class="rounded-company">Satuan Kerja</th>
                                     <th scope="col" class="rounded-q2">Kegiatan</th>
                                     <th scope="col" class="rounded-q3">Output</th>
-                                    <th scope="col" class="rounded-q4">Mata Anggaran</th>                                   
-                                    <th scope="col" class="rounded-q5">Cek</th>
+                                    <th scope="col" class="rounded-q3">Mata Anggaran</th>                                   
+                                    <th scope="col" class="rounded-q4">Cek</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -127,7 +127,8 @@
                         <p style="margin: 10px;"><BR>
                                 <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_rincian_kegiatan" />
                                 <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_rincian_kegiatan" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_rincian_kegiatan" />                                </form></center>
+                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_rincian_kegiatan" />
+                  </form></center>
                                 <!-- end .content --></div>
                                 <!-- end .container --></div>
                                 </body>

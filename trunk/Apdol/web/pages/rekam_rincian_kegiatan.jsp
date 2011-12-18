@@ -9,18 +9,13 @@
 <%@page import="apdol.model.DaftarRincianKegiatan"%>
 <%@page import="apdol.entity.RincianKegiatan"%>
 <%@page import="javax.swing.JOptionPane"%>
+<%@page import="apdol.entity.SatuanKerja"%>
 
-<%DaftarKegiatan daftarKegiatan = new DaftarKegiatan ();%>
-<%DaftarOutput daftarOutput = new DaftarOutput ();%>
-<%DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran ();%>
+<% List<SatuanKerja> listSatuanKerja = (List<SatuanKerja>) request.getAttribute("list_satker");%>
+<% SatuanKerja satuanKerja;%>
+<% Iterator<SatuanKerja> iterator = listSatuanKerja.iterator();%>
 
-<%List<Kegiatan> lKeg = daftarKegiatan.getKegiatan();%>
-<%List<Output> lOut = daftarOutput.getOutput();%>
-<%List<MataAnggaran> lMa = daftarMataAnggaran.getMataAnggaran();%>
 
-<%Iterator<Kegiatan> iKegiatan = lKeg.iterator();%>
-<%Iterator<Output> iOutput = lOut.iterator();%>
-<%Iterator<MataAnggaran> iMataAnggaran = lMa.iterator();%>
 
 <%Kegiatan kegiatan=null; Output output=null; MataAnggaran mataAnggaran=null; %>
 
@@ -33,7 +28,7 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Rekam DIPA</title>
+        <title>Rekam Rincian Kegiatan</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -123,29 +118,27 @@
                             <tr>
                                 <td width="150">Satuan Kerja</td>
                                 <td><label for="satuanKerja"></label>
-                                    <select name="satuanKerja" id="satuan_kerja">
-                                        <% while (iSatuanKerja.hasNext()) satuanKerja = iSatuanKerja.next();%>
-                                        <option> <%=satuanKerja.getKodeSatker()%></option>
-                                    </select>
-                                </select></td>
+                                    <select name="satuanKerja"><% while (iterator.hasNext()) {
+                            satuanKerja = iterator.next();%><option value="<%=satuanKerja.getKodeSatker()%>"><%=satuanKerja.getKodeSatker()%></option><%}%></select>
+                                </td>
                             </tr>
                             <tr>
                               <td>Kegiatan</td>
-                              <td><select name="output" id="kegiatan">
+                              <td><select name="kegiatan" id="kegiatan">
                               </select></td>
                             </tr>
                         </table>
                       <table width="400px">
                           <tr>
                             <td width="150">Output</td>
-                            <td width="238"><select name="mata_anggaran" id="m">
+                            <td width="238"><select name="output" id="output">
                             </select></td>
                           </tr>
                       </table>
                       <table width="400px">
                         <tr>
                           <td width="150">Mata Anggaran</td>
-                          <td width="238"><select name="mata_anggaran2" id="mata_anggaran2">
+                          <td width="238"><select name="mata_anggaran" id="mata_anggaran">
                           </select></td>
                         </tr>
                       </table>
@@ -154,7 +147,7 @@
                       <h5>&nbsp;</h5>
                       <table width="400px">
 <tr>
-                                <td align="center"><a href="javascript:document.form_rekam_rincian_kegiatan.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
+                                <td align="center"><a href="javascript:document.form_rekam_rincian_kegiatan.reset()">img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
                             </tr>
                         </table>
                     </form>
