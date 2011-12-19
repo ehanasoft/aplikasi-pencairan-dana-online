@@ -147,6 +147,7 @@
                       <h5>&nbsp;</h5>
                       <table width="400px">
 <tr>
+    
                                 <td align="center"><a href="javascript:document.form_rekam_rincian_kegiatan.reset()">img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
                             </tr>
                         </table>
