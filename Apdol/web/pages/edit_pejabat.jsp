@@ -4,11 +4,18 @@
     Author     : AlfieSaHid
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
 <%@page import="apdol.model.DaftarPejabat"%>
 <%@page import="apdol.entity.Pejabat"%>
-<%@page import="javax.swing.JOptionPane"%>
+<%@page import="apdol.model.DaftarSatuanKerja"%>
+<%@page import="apdol.entity.SatuanKerja"%>
 
 <% Pejabat pejabat = (Pejabat) request.getAttribute("pejabat_edit");%>
+<% List<SatuanKerja> listSatker = (List<SatuanKerja>) request.getAttribute("list_satker");%>
+<% SatuanKerja satker;%>
+
+<% SatuanKerja satkerPejabat = (SatuanKerja) request.getAttribute("satkerPejabat");%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,6 +30,24 @@
         ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
         </style>
         <![endif]-->
+        <script language="JavaScript">
+            function showhidekppn(){
+                // enable one
+                document.getElementById("ketkppn").style.display = 'block';
+                document.getElementById("ketkppn").disabled = false;
+                // disable two
+                document.getElementById("ketsatker").disabled = true;
+                document.getElementById("ketsatker").style.display = 'none';
+            }
+            function showhidesatker(){
+                // disable one
+                document.getElementById("ketkppn").disabled = true;
+                document.getElementById("ketkppn").style.display = 'none';	
+                // enable two
+                document.getElementById("ketsatker").style.display = 'block';
+                document.getElementById("ketsatker").disabled = false;
+            }
+        </script>
     </head>
 
     <body>
@@ -94,46 +119,83 @@
 
 
                 <!-- end .sidebar1 --></div>
-            <div class="logout"><a href="logout">[Log Out]</a>
+            <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
-                <table border="0" cellspacing="0" cellpadding="0" width="800">
-                <tr>
-                    <td>
-                        <table border="0" width="800">
-                            <tr style="vertical-align: top">
-                                <td width="500" style="vertical-align: top"  align="left">                                    
-                                    <h3 style="color: blue;">Edit Data Bank Pos</h3>
-                                    <form action="proses_edit_pejabat" method="post" >
-                                    <table width="450">
-                                        <tr>
-                                            <td width="150">NIP</td><td><input name="nip" type="text" style="width: 50px" value ="<%=pejabat.getNip()%>" size="18" maxlength="18"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Pejabat</td><td><input type="text" name="nama" value="<%=pejabat.getNama()%>" style="width: 300px" ></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Golongan</td><td><input type="text" name="golongan" value="<%=pejabat.getKdgol()%>" style="width: 300px" ></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jabatan</td><td><input type="text" name="jabatan" value="<%=pejabat.getNmjabatan()%>" style="width: 300px" ></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Keterangan</td><td><input type="text" name="keterangan" value="<%=pejabat.getKetjabatan()%>" style="width: 300px" ></td>
-                                            <td> <input type="hidden" name="id_edit_pejabat" value="<%=pejabat.getId()%>"> </td>                                        
-                                        </tr>                                       
-                                        <tr>
-                                            <td></td><td><input type="reset"><input type="submit" value="Simpan" ></td>
-                                        </tr>
-                                    </table>
-                                    </form>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
+                <center><p><h3> Edit Pejabat</h3></p>
+                    <form name="form_edit_pejabat" action="proses_edit_pejabat" method="post" >
+                        <table width="400px">
+                            <tr>
+                                <td width="150">NIP</td><td><input name="nip" type="text" style="width: 180px" size="18" maxlength="18" value="<%=pejabat.getNip()%>"></td>
+                            </tr>
+                            <tr>
+                                <td>Nama Pejabat</td><td><input type="text" name="nama" style="width: 300px" value="<%=pejabat.getNama()%>"</td>
+                            </tr>
+                            <tr>                                                    
+                                <td>Golongan</td>
+                                <td>
+                                    <select name="golongan" value="<%=pejabat.getKdgol()%>">
+                                        <option value="31">III/a Penata Muda</option>
+                                        <option value="32">III/b Penata Muda Tk. I</option>
+                                        <option value="33">III/c Penata</option>
+                                        <option value="34">III/d Penata Tk. I</option>
+                                        <option value="41">IV/a Pembina</option>
+                                        <option value="42">IV/b Pembina Tk. I</option>
+                                        <option value="43">IV/c Pembina Utama Muda</option>
+                                        <option value="44">IV/d Pembina Utama Madya</option>
+                                        <option value="45">IV/e Pembina Utama</option>
+                                    </select>
                                 </td>
-                                </tr>
+                            </tr>
+                            <tr>
+                                <td>Jabatan</td><td><input type="text" name="jabatan" style="width: 300px" value="<%=pejabat.getNmjabatan()%>"></td>
+                            </tr>
+                            <tr>
+                                <td>Pilih</td>
+                                <td>
+                                    <input type="radio" onClick="javascript:showhidesatker();document.form_edit_pejabat.satker.disabled=false;" name="pilih"/>Satker
+                                    <input type="radio" onClick="javascript:showhidekppn();document.form_edit_pejabat.satker.disabled=true;" name="pilih"/>KPPN
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Keterangan</td>
+                                <td>
+                                    <select id="ketkppn" name="keterangan" style="display: none;" value="<%=pejabat.getKetjabatan()%>">
+                                        <option value="Kasi Pencairan Dana">Kasi Pencairan Dana</option>
+                                        <option value="Kasi Bank/Giro Pos">Kasi Bank/Giro Pos</option>
+                                    </select>
+                                    <select id="ketsatker" name="keterangan" value="<%=pejabat.getKetjabatan()%>">
+                                        <option value="KPA">KPA</option>
+                                        <option value="Penandatangan SPM">Penandatangan SPM</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Satker</td>
+                                <td>
+                                    <select name="satker">
+                                        <%Iterator<SatuanKerja> iterator = listSatker.iterator();%>
+                                        <%while (iterator.hasNext()) {
+                                                satker = iterator.next();
+                                                if (pejabat.getSatker().getId().equals(satker.getId())) {
+                                                    out.println("<option value=" + satker.getKodeSatker() + " selected=\"selected\">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
+                                                } else {
+                                                    out.println("<option value=" + satker.getKodeSatker() + ">" + satker.getNamaSatker() + "</option>");
+                                                }
+                                            }%>
+                                    </select>
+                                </td>
+                            </tr>
                         </table>
-                    </td>
-                </tr>
-                </table>
-             <!-- end .content --></div>
-         <!-- end .container --></div>
+                        <p><input type="hidden" name="id_edit_pejabat" value="<%=pejabat.getId()%>"></p>
+                        <table width="400px"><tr>
+                                <td align="center"><a href="javascript:document.form_rekam_pejabat.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
+                            </tr>
+                        </table>
+                    </form>
+                </center>          
+                <!-- end .content --></div>
+            <!-- end .container --></div>
     </body>
 </html>
