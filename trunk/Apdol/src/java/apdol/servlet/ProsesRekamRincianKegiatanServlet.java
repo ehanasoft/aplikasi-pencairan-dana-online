@@ -71,10 +71,14 @@ public class ProsesRekamRincianKegiatanServlet extends HttpServlet {
             List<Kegiatan> listKegiatan = daftarKegiatan.findKegiatanByKode(kdgiat);
             kegiatan = listKegiatan.get(0);
             
-            SatuanKerja satuanKerja = new SatuanKerja();
-            DaftarSatuanKerja daftarSatuanKerja = new DaftarSatuanKerja();
-            List<SatuanKerja> listSatuanKerja = daftarSatuanKerja.findSatuanKerjaByKode(kodeSatker);
-            satuanKerja = listSatuanKerja.get(0);
+            SatuanKerja satker = new SatuanKerja();
+            DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
+            List<SatuanKerja> listSatker = daftarSatker.findSatkerByKode(kodeSatker);
+            if(listSatker.isEmpty()){
+            satker = null;
+            } else {
+                satker = listSatker.get(0);
+            }
 
             //validate blank field
             if (kodeSatker == "") {
@@ -90,7 +94,7 @@ public class ProsesRekamRincianKegiatanServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Mata Anggaran tidak boleh kosong !");
                 jsp = "pages/rekam_rincian_kegiatan.jsp";                   
             } else {
-                rincianKegiatan.setSatker(satuanKerja);
+                rincianKegiatan.setSatker(satker);
                 rincianKegiatan.setKegiatan(kegiatan);
                 rincianKegiatan.setOutput(output);
                 rincianKegiatan.setMataAnggaran(mataAnggaran);
