@@ -276,6 +276,10 @@
         <servlet-name>Rekam Rincian Kegaitan</servlet-name>
         <servlet-class>apdol.servlet.ProsesRekamRincianKegiatanServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Rekam Rincian Kegiatan</servlet-name>
+        <servlet-class>apdol.servlet.RekamRincianKegiatanServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -551,6 +555,10 @@
     <servlet-mapping>
         <servlet-name>Rekam Rincian Kegaitan</servlet-name>
         <url-pattern>/proses_rekam_rincian_kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Rekam Rincian Kegiatan</servlet-name>
+        <url-pattern>/rekam_rincian_kegiatan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
