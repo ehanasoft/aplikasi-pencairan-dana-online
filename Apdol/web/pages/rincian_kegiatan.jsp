@@ -96,7 +96,7 @@
                 <!-- end .logout --></div>
             <div class="content">
                 <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
-                <center><p ><h3>RincianKegiatan</h3></p>
+                <center><p ><h3>Rincian Kegiatan</h3></p>
                     <% Iterator<RincianKegiatan> iterator = listRincianKegiatan.iterator();%>
                     <form >
                         <table id="rounded-corner">
@@ -113,7 +113,7 @@
                                 <% while (iterator.hasNext()) {
                             rincianKegiatan = iterator.next();%>
                                 <tr>
-                                    <td><%=rincianKegiatan.getSatuanKerja()%></td>
+                                    <td><%=rincianKegiatan.getSatker()%></td>
                                     <td><%=rincianKegiatan.getKegiatan()%></td>
                                     <td><%=rincianKegiatan.getOutput()%></td>
                                     <td><%=rincianKegiatan.getMataAnggaran()%></td>

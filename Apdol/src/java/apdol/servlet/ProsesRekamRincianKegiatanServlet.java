@@ -51,7 +51,7 @@ public class ProsesRekamRincianKegiatanServlet extends HttpServlet {
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             String jsp = "";
            
-            String kodeSatker = request.getParameter("satuan_kerja");
+            String kodeSatker = request.getParameter("satker");
             String kdgiat = request.getParameter("kegiatan");
             String kodeOutput = request.getParameter("output");
             String kodeMataAnggaran = request.getParameter("mata_anggaran");
@@ -90,7 +90,7 @@ public class ProsesRekamRincianKegiatanServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Mata Anggaran tidak boleh kosong !");
                 jsp = "pages/rekam_rincian_kegiatan.jsp";                   
             } else {
-                rincianKegiatan.setSatuanKerja(satuanKerja);
+                rincianKegiatan.setSatker(satuanKerja);
                 rincianKegiatan.setKegiatan(kegiatan);
                 rincianKegiatan.setOutput(output);
                 rincianKegiatan.setMataAnggaran(mataAnggaran);
