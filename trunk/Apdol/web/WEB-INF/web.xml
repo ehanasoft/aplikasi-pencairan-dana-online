@@ -257,6 +257,10 @@
         <servlet-class>apdol.servlet.MonitoringSPMServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>Rekam Rincian Kegiatan</servlet-name>
+        <servlet-class>apdol.servlet.RekamRincianKegiatanServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ProsesHapusPejabatServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesHapusPejabatServlet</servlet-class>
     </servlet>
@@ -273,12 +277,8 @@
         <servlet-class>apdol.servlet.RincianKegiatanServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Rekam Rincian Kegaitan</servlet-name>
+        <servlet-name>Proses Rekam Rincian Kegaitan</servlet-name>
         <servlet-class>apdol.servlet.ProsesRekamRincianKegiatanServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Rekam Rincian Kegiatan</servlet-name>
-        <servlet-class>apdol.servlet.RekamRincianKegiatanServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
@@ -549,12 +549,12 @@
         <url-pattern>/proses_edit_pejabat</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Rincian Kegiatan</servlet-name>
-        <url-pattern>/rincian_kegiatan</url-pattern>
+        <servlet-name>Proses Rekam Rincian Kegaitan</servlet-name>
+        <url-pattern>/proses_rekam_rincian_kegiatan</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Rekam Rincian Kegaitan</servlet-name>
-        <url-pattern>/proses_rekam_rincian_kegiatan</url-pattern>
+        <servlet-name>Rincian Kegiatan</servlet-name>
+        <url-pattern>/rincian_kegiatan</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Rekam Rincian Kegiatan</servlet-name>

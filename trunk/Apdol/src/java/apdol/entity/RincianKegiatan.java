@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -21,9 +22,13 @@ public class RincianKegiatan implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private SatuanKerja satuanKerja;
+    @ManyToOne
+    private SatuanKerja satker;
+    @ManyToOne
     private Kegiatan kegiatan;
+    @ManyToOne
     private Output output;
+    @ManyToOne
     private MataAnggaran mataAnggaran;
     public Long getId() {
         return id;
@@ -33,12 +38,12 @@ public class RincianKegiatan implements Serializable {
         this.id = id;
     }
     
-    public SatuanKerja getSatuanKerja() {
-        return satuanKerja;
+    public SatuanKerja getSatker() {
+        return satker;
     }
 
-    public void setSatuanKerja(SatuanKerja satuanKerja) {
-        this.satuanKerja = satuanKerja;
+    public void setSatker(SatuanKerja satker) {
+        this.satker = satker;
     }
 
     public Kegiatan getKegiatan() {

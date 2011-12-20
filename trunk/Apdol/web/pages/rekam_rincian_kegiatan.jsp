@@ -11,13 +11,9 @@
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="apdol.entity.SatuanKerja"%>
 
-<% List<SatuanKerja> listSatuanKerja = (List<SatuanKerja>) request.getAttribute("list_satker");%>
-<% SatuanKerja satuanKerja;%>
-<% Iterator<SatuanKerja> iterator = listSatuanKerja.iterator();%>
-
-
-
-<%Kegiatan kegiatan=null; Output output=null; MataAnggaran mataAnggaran=null; %>
+<% List<SatuanKerja> listSatker = (List<SatuanKerja>) request.getAttribute("list_satker");%>
+<% SatuanKerja satker;%>
+<% Iterator<SatuanKerja> iterator = listSatker.iterator();%>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -116,16 +112,18 @@
                     <form name="form_rekam_rincian_kegiatan" action="proses_rekam_rincian_kegiatan" method="post" >
                         <table width="400px">
                             <tr>
-                                <td width="150">Satuan Kerja</td>
-                                <td><label for="satuanKerja"></label>
-                                    <select name="satuanKerja"><% while (iterator.hasNext()) {
-                            satuanKerja = iterator.next();%><option value="<%=satuanKerja.getKodeSatker()%>"><%=satuanKerja.getKodeSatker()%></option><%}%></select>
-                                </td>
+                                <td>Satuan Kerja</td>
+                                    <td>
+                                        <select name="satker"><% while (iterator.hasNext()) {
+                                                    satker = iterator.next();%><option value="<%=satker.getKodeSatker()%>"><%=satker.getKodeSatker() + " " + satker.getNamaSatker()%> </option><%}%>
+                                        </select>
+                                    </td>
                             </tr>
                             <tr>
-                              <td>Kegiatan</td>
-                              <td><select name="kegiatan" id="kegiatan">
-                              </select></td>
+                                <td>Kegiatan</td>
+                                    <td width="150">Kegiatan</td>
+                                    <td width="238"><select name="kegiatan" id="kegiatan">
+                                    </select></td>
                             </tr>
                         </table>
                       <table width="400px">

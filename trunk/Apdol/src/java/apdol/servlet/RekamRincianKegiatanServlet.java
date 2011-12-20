@@ -4,8 +4,11 @@
  */
 package apdol.servlet;
 
+import apdol.entity.SatuanKerja;
+import apdol.model.DaftarSatuanKerja;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,6 +45,10 @@ public class RekamRincianKegiatanServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
              */
+            DaftarSatuanKerja daftarSatuanKerja = new DaftarSatuanKerja();
+            List <SatuanKerja> listSatuanKerja = daftarSatuanKerja.getSatuanKerja();
+            request.setAttribute("list_satker", listSatuanKerja);
+
             String jsp = "pages/rekam_rincian_kegiatan.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
