@@ -15,6 +15,18 @@
 <% SatuanKerja satker;%>
 <% Iterator<SatuanKerja> iterator = listSatker.iterator();%>
 
+<% List<Kegiatan> listKegiatan = (List<Kegiatan>) request.getAttribute("list_kegiatan");%>
+<% Kegiatan kegiatan;%>
+<% Iterator<Kegiatan> iteratorKegiatan = listKegiatan.iterator();%>
+
+<% List<Output> listOutput = (List<Output>) request.getAttribute("list_output");%>
+<% Output output;%>
+<% Iterator<Output> iteratorOutput = listOutput.iterator();%>
+
+<% List<MataAnggaran> listMataAnggaran = (List<MataAnggaran>) request.getAttribute("list_mataAnggaran");%>
+<% MataAnggaran mataAnggaran;%>
+<% Iterator<MataAnggaran> iteratorMataAnggaran = listMataAnggaran.iterator();%>
+
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -121,32 +133,36 @@
                             </tr>
                             <tr>
                                 <td>Kegiatan</td>
-                                    <td width="150">Kegiatan</td>
-                                    <td width="238"><select name="kegiatan" id="kegiatan">
-                                    </select></td>
+                                    <td>
+                                        <select name="kegiatan"><% while (iteratorKegiatan.hasNext()) {
+                                                    kegiatan = iteratorKegiatan.next();%><option value="<%=kegiatan.getKdgiat()%>"><%=kegiatan.getKdgiat() + " " + kegiatan.getNmgiat()%> </option><%}%>
+                                        </select>
+                                    </td>
+                            </tr>          
+                            <tr>                   
+                                    <td>Output</td>
+                                    <td>
+                                        <select name="output"><% while (iteratorOutput.hasNext()) {
+                                                    output = iteratorOutput.next();%><option value="<%=output.getKodeOutput()%>"><%=output.getKodeOutput() + " " + output.getNamaOutput()%> </option><%}%>
+                                        </select>
+                                    </td>
                             </tr>
-                        </table>
-                      <table width="400px">
-                          <tr>
-                            <td width="150">Output</td>
-                            <td width="238"><select name="output" id="output">
-                            </select></td>
-                          </tr>
-                      </table>
-                      <table width="400px">
-                        <tr>
-                          <td width="150">Mata Anggaran</td>
-                          <td width="238"><select name="mata_anggaran" id="mata_anggaran">
-                          </select></td>
-                        </tr>
+                            <tr>
+                                <td>Mata Anggaran</td>
+                                    <td>
+                                        <select name="mata_anggaran"><% while (iteratorMataAnggaran.hasNext()) {
+                                                    mataAnggaran = iteratorMataAnggaran.next();%><option value="<%=mataAnggaran.getKodeMataAnggaran()%>"><%=mataAnggaran.getKodeMataAnggaran() + " " + mataAnggaran.getNamaMataAnggaran()%> </option><%}%>
+                                        </select>
+                                    </td>
+                            </tr>
+                        
                       </table>
                       <p>&nbsp;</p>
                       <p>&nbsp;</p>
                       <h5>&nbsp;</h5>
                       <table width="400px">
-<tr>
-    
-                                <td align="center"><a href="javascript:document.form_rekam_rincian_kegiatan.reset()">img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
+                            <tr>  
+                                <td align="center"><a href="javascript:document.form_rekam_rincian_kegiatan.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
                             </tr>
                         </table>
                     </form>
