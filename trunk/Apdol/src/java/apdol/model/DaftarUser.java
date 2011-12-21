@@ -28,7 +28,7 @@ public class DaftarUser {
 
     //add default admin user
     public void addAdmin() {
-        DaftarUser d = new DaftarUser ();
+        DaftarUser d = new DaftarUser();
         User user = new User();
         user.setUsername("admin");
         user.setRoleuser("1");
@@ -36,16 +36,18 @@ public class DaftarUser {
         user.setJabatan("administrator");
         user.setKodeSatker("null");
         user.setNama("administrator");
-        
+
         List<User> l = d.getUser();
         Iterator<User> i = l.iterator();
-        User u = new User ();
-        while (i.hasNext()) {
+        User u = new User();
+        if (i.hasNext()) {
+            while (i.hasNext()) {
                 u = i.next();
-                if (!u.getUsername().equalsIgnoreCase(user.getUsername()))
-                    d.rekamUser(user);
-        }
-        d.rekamUser(user);
+                if (u.getUsername().equalsIgnoreCase(user.getUsername())) {
+                } else d.rekamUser(user);
+            }
+        } else 
+            d.rekamUser(user);
         user = null;
     }
 
