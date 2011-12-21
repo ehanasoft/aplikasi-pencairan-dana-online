@@ -27,7 +27,7 @@
 
 <% Output outputRincianKegiatan = (Output) request.getAttribute("outputRincianKegiatan");%>
 
-<% List<MataAnggaran> listMataAnggaran = (List<MataAnggaran>) request.getAttribute("list_mataAnggaran");%>
+<% List<MataAnggaran> listMataAnggaran = (List<MataAnggaran>) request.getAttribute("list_mata_anggaran");%>
 <% MataAnggaran mataAnggaran;%>
 
 <% MataAnggaran mataAnggaranRincianKegiatan = (MataAnggaran) request.getAttribute("mataAnggaranRincianKegiatan");%>
@@ -126,7 +126,7 @@
             <div class="content">
                 <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
                 <center><p><h3> Edit Rincian Kegiatan</h3></p>
-                    <form name="form_edit_satker" action="proses_edit_satker" method="post" >
+                    <form name="form_edit_rincian_kegiatan" action="proses_edit_rincian_kegiatan" method="post" >
                         <table width="400px">                                                           
                                 <tr>
                                 <td>Satker</td>
@@ -138,7 +138,7 @@
                                                 if (rincianKegiatan.getSatker().getId().equals(satker.getId())) {
                                                     out.println("<option value=" + satker.getKodeSatker() + " selected=\"selected\">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
                                                 } else {
-                                                    out.println("<option value=" + satker.getKodeSatker() + ">" + satker.getNamaSatker() + "</option>");
+                                                    out.println("<option value=" + satker.getKodeSatker() + ">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
                                                 }
                                             }%>
                                     </select>
@@ -154,7 +154,7 @@
                                                 if (rincianKegiatan.getKegiatan().getId().equals(kegiatan.getId())) {
                                                     out.println("<option value=" + kegiatan.getKdgiat() + " selected=\"selected\">" + kegiatan.getKdgiat() + " " + kegiatan.getNmgiat() + "</option>");
                                                 } else {
-                                                    out.println("<option value=" + kegiatan.getKdgiat() + ">" + kegiatan.getNmgiat() + "</option>");
+                                                    out.println("<option value=" + kegiatan.getKdgiat() + ">" + kegiatan.getKdgiat() + " " + kegiatan.getNmgiat() + "</option>");
                                                 }
                                             }%>
                                     </select>
@@ -170,7 +170,7 @@
                                                 if (rincianKegiatan.getOutput().getId().equals(output.getId())) {
                                                     out.println("<option value=" + output.getKodeOutput() + " selected=\"selected\">" + output.getKodeOutput() + " " + output.getNamaOutput() + "</option>");
                                                 } else {
-                                                    out.println("<option value=" + output.getKodeOutput() + ">" + output.getNamaOutput() + "</option>");
+                                                    out.println("<option value=" + output.getKodeOutput() + ">" + output.getKodeOutput() + " " + output.getNamaOutput() + "</option>");
                                                 }
                                             }%>
                                     </select>
@@ -186,7 +186,7 @@
                                                 if (rincianKegiatan.getMataAnggaran().getId().equals(mataAnggaran.getId())) {
                                                     out.println("<option value=" + mataAnggaran.getKodeMataAnggaran() + " selected=\"selected\">" + mataAnggaran.getKodeMataAnggaran() + " " + mataAnggaran.getNamaMataAnggaran() + "</option>");
                                                 } else {
-                                                    out.println("<option value=" + mataAnggaran.getKodeMataAnggaran() + ">" + mataAnggaran.getNamaMataAnggaran() + "</option>");
+                                                    out.println("<option value=" + mataAnggaran.getKodeMataAnggaran() + ">" + mataAnggaran.getKodeMataAnggaran() + " " + mataAnggaran.getNamaMataAnggaran() + "</option>");
                                                 }
                                             }%>
                                     </select>

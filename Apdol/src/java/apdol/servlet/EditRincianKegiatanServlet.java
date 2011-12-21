@@ -5,11 +5,14 @@
 package apdol.servlet;
 
 import apdol.comparator.RincianKegiatanComparator;
-import apdol.comparator.SatuanKerjaComparator;
-import apdol.entity.Lokasi;
+import apdol.entity.Kegiatan;
+import apdol.entity.MataAnggaran;
+import apdol.entity.Output;
 import apdol.entity.RincianKegiatan;
 import apdol.entity.SatuanKerja;
-import apdol.model.DaftarLokasi;
+import apdol.model.DaftarKegiatan;
+import apdol.model.DaftarMataAnggaran;
+import apdol.model.DaftarOutput;
 import apdol.model.DaftarRincianKegiatan;
 import apdol.model.DaftarSatuanKerja;
 import java.io.IOException;
@@ -45,12 +48,23 @@ public class EditRincianKegiatanServlet extends HttpServlet {
             List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
             request.setAttribute("list_satker", listSatker);
             
+            DaftarKegiatan daftarKegiatan = new DaftarKegiatan();
+            List<Kegiatan> listKegiatan = daftarKegiatan.getKegiatan();
+            request.setAttribute("list_kegiatan", listKegiatan);
+            
+            DaftarOutput daftarOutput = new DaftarOutput();
+            List<Output> listOutput = daftarOutput.getOutput();
+            request.setAttribute("list_output", listOutput);
+            
+            DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran();
+            List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+            request.setAttribute("list_mata_anggaran", listMataAnggaran);                     
             
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             RincianKegiatan satkerRincianKegiatan = new RincianKegiatan();
-            RincianKegiatan kegiatanRincianKegiatan = new RincianKegiatan();
-            RincianKegiatan outputRincianKegiatan = new RincianKegiatan();
-            RincianKegiatan mataAnggaranRincianKegiatan = new RincianKegiatan();
+            //RincianKegiatan kegiatanRincianKegiatan = new RincianKegiatan();
+            //RincianKegiatan outputRincianKegiatan = new RincianKegiatan();
+            //RincianKegiatan mataAnggaranRincianKegiatan = new RincianKegiatan();
             List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
             Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
             request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
@@ -60,6 +74,7 @@ public class EditRincianKegiatanServlet extends HttpServlet {
 
             if (cekRincianKegiatan == null) {
                 JOptionPane.showMessageDialog(null, "Rincian Kegiatan tidak ada yang dipilih");
+                //response.sendRedirect("rincian_kegiatan");
                 jsp = "pages/rincian_kegiatan.jsp";
             } else if (cekRincianKegiatan.length > 1) {
                 JOptionPane.showMessageDialog(null, "Edit salah satu Rincian Kegiatan saja !");
@@ -68,7 +83,10 @@ public class EditRincianKegiatanServlet extends HttpServlet {
                 Long idRincianKegiatan = Long.parseLong(cekRincianKegiatan[0]);
                 RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(idRincianKegiatan);
                 request.setAttribute("rincian_kegiatan_edit", rincianKegiatan);
-                request.setAttribute("satkerRincianKegiatan", satkerRincianKegiatan.getSatker());
+               //request.setAttribute("satkerRincianKegiatan", rincianKegiatan.getSatker());
+               // request.setAttribute("outputRincianKegiatan", rincianKegiatan.getOutput());
+                //request.setAttribute("mataAnggaranRincianKegiatan", rincianKegiatan.getMataAnggaran());
+                //request.setAttribute("satkerRincianKegiatan", satkerRincianKegiatan.getSatker());
                 jsp = "/pages/edit_rincian_kegiatan.jsp";
             }
 

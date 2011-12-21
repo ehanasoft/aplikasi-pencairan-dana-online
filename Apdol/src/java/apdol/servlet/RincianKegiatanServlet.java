@@ -41,7 +41,7 @@ public class RincianKegiatanServlet extends HttpServlet {
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
             Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
-            request.setAttribute("list_rincianKegiatan", listRincianKegiatan);
+            request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
 
             String jsp = "pages/rincian_kegiatan.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);

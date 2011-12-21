@@ -65,12 +65,13 @@
                 </ul>
                 <p><strong>Monitoring</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Realisasi</a></li>
+                    <li><a href="monitoring_spm">Monitoring SPM</a></li>
+                    <li><a href="realisasi">Realisasi</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Cetak SPM</a></li>	
-                    <li><a href="#">Submit ke KPPN</a></li>
+                    <li><a href="cetak_spm">Cetak SPM</a></li>	
+                    <li><a href="submit_spm">Submit ke KPPN</a></li>
                 </ul>
                 <% } else if (roleUser.equals("3")) {%>
                 <p><strong>Dokumen</strong></p> 
@@ -79,17 +80,17 @@
                 </ul>
                 <p><strong>Penerimaan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Notifikasi SPM</a></li>
-                    <li><a href="#">Tolak SPM</a></li>
+                    <li><a href="notifikasi_spm">Notifikasi SPM</a></li>
+                    <li><a href="tolak_spm">Tolak SPM</a></li>
                 </ul>  
                 <p><strong>Pencairan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Proses SP2D</a></li>
-                    <li><a href="#">Batal SP2D</a></li>
+                    <li><a href="proses_sp2d">Proses SP2D</a></li>
+                    <li><a href="batal_sp2d">Batal SP2D</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Cetak SP2D</a></li>	
+                    <li><a href="cetak_sp2d">Cetak SP2D</a></li>	
                 </ul>  
                 <% }%>
                 <p></p>
@@ -101,7 +102,7 @@
     <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
   <!-- end .logout --></div>
             <div class="content">
-                <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
                 <center><p >
                 <h3>Satuan Kerja</h3></p>
                     <% Iterator<SatuanKerja> iterator = listSatker.iterator();%>

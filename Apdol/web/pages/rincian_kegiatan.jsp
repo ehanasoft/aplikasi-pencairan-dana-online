@@ -4,7 +4,7 @@
 <%@page import="apdol.entity.RincianKegiatan"%>
 <%@page import="javax.swing.JOptionPane"%>
 
-<% List<RincianKegiatan> listRincianKegiatan = (List<RincianKegiatan>) request.getAttribute("list_rincianKegiatan");%>
+<% List<RincianKegiatan> listRincianKegiatan = (List<RincianKegiatan>) request.getAttribute("list_rincian_kegiatan");%>
 <% RincianKegiatan rincianKegiatan;%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -34,14 +34,14 @@
                 </ul>
                 <p><strong>Referensi</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Satuan Kerja</a></li>
+                    <li><a href="satker">Satuan Kerja</a></li>
                     <li><a href="bank_pos">Bank Pos</a></li>
                     <li><a href="pejabat">Pejabat</a></li>
                     <li><a href="program">Program</a></li>
                     <li><a href="kegiatan">Kegiatan</a></li>
                     <li><a href="output">Output</a></li>
                     <li><a href="mata_anggaran">Mata Anggaran</a></li>
-                     <li><a href="rincian_kegiatan">Rincian Kegiatan</a></li>
+                    <li><a href="rincian_kegiatan">Rincian Kegiatan</a></li>
                     <li><a href="lokasi">Lokasi</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
@@ -59,12 +59,13 @@
                 </ul>
                 <p><strong>Monitoring</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Realisasi</a></li>
+                    <li><a href="monitoring_spm">Monitoring SPM</a></li>
+                    <li><a href="realisasi">Realisasi</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Cetak SPM</a></li>	
-                    <li><a href="#">Submit ke KPPN</a></li>
+                    <li><a href="cetak_spm">Cetak SPM</a></li>	
+                    <li><a href="submit_spm">Submit ke KPPN</a></li>
                 </ul>
                 <% } else if (roleUser.equals("3")) {%>
                 <p><strong>Dokumen</strong></p> 
@@ -73,17 +74,17 @@
                 </ul>
                 <p><strong>Penerimaan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Notifikasi SPM</a></li>
-                    <li><a href="#">Tolak SPM</a></li>
+                    <li><a href="notifikasi_spm">Notifikasi SPM</a></li>
+                    <li><a href="tolak_spm">Tolak SPM</a></li>
                 </ul>  
                 <p><strong>Pencairan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Proses SP2D</a></li>
-                    <li><a href="#">Batal SP2D</a></li>
+                    <li><a href="proses_sp2d">Proses SP2D</a></li>
+                    <li><a href="batal_sp2d">Batal SP2D</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Cetak SP2D</a></li>	
+                    <li><a href="cetak_sp2d">Cetak SP2D</a></li>	
                 </ul>  
                 <% }%>
                 <p></p>
@@ -92,10 +93,10 @@
 
 
                 <!-- end .sidebar1 --></div>
-            <div class="logout"><a href="logout">[Log Out]</a>
+            <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
-                <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
                 <center><p ><h3>Rincian Kegiatan</h3></p>
                     <% Iterator<RincianKegiatan> iterator = listRincianKegiatan.iterator();%>
                     <form >
@@ -113,11 +114,11 @@
                                 <% while (iterator.hasNext()) {
                             rincianKegiatan = iterator.next();%>
                                 <tr>
-                                    <td><%=rincianKegiatan.getSatker()%></td>
-                                    <td><%=rincianKegiatan.getKegiatan()%></td>
-                                    <td><%=rincianKegiatan.getOutput()%></td>
-                                    <td><%=rincianKegiatan.getMataAnggaran()%></td>
-                                    <td><input  type="checkbox"  name="cek_rincianKegiatan" value="<%=rincianKegiatan.getId()%>"></input></td>
+                                    <td><%=rincianKegiatan.getSatker().getKodeSatker()%></td>
+                                    <td><%=rincianKegiatan.getKegiatan().getNmgiat()%></td>
+                                    <td><%=rincianKegiatan.getOutput().getNamaOutput()%></td>
+                                    <td><%=rincianKegiatan.getMataAnggaran().getKodeMataAnggaran()%></td>
+                                    <td><input  type="checkbox"  name="cek_rincian_kegiatan" value="<%=rincianKegiatan.getId()%>"></input></td>
                                 </tr>
                                 <%}%>
                             </tbody>

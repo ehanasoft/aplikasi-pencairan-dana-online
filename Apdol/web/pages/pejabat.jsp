@@ -90,7 +90,7 @@
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
                     <li><a href="cetak_sp2d">Cetak SP2D</a></li>	
-                </ul>   
+                </ul>  
                 <% }%>
                 <p></p>
                 <p></p>
@@ -106,7 +106,6 @@
 
                     <% Iterator<Pejabat> iterator = listPejabat.iterator();%>
                     <form >
-                        <p style="margin: 10px;"><BR>
                                 <table id="rounded-corner">
                                     <thead>
                                         <tr>

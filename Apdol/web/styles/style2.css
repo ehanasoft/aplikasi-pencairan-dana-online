@@ -122,7 +122,9 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
 	margin: 30px;
-	width: 480px;
+        width: 80%;
+        max-width: 640px;
+        min-width: 480px;
 	text-align: left;
 	border-collapse: collapse;
 }

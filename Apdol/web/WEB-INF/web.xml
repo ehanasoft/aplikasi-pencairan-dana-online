@@ -273,24 +273,28 @@
         <servlet-class>apdol.servlet.ProsesEditPejabatServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Rincian Kegiatan</servlet-name>
+        <servlet-name>RincianKegiatanServlet</servlet-name>
         <servlet-class>apdol.servlet.RincianKegiatanServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Proses Rekam Rincian Kegaitan</servlet-name>
+        <servlet-name>ProsesRekamRincianKegiatanServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesRekamRincianKegiatanServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Edit Rincian Kegiatan</servlet-name>
+        <servlet-name>EditRincianKegiatanServlet</servlet-name>
         <servlet-class>apdol.servlet.EditRincianKegiatanServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Proses Edit Rincian Kegiatan</servlet-name>
+        <servlet-name>ProsesEditRincianKegiatanServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesEditRincianKegiatanServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Proses Hapus Rincian Kegiatan</servlet-name>
+        <servlet-name>ProsesHapusRincianKegiatanServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesHapusRincianKegiatanServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DipaServlet</servlet-name>
+        <servlet-class>apdol.servlet.DipaServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
@@ -561,11 +565,11 @@
         <url-pattern>/proses_edit_pejabat</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Proses Rekam Rincian Kegaitan</servlet-name>
+        <servlet-name>ProsesRekamRincianKegiatanServlet</servlet-name>
         <url-pattern>/proses_rekam_rincian_kegiatan</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Rincian Kegiatan</servlet-name>
+        <servlet-name>RincianKegiatanServlet</servlet-name>
         <url-pattern>/rincian_kegiatan</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -573,16 +577,20 @@
         <url-pattern>/rekam_rincian_kegiatan</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Edit Rincian Kegiatan</servlet-name>
+        <servlet-name>EditRincianKegiatanServlet</servlet-name>
         <url-pattern>/edit_rincian_kegiatan</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Proses Edit Rincian Kegiatan</servlet-name>
+        <servlet-name>ProsesEditRincianKegiatanServlet</servlet-name>
         <url-pattern>/proses_edit_rincian_kegiatan</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Proses Hapus Rincian Kegiatan</servlet-name>
+        <servlet-name>ProsesHapusRincianKegiatanServlet</servlet-name>
         <url-pattern>/proses_hapus_rincian_kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DipaServlet</servlet-name>
+        <url-pattern>/dipa</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

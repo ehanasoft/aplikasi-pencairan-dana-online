@@ -102,9 +102,8 @@
             <div class="content">
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
                 <center><p ><h3>Program</h3></p>
-                <% Iterator<Program> iterator = listProgram.iterator();%>
-                <center><form >
-                    <p style="margin: 10px;"><BR>
+                    <% Iterator<Program> iterator = listProgram.iterator();%>
+                    <center><form >
                             <table id="rounded-corner">
                                 <thead>
                                     <tr>
@@ -115,7 +114,7 @@
                                 </thead>
                                 <tbody>
                                     <% while (iterator.hasNext()) {
-                            program = iterator.next();%>
+                                            program = iterator.next();%>
                                     <tr>
                                         <td><%=program.getKdprogram()%></td>
                                         <td><%=program.getNmprogram()%></td>
@@ -131,7 +130,7 @@
                                     <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_program" />
                                     <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_program" />
                                     </form></center>                                    
-            <!-- end .content --></div>
-        <!-- end .container --></div>
-    </body>
-</html>
+                                    <!-- end .content --></div>
+                                    <!-- end .container --></div>
+                                    </body>
+                                    </html>

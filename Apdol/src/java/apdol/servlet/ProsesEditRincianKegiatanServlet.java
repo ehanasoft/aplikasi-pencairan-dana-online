@@ -108,12 +108,13 @@ public class ProsesEditRincianKegiatanServlet extends HttpServlet {
                 rincianKegiatan.setKegiatan(kegiatan);
                 rincianKegiatan.setOutput(output);
                 rincianKegiatan.setMataAnggaran(mataAnggaran);
-                daftarRincianKegiatan.rekamRincianKegiatan(rincianKegiatan);
+                daftarRincianKegiatan.edit(rincianKegiatan);
                 jsp = "pages/rincian_kegiatan.jsp";
+                //response.sendRedirect("rincian_kegiatan");
             }
             List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
             Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
-            request.setAttribute("list_rincianKegiatan", listRincianKegiatan);
+            request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

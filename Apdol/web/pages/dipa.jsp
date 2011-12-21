@@ -34,7 +34,7 @@
                 </ul>
                 <p><strong>Referensi</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Satuan Kerja</a></li>
+                    <li><a href="satker">Satuan Kerja</a></li>
                     <li><a href="bank_pos">Bank Pos</a></li>
                     <li><a href="pejabat">Pejabat</a></li>
                     <li><a href="program">Program</a></li>
@@ -59,12 +59,13 @@
                 </ul>
                 <p><strong>Monitoring</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Realisasi</a></li>
+                    <li><a href="monitoring_spm">Monitoring SPM</a></li>
+                    <li><a href="realisasi">Realisasi</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Cetak SPM</a></li>	
-                    <li><a href="#">Submit ke KPPN</a></li>
+                    <li><a href="cetak_spm">Cetak SPM</a></li>	
+                    <li><a href="submit_spm">Submit ke KPPN</a></li>
                 </ul>
                 <% } else if (roleUser.equals("3")) {%>
                 <p><strong>Dokumen</strong></p> 
@@ -73,17 +74,17 @@
                 </ul>
                 <p><strong>Penerimaan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Notifikasi SPM</a></li>
-                    <li><a href="#">Tolak SPM</a></li>
+                    <li><a href="notifikasi_spm">Notifikasi SPM</a></li>
+                    <li><a href="tolak_spm">Tolak SPM</a></li>
                 </ul>  
                 <p><strong>Pencairan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Proses SP2D</a></li>
-                    <li><a href="#">Batal SP2D</a></li>
+                    <li><a href="proses_sp2d">Proses SP2D</a></li>
+                    <li><a href="batal_sp2d">Batal SP2D</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Cetak SP2D</a></li>	
+                    <li><a href="cetak_sp2d">Cetak SP2D</a></li>	
                 </ul>  
                 <% }%>
                 <p></p>
@@ -92,10 +93,10 @@
 
 
                 <!-- end .sidebar1 --></div>
-            <div class="logout"><a href="logout">[Log Out]</a>
+            <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
-                <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
                 <center><p ><h3>Dipa</h3></p>
                     <% Iterator<Dipa> iterator = listDipa.iterator();%>
                     <form >
@@ -106,15 +107,15 @@
                                     <th scope="col" class="rounded-q1">Kegiatan</th>
                                     <th scope="col" class="rounded-q2">Output</th>
                                     <th scope="col" class="rounded-q3">Mata Anggaran</th>
-                                    <th scope="col" class="rounded-q4">Pagu</th>
-                                    <th scope="col" class="rounded-q5">Realisasi</th>
-                                    <th scope="col" class="rounded-q6">Sisa Dana</th>
-                                    <th scope="col" class="rounded-q7">Cek</th>
+                                    <th scope="col" class="rounded-q3">Pagu</th>
+                                    <th scope="col" class="rounded-q3">Realisasi</th>
+                                    <th scope="col" class="rounded-q3">Sisa Dana</th>
+                                    <th scope="col" class="rounded-q4">Cek</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <% while (iterator.hasNext()) {
-                            dipa = iterator.next();%>
+                                        dipa = iterator.next();%>
                                 <tr>
                                     <td><%=dipa.getNomorDipa()%></td>
                                     <td><%=dipa.getKegiatan()%></td>

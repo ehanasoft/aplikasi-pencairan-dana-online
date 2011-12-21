@@ -64,12 +64,13 @@
                 </ul>
                 <p><strong>Monitoring</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Realisasi</a></li>
+                    <li><a href="monitoring_spm">Monitoring SPM</a></li>
+                    <li><a href="realisasi">Realisasi</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Cetak SPM</a></li>	
-                    <li><a href="#">Submit ke KPPN</a></li>
+                    <li><a href="cetak_spm">Cetak SPM</a></li>	
+                    <li><a href="submit_spm">Submit ke KPPN</a></li>
                 </ul>
                 <% } else if (roleUser.equals("3")) {%>
                 <p><strong>Dokumen</strong></p> 
@@ -78,22 +79,22 @@
                 </ul>
                 <p><strong>Penerimaan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Notifikasi SPM</a></li>
-                    <li><a href="#">Tolak SPM</a></li>
+                    <li><a href="notifikasi_spm">Notifikasi SPM</a></li>
+                    <li><a href="tolak_spm">Tolak SPM</a></li>
                 </ul>  
                 <p><strong>Pencairan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Proses SP2D</a></li>
-                    <li><a href="#">Batal SP2D</a></li>
+                    <li><a href="proses_sp2d">Proses SP2D</a></li>
+                    <li><a href="batal_sp2d">Batal SP2D</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="#">Cetak SP2D</a></li>	
+                    <li><a href="cetak_sp2d">Cetak SP2D</a></li>	
                 </ul>  
                 <% }%>
                 <p></p>
                 <p></p>
-                <p></p>
+                <p></p>>
 
 
                 <!-- end .sidebar1 --></div>
@@ -101,58 +102,56 @@
                 <!-- end .logout --></div>
             <div class="content">
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
-                <center><p ><h3>BankPos</h3></p>
-                <% Iterator<BankPos> iterator = listBankPos.iterator();%>
-                <center><form >
-                    <p style="margin: 10px;"><BR>
-                            <table id="rounded-corner">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="rounded-company">Kode Bank Pos</th>
-                                        <th scope="col" class="rounded-q1">Nama Bank Pos</th>
-                                        <th scope="col" class="rounded-q4">Cek</th>                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% while (iterator.hasNext()) {
-                            bankpos = iterator.next();%>
-                                    <tr>
-                                        <td><%=bankpos.getKdbankpos()%></td>
-                                        <td><%=bankpos.getNmbankpos()%></td>
-                                        <td><input  type="checkbox"  name="cek_bankpos" value="<%=bankpos.getId()%>"></td>                                        
-                                    </tr>
-                                    <%}%>
-                                </tbody>
-                            </table>
-                            <span style="margin: 10px;">
-                            </span>
-                            <p style="margin: 10px;"><BR>
-                                    <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_bank_pos" />
-                                    <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_bank_pos" />
-                                    <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_bank_pos" />
-                                    </form></center>                                    
-            <!-- end .content --></div>
-        <!-- end .container --></div>
-    </body>
-</html>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
+                <center><p ><h3>Bank Pos</h3></p>
+                    <% Iterator<BankPos> iterator = listBankPos.iterator();%>
+                    <form >
+                        <table id="rounded-corner">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="rounded-company">Kode Bank Pos</th>
+                                    <th scope="col" class="rounded-q1">Nama Bank Pos</th>
+                                    <th scope="col" class="rounded-q4">Cek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% while (iterator.hasNext()) {
+                                        bankpos = iterator.next();%>
+                                <tr>
+                                    <td><%=bankpos.getKdbankpos()%></td>
+                                    <td><%=bankpos.getNmbankpos()%></td>
+                                    <td><input  type="checkbox"  name="cek_bankpos" value="<%=bankpos.getId()%>"></td>
+                                </tr>
+                                <%}%>
+                            </tbody>
+                        </table>
+                        <span style="margin: 10px;">
+                        </span>
+                        <p style="margin: 10px;"><BR>
+                                <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_bank_pos" />
+                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_bank_pos" />
+                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_bank_pos" />
+                                </form></center>
+                                <!-- end .content --></div>
+                                <!-- end .container --></div>
+                                </body>
+                                </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
