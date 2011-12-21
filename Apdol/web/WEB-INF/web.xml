@@ -280,6 +280,18 @@
         <servlet-name>Proses Rekam Rincian Kegaitan</servlet-name>
         <servlet-class>apdol.servlet.ProsesRekamRincianKegiatanServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Edit Rincian Kegiatan</servlet-name>
+        <servlet-class>apdol.servlet.EditRincianKegiatanServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses Edit Rincian Kegiatan</servlet-name>
+        <servlet-class>apdol.servlet.ProsesEditRincianKegiatanServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses Hapus Rincian Kegiatan</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusRincianKegiatanServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -559,6 +571,18 @@
     <servlet-mapping>
         <servlet-name>Rekam Rincian Kegiatan</servlet-name>
         <url-pattern>/rekam_rincian_kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Edit Rincian Kegiatan</servlet-name>
+        <url-pattern>/edit_rincian_kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Edit Rincian Kegiatan</servlet-name>
+        <url-pattern>/proses_edit_rincian_kegiatan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Hapus Rincian Kegiatan</servlet-name>
+        <url-pattern>/proses_hapus_rincian_kegiatan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
