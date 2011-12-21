@@ -69,7 +69,7 @@ public class ProsesHapusRincianKegiatanServlet extends HttpServlet {
 
                 if (j == JOptionPane.YES_OPTION) {
                     for (int i = 0; i < cekRincianKegiatan.length; i++) {
-                        long idRincianKegiatan = Long.parseLong(cekRincianKegiatan[i]);
+                        long idrincianKegiatan = Long.parseLong(cekRincianKegiatan[i]);
                         RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(idrincianKegiatan);
                         daftarRincianKegiatan.destroy(idrincianKegiatan);
                     }
