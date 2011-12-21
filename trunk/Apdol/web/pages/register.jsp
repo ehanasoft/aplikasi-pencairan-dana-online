@@ -97,10 +97,10 @@
 
 
                 <!-- end .sidebar1 --></div>
-            <div class="logout"><a href="logout">[Log Out]</a>
+            <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
-                <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
                 <center><p ><h3>Register</h3></p>
                     <% Iterator<User> iterator = listUser.iterator();%>
                     <form >
@@ -112,7 +112,6 @@
                                     <th scope="col" class="rounded-q2">Nama</th>
                                     <th scope="col" class="rounded-q3">Kode Satker</th>
                                     <th scope="col" class="rounded-q3">Jabatan</th>
-                                    <th scope="col" class="rounded-q5">Role User</th>
                                     <th scope="col" class="rounded-q4">Cek</th>
                                 </tr>
                             </thead>
@@ -125,7 +124,6 @@
                                     <td><%=user.getNama()%></td>
                                     <td><%=user.getKodeSatker()%></td>
                                     <td><%=user.getJabatan()%></td>
-                                    <td><%=user.getRoleuser()%></td>
                                     <td><input  type="checkbox"  name="cek_user" value="<%=user.getId()%>"></td>
                                 </tr>
                                 <%}%>
