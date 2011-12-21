@@ -22,10 +22,32 @@ import javax.persistence.Query;
 public class DaftarUser {
 
     public DaftarUser() {
-        emf = Persistence.createEntityManagerFactory("ApdolPU"); 
+        emf = Persistence.createEntityManagerFactory("ApdolPU");
     }
-
     private EntityManagerFactory emf = null;
+
+    //add default admin user
+    public void addAdmin() {
+        DaftarUser d = new DaftarUser ();
+        User user = new User();
+        user.setUsername("admin");
+        user.setRoleuser("1");
+        user.setPassword("admin");
+        user.setJabatan("administrator");
+        user.setKodeSatker("null");
+        user.setNama("administrator");
+        
+        List<User> l = d.getUser();
+        Iterator<User> i = l.iterator();
+        User u = new User ();
+        while (i.hasNext()) {
+                u = i.next();
+                if (!u.getUsername().equalsIgnoreCase(user.getUsername()))
+                    d.rekamUser(user);
+        }
+        d.rekamUser(user);
+        user = null;
+    }
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -70,7 +92,7 @@ public class DaftarUser {
         }
         return result;
     }
-    
+
     public void rekamUser(User user) {
         EntityManager em = null;
         try {
@@ -84,7 +106,7 @@ public class DaftarUser {
             }
         }
     }
-    
+
     public void updateUser(User user) {
         EntityManager em = getEntityManager();
         try {
@@ -95,7 +117,7 @@ public class DaftarUser {
             em.close();
         }
     }
-    
+
     public void deleteUser(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -142,6 +164,7 @@ public class DaftarUser {
             em.close();
         }
     }
+
     public boolean isUsernameExist(String kode) {
         DaftarUser daftarUser = new DaftarUser();
         List<User> listUser = daftarUser.getUser();
@@ -153,9 +176,10 @@ public class DaftarUser {
             if (kode.equalsIgnoreCase(tes.getUsername())) {
                 return true;
             }
-        } return false;
+        }
+        return false;
     }
-    
+
     public boolean isPasswordExist(String nama) {
         DaftarUser daftarUser = new DaftarUser();
         List<User> listUser = daftarUser.getUser();
@@ -167,11 +191,12 @@ public class DaftarUser {
             if (nama.equalsIgnoreCase(tes.getPassword())) {
                 return true;
             }
-        } return false;
+        }
+        return false;
     }
 
     public void edit(User user) {
-       EntityManager em = null;
+        EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
@@ -201,7 +226,6 @@ public class DaftarUser {
             if (em != null) {
                 em.close();
             }
-          }
+        }
     }
 }
-    

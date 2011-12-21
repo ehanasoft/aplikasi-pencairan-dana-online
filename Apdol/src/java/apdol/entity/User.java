@@ -57,8 +57,6 @@ public class User implements Serializable {
     private String roleuser;
     @Column(name = "kodesatker")
     private String kodesatker;
-
-    
     
 
     public User() {
