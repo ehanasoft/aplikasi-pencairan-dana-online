@@ -104,7 +104,7 @@ public class ProsesRekamRincianKegiatanServlet extends HttpServlet {
 
             List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
             Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
-            request.setAttribute("list_rincianKegiatan", listRincianKegiatan);
+            request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

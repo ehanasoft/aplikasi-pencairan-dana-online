@@ -56,13 +56,13 @@ public class ProsesHapusRincianKegiatanServlet extends HttpServlet {
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
             Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
-            String cekRincianKegiatan[] = request.getParameterValues("cek_rincian_regiatan");
+            String cekRincianKegiatan[] = request.getParameterValues("cek_rincian_kegiatan");
             String jsp = "";
 
             if (cekRincianKegiatan == null) {
                 JOptionPane.showMessageDialog(null, "Rincian Kegiatan tidak ada yang dipilih");
-                request.setAttribute("list_rincian_regiatan", listRincianKegiatan);
-                jsp = "pages/rincian_regiatan.jsp";
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                jsp = "pages/rincian_kegiatan.jsp";
             } else {
                 int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
                         JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
@@ -76,8 +76,8 @@ public class ProsesHapusRincianKegiatanServlet extends HttpServlet {
                 }
                 listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
-                request.setAttribute("list_rincian_regiatan", listRincianKegiatan);
-                jsp = "pages/rincian_regiatan.jsp";
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                jsp = "pages/rincian_kegiatan.jsp";
             }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
