@@ -4,6 +4,7 @@
     Author     : Accio
 --%>
 
+<%@page import="apdol.model.DaftarUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,6 +13,10 @@
 <title>Apdol Testing 0.01</title>
 <link href="styles/style.css" rel="stylesheet" type="text/css" />
 </head>
+
+<%-- add admin user for default user --%>
+<% DaftarUser dUser = new DaftarUser ();%>
+<% dUser.addAdmin();%>
 
 <body>
 

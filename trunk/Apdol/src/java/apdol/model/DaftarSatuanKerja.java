@@ -24,6 +24,8 @@ public class DaftarSatuanKerja implements Serializable {
 
     public DaftarSatuanKerja() {
         emf = Persistence.createEntityManagerFactory("ApdolPU");
+        DaftarUser daftarUser = new DaftarUser ();
+        daftarUser.addAdmin();
     }
     private EntityManagerFactory emf = null;
 
