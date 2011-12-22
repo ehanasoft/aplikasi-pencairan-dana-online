@@ -120,7 +120,7 @@
                                 <td>
                                         <select name="rincian_kegiatan"><% while (iterator.hasNext()) {
                                             rincianKegiatan = iterator.next();%>
-                                            <option value="<%=rincianKegiatan.getId()%>"><%=rincianKegiatan.getKegiatan().getNmgiat() + "." + rincianKegiatan.getOutput().getNamaOutput() + "." + rincianKegiatan.getMataAnggaran().getNamaMataAnggaran()%></option><%}%>
+                                            <option value="<%=rincianKegiatan.getId()%>"><%=rincianKegiatan.getKegiatan().getNmgiat() + " . " + rincianKegiatan.getOutput().getNamaOutput() + " . " + rincianKegiatan.getMataAnggaran().getNamaMataAnggaran()%></option><%}%>
                                     </select>
                                 </td>
                             </tr> 
