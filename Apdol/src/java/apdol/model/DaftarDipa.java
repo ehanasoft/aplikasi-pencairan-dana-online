@@ -112,12 +112,25 @@ public class DaftarDipa {
 
         while (iterator.hasNext()) {
             tes = iterator.next();
-            if (tes.getKegiatan().equals(other.getKegiatan())
-                    && tes.getMataAnggaran().equals(other.getMataAnggaran())
-                    && tes.getOutput().equals(other.getOutput())) {
+            if (tes.getRincianKegiatan().equals(other.getRincianKegiatan()))                    
+            {
                 return true;
             }
         }
         return false;
     }
+    public boolean isNomorExist(String nomorDipa) {
+        DaftarDipa daftarDipa = new DaftarDipa();
+        List<Dipa> listDipa = daftarDipa.getDipa();
+        Iterator<Dipa> iterator = listDipa.iterator();
+        Dipa tes = new Dipa();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (nomorDipa.equalsIgnoreCase(tes.getNomorDipa())) {
+                return true;
+            }
+        } return false;
+    }
+
 }

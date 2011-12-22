@@ -1,3 +1,4 @@
+<%@page import="apdol.entity.RincianKegiatan"%>
 <%@page import="apdol.entity.Output"%>
 <%@page import="java.util.List"%>
 <%@page import="apdol.entity.Kegiatan"%>
@@ -10,19 +11,9 @@
 <%@page import="apdol.entity.Dipa"%>
 <%@page import="javax.swing.JOptionPane"%>
 
-<%DaftarKegiatan daftarKegiatan = new DaftarKegiatan ();%>
-<%DaftarOutput daftarOutput = new DaftarOutput ();%>
-<%DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran ();%>
-
-<%List<Kegiatan> lKeg = daftarKegiatan.getKegiatan();%>
-<%List<Output> lOut = daftarOutput.getOutput();%>
-<%List<MataAnggaran> lMa = daftarMataAnggaran.getMataAnggaran();%>
-
-<%Iterator<Kegiatan> iKegiatan = lKeg.iterator();%>
-<%Iterator<Output> iOutput = lOut.iterator();%>
-<%Iterator<MataAnggaran> iMataAnggaran = lMa.iterator();%>
-
-<%Kegiatan kegiatan=null; Output output=null; MataAnggaran mataAnggaran=null; %>
+<% List<RincianKegiatan> listRincianKegiatan = (List<RincianKegiatan>) request.getAttribute("list_rincian_kegiatan");%>
+<% RincianKegiatan rincianKegiatan;%>
+<% Iterator<RincianKegiatan> iterator = listRincianKegiatan.iterator();%> 
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -125,43 +116,30 @@
                                 <td><input type="text" name="nama_kota2" style="width: 200px" /></td>
                             </tr>
                             <tr>
-                                <td>Kegiatan</td>
-                                <td><label for="kegiatan"></label>
-                                    <select name="kegiatan" id="kegiatan">
-                                        <% while (iKegiatan.hasNext()) kegiatan = iKegiatan.next();%>
-                                        <option> <%=kegiatan.getNmgiat()%></option>
-                                    </select>
-                                </select></td>
-                            </tr>
-                            <tr>
-                              <td>Output</td>
-                              <td><select name="output" id="output">
-                              </select></td>
-                            </tr>
-                        </table>
-                      <table width="400px">
-                          <tr>
-                            <td width="150">Mata Anggaran</td>
-                            <td width="238"><select name="mata_anggaran" id="mata_anggaran">
-                            </select></td>
-                          </tr>
+                            <td>Rincian Kegiatan</td>
+                            <td>
+                                    <select name="rincian kegiatan"><% while (iterator.hasNext()) {
+                                               rincianKegiatan = iterator.next();%><option value="<%=rincianKegiatan.getId()%>"><%=rincianKegiatan.getId() + " " + rincianKegiatan.getKegiatan() + " " + rincianKegiatan.getOutput() + " " + rincianKegiatan.getMataAnggaran()%></option><%}%>
+                                </select>
+                            </td>
+                            </tr> 
                       </table>
                       <table width="400px">
           <tr>
                           <td width="150">Pagu</td>
-                          <td width="238"><input type="text" name="nama_propinsi3" style="width: 200px" /></td>
+                          <td width="238"><input type="text" name="pagu" style="width: 200px" /></td>
           </tr>
                       </table>
                       <table width="400px">
                         <tr>
                           <td width="150">Realisasi</td>
-                          <td width="238"><input type="text" name="nama_propinsi4" style="width: 200px" /></td>
+                          <td width="238"><input type="text" name="realisasi" style="width: 200px" /></td>
                         </tr>
                       </table>
                       <table width="400px">
                         <tr>
                           <td width="150">Sisa Dana</td>
-                          <td width="238"><input type="text" name="nama_propinsi5" style="width: 200px" /></td>
+                          <td width="238"><input type="text" name="sisa_dana" style="width: 200px" /></td>
                         </tr>
                       </table>
                       <p>&nbsp;</p>
