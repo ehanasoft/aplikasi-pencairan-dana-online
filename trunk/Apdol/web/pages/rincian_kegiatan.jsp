@@ -30,7 +30,7 @@
                 <% if (roleUser.equals("1")) {%>
                 <p><strong>Dokumen</strong></p> 
                 <ul class="nav">
-                    <li><a href="rincian_kegiatan">DIPA</a></li>
+                    <li><a href="dipa">DIPA</a></li>
                 </ul>
                 <p><strong>Referensi</strong></p> 
                 <ul class="nav">

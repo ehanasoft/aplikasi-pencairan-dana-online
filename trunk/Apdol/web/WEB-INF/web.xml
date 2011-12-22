@@ -296,6 +296,14 @@
         <servlet-name>DipaServlet</servlet-name>
         <servlet-class>apdol.servlet.DipaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Rekam Dipa</servlet-name>
+        <servlet-class>apdol.servlet.RekamDipaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses Rekam Dipa</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamDipaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -591,6 +599,14 @@
     <servlet-mapping>
         <servlet-name>DipaServlet</servlet-name>
         <url-pattern>/dipa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Rekam Dipa</servlet-name>
+        <url-pattern>/rekam_dipa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Rekam Dipa</servlet-name>
+        <url-pattern>/proses_rekam_dipa</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
