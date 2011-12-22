@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +25,7 @@ import javax.swing.JOptionPane;
  *
  * @author AlfieSaHid
  */
+@WebServlet(name = "ProsesRekamPejabatServlet", urlPatterns = {"/proses_rekam_pejabat"})
 public class ProsesRekamPejabatServlet extends HttpServlet {
 
     /** 
@@ -63,26 +65,22 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
             SatuanKerja satker = new SatuanKerja();
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
             List<SatuanKerja> listSatker = daftarSatker.findSatkerByKode(kodeSatker);
-            if(listSatker.isEmpty()){
-            satker = null;
-            } else {
-                satker = listSatker.get(0);
-            }
+            satker = listSatker.get(0);
 
             //validate blank field
-            if (nip == "") {
+            if ("".equals(nip)) {
                 JOptionPane.showMessageDialog(null, "NIP tidak boleh kosong !", 
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_pejabat.jsp";
-            } else if (nama == "") {
+            } else if ("".equals(nama)) {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_pejabat.jsp";            
-            } else if (nmjabatan == "") {
+            } else if ("".equals(nmjabatan)) {
                 JOptionPane.showMessageDialog(null, "Jabatan tidak boleh kosong !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_pejabat.jsp";
-            } else if (ketjabatan == "") {
+            } else if ("".equals(ketjabatan)) {
                 JOptionPane.showMessageDialog(null, "Keterangan jabatan tidak boleh kosong !",
                         "Kesalahan!",JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_pejabat.jsp";
@@ -126,12 +124,12 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
                 pejabat.setKetjabatan(ketjabatan);
                 pejabat.setSatker(satker);
                 daftarPejabat.rekamPejabat(pejabat);
+                List<Pejabat> listPejabat = daftarPejabat.getPejabat();
+                Collections.sort(listPejabat, new PejabatComparator());
+                request.setAttribute("list_pejabat", listPejabat);
                 jsp = "pages/pejabat.jsp";
             }
-
-            List<Pejabat> listPejabat = daftarPejabat.getPejabat();
-            Collections.sort(listPejabat, new PejabatComparator());
-            request.setAttribute("list_pejabat", listPejabat);
+            request.setAttribute("list_satker", listSatker);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
