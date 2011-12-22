@@ -6,14 +6,15 @@ package apdol.servlet;
 
 import apdol.comparator.DipaComparator;
 import apdol.entity.Dipa;
+import apdol.entity.RincianKegiatan;
 import apdol.model.DaftarDipa;
+import apdol.model.DaftarRincianKegiatan;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,10 +22,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Hari RZ
+ * @author wahid
  */
-@WebServlet(name = "DipaServlet", urlPatterns = {"/dipa"})
-public class DipaServlet extends HttpServlet {
+public class EditDipaServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -38,15 +38,46 @@ public class DipaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            /* TODO output your page here
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet EditDipaServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet EditDipaServlet at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+             */
+            DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
+            List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+            request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+            
+            
             DaftarDipa daftarDipa = new DaftarDipa();
+            Dipa rincianKegiatanDipa = new Dipa();
             List<Dipa> listDipa = daftarDipa.getDipa();
             Collections.sort(listDipa, new DipaComparator());
             request.setAttribute("list_dipa", listDipa);
+            String jsp = "";
+            String cekDipa[] = request.getParameterValues("cek_dipa");
 
-            String jsp = "pages/dipa.jsp";
+            if (cekDipa == null) {
+                JOptionPane.showMessageDialog(null, "Dipa tidak ada yang dipilih");
+                jsp = "pages/dipa.jsp";
+            } else if (cekDipa.length > 1) {
+                JOptionPane.showMessageDialog(null, "Edit salah satu Dipa saja !");
+                jsp = "pages/dipa.jsp";
+            } else {
+                Long idDipa = Long.parseLong(cekDipa[0]);
+                Dipa dipa = daftarDipa.findDipa(idDipa);
+                request.setAttribute("dipa_edit", dipa);
+                request.setAttribute("rincianKegiatanDipa", rincianKegiatanDipa.getRincianKegiatan());
+                jsp = "/pages/edit_dipa.jsp";
+            }
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {
+        } finally {            
             out.close();
         }
     }

@@ -116,7 +116,7 @@
                                         dipa = iterator.next();%>
                                 <tr>
                                     <td><%=dipa.getNomorDipa()%></td>
-                                    <td><%=dipa.getRincianKegiatan().getSatker().getNamaSatker()+ "." +dipa.getRincianKegiatan().getKegiatan().getNmgiat()+ "." +dipa.getRincianKegiatan().getOutput().getNamaOutput()%></td>
+                                    <td><%=dipa.getRincianKegiatan().getSatker().getNamaSatker()+ "." +dipa.getRincianKegiatan().getKegiatan().getNmgiat()+ "." +dipa.getRincianKegiatan().getOutput().getNamaOutput()+ "." +dipa.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
                                     <td><%=dipa.getPagu()%></td>
                                     <td><%=dipa.getRealisasi()%></td>
                                     <td><%=dipa.getSisaDana()%></td>

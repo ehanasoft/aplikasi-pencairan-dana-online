@@ -15,7 +15,6 @@ import java.util.Collections;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,10 +22,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Hari RZ
+ * @author wahid
  */
-@WebServlet(name = "ProsesRekamDipaServlet", urlPatterns = {"/ProsesRekamDipaServlet"})
-public class ProsesRekamDipaServlet extends HttpServlet {
+public class ProsesEditDipaServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -40,9 +38,18 @@ public class ProsesRekamDipaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-
-            Dipa dipa = new Dipa();
+            /* TODO output your page here
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ProsesEditDipaServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ProsesEditDipaServlet at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+             */
             DaftarDipa daftarDipa = new DaftarDipa();
+
             String jsp = "";
 
             String nomorDipa = request.getParameter("nomor_dipa");
@@ -50,27 +57,41 @@ public class ProsesRekamDipaServlet extends HttpServlet {
             String realisasi = request.getParameter("realisasi");
             String sisaDana = request.getParameter("sisa_dana");
             String rincianKegiatanId = request.getParameter("rincian_kegiatan");
-            Long longId = Long.parseLong(rincianKegiatanId);
+	    Long longId = Long.parseLong(rincianKegiatanId);
+
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(longId);
             
+            String idDipa = request.getParameter("id_edit_dipa");
+            Long longIdDipa = Long.parseLong(idDipa);
+            Dipa dipa = daftarDipa.findDipa(longIdDipa);
+
             //validate blank field
-            if (nomorDipa == "") {
-                JOptionPane.showMessageDialog(null, "Nomor Dipa tidak boleh kosong !");
-                jsp = "pages/rekam_dipa.jsp";
-            } else if (pagu == "") {
-                JOptionPane.showMessageDialog(null, "Pagu tidak boleh kosong !");
-                jsp = "pages/rekam_dipa.jsp";
-            } else if (realisasi == "") {
-                JOptionPane.showMessageDialog(null, "Realisasi tidak boleh kosong !");
-                jsp = "pages/rekam_dipa.jsp";
-            } else if (sisaDana == "") {
-                JOptionPane.showMessageDialog(null, "Sisa Dana tidak boleh kosong !");
-                jsp = "pages/rekam_dipa.jsp";    
-            } //validate record on database
-            else if (daftarDipa.isNomorExist(nomorDipa)) {
-                JOptionPane.showMessageDialog(null, "Nomor Dipa sudah ada dalam database !");
-                jsp = "pages/rekam_dipa.jsp";
+            if ("".equals(nomorDipa)) {
+                JOptionPane.showMessageDialog(null, "Nomor Dipa tidak boleh kosong !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                request.setAttribute("dipa_edit", dipa);
+                jsp = "pages/edit_dipa.jsp";
+            } else if ("".equals(pagu)) {
+                JOptionPane.showMessageDialog(null, "Pagu tidak boleh kosong !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                request.setAttribute("dipa_edit", dipa);
+                jsp = "pages/edit_dipa.jsp";
+            } else if ("".equals(realisasi)) {
+                JOptionPane.showMessageDialog(null, "Realisasi tidak boleh kosong !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                request.setAttribute("dipa_edit", dipa);
+                jsp = "pages/edit_dipa.jsp";
+            } else if ("".equals(sisaDana)) {
+                JOptionPane.showMessageDialog(null, "Sisa Dana tidak boleh kosong !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                request.setAttribute("dipa_edit", dipa);
+                jsp = "pages/edit_dipa.jsp";
+            } else if ("".equals(rincianKegiatanId)) {
+                JOptionPane.showMessageDialog(null, "Rincian Kegiatan tidak boleh kosong !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                request.setAttribute("dipa_edit", dipa);
+                jsp = "pages/edit_dipa.jsp";                     
             } else {
                 dipa.setNomorDipa(nomorDipa);
                 dipa.setPagu(pagu);
@@ -79,32 +100,32 @@ public class ProsesRekamDipaServlet extends HttpServlet {
                 dipa.setRincianKegiatan(rincianKegiatan);
                 daftarDipa.rekamDipa(dipa);
                 jsp = "pages/dipa.jsp";
+                List<Dipa> listDipa = daftarDipa.getDipa();
+                Collections.sort(listDipa, new DipaComparator());
+                request.setAttribute("list_dipa", listDipa);
             }
-
-            List<Dipa> listDipa = daftarDipa.getDipa();
-            Collections.sort(listDipa, new DipaComparator());
-            request.setAttribute("list_dipa", listDipa);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
-    public boolean valNumber(String kode) {
+
+    //validate number
+    public boolean valNumber(String nomorDipa) {
+        int j;
         try {
-            int i = Integer.parseInt(kode);
-            //validate minus input
-            if (i >= 0) {
-                return true;
+            for (int i = 0; i < nomorDipa.length(); i++) {
+                String c = nomorDipa.substring(i, i + 1);
+                j = Integer.parseInt(c);
             }
-            return false;
+            return true;
         } catch (Exception e) {
             return false;
         }
     }
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.
      * @param request servlet request
@@ -129,7 +150,6 @@ public class ProsesRekamDipaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
     }
 
     /** 
