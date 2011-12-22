@@ -11,9 +11,9 @@
 <%@page import="apdol.entity.Dipa"%>
 <%@page import="javax.swing.JOptionPane"%>
 
-<% List<RincianKegiatan> listRincianKegiatan = (List<RincianKegiatan>) request.getAttribute("list_rincian_kegiatan");%>
-<% RincianKegiatan rincianKegiatan;%>
-<% Iterator<RincianKegiatan> iterator = listRincianKegiatan.iterator();%> 
+<% List<RincianKegiatan> listRincianKegiatan = (List<RincianKegiatan>) request.getAttribute("list_rincian_kegiatan");
+    RincianKegiatan rincianKegiatan;
+    Iterator<RincianKegiatan> iterator = listRincianKegiatan.iterator();%>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -31,9 +31,9 @@
         ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
         </style>
         <![endif]-->
-</head>
+    </head>
 
-<body>
+    <body>
         <center><div class="header"><img src="images/sederhana.jpg" /></div></center>
 
         <div class="container">
@@ -108,44 +108,45 @@
             <div class="content">
                 <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
                 <center><p>
-                <h3> Rekam DIPA</h3></p>
+                        <h3> Rekam DIPA</h3></p>
                     <form name="form_rekam_dipa" action="proses_rekam_dipa" method="post" >
                         <table width="400px">
                             <tr>
                                 <td width="150">Nomor DIPA</td>
-                                <td><input type="text" name="nama_kota2" style="width: 200px" /></td>
+                                <td><input type="text" name="nomor_dipa" style="width: 200px" /></td>
                             </tr>
                             <tr>
-                            <td>Rincian Kegiatan</td>
-                            <td>
-                                    <select name="rincian kegiatan"><% while (iterator.hasNext()) {
-                                               rincianKegiatan = iterator.next();%><option value="<%=rincianKegiatan.getId()%>"><%=rincianKegiatan.getId() + " " + rincianKegiatan.getKegiatan() + " " + rincianKegiatan.getOutput() + " " + rincianKegiatan.getMataAnggaran()%></option><%}%>
-                                </select>
-                            </td>
+                                <td>Rincian Kegiatan</td>
+                                <td>
+                                        <select name="rincian_kegiatan"><% while (iterator.hasNext()) {
+                                            rincianKegiatan = iterator.next();%>
+                                            <option value="<%=rincianKegiatan.getId()%>"><%=rincianKegiatan.getKegiatan().getNmgiat() + "." + rincianKegiatan.getOutput().getNamaOutput() + "." + rincianKegiatan.getMataAnggaran().getNamaMataAnggaran()%></option><%}%>
+                                    </select>
+                                </td>
                             </tr> 
-                      </table>
-                      <table width="400px">
-          <tr>
-                          <td width="150">Pagu</td>
-                          <td width="238"><input type="text" name="pagu" style="width: 200px" /></td>
-          </tr>
-                      </table>
-                      <table width="400px">
-                        <tr>
-                          <td width="150">Realisasi</td>
-                          <td width="238"><input type="text" name="realisasi" style="width: 200px" /></td>
-                        </tr>
-                      </table>
-                      <table width="400px">
-                        <tr>
-                          <td width="150">Sisa Dana</td>
-                          <td width="238"><input type="text" name="sisa_dana" style="width: 200px" /></td>
-                        </tr>
-                      </table>
-                      <p>&nbsp;</p>
-                      <h5>&nbsp;</h5>
-                      <table width="400px">
-<tr>
+                        </table>
+                        <table width="400px">
+                            <tr>
+                                <td width="150">Pagu</td>
+                                <td width="238"><input type="text" name="pagu" style="width: 200px" /></td>
+                            </tr>
+                        </table>
+                        <table width="400px">
+                            <tr>
+                                <td width="150">Realisasi</td>
+                                <td width="238"><input type="text" name="realisasi" style="width: 200px" /></td>
+                            </tr>
+                        </table>
+                        <table width="400px">
+                            <tr>
+                                <td width="150">Sisa Dana</td>
+                                <td width="238"><input type="text" name="sisa_dana" style="width: 200px" /></td>
+                            </tr>
+                        </table>
+                        <p>&nbsp;</p>
+                        <h5>&nbsp;</h5>
+                        <table width="400px">
+                            <tr>
                                 <td align="center"><a href="javascript:document.form_rekam_dipa.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
                             </tr>
                         </table>

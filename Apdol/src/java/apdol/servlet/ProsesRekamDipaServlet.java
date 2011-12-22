@@ -50,6 +50,11 @@ public class ProsesRekamDipaServlet extends HttpServlet {
             String pagu = request.getParameter("pagu");
             String realisasi = request.getParameter("realisasi");
             String sisaDana = request.getParameter("sisa_dana");
+            String rincianKegiatanId = request.getParameter("rincian_kegiatan");
+            JOptionPane.showMessageDialog(null, "hai");
+            Long longId = Long.parseLong(rincianKegiatanId);
+            DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
+            RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(longId);
             
 
             //validate blank field
@@ -74,6 +79,7 @@ public class ProsesRekamDipaServlet extends HttpServlet {
                 dipa.setPagu(pagu);
                 dipa.setRealisasi(realisasi);
                 dipa.setSisaDana(sisaDana);
+                dipa.setRincianKegiatan(rincianKegiatan);
                 daftarDipa.rekamDipa(dipa);
                 jsp = "pages/dipa.jsp";
             }

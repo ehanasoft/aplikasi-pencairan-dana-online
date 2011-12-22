@@ -116,11 +116,11 @@
                                         dipa = iterator.next();%>
                                 <tr>
                                     <td><%=dipa.getNomorDipa()%></td>
-                                    <td><%=dipa.getRincianKegiatan()%></td>
+                                    <td><%=dipa.getRincianKegiatan().getSatker().getNamaSatker()+ "." +dipa.getRincianKegiatan().getKegiatan().getNmgiat()+ "." +dipa.getRincianKegiatan().getOutput().getNamaOutput()%></td>
                                     <td><%=dipa.getPagu()%></td>
                                     <td><%=dipa.getRealisasi()%></td>
                                     <td><%=dipa.getSisaDana()%></td>
-                                    <td><input  type="checkbox"  name="cek_dipa" value="<%=dipa.getId()%>"></input>
+                                    <td><input  type="checkbox"  name="cek_dipa" value="<%=dipa.getId()%>"></input></td>
                                 </tr>
                                 <%}%>
                             </tbody>
