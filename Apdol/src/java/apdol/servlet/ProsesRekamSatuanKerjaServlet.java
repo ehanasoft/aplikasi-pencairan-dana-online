@@ -59,51 +59,73 @@ public class ProsesRekamSatuanKerjaServlet extends HttpServlet {
             //validate blank field
             if (kodeSatker.equals("")) {
                 JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh kosong !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/rekam_satker.jsp";
             } else if (namaSatker.equals("")) {
                 JOptionPane.showMessageDialog(null, "Nama Satker tidak boleh kosong !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/rekam_satker.jsp";
             } else if (kodeMenteri.equals("")) {
                 JOptionPane.showMessageDialog(null, "Kode Kementerian tidak boleh kosong !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/rekam_satker.jsp";
             } else if (namaMenteri.equals("")) {
                 JOptionPane.showMessageDialog(null, "Nama Kementerian tidak boleh kosong !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/rekam_satker.jsp";
             } else if (kodeUnit.equals("")) {
                 JOptionPane.showMessageDialog(null, "Kode Kementerian tidak boleh kosong !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/rekam_satker.jsp";
             } else if (namaUnit.equals("")) {
                 JOptionPane.showMessageDialog(null, "Nama Kementerian tidak boleh kosong !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/rekam_satker.jsp";
             } //validate length field
             else if (kodeSatker.length() < 6) {
                 JOptionPane.showMessageDialog(null, "Kode Satker harus 6 angka !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/rekam_satker.jsp";
             } //validate kodeSatker are numbers
             else if (!this.valNumber(kodeSatker)) {
                 JOptionPane.showMessageDialog(null, "Kode Satker harus angka dan tidak boleh minus !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/rekam_satker.jsp";
             } //validate zero value
             else if (kodeSatker.equalsIgnoreCase("000000")) {
                 JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh bernilai nol !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/rekam_satker.jsp";
             } //validate record on database
             else if (daftarSatker.isKodeExist(kodeSatker)) {
                 JOptionPane.showMessageDialog(null, "Kode Satker sudah ada dalam database !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/rekam_satker.jsp";
             } //validate record on database
             else if (daftarSatker.isNamaSatkerExist(namaSatker)) {
                 JOptionPane.showMessageDialog(null, "Nama Satker sudah ada dalam database !");
+                List<Lokasi> listNamaLokasi = daftarLokasi.getLokasi();
+                request.setAttribute("list_lokasi", listNamaLokasi);
                 jsp = "pages/rekam_satker.jsp";
             } else {
                 satker.setKodeSatker(kodeSatker);
@@ -120,7 +142,6 @@ public class ProsesRekamSatuanKerjaServlet extends HttpServlet {
                 jsp = "pages/satker.jsp";
             }
 
-            request.setAttribute("list_lokasi", listLokasi);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
