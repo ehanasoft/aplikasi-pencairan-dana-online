@@ -50,12 +50,12 @@ public class ProsesRekamSatuanKerjaServlet extends HttpServlet {
             String kodeUnit = request.getParameter("kode_unit");
             String namaUnit = request.getParameter("nama_unit");
             String kodeLokasi = request.getParameter("lokasi");
-            
+
             Lokasi lokasi = new Lokasi();
             DaftarLokasi daftarLokasi = new DaftarLokasi();
             List<Lokasi> listLokasi = daftarLokasi.findLokasiByKode(kodeLokasi);
             lokasi = listLokasi.get(0);
-            
+
             //validate blank field
             if (kodeSatker.equals("")) {
                 JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh kosong !");
@@ -114,15 +114,16 @@ public class ProsesRekamSatuanKerjaServlet extends HttpServlet {
                 satker.setNamaUnit(namaUnit);
                 satker.setLokasi(lokasi);
                 daftarSatker.rekamSatuanKerja(satker);
+                List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
+                Collections.sort(listSatker, new SatuanKerjaComparator());
+                request.setAttribute("list_satker", listSatker);
                 jsp = "pages/satker.jsp";
             }
-            
-            List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
-            Collections.sort(listSatker, new SatuanKerjaComparator());
-            request.setAttribute("list_satker", listSatker);
+
+            request.setAttribute("list_lokasi", listLokasi);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }
@@ -137,8 +138,9 @@ public class ProsesRekamSatuanKerjaServlet extends HttpServlet {
             return false;
         } catch (Exception e) {
             return false;
-        }    
+        }
     }// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
     /** 
      * Handles the HTTP <code>GET</code> method.
      * @param request servlet request

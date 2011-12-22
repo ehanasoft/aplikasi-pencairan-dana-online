@@ -38,7 +38,7 @@ public class ProsesEditSatuanKerjaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-           // SatuanKerja satker = new SatuanKerja();
+            // SatuanKerja satker = new SatuanKerja();
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
 
             String jsp = "";
@@ -50,75 +50,64 @@ public class ProsesEditSatuanKerjaServlet extends HttpServlet {
             String kodeUnit = request.getParameter("kode_unit");
             String namaUnit = request.getParameter("nama_unit");
             String kodeLokasi = request.getParameter("lokasi");
-            
+
             Lokasi lokasi = new Lokasi();
             DaftarLokasi daftarLokasi = new DaftarLokasi();
             List<Lokasi> listLokasi = daftarLokasi.findLokasiByKode(kodeLokasi);
             lokasi = listLokasi.get(0);
-            
+
             String idSatker = request.getParameter("id_edit_satker");
             Long longIdSatker = Long.parseLong(idSatker);
             SatuanKerja satker = daftarSatker.findSatuanKerja(longIdSatker);
-            
+
             //validate blank field
             if (kodeSatker.equals("")) {
                 JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh kosong !");
-                request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } else if (namaSatker.equals("")) {
                 JOptionPane.showMessageDialog(null, "Nama Satker tidak boleh kosong !");
-                request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } else if (kodeMenteri.equals("")) {
                 JOptionPane.showMessageDialog(null, "Kode Kementerian tidak boleh kosong !");
-                request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } else if (namaMenteri.equals("")) {
                 JOptionPane.showMessageDialog(null, "Nama Kementerian tidak boleh kosong !");
-                request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } else if (kodeUnit.equals("")) {
                 JOptionPane.showMessageDialog(null, "Kode Kementerian tidak boleh kosong !");
-                request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } else if (namaUnit.equals("")) {
                 JOptionPane.showMessageDialog(null, "Nama Kementerian tidak boleh kosong !");
-                request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } //validate length field
             else if (kodeSatker.length() < 6) {
                 JOptionPane.showMessageDialog(null, "Kode Satker harus 6 angka !");
-                request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } //validate kodeSatker are numbers
             else if (!this.valNumber(kodeSatker)) {
                 JOptionPane.showMessageDialog(null, "Kode Satker harus angka dan tidak boleh minus !");
-                request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } //validate zero value
             else if (kodeSatker.equalsIgnoreCase("000000")) {
                 JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh bernilai nol !");
-                request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } //validate record on database
             else if (daftarSatker.isKodeExist(kodeSatker) && !satker.isKodeNoChange(kodeSatker)) {
                 JOptionPane.showMessageDialog(null, "Kode Satker sudah ada dalam database !");
-                request.setAttribute("satker_edit", satker);
                 //response.sendRedirect("rekam_satker");
                 jsp = "pages/edit_satker.jsp";
             } //validate record on database
             else if (daftarSatker.isNamaSatkerExist(namaSatker) && !satker.isNamaSatkerNoChange(namaSatker)) {
                 JOptionPane.showMessageDialog(null, "Nama Satker sudah ada dalam database !");
-                request.setAttribute("satker_edit", satker);
                 jsp = "pages/edit_satker.jsp";
             } else {
                 satker.setKodeSatker(kodeSatker);
@@ -135,15 +124,17 @@ public class ProsesEditSatuanKerjaServlet extends HttpServlet {
                 request.setAttribute("list_satker", listSatker);
                 //response.sendRedirect("satker");
             }
-            
 
+            request.setAttribute("satker_edit", satker);
+            request.setAttribute("lokasiSatker", satker.getLokasi());
+            request.setAttribute("list_lokasi", listLokasi);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }
-    
+
     public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);
