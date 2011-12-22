@@ -126,10 +126,10 @@
                     <form name="form_rekam_pejabat" action="proses_rekam_pejabat" method="post" >
                         <table width="450">                                                
                             <tr>
-                                <td width="150">NIP</td><td><input name="nip" type="text" style="width: 180px" size="18" maxlength="18"></td>
+                                <td width="150">NIP</td><td><input name="nip" type="text" style="width: 180px" size="18" maxlength="18"></input></td>
                             </tr>                                                
                             <tr>
-                                <td>Nama Pejabat</td><td><input type="text" name="nama" style="width: 300px"></td>
+                                <td>Nama Pejabat</td><td><input type="text" name="nama" style="width: 300px"></input></td>
                             </tr>
                             <tr>                                                    
                                 <td>Golongan</td>
@@ -147,7 +147,7 @@
                                     </select>
                                 </td>
                                 <tr>
-                                    <td>Jabatan</td><td><input type="text" name="jabatan" style="width: 300px"></td>
+                                    <td>Jabatan</td><td><input type="text" name="jabatan" style="width: 300px"></input></td>
                                 </tr>                            
                                 <tr>
                                     <td>Pilih</td>
@@ -167,7 +167,6 @@
                                             <option value="KPA">KPA</option>
                                             <option value="Penandatangan SPM">Penandatangan SPM</option>
                                         </select>
-                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -178,10 +177,11 @@
                                         </select>
                                     </td>
                                 </tr>
+                            </tr>
                         </table>
                         <p></p>
                         <table width="400px"><tr>
-                                <td align="center"><a href="javascript:document.form_rekam_pejabat.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/> </td>
+                                <td align="center"><a href="javascript:document.form_rekam_pejabat.reset()"><img src="images/reset.png" border="0" alt="Reset"></img></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan"/></td>
                             </tr>
                         </table>
                     </form>
