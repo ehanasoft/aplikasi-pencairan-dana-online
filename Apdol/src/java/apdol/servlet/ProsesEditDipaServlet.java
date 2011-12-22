@@ -98,7 +98,7 @@ public class ProsesEditDipaServlet extends HttpServlet {
                 dipa.setRealisasi(realisasi);
                 dipa.setSisaDana(sisaDana);
                 dipa.setRincianKegiatan(rincianKegiatan);
-                daftarDipa.rekamDipa(dipa);
+                daftarDipa.edit(dipa);
                 jsp = "pages/dipa.jsp";
                 List<Dipa> listDipa = daftarDipa.getDipa();
                 Collections.sort(listDipa, new DipaComparator());
