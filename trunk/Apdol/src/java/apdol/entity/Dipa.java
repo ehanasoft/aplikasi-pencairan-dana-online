@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -22,12 +23,11 @@ public class Dipa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nomorDipa;
-    private Float pagu;
-    private Float realisasi;
-    private Float sisaDana;
-    private Kegiatan kegiatan;
-    private Output output;
-    private MataAnggaran mataAnggaran;
+    private String pagu;
+    private String realisasi;
+    private String sisaDana;
+    @ManyToOne
+    private RincianKegiatan rincianKegiatan;
 
     public Long getId() {
         return id;
@@ -45,52 +45,36 @@ public class Dipa implements Serializable {
         this.nomorDipa = nomorDipa;
     }
 
-    public Float getPagu() {
+    public String getPagu() {
         return pagu;
     }
 
-    public void setPagu(Float pagu) {
+    public void setPagu(String pagu) {
         this.pagu = pagu;
     }
 
-    public Float getRealisasi() {
+    public String getRealisasi() {
         return realisasi;
     }
 
-    public void setRealisasi(Float realisasi) {
+    public void setRealisasi(String realisasi) {
         this.realisasi = realisasi;
     }
 
-    public Float getSisaDana() {
+    public String getSisaDana() {
         return sisaDana;
     }
 
-    public void setSisaDana(Float sisaDana) {
+    public void setSisaDana(String sisaDana) {
         this.sisaDana = sisaDana;
     }
 
-    public Kegiatan getKegiatan() {
-        return kegiatan;
+    public RincianKegiatan getRincianKegiatan() {
+        return rincianKegiatan;
     }
 
-    public void setKegiatan(Kegiatan kegiatan) {
-        this.kegiatan = kegiatan;
-    }
-
-    public MataAnggaran getMataAnggaran() {
-        return mataAnggaran;
-    }
-
-    public void setMataAnggaran(MataAnggaran mataAnggaran) {
-        this.mataAnggaran = mataAnggaran;
-    }
-
-    public Output getOutput() {
-        return output;
-    }
-
-    public void setOutput(Output output) {
-        this.output = output;
+    public void setRincianKegiatan(RincianKegiatan rincianKegiatan) {
+        this.rincianKegiatan = rincianKegiatan;
     }
 
     @Override

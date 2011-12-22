@@ -104,9 +104,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="rounded-company">Nomor DIPA</th>
-                                    <th scope="col" class="rounded-q1">Kegiatan</th>
-                                    <th scope="col" class="rounded-q2">Output</th>
-                                    <th scope="col" class="rounded-q3">Mata Anggaran</th>
+                                    <th scope="col" class="rounded-q1">Rincian Kegiatan</th>
                                     <th scope="col" class="rounded-q3">Pagu</th>
                                     <th scope="col" class="rounded-q3">Realisasi</th>
                                     <th scope="col" class="rounded-q3">Sisa Dana</th>
@@ -118,9 +116,7 @@
                                         dipa = iterator.next();%>
                                 <tr>
                                     <td><%=dipa.getNomorDipa()%></td>
-                                    <td><%=dipa.getKegiatan()%></td>
-                                    <td><%=dipa.getOutput()%></td>
-                                    <td><%=dipa.getMataAnggaran()%></td>
+                                    <td><%=dipa.getRincianKegiatan()%></td>
                                     <td><%=dipa.getPagu()%></td>
                                     <td><%=dipa.getRealisasi()%></td>
                                     <td><%=dipa.getSisaDana()%></td>
