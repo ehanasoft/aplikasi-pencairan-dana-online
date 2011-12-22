@@ -69,43 +69,43 @@ public class ProsesEditPejabatServlet extends HttpServlet {
             Pejabat pejabat = daftarPejabat.findPejabat(longIdPejabat);
 
             //validate blank field
-            if (nip == "") {
+            if ("".equals(nip)) {
                 JOptionPane.showMessageDialog(null, "NIP tidak boleh kosong !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/edit_pejabat.jsp";
-            } else if (nama == "") {
+            } else if ("".equals(nama)) {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/edit_pejabat.jsp";
-            } else if (nmjabatan == "") {
+            } else if ("".equals(nmjabatan)) {
                 JOptionPane.showMessageDialog(null, "Jabatan tidak boleh kosong !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/edit_pejabat.jsp";
-            } else if (ketjabatan == "") {
-                JOptionPane.showMessageDialog(null, "Keterangan jabatan tidak boleh kosong !",
-                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/edit_pejabat.jsp";
-            } //validate length field
+            } 
+            //validate length field
             else if (nip.length() < 18) {
                 JOptionPane.showMessageDialog(null, "NIP harus 18 angka !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/edit_pejabat.jsp";
-            } //validate nip are numbers
+            } 
+            //validate nip are numbers
             else if (!this.valNumber(nip)) {
                 JOptionPane.showMessageDialog(null, "NIP harus angka dan tidak boleh minus !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/edit_pejabat.jsp";
-            } //validate zero value
+            } 
+            //validate zero value
             else if (nip.equalsIgnoreCase("000000")) {
                 JOptionPane.showMessageDialog(null, "NIP tidak boleh bernilai nol !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/edit_pejabat.jsp";
-            } //validate record on database
-            else if (daftarPejabat.isKodeExist(nip)) {
+            } 
+            //validate record on database
+            else if (daftarPejabat.isKodeExist(nip) && !pejabat.isKodeNoChange(nip)) {
                 JOptionPane.showMessageDialog(null, "NIP sudah ada dalam database !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/edit_pejabat.jsp";
-            } else if (daftarPejabat.isNamaExist(nama)) {
+            } else if (daftarPejabat.isNamaExist(nama) && !pejabat.isNamaNoChange(nama)) {
                 JOptionPane.showMessageDialog(null, "Nama sudah ada dalam database !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/edit_pejabat.jsp";
@@ -118,10 +118,13 @@ public class ProsesEditPejabatServlet extends HttpServlet {
                 pejabat.setSatker(satker);
                 daftarPejabat.edit(pejabat);
                 jsp = "pages/pejabat.jsp";
+                List<Pejabat> listPejabat = daftarPejabat.getPejabat();
+                Collections.sort(listPejabat, new PejabatComparator());
+                request.setAttribute("list_pejabat", listPejabat);
             }
-            List<Pejabat> listPejabat = daftarPejabat.getPejabat();
-            Collections.sort(listPejabat, new PejabatComparator());
-            request.setAttribute("list_pejabat", listPejabat);
+            request.setAttribute("pejabat_edit", pejabat);
+            request.setAttribute("satkerPejabat", pejabat.getSatker());
+            request.setAttribute("list_satker", listSatker);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

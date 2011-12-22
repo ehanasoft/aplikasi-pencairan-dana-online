@@ -136,16 +136,34 @@
                             <tr>                                                    
                                 <td>Golongan</td>
                                 <td>
-                                    <select name="golongan" value="<%=pejabat.getKdgol()%>">
-                                        <option value="31">III/a Penata Muda</option>
-                                        <option value="32">III/b Penata Muda Tk. I</option>
-                                        <option value="33">III/c Penata</option>
-                                        <option value="34">III/d Penata Tk. I</option>
-                                        <option value="41">IV/a Pembina</option>
-                                        <option value="42">IV/b Pembina Tk. I</option>
-                                        <option value="43">IV/c Pembina Utama Muda</option>
-                                        <option value="44">IV/d Pembina Utama Madya</option>
-                                        <option value="45">IV/e Pembina Utama</option>
+                                    <select name="golongan">
+                                        <option value="III/a Penata Muda" <% if (pejabat.getKdgol().equals("III/a Penata Muda")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> III/a Penata Muda</option>
+                                        <option value="III/b Penata Muda Tk. I" <% if (pejabat.getKdgol().equals("III/b Penata Muda Tk. I")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> III/b Penata Muda Tk. I</option>
+                                        <option value="III/c Penata" <% if (pejabat.getKdgol().equals("III/c Penata")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> III/c Penata</option>
+                                        <option value="III/d Penata Tk. I" <% if (pejabat.getKdgol().equals("III/d Penata Tk. I")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> III/d Penata Tk. I</option>
+                                        <option value="IV/a Pembina" <% if (pejabat.getKdgol().equals("IV/a Pembina")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> IV/a Pembina</option>
+                                        <option value="IV/b Pembina Tk. I" <% if (pejabat.getKdgol().equals("IV/b Pembina Tk. I")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> IV/b Pembina Tk. I</option>
+                                        <option value="IV/c Pembina Utama Muda" <% if (pejabat.getKdgol().equals("IV/c Pembina Utama Muda")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> IV/c Pembina Utama Muda</option>
+                                        <option value="IV/d Pembina Utama Madya" <% if (pejabat.getKdgol().equals("IV/d Pembina Utama Madya")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> IV/d Pembina Utama Madya</option>
+                                        <option value="IV/e Pembina Utama" <% if (pejabat.getKdgol().equals("IV/e Pembina Utama")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> IV/e Pembina Utama</option>
                                     </select>
                                 </td>
                             </tr>
@@ -162,13 +180,21 @@
                             <tr>
                                 <td>Keterangan</td>
                                 <td>
-                                    <select id="ketkppn" name="keterangan" style="display: none;" value="<%=pejabat.getKetjabatan()%>">
-                                        <option value="Kasi Pencairan Dana">Kasi Pencairan Dana</option>
-                                        <option value="Kasi Bank/Giro Pos">Kasi Bank/Giro Pos</option>
+                                    <select id="ketkppn" name="keterangan" style="display: none;">
+                                        <option value="Kasi Pencairan Dana" <% if (pejabat.getKetjabatan().equals("Kasi Pencairan Dana")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> Kasi Pencairan Dana</option>
+                                        <option value="Kasi Bank/Giro Pos" <% if (pejabat.getKetjabatan().equals("Kasi Bank/Giro Pos")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> Kasi Bank/Giro Pos</option>
                                     </select>
-                                    <select id="ketsatker" name="keterangan" value="<%=pejabat.getKetjabatan()%>">
-                                        <option value="KPA">KPA</option>
-                                        <option value="Penandatangan SPM">Penandatangan SPM</option>
+                                    <select id="ketsatker" name="keterangan">
+                                        <option value="KPA" <% if (pejabat.getKetjabatan().equals("KPA")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> KPA</option>
+                                        <option value="Penandatangan SPM" <% if (pejabat.getKetjabatan().equals("Penandatangan SPM")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>> Penandatangan SPM</option>
                                     </select>
                                 </td>
                             </tr>
@@ -179,10 +205,10 @@
                                         <%Iterator<SatuanKerja> iterator = listSatker.iterator();%>
                                         <%while (iterator.hasNext()) {
                                                 satker = iterator.next();
-                                                if (pejabat.getSatker().getId().equals(satker.getId())) {
+                                                if (pejabat.getSatker() != null && pejabat.getSatker().getId().equals(satker.getId())) {
                                                     out.println("<option value=" + satker.getKodeSatker() + " selected=\"selected\">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
                                                 } else {
-                                                    out.println("<option value=" + satker.getKodeSatker() + ">" + satker.getNamaSatker() + "</option>");
+                                                    out.println("<option value=" + satker.getKodeSatker() + ">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
                                                 }
                                             }%>
                                     </select>

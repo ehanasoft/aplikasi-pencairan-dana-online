@@ -135,15 +135,15 @@
                                 <td>Golongan</td>
                                 <td>
                                     <select name="golongan">
-                                        <option value="31">III/a Penata Muda</option>
-                                        <option value="32">III/b Penata Muda Tk. I</option>
-                                        <option value="33">III/c Penata</option>
-                                        <option value="34">III/d Penata Tk. I</option>
-                                        <option value="41">IV/a Pembina</option>
-                                        <option value="42">IV/b Pembina Tk. I</option>
-                                        <option value="43">IV/c Pembina Utama Muda</option>
-                                        <option value="44">IV/d Pembina Utama Madya</option>
-                                        <option value="45">IV/e Pembina Utama</option>
+                                        <option value="III/a Penata Muda">III/a Penata Muda</option>
+                                        <option value="III/b Penata Muda Tk. I">III/b Penata Muda Tk. I</option>
+                                        <option value="III/c Penata">III/c Penata</option>
+                                        <option value="III/d Penata Tk. I">III/d Penata Tk. I</option>
+                                        <option value="IV/a Pembina">IV/a Pembina</option>
+                                        <option value="IV/b Pembina Tk. I">IV/b Pembina Tk. I</option>
+                                        <option value="IV/c Pembina Utama Muda">IV/c Pembina Utama Muda</option>
+                                        <option value="IV/d Pembina Utama Madya">IV/d Pembina Utama Madya</option>
+                                        <option value="IV/e Pembina Utama">IV/e Pembina Utama</option>
                                     </select>
                                 </td>
                                 <tr>
