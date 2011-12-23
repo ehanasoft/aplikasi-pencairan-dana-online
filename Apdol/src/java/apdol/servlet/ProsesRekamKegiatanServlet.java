@@ -48,55 +48,55 @@ public class ProsesRekamKegiatanServlet extends HttpServlet {
 
             //validate blank field
             if (kdgiat == "") {
-                JOptionPane.showMessageDialog(null, "Kode Kegiatan tidak boleh kosong !", 
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Kode Kegiatan tidak boleh kosong !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_kegiatan.jsp";
             } else if (nmgiat == "") {
                 JOptionPane.showMessageDialog(null, "Nama Kegiatan tidak boleh kosong !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_kegiatan.jsp";            
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                jsp = "pages/rekam_kegiatan.jsp";
             } //validate length field
             else if (kdgiat.length() < 4) {
                 JOptionPane.showMessageDialog(null, "Kode Kegiatan harus 4 angka !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_kegiatan.jsp";
             } //validate kdgiat are numbers
             else if (!this.valNumber(kdgiat)) {
                 JOptionPane.showMessageDialog(null, "Kode Kegiatan harus angka dan tidak boleh minus !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_kegiatan.jsp";
             } //validate zero value
             else if (kdgiat.equalsIgnoreCase("000000")) {
                 JOptionPane.showMessageDialog(null, "Kode Kegiatan tidak boleh bernilai nol !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_kegiatan.jsp";
             } //validate record on database
             else if (daftarKegiatan.isKodeExist(kdgiat)) {
                 JOptionPane.showMessageDialog(null, "Kode Kegiatan sudah ada dalam database !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_kegiatan.jsp";
             } //validate record on database
             else if (daftarKegiatan.isNamaExist(nmgiat)) {
                 JOptionPane.showMessageDialog(null, "Nama Kegiatan sudah ada dalam database !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_kegiatan.jsp";
             } else {
                 kegiatan.setKdgiat(kdgiat);
-                kegiatan.setNmgiat(nmgiat);                
+                kegiatan.setNmgiat(nmgiat);
                 daftarKegiatan.rekamKegiatan(kegiatan);
+                List<Kegiatan> listKegiatan = daftarKegiatan.getKegiatan();
+                Collections.sort(listKegiatan, new KegiatanComparator());
+                request.setAttribute("list_kegiatan", listKegiatan);
                 jsp = "pages/kegiatan.jsp";
             }
 
-            List<Kegiatan> listKegiatan = daftarKegiatan.getKegiatan();
-            Collections.sort(listKegiatan, new KegiatanComparator());
-            request.setAttribute("list_kegiatan", listKegiatan);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
+
     public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);

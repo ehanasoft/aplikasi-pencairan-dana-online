@@ -81,19 +81,20 @@ public class ProsesRekamMataAnggaranServlet extends HttpServlet {
                 mataAnggaran.setNamaMataAnggaran(namaMataAnggaran);
                 mataAnggaran.setNamaBKPK(namaBKPK);
                 daftarMataAnggaran.rekamMataAnggaran(mataAnggaran);
+                List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+                Collections.sort(listMataAnggaran, new MataAnggaranComparator());
+                request.setAttribute("list_mata_anggaran", listMataAnggaran);
                 jsp = "pages/mata_anggaran.jsp";
             }
 
-            List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
-            Collections.sort(listMataAnggaran, new MataAnggaranComparator());
-            request.setAttribute("list_mata_anggaran", listMataAnggaran);
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
+
     public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);

@@ -77,19 +77,19 @@ public class ProsesRekamOutputServlet extends HttpServlet {
                 output.setKodeOutput(kodeOutput);
                 output.setNamaOutput(namaOutput);
                 daftarOutput.rekamOutput(output);
+                List<Output> listOutput = daftarOutput.getOutput();
+                Collections.sort(listOutput, new OutputComparator());
+                request.setAttribute("list_output", listOutput);
                 jsp = "pages/output.jsp";
             }
 
-            List<Output> listOutput = daftarOutput.getOutput();
-            Collections.sort(listOutput, new OutputComparator());
-            request.setAttribute("list_output", listOutput);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
+
     public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);
