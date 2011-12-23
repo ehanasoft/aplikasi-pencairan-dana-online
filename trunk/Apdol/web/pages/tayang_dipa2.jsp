@@ -16,7 +16,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
-    <%String roleUser = (String) session.getAttribute("roleuser");%>    
+    <%String roleUser = (String) session.getAttribute("roleuser");%>
+    <%String kodeSatker = (String) session.getAttribute("kode_satker");%>
+    
+    <%JOptionPane.showMessageDialog(null,kodeSatker);%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Tayang Dipa</title>
@@ -119,7 +122,9 @@
                             </thead>
                             <tbody>
                                 <% while (iterator.hasNext()) {
-                                        dipa = iterator.next();%>
+                                        dipa = iterator.next();
+                                        JOptionPane.showMessageDialog(null,dipa.getRincianKegiatan().getSatker().getKodeSatker());
+        if (kodeSatker.equalsIgnoreCase(dipa.getRincianKegiatan().getSatker().getKodeSatker())) {%>
                                 <tr>
                                     <td><%=dipa.getNomorDipa()%></td>
                                     <td><%=dipa.getRincianKegiatan().getSatker().getNamaSatker()+ "-" +dipa.getRincianKegiatan().getKegiatan().getNmgiat()+ "-" +dipa.getRincianKegiatan().getOutput().getNamaOutput()+ "-" +dipa.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
@@ -127,7 +132,7 @@
                                     <td><%=dipa.getRealisasi()%></td>
                                     <td><%=dipa.getSisaDana()%></td>
                                 </tr>
-                                <%}%>
+                                <%}}%>
                             </tbody>
                       </table>
                         <span style="margin: 10px;">
