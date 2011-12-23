@@ -153,7 +153,7 @@
                                     <td>Pilih</td>
                                     <td>
                                         <input type="radio" onClick="javascript:showhidesatker();document.form_rekam_pejabat.satker.disabled=false;" name="pilih"/>Satker
-                                        <input type="radio" onClick="javascript:showhidekppn();document.form_rekam_pejabat.satker.disabled=true;" name="pilih"/>KPPN
+                                        <input type="radio" onClick="javascript:showhidekppn();document.form_rekam_pejabat.satker.disabled=false;" name="pilih"/>KPPN
                                     </td>
                                 </tr>
                                 <tr>
@@ -172,8 +172,9 @@
                                 <tr>
                                     <td>Satker</td>
                                     <td>
-                                        <select name="satker"><% while (iterator.hasNext()) {
-                                                    satker = iterator.next();%><option value="<%=satker.getKodeSatker()%>"><%=satker.getKodeSatker() + " " + satker.getNamaSatker()%> </option><%}%>
+                                            <select name="satker" ><% while (iterator.hasNext()) {
+                                                satker = iterator.next();%>
+                                                <option value="<%=satker.getKodeSatker()%>"><%=satker.getKodeSatker() + " " + satker.getNamaSatker()%> </option><%}%>
                                         </select>
                                     </td>
                                 </tr>
