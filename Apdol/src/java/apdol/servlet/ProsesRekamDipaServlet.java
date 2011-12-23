@@ -57,19 +57,29 @@ public class ProsesRekamDipaServlet extends HttpServlet {
             //validate blank field
             if (nomorDipa == "") {
                 JOptionPane.showMessageDialog(null, "Nomor Dipa tidak boleh kosong !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rekam_dipa.jsp";
             } else if (pagu == "") {
                 JOptionPane.showMessageDialog(null, "Pagu tidak boleh kosong !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rekam_dipa.jsp";
             } else if (realisasi == "") {
                 JOptionPane.showMessageDialog(null, "Realisasi tidak boleh kosong !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rekam_dipa.jsp";
             } else if (sisaDana == "") {
                 JOptionPane.showMessageDialog(null, "Sisa Dana tidak boleh kosong !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rekam_dipa.jsp";    
             } //validate record on database
             else if (daftarDipa.isNomorExist(nomorDipa)) {
                 JOptionPane.showMessageDialog(null, "Nomor Dipa sudah ada dalam database !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rekam_dipa.jsp";
             } else {
                 dipa.setNomorDipa(nomorDipa);
