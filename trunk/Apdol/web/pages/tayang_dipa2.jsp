@@ -1,9 +1,17 @@
 <%-- 
-    Document   : cetak_sp2d
-    Created on : Dec 12, 2011, 3:02:17 AM
-    Author     : Accio
+    Document   : tayang_dipa2
+    Created on : Dec 23, 2011, 10:56:47 PM
+    Author     : wahid
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="apdol.model.DaftarDipa"%>
+<%@page import="apdol.entity.Dipa"%>
+<%@page import="javax.swing.JOptionPane"%>
+
+<% List<Dipa> listDipa = (List<Dipa>) request.getAttribute("list_dipa");%>
+<% Dipa dipa;%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,7 +19,7 @@
     <%String roleUser = (String) session.getAttribute("roleuser");%>    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Halaman Awal</title>
+        <title>Tayang Dipa</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -49,14 +57,14 @@
                 <% } else if (roleUser.equals("2")) {%>
                 <p><strong>Dokumen</strong></p> 
                 <ul class="nav">
-                    <li><a href="tayang_dipa">Tayang DIPA</a></li>
+                    <li><a href="tayang_dipa2">Tayang DIPA</a></li>
                 </ul>
                 <p><strong>Pencairan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Surat Perintah Membayar</a></li>
+                    <li><a href="spm">Surat Perintah Membayar</a></li>
                 </ul>
                 <p><strong>Monitoring</strong></p>
-                <ul class="nav
+                <ul class="nav">
                     <li><a href="monitoring_spm">Monitoring SPM</a></li>
                     <li><a href="realisasi">Realisasi</a></li>
                 </ul>
@@ -94,9 +102,40 @@
             <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
-                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p>
-                    <p>Under Construction</p></center>
-                <!-- end .content --></div>
-            <!-- end .container --></div>
-    </body>
-</html>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
+                <center><p ><h3>Tayang DIPA</p>
+                    </h3>
+                <p>
+              <% Iterator<Dipa> iterator = listDipa.iterator();%>                
+                <table id="rounded-corner">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="rounded-company">Nomor DIPA</th>
+                                    <th scope="col" class="rounded-q1">Rincian Kegiatan</th>
+                                    <th scope="col" class="rounded-q3">Pagu</th>
+                                    <th scope="col" class="rounded-q3">Realisasi</th>
+                                    <th scope="col" class="rounded-q3">Sisa Dana</th>                                  
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% while (iterator.hasNext()) {
+                                        dipa = iterator.next();%>
+                                <tr>
+                                    <td><%=dipa.getNomorDipa()%></td>
+                                    <td><%=dipa.getRincianKegiatan().getSatker().getNamaSatker()+ "-" +dipa.getRincianKegiatan().getKegiatan().getNmgiat()+ "-" +dipa.getRincianKegiatan().getOutput().getNamaOutput()+ "-" +dipa.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
+                                    <td><%=dipa.getPagu()%></td>
+                                    <td><%=dipa.getRealisasi()%></td>
+                                    <td><%=dipa.getSisaDana()%></td>
+                                </tr>
+                                <%}%>
+                            </tbody>
+                      </table>
+                        <span style="margin: 10px;">
+                        </span>
+                        
+                                <!-- end .content --></div>
+                                <!-- end .container --></div>
+                                </body>
+                                </html>
+
+

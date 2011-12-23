@@ -49,7 +49,7 @@
                 <% } else if (roleUser.equals("2")) {%>
                 <p><strong>Dokumen</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Tayang DIPA</a></li>
+                    <li><a href="tayang_dipa">Tayang DIPA</a></li>
                 </ul>
                 <p><strong>Pencairan</strong></p> 
                 <ul class="nav">
@@ -68,7 +68,7 @@
                 <% } else if (roleUser.equals("3")) {%>
                 <p><strong>Dokumen</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Tayang DIPA</a></li>
+                    <li><a href="tayang_dipa">Tayang DIPA</a></li>
                 </ul>
                 <p><strong>Penerimaan</strong></p> 
                 <ul class="nav">

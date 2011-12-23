@@ -316,6 +316,14 @@
         <servlet-name>ProsesHapusDipaServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesHapusDipaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TayangDipaServlet</servlet-name>
+        <servlet-class>apdol.servlet.TayangDipaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Tayang2Servlet</servlet-name>
+        <servlet-class>apdol.servlet.TayangDipa2Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -631,6 +639,14 @@
     <servlet-mapping>
         <servlet-name>ProsesHapusDipaServlet</servlet-name>
         <url-pattern>/proses_hapus_dipa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TayangDipaServlet</servlet-name>
+        <url-pattern>/tayang_dipa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Tayang2Servlet</servlet-name>
+        <url-pattern>/tayang_dipa_2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
