@@ -20,7 +20,7 @@ import javax.persistence.Query;
  * @author Accio
  */
 public class DaftarUser {
-
+    
     public DaftarUser() {
         emf = Persistence.createEntityManagerFactory("ApdolPU");
     }
@@ -36,39 +36,45 @@ public class DaftarUser {
         user.setJabatan("administrator");
         user.setKodeSatker("null");
         user.setNama("administrator");
-
+        
         List<User> l = d.getUser();
         Iterator<User> i = l.iterator();
         User u = new User();
-        if (i.hasNext()) {
+        boolean result = false;
+        if (!l.isEmpty()) {
             while (i.hasNext()) {
                 u = i.next();
                 if (u.getUsername().equalsIgnoreCase(user.getUsername())) {
-                } else d.rekamUser(user);
+                    result = true;
+                }
             }
-        } else 
+            if (result = false) {
+                d.rekamUser(user);
+            }
+        } else {
             d.rekamUser(user);
+        }
         user = null;
     }
-
+    
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
+    
     public List<User> getUser() {
         List<User> users = new ArrayList<User>();
-
+        
         EntityManager em = getEntityManager();
         try {
             Query q = em.createQuery("SELECT a FROM User AS a");
             users = q.getResultList();
-
+            
         } finally {
             em.close();
         }
         return users;
     }
-
+    
     public User findUser(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -77,7 +83,7 @@ public class DaftarUser {
             em.close();
         }
     }
-
+    
     public boolean check(String username, String password) {
         boolean result = false;
         EntityManager em = getEntityManager();
@@ -94,7 +100,7 @@ public class DaftarUser {
         }
         return result;
     }
-
+    
     public void rekamUser(User user) {
         EntityManager em = null;
         try {
@@ -108,7 +114,7 @@ public class DaftarUser {
             }
         }
     }
-
+    
     public void updateUser(User user) {
         EntityManager em = getEntityManager();
         try {
@@ -119,7 +125,7 @@ public class DaftarUser {
             em.close();
         }
     }
-
+    
     public void deleteUser(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -140,7 +146,7 @@ public class DaftarUser {
             }
         }
     }
-
+    
     public User getUser(String username, String password) {
         User user = null;
         EntityManager em = getEntityManager();
@@ -157,7 +163,7 @@ public class DaftarUser {
         }
         return user;
     }
-
+    
     public User findUser(Long id) {
         EntityManager em = getEntityManager();
         try {
@@ -166,13 +172,13 @@ public class DaftarUser {
             em.close();
         }
     }
-
+    
     public boolean isUsernameExist(String kode) {
         DaftarUser daftarUser = new DaftarUser();
         List<User> listUser = daftarUser.getUser();
         Iterator<User> iterator = listUser.iterator();
         User tes = new User();
-
+        
         while (iterator.hasNext()) {
             tes = iterator.next();
             if (kode.equalsIgnoreCase(tes.getUsername())) {
@@ -181,13 +187,13 @@ public class DaftarUser {
         }
         return false;
     }
-
+    
     public boolean isPasswordExist(String nama) {
         DaftarUser daftarUser = new DaftarUser();
         List<User> listUser = daftarUser.getUser();
         Iterator<User> iterator = listUser.iterator();
         User tes = new User();
-
+        
         while (iterator.hasNext()) {
             tes = iterator.next();
             if (nama.equalsIgnoreCase(tes.getPassword())) {
@@ -196,7 +202,7 @@ public class DaftarUser {
         }
         return false;
     }
-
+    
     public void edit(User user) {
         EntityManager em = null;
         try {
@@ -210,7 +216,7 @@ public class DaftarUser {
             }
         }
     }
-
+    
     public void destroy(long iduser) throws NonexistentEntityException {
         EntityManager em = null;
         try {
