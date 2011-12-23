@@ -82,19 +82,19 @@ public class ProsesRekamLokasiServlet extends HttpServlet {
                 lokasi.setNamaKota(namaKota);
                 lokasi.setNamaPropinsi(namaPropinsi);
                 daftarLokasi.rekamLokasi(lokasi);
+                List<Lokasi> listLokasi = daftarLokasi.getLokasi();
+                Collections.sort(listLokasi, new LokasiComparator());
+                request.setAttribute("list_lokasi", listLokasi);
                 jsp = "pages/lokasi.jsp";
             }
 
-            List<Lokasi> listLokasi = daftarLokasi.getLokasi();
-            Collections.sort(listLokasi, new LokasiComparator());
-            request.setAttribute("list_lokasi", listLokasi);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
+
     public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);

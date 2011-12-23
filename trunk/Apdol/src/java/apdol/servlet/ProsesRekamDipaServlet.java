@@ -53,7 +53,7 @@ public class ProsesRekamDipaServlet extends HttpServlet {
             Long longId = Long.parseLong(rincianKegiatanId);
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(longId);
-            
+
             //validate blank field
             if (nomorDipa == "") {
                 JOptionPane.showMessageDialog(null, "Nomor Dipa tidak boleh kosong !");
@@ -74,7 +74,7 @@ public class ProsesRekamDipaServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Sisa Dana tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rekam_dipa.jsp";    
+                jsp = "pages/rekam_dipa.jsp";
             } //validate record on database
             else if (daftarDipa.isNomorExist(nomorDipa)) {
                 JOptionPane.showMessageDialog(null, "Nomor Dipa sudah ada dalam database !");
@@ -88,19 +88,19 @@ public class ProsesRekamDipaServlet extends HttpServlet {
                 dipa.setSisaDana(sisaDana);
                 dipa.setRincianKegiatan(rincianKegiatan);
                 daftarDipa.rekamDipa(dipa);
+                List<Dipa> listDipa = daftarDipa.getDipa();
+                Collections.sort(listDipa, new DipaComparator());
+                request.setAttribute("list_dipa", listDipa);
                 jsp = "pages/dipa.jsp";
             }
 
-            List<Dipa> listDipa = daftarDipa.getDipa();
-            Collections.sort(listDipa, new DipaComparator());
-            request.setAttribute("list_dipa", listDipa);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
+
     public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);

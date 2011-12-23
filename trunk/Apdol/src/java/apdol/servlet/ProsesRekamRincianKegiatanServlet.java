@@ -50,32 +50,32 @@ public class ProsesRekamRincianKegiatanServlet extends HttpServlet {
             RincianKegiatan rincianKegiatan = new RincianKegiatan();
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             String jsp = "";
-           
+
             String kodeSatker = request.getParameter("satker");
             String kdgiat = request.getParameter("kegiatan");
             String kodeOutput = request.getParameter("output");
             String kodeMataAnggaran = request.getParameter("mata_anggaran");
-            
+
             Output output = new Output();
             DaftarOutput daftarOutput = new DaftarOutput();
             List<Output> listOutput = daftarOutput.findOutputByKode(kodeOutput);
             output = listOutput.get(0);
-            
+
             MataAnggaran mataAnggaran = new MataAnggaran();
             DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran();
             List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.findMataAnggaranByKode(kodeMataAnggaran);
             mataAnggaran = listMataAnggaran.get(0);
-            
+
             Kegiatan kegiatan = new Kegiatan();
             DaftarKegiatan daftarKegiatan = new DaftarKegiatan();
             List<Kegiatan> listKegiatan = daftarKegiatan.findKegiatanByKode(kdgiat);
             kegiatan = listKegiatan.get(0);
-            
+
             SatuanKerja satker = new SatuanKerja();
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
             List<SatuanKerja> listSatker = daftarSatker.findSatkerByKode(kodeSatker);
-            if(listSatker.isEmpty()){
-            satker = null;
+            if (listSatker.isEmpty()) {
+                satker = null;
             } else {
                 satker = listSatker.get(0);
             }
@@ -89,29 +89,29 @@ public class ProsesRekamRincianKegiatanServlet extends HttpServlet {
                 jsp = "pages/rekam_rincian_kegiatan.jsp";
             } else if (kodeOutput == "") {
                 JOptionPane.showMessageDialog(null, "Output tidak boleh kosong !");
-                jsp = "pages/rekam_rincian_kegiatan.jsp";   
+                jsp = "pages/rekam_rincian_kegiatan.jsp";
             } else if (kodeMataAnggaran == "") {
                 JOptionPane.showMessageDialog(null, "Mata Anggaran tidak boleh kosong !");
-                jsp = "pages/rekam_rincian_kegiatan.jsp";                   
+                jsp = "pages/rekam_rincian_kegiatan.jsp";
             } else {
                 rincianKegiatan.setSatker(satker);
                 rincianKegiatan.setKegiatan(kegiatan);
                 rincianKegiatan.setOutput(output);
                 rincianKegiatan.setMataAnggaran(mataAnggaran);
                 daftarRincianKegiatan.rekamRincianKegiatan(rincianKegiatan);
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rincian_kegiatan.jsp";
             }
 
-            List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
-            Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
-            request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
+
     public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);

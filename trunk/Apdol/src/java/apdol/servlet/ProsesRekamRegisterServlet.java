@@ -49,7 +49,7 @@ public class ProsesRekamRegisterServlet extends HttpServlet {
             DaftarUser daftarUser = new DaftarUser();
             User user = new User();
             String jsp = "index.jsp";
-            
+
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String nama = request.getParameter("nama");
@@ -62,8 +62,8 @@ public class ProsesRekamRegisterServlet extends HttpServlet {
             user.setJabatan(jabatan);
             user.setRoleuser(roleuser);
             user.setKodeSatker(kodesatker);
-            
-            
+
+
             //validate blank field
             if (username == null) {
                 JOptionPane.showMessageDialog(null, "Username tidak boleh kosong !");
@@ -83,14 +83,11 @@ public class ProsesRekamRegisterServlet extends HttpServlet {
             } else if ("".equals(kodesatker)) {
                 JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh kosong !");
                 jsp = "pages/rekam_user.jsp";
-            } 
-            
-            //validate record on database
+            } //validate record on database
             else if (user.valKodeSatker()) {
                 JOptionPane.showMessageDialog(null, "Kode Satker sudah ada dalam data base !");
                 jsp = "pages/rekam_user.jsp";
-            }
-            else if (user.valUsername()) {
+            } else if (user.valUsername()) {
                 JOptionPane.showMessageDialog(null, "Username sudah ada dalam data base !");
                 jsp = "pages/rekam_user.jsp";
             } // validate lenght field
@@ -101,16 +98,15 @@ public class ProsesRekamRegisterServlet extends HttpServlet {
             else if (!this.valNumber(kodesatker)) {
                 JOptionPane.showMessageDialog(null, "Kode Satker harus angka dan tidak boleh minus !");
                 jsp = "pages/rekam_user.jsp";
-            }
-            else {
+            } else {
                 daftarUser.rekamUser(user);
+                List<User> listUser = daftarUser.getUser();
+                request.setAttribute("list_user", listUser);
                 jsp = "pages/register.jsp";
             }
-            List<User> listUser = daftarUser.getUser();
-            request.setAttribute("list_user", listUser);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }
@@ -152,7 +148,7 @@ public class ProsesRekamRegisterServlet extends HttpServlet {
     }// </editor-fold>
 
     private boolean valNumber(String kodesatker) {
-       try {
+        try {
             int i = Integer.parseInt(kodesatker);
             //validate minus input
             if (i >= 0) {

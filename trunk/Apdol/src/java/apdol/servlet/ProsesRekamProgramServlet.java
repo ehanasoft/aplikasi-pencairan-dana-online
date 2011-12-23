@@ -55,55 +55,55 @@ public class ProsesRekamProgramServlet extends HttpServlet {
 
             //validate blank field
             if (kdprogram == "") {
-                JOptionPane.showMessageDialog(null, "Kode Program tidak boleh kosong !", 
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Kode Program tidak boleh kosong !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_program.jsp";
             } else if (nmprogram == "") {
                 JOptionPane.showMessageDialog(null, "Nama Program tidak boleh kosong !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_program.jsp";            
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                jsp = "pages/rekam_program.jsp";
             } //validate length field
             else if (kdprogram.length() < 4) {
                 JOptionPane.showMessageDialog(null, "Kode Program harus 4 angka !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_program.jsp";
             } //validate kdprogram are numbers
             else if (!this.valNumber(kdprogram)) {
                 JOptionPane.showMessageDialog(null, "Kode Program harus angka dan tidak boleh minus !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_program.jsp";
             } //validate zero value
             else if (kdprogram.equalsIgnoreCase("000000")) {
                 JOptionPane.showMessageDialog(null, "Kode Program tidak boleh bernilai nol !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_program.jsp";
             } //validate record on database
             else if (daftarProgram.isKodeExist(kdprogram)) {
                 JOptionPane.showMessageDialog(null, "Kode Program sudah ada dalam database !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_program.jsp";
             } //validate record on database
             else if (daftarProgram.isNamaExist(nmprogram)) {
                 JOptionPane.showMessageDialog(null, "Nama Program sudah ada dalam database !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 jsp = "pages/rekam_program.jsp";
             } else {
                 program.setKdprogram(kdprogram);
-                program.setNmprogram(nmprogram);                
+                program.setNmprogram(nmprogram);
                 daftarProgram.rekamProgram(program);
+                List<Program> listProgram = daftarProgram.getProgram();
+                Collections.sort(listProgram, new ProgramComparator());
+                request.setAttribute("list_program", listProgram);
                 jsp = "pages/program.jsp";
             }
 
-            List<Program> listProgram = daftarProgram.getProgram();
-            Collections.sort(listProgram, new ProgramComparator());
-            request.setAttribute("list_program", listProgram);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
+
     public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);
