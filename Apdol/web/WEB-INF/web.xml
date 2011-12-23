@@ -312,6 +312,10 @@
         <servlet-name>ProsesEditDipaServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesEditDipaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProsesHapusDipaServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusDipaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -623,6 +627,10 @@
     <servlet-mapping>
         <servlet-name>ProsesEditDipaServlet</servlet-name>
         <url-pattern>/proses_edit_dipa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesHapusDipaServlet</servlet-name>
+        <url-pattern>/proses_hapus_dipa</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
