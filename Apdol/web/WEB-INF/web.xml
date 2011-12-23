@@ -646,7 +646,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Tayang2Servlet</servlet-name>
-        <url-pattern>/tayang_dipa_2</url-pattern>
+        <url-pattern>/tayang_dipa2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

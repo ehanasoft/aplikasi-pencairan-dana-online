@@ -19,7 +19,6 @@
     <%String roleUser = (String) session.getAttribute("roleuser");%>
     <%String kodeSatker = (String) session.getAttribute("kode_satker");%>
     
-    <%JOptionPane.showMessageDialog(null,kodeSatker);%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Tayang Dipa</title>
@@ -122,8 +121,7 @@
                             </thead>
                             <tbody>
                                 <% while (iterator.hasNext()) {
-                                        dipa = iterator.next();
-                                        JOptionPane.showMessageDialog(null,dipa.getRincianKegiatan().getSatker().getKodeSatker());
+                                        dipa = iterator.next();                                     
         if (kodeSatker.equalsIgnoreCase(dipa.getRincianKegiatan().getSatker().getKodeSatker())) {%>
                                 <tr>
                                     <td><%=dipa.getNomorDipa()%></td>
