@@ -28,8 +28,7 @@ public class SPM implements Serializable {
     @ManyToOne
     private RincianKegiatan rincianKegiatan;
     private Long jumlahKeluar;
-    private Long jumlahPotongan;
-    private Long jumlahBersih;    
+    private Long jumlahPotongan;    
     
     public RincianKegiatan getRincianKegiatan() {
         return rincianKegiatan;
@@ -53,14 +52,6 @@ public class SPM implements Serializable {
 
     public void setJumlahPotongan(Long jumlahPotongan) {
         this.jumlahPotongan = jumlahPotongan;
-    }
-    
-     public Long getJumlahBersih() {
-        return jumlahBersih;
-    }
-
-    public void setJumlahBersih(Long jumlahBersih) {
-        this.jumlahBersih = jumlahBersih;
     }
 
     public Date getTanggalSPM() {
