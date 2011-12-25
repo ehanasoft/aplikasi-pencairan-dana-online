@@ -114,6 +114,7 @@
                                     <th width="270" align="center" valign="middle" class="rounded-q3" scope="col">Rincian Kegiatan</th>
                                     <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Keluar</th>
                                     <th width="111" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Potongan</th>
+                                    <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Bersih</th>
                                     <th width="29" align="center" valign="middle" class="rounded-q4" scope="col">Cek</th>
                               </tr>
                             </thead>
@@ -126,6 +127,7 @@
                                     <td><%=spm.getRincianKegiatan().getSatker().getNamaSatker()+ "." +spm.getRincianKegiatan().getKegiatan().getNmgiat()+ "." +spm.getRincianKegiatan().getOutput().getNamaOutput()+ "." +spm.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
                                     <td><%=spm.getJumlahKeluar()%></td>
                                     <td><%=spm.getJumlahPotongan()%></td>
+                                    <td><%=spm.getJumlahBersih()%></td>
                                     <td><input  type="checkbox"  name="cek_spm" value="<%=spm.getId()%>"></input></td>
                               </tr>
                                 <%}%>
