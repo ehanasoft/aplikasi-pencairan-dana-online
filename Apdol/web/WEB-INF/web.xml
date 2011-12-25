@@ -336,6 +336,10 @@
         <servlet-name>Rekam SPM Servlet</servlet-name>
         <servlet-class>apdol.servlet.RekamSPMServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.EditSPMServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -671,6 +675,10 @@
     <servlet-mapping>
         <servlet-name>Rekam SPM Servlet</servlet-name>
         <url-pattern>/rekam_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditSPMServlet</servlet-name>
+        <url-pattern>/edit_spm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
