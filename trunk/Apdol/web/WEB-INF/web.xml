@@ -325,8 +325,16 @@
         <servlet-class>apdol.servlet.TayangDipa2Servlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SPMServlet</servlet-name>
+        <servlet-name>SPM Servlet</servlet-name>
         <servlet-class>apdol.servlet.SPMServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesRekamSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesRekamSPMServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Rekam SPM Servlet</servlet-name>
+        <servlet-class>apdol.servlet.RekamSPMServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
@@ -653,8 +661,16 @@
         <url-pattern>/tayang_dipa2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SPMServlet</servlet-name>
+        <servlet-name>SPM Servlet</servlet-name>
         <url-pattern>/spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesRekamSPMServlet</servlet-name>
+        <url-pattern>/proses_rekam_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Rekam SPM Servlet</servlet-name>
+        <url-pattern>/rekam_spm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

@@ -53,7 +53,7 @@
                 </ul>
                 <p><strong>Pencairan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Surat Perintah Membayar</a></li>
+                    <li><a href="spm">Surat Perintah Membayar</a></li>
                 </ul>
                 <p><strong>Monitoring</strong></p>
                 <ul class="nav">
