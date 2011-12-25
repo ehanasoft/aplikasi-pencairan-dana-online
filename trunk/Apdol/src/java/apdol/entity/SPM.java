@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -24,9 +25,20 @@ public class SPM implements Serializable {
     private Long id;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date tanggalSPM;
+    @ManyToOne
+    private RincianKegiatan rincianKegiatan;
     private Long jumlahKeluar;
     private Long jumlahPotongan;
+    private Long jumlahBersih;    
+    
+    public RincianKegiatan getRincianKegiatan() {
+        return rincianKegiatan;
+    }
 
+    public void setRincianKegiatan(RincianKegiatan rincianKegiatan) {
+        this.rincianKegiatan = rincianKegiatan;
+    }
+    
     public Long getJumlahKeluar() {
         return jumlahKeluar;
     }
@@ -41,6 +53,14 @@ public class SPM implements Serializable {
 
     public void setJumlahPotongan(Long jumlahPotongan) {
         this.jumlahPotongan = jumlahPotongan;
+    }
+    
+     public Long getJumlahBersih() {
+        return jumlahBersih;
+    }
+
+    public void setJumlahBersih(Long jumlahBersih) {
+        this.jumlahBersih = jumlahBersih;
     }
 
     public Date getTanggalSPM() {

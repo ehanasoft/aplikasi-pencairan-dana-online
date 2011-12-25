@@ -324,6 +324,10 @@
         <servlet-name>Tayang2Servlet</servlet-name>
         <servlet-class>apdol.servlet.TayangDipa2Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.SPMServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -647,6 +651,10 @@
     <servlet-mapping>
         <servlet-name>Tayang2Servlet</servlet-name>
         <url-pattern>/tayang_dipa2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SPMServlet</servlet-name>
+        <url-pattern>/spm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
