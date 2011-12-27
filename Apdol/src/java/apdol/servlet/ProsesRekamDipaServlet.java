@@ -48,7 +48,6 @@ public class ProsesRekamDipaServlet extends HttpServlet {
             String nomorDipa = request.getParameter("nomor_dipa");
             String pagu = request.getParameter("pagu");
             String realisasi = request.getParameter("realisasi");
-            String sisaDana = request.getParameter("sisa_dana");
             String rincianKegiatanId = request.getParameter("rincian_kegiatan");
             Long longId = Long.parseLong(rincianKegiatanId);
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
@@ -70,8 +69,18 @@ public class ProsesRekamDipaServlet extends HttpServlet {
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rekam_dipa.jsp";
-            } else if (sisaDana == "") {
-                JOptionPane.showMessageDialog(null, "Sisa Dana tidak boleh kosong !");
+            } else if (!this.valNumber(pagu)) {
+                JOptionPane.showMessageDialog(null, "Pagu harus angka dan bilangan bulat !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                jsp = "pages/rekam_dipa.jsp";
+            } else if (!this.valNumber(realisasi)) {
+                JOptionPane.showMessageDialog(null, "Realisasi harus angka dan bilangan bulat !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                jsp = "pages/rekam_dipa.jsp";
+            } else if (Float.parseFloat(pagu) < Float.parseFloat(realisasi)) {
+                JOptionPane.showMessageDialog(null, "Pagu harus lebih besar daripada Realisasi !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rekam_dipa.jsp";
@@ -85,7 +94,7 @@ public class ProsesRekamDipaServlet extends HttpServlet {
                 dipa.setNomorDipa(nomorDipa);
                 dipa.setPagu(pagu);
                 dipa.setRealisasi(realisasi);
-                dipa.setSisaDana(sisaDana);
+                dipa.setSisaDana();
                 dipa.setRincianKegiatan(rincianKegiatan);
                 daftarDipa.rekamDipa(dipa);
                 List<Dipa> listDipa = daftarDipa.getDipa();
@@ -102,13 +111,13 @@ public class ProsesRekamDipaServlet extends HttpServlet {
     }
 
     public boolean valNumber(String kode) {
+        int j;
         try {
-            int i = Integer.parseInt(kode);
-            //validate minus input
-            if (i >= 0) {
-                return true;
+            for (int i = 0; i < kode.length(); i++) {
+                String c = kode.substring(i, i + 1);
+                j = Integer.parseInt(c);
             }
-            return false;
+            return true;
         } catch (Exception e) {
             return false;
         }

@@ -110,7 +110,7 @@
                     <form name="form_edit_dipa" action="proses_edit_dipa" method="post" >
                         <table width="400px"/>  
                             <tr>
-                                <td>Nomor Dipa</td><td><input type="text" name="nomor_dipa" style="width: 200px" value="<%=dipa.getNomorDipa()%>"</td>
+                                <td>Nomor Dipa</td><td><input type="text" name="nomor_dipa" style="width: 200px" value="<%=dipa.getNomorDipa()%>"></td>
                             </tr>
                             <tr>
                                 <td>RincianKegiatan</td>
@@ -137,11 +137,6 @@
                         <table width="400px"/>  
                             <tr>
                                 <td>Realisasi</td><td><input type="text" name="realisasi" style="width: 200px" value="<%=dipa.getRealisasi()%>"</td>
-                            </tr>
-                        </table>  
-                        <table width="400px"/>  
-                            <tr>
-                                <td>Sisa Dana</td><td><input type="text" name="sisa_dana" style="width: 200px" value="<%=dipa.getSisaDana()%>"</td>
                             </tr>
                         </table>
                         <p><input type="hidden" name="id_edit_dipa" value="<%=dipa.getId()%>"></p>

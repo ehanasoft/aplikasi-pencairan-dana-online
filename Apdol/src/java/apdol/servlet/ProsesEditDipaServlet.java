@@ -38,88 +38,81 @@ public class ProsesEditDipaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProsesEditDipaServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProsesEditDipaServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
-            DaftarDipa daftarDipa = new DaftarDipa();
 
+            Dipa dipa = new Dipa();
+            DaftarDipa daftarDipa = new DaftarDipa();
             String jsp = "";
 
             String nomorDipa = request.getParameter("nomor_dipa");
             String pagu = request.getParameter("pagu");
             String realisasi = request.getParameter("realisasi");
-            String sisaDana = request.getParameter("sisa_dana");
             String rincianKegiatanId = request.getParameter("rincian_kegiatan");
+            
             Long longId = Long.parseLong(rincianKegiatanId);
-
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(longId);
-
+            
             String idDipa = request.getParameter("id_edit_dipa");
             Long longIdDipa = Long.parseLong(idDipa);
-            Dipa dipa = daftarDipa.findDipa(longIdDipa);
-
+            dipa = daftarDipa.findDipa(longIdDipa);
 
             //validate blank field
-            if ("".equals(nomorDipa)) {
-                JOptionPane.showMessageDialog(null, "Nomor Dipa tidak boleh kosong !",
-                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+            if (nomorDipa == "") {
+                JOptionPane.showMessageDialog(null, "Nomor Dipa tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 request.setAttribute("dipa_edit", dipa);
-                request.setAttribute("rincianKegiatanDipa", dipa.getRincianKegiatan());
                 jsp = "pages/edit_dipa.jsp";
-            } else if ("".equals(pagu)) {
-                JOptionPane.showMessageDialog(null, "Pagu tidak boleh kosong !",
-                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+            } else if (pagu == "") {
+                JOptionPane.showMessageDialog(null, "Pagu tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 request.setAttribute("dipa_edit", dipa);
-                request.setAttribute("rincianKegiatanDipa", dipa.getRincianKegiatan());
                 jsp = "pages/edit_dipa.jsp";
-            } else if ("".equals(realisasi)) {
-                JOptionPane.showMessageDialog(null, "Realisasi tidak boleh kosong !",
-                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+            } else if (realisasi == "") {
+                JOptionPane.showMessageDialog(null, "Realisasi tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 request.setAttribute("dipa_edit", dipa);
-                request.setAttribute("rincianKegiatanDipa", dipa.getRincianKegiatan());
                 jsp = "pages/edit_dipa.jsp";
-            } else if ("".equals(sisaDana)) {
-                JOptionPane.showMessageDialog(null, "Sisa Dana tidak boleh kosong !",
-                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+            } else if (!this.valNumber(pagu)) {
+                JOptionPane.showMessageDialog(null, "Pagu harus angka dan bulat !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 request.setAttribute("dipa_edit", dipa);
-                request.setAttribute("rincianKegiatanDipa", dipa.getRincianKegiatan());
                 jsp = "pages/edit_dipa.jsp";
-            } else if ("".equals(rincianKegiatanId)) {
-                JOptionPane.showMessageDialog(null, "Rincian Kegiatan tidak boleh kosong !",
-                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+            } else if (!this.valNumber(realisasi)) {
+                JOptionPane.showMessageDialog(null, "Realisasi harus angka  dan bulat !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 request.setAttribute("dipa_edit", dipa);
-                request.setAttribute("rincianKegiatanDipa", dipa.getRincianKegiatan());
+                jsp = "pages/edit_dipa.jsp";
+            } else if (Float.parseFloat(pagu) < Float.parseFloat(realisasi)) {
+                JOptionPane.showMessageDialog(null, "Pagu harus lebih besar daripada Realisasi !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                request.setAttribute("dipa_edit", dipa);
+                jsp = "pages/edit_dipa.jsp";
+            } //validate record on database
+            else if (daftarDipa.isNomorExist(nomorDipa) && !dipa.isKodeNoChange(nomorDipa)) {
+                JOptionPane.showMessageDialog(null, "Nomor Dipa sudah ada dalam database !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                request.setAttribute("dipa_edit", dipa);
                 jsp = "pages/edit_dipa.jsp";
             } else {
                 dipa.setNomorDipa(nomorDipa);
                 dipa.setPagu(pagu);
                 dipa.setRealisasi(realisasi);
-                dipa.setSisaDana(sisaDana);
+                dipa.setSisaDana();
                 dipa.setRincianKegiatan(rincianKegiatan);
                 daftarDipa.edit(dipa);
-                jsp = "pages/dipa.jsp";
                 List<Dipa> listDipa = daftarDipa.getDipa();
                 Collections.sort(listDipa, new DipaComparator());
                 request.setAttribute("list_dipa", listDipa);
+                jsp = "pages/dipa.jsp";
             }
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
@@ -127,12 +120,11 @@ public class ProsesEditDipaServlet extends HttpServlet {
         }
     }
 
-    //validate number
-    public boolean valNumber(String nomorDipa) {
+    public boolean valNumber(String kode) {
         int j;
         try {
-            for (int i = 0; i < nomorDipa.length(); i++) {
-                String c = nomorDipa.substring(i, i + 1);
+            for (int i = 0; i < kode.length(); i++) {
+                String c = kode.substring(i, i + 1);
                 j = Integer.parseInt(c);
             }
             return true;
