@@ -4,18 +4,24 @@
  */
 package apdol.entity;
 
+import apdol.model.DaftarDipa;
 import java.io.Serializable;
+import java.math.BigInteger;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author wahid
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Dipa.findDipaByRinciaKegiatan", query = "SELECT d FROM Dipa d where d.rincianKegiatan = :rincianKegiatan"),})
 public class Dipa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -65,8 +71,11 @@ public class Dipa implements Serializable {
         return sisaDana;
     }
 
-    public void setSisaDana(String sisaDana) {
-        this.sisaDana = sisaDana;
+    public void setSisaDana() {
+        BigInteger iPagu = new BigInteger(this.pagu);
+        BigInteger iRealisasi = new BigInteger(this.realisasi);
+        BigInteger iSisa = iPagu.subtract(iRealisasi);
+        this.sisaDana = iSisa.toString();
     }
 
     public RincianKegiatan getRincianKegiatan() {
@@ -84,9 +93,37 @@ public class Dipa implements Serializable {
         return hash;
     }
 
-   
-@Override
-        public String toString() {
+    @Override
+    public String toString() {
         return "apdol.entity.Dipa[ id=" + id + " ]";
+    }
+
+    public boolean isKodeNoChange(String kode) {
+        if (kode.equalsIgnoreCase(this.nomorDipa)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void kurangRealisasi (RincianKegiatan rincianKegiatan, String nilai) {
+        DaftarDipa daftarDipa = new DaftarDipa();
+        Dipa dipa = daftarDipa.findDipaByRincianKegiatan(rincianKegiatan);
+        BigInteger spm = new BigInteger(nilai);
+        BigInteger iReal = new BigInteger(dipa.getRealisasi());
+        BigInteger totalReal = iReal.add(spm);
+        dipa.setRealisasi(totalReal.toString());
+        dipa.setSisaDana();
+        daftarDipa.edit(dipa);
+    }
+    public void tambahRealisasi (RincianKegiatan rincianKegiatan, String nilai) {
+        DaftarDipa daftarDipa = new DaftarDipa();
+        Dipa dipa = daftarDipa.findDipaByRincianKegiatan(rincianKegiatan);
+        BigInteger spm = new BigInteger(nilai);
+        BigInteger iReal = new BigInteger(dipa.getRealisasi());
+        BigInteger totalReal = iReal.subtract(spm);
+        dipa.setRealisasi(totalReal.toString());
+        dipa.setSisaDana();
+        daftarDipa.edit(dipa);
     }
 }

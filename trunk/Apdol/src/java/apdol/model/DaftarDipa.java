@@ -5,9 +5,7 @@
 package apdol.model;
 
 import apdol.entity.Dipa;
-import apdol.entity.Kegiatan;
-import apdol.entity.MataAnggaran;
-import apdol.entity.Output;
+import apdol.entity.RincianKegiatan;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -54,6 +52,19 @@ public class DaftarDipa {
         } finally {
             em.close();
         }
+    }
+    
+    public Dipa findDipaByRincianKegiatan(RincianKegiatan rincianKegiatan){
+        DaftarDipa daftarDipa = new DaftarDipa();
+        List <Dipa> listDipa= daftarDipa.getDipa();
+        Iterator<Dipa> it = listDipa.iterator();
+        Dipa dipa = new Dipa();
+        while (it.hasNext()) {
+            dipa = it.next();
+            if (dipa.getRincianKegiatan().equals(rincianKegiatan))
+                return dipa;
+        }
+        return dipa;
     }
 
     public void rekamDipa(Dipa dipa) {
@@ -132,4 +143,6 @@ public class DaftarDipa {
             }
         } return false;
     }
+    
+    //public void kurangiDipa (Long idDipa,)
 }

@@ -137,12 +137,6 @@
                                 <td width="238"><input type="text" name="realisasi" style="width: 200px" /></td>
                             </tr>
                         </table>
-                        <table width="400px">
-                            <tr>
-                                <td width="150">Sisa Dana</td>
-                                <td width="238"><input type="text" name="sisa_dana" style="width: 200px" /></td>
-                            </tr>
-                        </table>
                         <p>&nbsp;</p>
                         <h5>&nbsp;</h5>
                         <table width="400px">
