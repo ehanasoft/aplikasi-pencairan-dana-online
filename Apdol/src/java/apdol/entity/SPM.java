@@ -104,5 +104,7 @@ public class SPM implements Serializable {
     public String toString() {
         return "apdol.entity.SPM[ id=" + id + " ]";
     }
+
+ 
     
 }

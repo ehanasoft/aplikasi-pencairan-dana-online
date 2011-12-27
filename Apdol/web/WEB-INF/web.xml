@@ -340,6 +340,14 @@
         <servlet-name>EditSPMServlet</servlet-name>
         <servlet-class>apdol.servlet.EditSPMServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProsesEditSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesEditSPMServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesHapusSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesHapusSPMServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register User</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -679,6 +687,14 @@
     <servlet-mapping>
         <servlet-name>EditSPMServlet</servlet-name>
         <url-pattern>/edit_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesEditSPMServlet</servlet-name>
+        <url-pattern>/proses_edit_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesHapusSPMServlet</servlet-name>
+        <url-pattern>/proses_hapus_spm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

@@ -92,7 +92,7 @@ public class ProsesRekamRegisterServlet extends HttpServlet {
                 jsp = "pages/rekam_user.jsp";
             } // validate lenght field
             else if (kodesatker.length() < 6) {
-                JOptionPane.showMessageDialog(null, "Kode Lokasi harus 6 angka !");
+                JOptionPane.showMessageDialog(null, "Kode Satker harus 6 angka !");
                 jsp = "pages/rekam_user.jsp";
             }// validate kode satker are number
             else if (!this.valNumber(kodesatker)) {

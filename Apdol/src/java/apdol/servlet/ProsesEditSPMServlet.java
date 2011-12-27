@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
  *
  * @author wahid
  */
-public class ProsesRekamSPMServlet extends HttpServlet {
+public class ProsesEditSPMServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -52,58 +52,91 @@ public class ProsesRekamSPMServlet extends HttpServlet {
             String jumlahBersih = request.getParameter("jumlah_bersih");
             Long longJumlahBersih = Long.parseLong(jumlahBersih);
             String rincianKegiatanId = request.getParameter("rincian_kegiatan");
+            
             Long longId = Long.parseLong(rincianKegiatanId);
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(longId);
             
+            String idSPM = request.getParameter("id_edit_spm");
+            Long longIdSPM = Long.parseLong(idSPM);
+            spm = daftarSPM.findSPM(longIdSPM);
+
             //validate blank field
             if (tanggalSPM == "") {
                 JOptionPane.showMessageDialog(null, "Tanggal SPM tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rekam_spm.jsp";
-            } else if (jumlahKeluar == "") {
+                request.setAttribute("spm_edit", spm);
+                jsp = "pages/edit_spm.jsp";
+            } else if (jumlahKeluar== "") {
                 JOptionPane.showMessageDialog(null, "Jumlah Keluar tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rekam_spm.jsp";
-            }  else if (jumlahPotongan == "") {
+                request.setAttribute("spm_edit", spm);
+                jsp = "pages/edit_spm.jsp";
+            } else if (jumlahPotongan== "") {
                 JOptionPane.showMessageDialog(null, "Jumlah Potongan tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rekam_spm.jsp";
-            }  else if (jumlahBersih == "") {
+                request.setAttribute("spm_edit", spm);
+                jsp = "pages/edit_spm.jsp";
+            } else if (jumlahBersih== "") {
                 JOptionPane.showMessageDialog(null, "Jumlah Bersih tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rekam_spm.jsp";    
+                request.setAttribute("spm_edit", spm);
+                jsp = "pages/edit_spm.jsp";    
+            } else if (!this.valNumber(jumlahKeluar)) {
+                JOptionPane.showMessageDialog(null, "Jumlah Keluar harus angka dan bulat !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                request.setAttribute("spm_edit", spm);
+                jsp = "pages/edit_spm.jsp";
+            } else if (!this.valNumber(jumlahPotongan)) {
+                JOptionPane.showMessageDialog(null, "Jumlah Potongan harus angka  dan bulat !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                request.setAttribute("spm_edit", spm);
+                jsp = "pages/edit_spm.jsp";
+            } else if (!this.valNumber(jumlahBersih)) {
+                JOptionPane.showMessageDialog(null, "Jumlah Bersih harus angka  dan bulat !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                request.setAttribute("spm_edit", spm);
+                jsp = "pages/edit_spm.jsp";
+            } else if (Float.parseFloat(jumlahKeluar) < Float.parseFloat(jumlahPotongan)) {
+                JOptionPane.showMessageDialog(null, "Jumlah Keluar harus lebih besar daripada Jumlah Potongan !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                request.setAttribute("spm_edit", spm);
+                jsp = "pages/edit_spm.jsp";
             } else {
                 spm.setTanggalSPM(tanggalSPM);
                 spm.setJumlahKeluar(longJumlahKeluar);
                 spm.setJumlahPotongan(longJumlahPotongan);
                 spm.setRincianKegiatan(rincianKegiatan);
-                daftarSPM.rekamSPM(spm);
+                daftarSPM.edit(spm);
+                List<SPM> listSPM = daftarSPM.getSPM();
+                Collections.sort(listSPM, new SpmComparator());
+                request.setAttribute("list_spm", listSPM);
                 jsp = "pages/spm.jsp";
             }
 
-            List<SPM> listSPM = daftarSPM.getSPM();
-            Collections.sort(listSPM, new SpmComparator());
-            request.setAttribute("list_spm", listSPM);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
+
     public boolean valNumber(String kode) {
+        int j;
         try {
-            int i = Integer.parseInt(kode);
-            //validate minus input
-            if (i >= 0) {
-                return true;
+            for (int i = 0; i < kode.length(); i++) {
+                String c = kode.substring(i, i + 1);
+                j = Integer.parseInt(c);
             }
-            return false;
+            return true;
         } catch (Exception e) {
             return false;
         }
