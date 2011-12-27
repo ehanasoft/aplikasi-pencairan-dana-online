@@ -139,11 +139,14 @@
                             <tr>
                                 <td width="200">Jumlah Keluar</td>
                                 <td><input type="text" name="jumlah_keluar" style="width: 200px" /></td>
-                            </tr>
-                                    
+                            </tr>                                   
                             <tr>
                                 <td width="200">Jumlah Potongan</td>
                                 <td><input type="text" name="jumlah_potongan" style="width: 200px" /></td>
+                            </tr>
+                            <tr>
+                                <td width="200">Jumlah Bersih</td>
+                                <td><input type="text" name="jumlah_bersih" style="width: 200px" /></td>
                             </tr>
                         </table>
                         <p>&nbsp;</p>

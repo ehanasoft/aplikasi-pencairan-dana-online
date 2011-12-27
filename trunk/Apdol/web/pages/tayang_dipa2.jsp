@@ -4,6 +4,7 @@
     Author     : wahid
 --%>
 
+<%@page import="apdol.string.format.Rupiah"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="apdol.model.DaftarDipa"%>
@@ -12,6 +13,7 @@
 
 <% List<Dipa> listDipa = (List<Dipa>) request.getAttribute("list_dipa");%>
 <% Dipa dipa;%>
+<%Rupiah rp = new Rupiah ();%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -126,9 +128,9 @@
                                 <tr>
                                     <td><%=dipa.getNomorDipa()%></td>
                                     <td><%=dipa.getRincianKegiatan().getSatker().getNamaSatker()+ "-" +dipa.getRincianKegiatan().getKegiatan().getNmgiat()+ "-" +dipa.getRincianKegiatan().getOutput().getNamaOutput()+ "-" +dipa.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
-                                    <td><%=dipa.getPagu()%></td>
-                                    <td><%=dipa.getRealisasi()%></td>
-                                    <td><%=dipa.getSisaDana()%></td>
+                                    <td align="right"><%=rp.formatRupiah(dipa.getPagu())%></td>
+                                    <td align="right"><%=rp.formatRupiah(dipa.getRealisasi())%></td>
+                                    <td align="right"><%=rp.formatRupiah(dipa.getSisaDana())%></td>
                                 </tr>
                                 <%}}%>
                             </tbody>
