@@ -124,7 +124,13 @@
                             </tr>
                             <tr>
                                 <td width="200">Tanggal SPM</td>
-                                <td><input type="text" name="tanggal_spm" style="width: 200px" /></td>
+                                <td><label for="tanggal"></label>
+                                <input name="tanggal" type="text" id="tanggal" style = "width:25px" size="2" maxlength="2"/>
+                                /
+                                <input name="bulan" type="text" id="bulan" style = "width:25px" size="2" maxlength="2"/>
+                                /
+                                <label for="tahun"></label>
+                                <input type="text" name="tahun" id="tahun" style = "width:50px" size="4" maxlength="4"/></td>
                             </tr>
                             <tr>
                                 <td>Rincian Kegiatan</td>
@@ -139,14 +145,11 @@
                             <tr>
                                 <td width="200">Jumlah Keluar</td>
                                 <td><input type="text" name="jumlah_keluar" style="width: 200px" /></td>
-                            </tr>                                   
+                            </tr>
+                                    
                             <tr>
                                 <td width="200">Jumlah Potongan</td>
                                 <td><input type="text" name="jumlah_potongan" style="width: 200px" /></td>
-                            </tr>
-                            <tr>
-                                <td width="200">Jumlah Bersih</td>
-                                <td><input type="text" name="jumlah_bersih" style="width: 200px" /></td>
                             </tr>
                         </table>
                         <p>&nbsp;</p>

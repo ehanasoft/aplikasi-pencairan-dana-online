@@ -4,7 +4,9 @@
  */
 package apdol.entity;
 
+import apdol.model.DaftarDipa;
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,9 +29,9 @@ public class SPM implements Serializable {
     private Date tanggalSPM;
     @ManyToOne
     private RincianKegiatan rincianKegiatan;
-    private Long jumlahKeluar;
-    private Long jumlahPotongan;    
-    private Long jumlahBersih;
+    private String jumlahKeluar;
+    private String jumlahPotongan;    
+    private String jumlahBersih;
      
     public RincianKegiatan getRincianKegiatan() {
         return rincianKegiatan;
@@ -39,28 +41,31 @@ public class SPM implements Serializable {
         this.rincianKegiatan = rincianKegiatan;
     }
     
-    public Long getJumlahKeluar() {
+    public String getJumlahKeluar() {
         return jumlahKeluar;
     }
 
-    public void setJumlahKeluar(Long jumlahKeluar) {
+    public void setJumlahKeluar(String jumlahKeluar) {
         this.jumlahKeluar = jumlahKeluar;
     }
 
-    public Long getJumlahPotongan() {
+    public String getJumlahPotongan() {
         return jumlahPotongan;
     }
 
-    public void setJumlahPotongan(Long jumlahPotongan) {
+    public void setJumlahPotongan(String jumlahPotongan) {
         this.jumlahPotongan = jumlahPotongan;
     }
     
-    public Long getJumlahBersih() {
+    public String getJumlahBersih() {
         return jumlahBersih;
     }
 
-    public void setJumlahBersih(Long jumlahBersih) {
-        this.jumlahBersih = jumlahBersih;
+    public void setJumlahBersih() {
+        BigInteger iKeluar = new BigInteger(this.jumlahKeluar);
+        BigInteger iPotongan = new BigInteger(this.jumlahPotongan);
+        BigInteger iBersih = iKeluar.subtract(iPotongan);
+        this.jumlahBersih = iBersih.toString();
     }
 
     public Date getTanggalSPM() {
@@ -107,4 +112,24 @@ public class SPM implements Serializable {
 
  
     
+    public void kurangiDipa (RincianKegiatan rincianKegiatan, String nilai) {
+        DaftarDipa daftarDipa = new DaftarDipa();
+        Dipa dipa = daftarDipa.findDipaByRincianKegiatan(rincianKegiatan);
+        BigInteger nilaiSpm = new BigInteger(nilai);
+        BigInteger iReal = new BigInteger(dipa.getRealisasi());
+        BigInteger totalReal = iReal.add(nilaiSpm);
+        dipa.setRealisasi(totalReal.toString());
+        dipa.setSisaDana();
+        daftarDipa.edit(dipa);
+    }
+    public void tambahiDipa (RincianKegiatan rincianKegiatan, String nilai) {
+        DaftarDipa daftarDipa = new DaftarDipa();
+        Dipa dipa = daftarDipa.findDipaByRincianKegiatan(rincianKegiatan);
+        BigInteger nilaiSpm = new BigInteger(nilai);
+        BigInteger iReal = new BigInteger(dipa.getRealisasi());
+        BigInteger totalReal = iReal.subtract(nilaiSpm);
+        dipa.setRealisasi(totalReal.toString());
+        dipa.setSisaDana();
+        daftarDipa.edit(dipa);
+    }
 }
