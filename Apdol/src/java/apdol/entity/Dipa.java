@@ -106,24 +106,4 @@ public class Dipa implements Serializable {
         }
     }
     
-    public void kurangRealisasi (RincianKegiatan rincianKegiatan, String nilai) {
-        DaftarDipa daftarDipa = new DaftarDipa();
-        Dipa dipa = daftarDipa.findDipaByRincianKegiatan(rincianKegiatan);
-        BigInteger spm = new BigInteger(nilai);
-        BigInteger iReal = new BigInteger(dipa.getRealisasi());
-        BigInteger totalReal = iReal.add(spm);
-        dipa.setRealisasi(totalReal.toString());
-        dipa.setSisaDana();
-        daftarDipa.edit(dipa);
-    }
-    public void tambahRealisasi (RincianKegiatan rincianKegiatan, String nilai) {
-        DaftarDipa daftarDipa = new DaftarDipa();
-        Dipa dipa = daftarDipa.findDipaByRincianKegiatan(rincianKegiatan);
-        BigInteger spm = new BigInteger(nilai);
-        BigInteger iReal = new BigInteger(dipa.getRealisasi());
-        BigInteger totalReal = iReal.subtract(spm);
-        dipa.setRealisasi(totalReal.toString());
-        dipa.setSisaDana();
-        daftarDipa.edit(dipa);
-    }
 }
