@@ -18,6 +18,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.OneToOne;
 
 
 /**
@@ -34,8 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
             @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
             @NamedQuery(name = "User.findByNama", query = "SELECT u FROM User u WHERE u.nama = :nama"),
             @NamedQuery(name = "User.findByJabatan", query = "SELECT u FROM User u WHERE u.jabatan = :jabatan"),
-            @NamedQuery(name = "User.findByRoleuser", query = "SELECT u FROM User u WHERE u.roleuser = :roleuser"),
-            @NamedQuery(name = "User.findByKodeSatker", query = "SELECT u FROM User u WHERE u.kodesatker = :kodesatker")})
+            @NamedQuery(name = "User.findByRoleuser", query = "SELECT u FROM User u WHERE u.roleuser = :roleuser")})
 
 public class User implements Serializable {
 
@@ -55,8 +55,16 @@ public class User implements Serializable {
     private String jabatan;
     @Column(name = "roleuser")
     private String roleuser;
-    @Column(name = "kodesatker")
-    private String kodesatker;
+    @OneToOne
+    private SatuanKerja satker;
+
+    public SatuanKerja getSatker() {
+        return satker;
+    }
+
+    public void setSatker(SatuanKerja satker) {
+        this.satker = satker;
+    }
     
 
     public User() {
@@ -82,16 +90,7 @@ public class User implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
-
-    public String getKodeSatker() {
-        return kodesatker;
-    }
-
-    public void setKodeSatker(String kodeSatker) {
-        this.kodesatker = kodeSatker;
-    }
-    
-
+   
     public String getPassword() {
         return password;
     }
@@ -164,6 +163,7 @@ public class User implements Serializable {
         return false;
     }
 
+    /*
     public boolean valKodeSatker() {
         DaftarUser daftarUser = new DaftarUser();
         List<User> listUser = daftarUser.getUser();
@@ -172,12 +172,12 @@ public class User implements Serializable {
 
         while (iterator.hasNext()) {
             tes = iterator.next();
-            if (tes.kodesatker.equalsIgnoreCase(this.kodesatker)) {
+            if (tes.satker.equalsIgnoreCase(this.satker)) {
                 return true;
             }
         }
         return false;
-    }
+    }*/
 
 
     public boolean isUsernameNoChange(String username) {
@@ -202,13 +202,13 @@ public class User implements Serializable {
             return false;
         }
     }
-    public boolean isKodeSatkerNoChange(String kodesatker) {
+    /*public boolean isKodeSatkerNoChange(String kodesatker) {
        if (kodesatker.equalsIgnoreCase(this.kodesatker)) {
             return true;
         } else {
             return false;
         }
-    }
+    }*/
     public boolean isJabatanNoChange(String jabatan) {
        if (jabatan.equalsIgnoreCase(this.jabatan)) {
             return true;

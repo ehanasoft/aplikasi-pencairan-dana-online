@@ -106,7 +106,7 @@ public class ProsesEditUserServlet extends HttpServlet {
                 user.setNama(nama);
                 user.setJabatan(jabatan);
                 user.setRoleuser(roleuser);
-                user.setKodeSatker(kodesatker);
+               // user.setKodeSatker(kodesatker);
                 daftarUser.edit(user);
                 List<User> listUser = daftarUser.getUser();
                 listUser = daftarUser.getUser();

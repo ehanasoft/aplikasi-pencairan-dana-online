@@ -4,24 +4,22 @@
  */
 package apdol.servlet;
 
-import apdol.entity.User;
-import apdol.model.DaftarUser;
+import apdol.entity.SatuanKerja;
+import apdol.model.DaftarSatuanKerja;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
- * @author wahid
+ * @author Accio
  */
-@WebServlet(name = "RegisterServlet", urlPatterns = {"/register"})
-public class RegisterServlet extends HttpServlet {
+public class RekamUserServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,23 +32,18 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        RequestDispatcher rdp = null;
         try {
-        
-        DaftarUser daftarUser = new DaftarUser();
-        List<User> listUser = daftarUser.getUser();
-        request.setAttribute("list_user", listUser);
-      
-        String jsp = "pages/register.jsp";
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-        requestDispatcher.forward(request, response);
-        
-        } finally {            
+            DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
+            List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
+            request.setAttribute("list_satker", listSatker);
+
+            String jsp = "pages/rekam_user.jsp";
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+            requestDispatcher.forward(request, response);
+        } finally {
             out.close();
-          }
+        }
     }
-        
-       
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 

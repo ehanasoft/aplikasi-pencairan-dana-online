@@ -122,7 +122,7 @@
                                     <td><%=user.getUsername()%></td>
                                     <td><%=user.getPassword()%></td>
                                     <td><%=user.getNama()%></td>
-                                    <td><%=user.getKodeSatker()%></td>
+                                    <td><%=user.getSatker()%></td>
                                     <td><%=user.getJabatan()%></td>
                                     <td><input  type="checkbox"  name="cek_user" value="<%=user.getId()%>"></td>
                                 </tr>

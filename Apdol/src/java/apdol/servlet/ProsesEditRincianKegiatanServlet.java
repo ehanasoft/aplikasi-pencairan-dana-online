@@ -68,7 +68,7 @@ public class ProsesEditRincianKegiatanServlet extends HttpServlet {
 
             SatuanKerja satker = new SatuanKerja();
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
-            List<SatuanKerja> listSatker = daftarSatker.findSatkerByKode(kodeSatker);
+            List<SatuanKerja> listSatker = daftarSatker.findSatuanKerjaByKode(kodeSatker);
             satker = listSatker.get(0);
             
             Output output = new Output();
