@@ -53,19 +53,26 @@ public class ProsesRekamSPMServlet extends HttpServlet {
             String tanggal = request.getParameter("tanggal") + "/";
             String bulan = request.getParameter("bulan") + "/";
             String tahun = request.getParameter("tahun");
-            String stringDate = tanggal+bulan+tahun;
-            DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+            String stringDate = tanggal + bulan + tahun;
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             Date date = df.parse(stringDate);
-            
+
+            String nomorSpm = request.getParameter("nomor_spm");
             String jumlahKeluar = request.getParameter("jumlah_keluar");
             String jumlahPotongan = request.getParameter("jumlah_potongan");
             String rincianKegiatanId = request.getParameter("rincian_kegiatan");
+            
             Long longId = Long.parseLong(rincianKegiatanId);
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(longId);
-            
+
             //validate blank field
-            if (tanggal == "") {
+            if (nomorSpm == "") {
+                JOptionPane.showMessageDialog(null, "Nomor SPM tidak boleh kosong !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                jsp = "pages/rekam_spm.jsp";
+            } else if (tanggal == "") {
                 JOptionPane.showMessageDialog(null, "Tanggal SPM tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
@@ -74,45 +81,47 @@ public class ProsesRekamSPMServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Bulan SPM tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rekam_spm.jsp";  
+                jsp = "pages/rekam_spm.jsp";
             } else if (tahun == "") {
                 JOptionPane.showMessageDialog(null, "Tahun SPM tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rekam_spm.jsp";  
+                jsp = "pages/rekam_spm.jsp";
             } else if (jumlahKeluar == "") {
                 JOptionPane.showMessageDialog(null, "Jumlah Keluar tidak boleh kosong !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rekam_spm.jsp";     
+                jsp = "pages/rekam_spm.jsp";
             } else if (jumlahPotongan == "") {
                 JOptionPane.showMessageDialog(null, "Jumlah Potongan tidak boleh kosong (bisa memakai angka nol ) !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rekam_spm.jsp"; 
+                jsp = "pages/rekam_spm.jsp";
             } else {
+                spm.setNomorSpm(nomorSpm);
                 spm.setTanggalSPM(date);
                 spm.setJumlahKeluar(jumlahKeluar);
                 spm.setJumlahPotongan(jumlahPotongan);
                 spm.setJumlahBersih();
                 spm.setRincianKegiatan(rincianKegiatan);
-                
-                Dipa dipa = new Dipa ();
-                spm.kurangiDipa(rincianKegiatan, jumlahKeluar);
+
+                Dipa dipa = new Dipa();
+                spm.kurangiDipa();
                 daftarSPM.rekamSPM(spm);
                 jsp = "pages/spm.jsp";
+
+                List<SPM> listSPM = daftarSPM.getSPM();
+                Collections.sort(listSPM, new SpmComparator());
+                request.setAttribute("list_spm", listSPM);
             }
 
-            List<SPM> listSPM = daftarSPM.getSPM();
-            Collections.sort(listSPM, new SpmComparator());
-            request.setAttribute("list_spm", listSPM);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
+
     public boolean valNumber(String kode) {
         try {
             int i = Integer.parseInt(kode);

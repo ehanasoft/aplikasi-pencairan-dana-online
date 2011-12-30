@@ -4,6 +4,8 @@
     Author     : wahid
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="apdol.model.DaftarSPM"%>
@@ -14,6 +16,9 @@
 <% SPM spm = (SPM) request.getAttribute("spm_edit");%>
 <% List<RincianKegiatan> listRincianKegiatan = (List<RincianKegiatan>) request.getAttribute("list_rincian_kegiatan");%>
 <% RincianKegiatan rincianKegiatan;%>
+<% DateFormat dfd = new SimpleDateFormat("dd");%>
+<% DateFormat dfm = new SimpleDateFormat("MM");%>
+<% DateFormat dfy = new SimpleDateFormat("yyyy");%>
 
 <% RincianKegiatan rincianKegiatanSPM = (RincianKegiatan) request.getAttribute("rincianKegiatanSPM");%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
@@ -21,6 +26,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
     <%String roleUser = (String) session.getAttribute("roleuser");%>
+    <%String kodeSatker = (String) session.getAttribute("kode_satker");%> 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title> Edit SPM</title>
@@ -110,10 +116,17 @@
                     <form name="form_edit_spm" action="proses_edit_spm" method="post" >
                         <table width="400px"/>  
                             <tr>
-                                <td>Nomor SPM</td><td><input type="text" name="nomor_spm" style="width: 200px" value="<%=spm.getId()%>"</td>
+                                <td>Nomor SPM</td><td><input type="text" name="nomor_spm" style="width: 200px" value="<%=spm.getId()%>"></td>
                             </tr>
                             <tr>
-                                <td>Tanggal SPM</td><td><input type="text" name="tanggal_spm" style="width: 200px" value="<%=spm.getTanggalSPM()%>"</td>
+                                <td width="200">Tanggal SPM</td>
+                                <td><label for="tanggal"></label>
+                                    <input name="tanggal" type="text" id="tanggal" style = "width:25px" size="2" maxlength="2" value="<%=dfd.format(spm.getTanggalSPM())%>"/>
+                                /
+                                <input name="bulan" type="text" id="bulan" style = "width:25px" size="2" maxlength="2" value="<%=dfm.format(spm.getTanggalSPM())%>"/>
+                                /
+                                <label for="tahun"></label>
+                                <input type="text" name="tahun" id="tahun" style = "width:50px" size="4" maxlength="4" value="<%=dfy.format(spm.getTanggalSPM())%>"/></td>
                             </tr>
                             <tr>
                                 <td>RincianKegiatan</td>
@@ -122,11 +135,13 @@
                                         <%Iterator<RincianKegiatan> iterator = listRincianKegiatan.iterator();%>
                                         <%while (iterator.hasNext()) {
                                                 rincianKegiatan = iterator.next();
+                                                
+                                            if (kodeSatker.equalsIgnoreCase(rincianKegiatan.getSatker().getKodeSatker())) {
                                                 if (spm.getRincianKegiatan() != null && spm.getRincianKegiatan().getId().equals(rincianKegiatan.getId())) {
                                                     out.println("<option value=" + rincianKegiatan.getId() + " selected=\"selected\">" + rincianKegiatan.getKegiatan().getNmgiat() + " . " + rincianKegiatan.getOutput().getNamaOutput() + " . " + rincianKegiatan.getMataAnggaran().getNamaMataAnggaran() + "</option>");
                                                 } else {
                                                     out.println("<option value=" + rincianKegiatan.getId() + ">" + rincianKegiatan.getKegiatan().getNmgiat() + " . " + rincianKegiatan.getOutput().getNamaOutput() + " . " + rincianKegiatan.getMataAnggaran().getNamaMataAnggaran() + "</option>");
-                                                }
+                                                }}
                                             }%>
                                     </select>
                                 </td>
@@ -134,12 +149,12 @@
                         </table>
                         <table width="400px"/>  
                             <tr>
-                                <td>Jumlah Keluar</td><td><input type="text" name="pagu" style="width: 200px" value="<%=spm.getJumlahKeluar()%>"</td>
+                                <td>Jumlah Keluar</td><td><input type="text" name="jumlah_keluar" style="width: 200px" value="<%=spm.getJumlahKeluar()%>"</td>
                             </tr>
                         </table>
                         <table width="400px"/>  
                             <tr>
-                                <td>Jumlah Potongan</td><td><input type="text" name="realisasi" style="width: 200px" value="<%=spm.getJumlahPotongan()%>"</td>
+                                <td>Jumlah Potongan</td><td><input type="text" name="jumlah_potongan" style="width: 200px" value="<%=spm.getJumlahPotongan()%>"</td>
                             </tr>
                         </table>                       
                         <p><input type="hidden" name="id_edit_spm" value="<%=spm.getId()%>"></p>

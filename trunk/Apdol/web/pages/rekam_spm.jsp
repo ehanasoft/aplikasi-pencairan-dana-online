@@ -25,7 +25,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
-    <%String roleUser = (String) session.getAttribute("roleuser");%>    
+    <%String roleUser = (String) session.getAttribute("roleuser");%>  
+    <%String kodeSatker = (String) session.getAttribute("kode_satker");%>  
 
 
     <head>
@@ -136,8 +137,9 @@
                                 <td>Rincian Kegiatan</td>
                                 <td>
                                         <select name="rincian_kegiatan"><% while (iterator.hasNext()) {
-                                            rincianKegiatan = iterator.next();%>
-                                            <option value="<%=rincianKegiatan.getId()%>"><%=rincianKegiatan.getSatker().getNamaSatker() + " . " +rincianKegiatan.getKegiatan().getNmgiat() + " . " + rincianKegiatan.getOutput().getNamaOutput() + " . " + rincianKegiatan.getMataAnggaran().getNamaMataAnggaran()%></option><%}%>
+                                            rincianKegiatan = iterator.next(); 
+                                            if (kodeSatker.equalsIgnoreCase(rincianKegiatan.getSatker().getKodeSatker())) {%>
+                                            <option value="<%=rincianKegiatan.getId()%>"><%=rincianKegiatan.getSatker().getNamaSatker() + " . " +rincianKegiatan.getKegiatan().getNmgiat() + " . " + rincianKegiatan.getOutput().getNamaOutput() + " . " + rincianKegiatan.getMataAnggaran().getNamaMataAnggaran()%></option><%}}%>
                                     </select>
                                 </td>
                             </tr> 

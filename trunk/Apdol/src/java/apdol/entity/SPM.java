@@ -32,6 +32,15 @@ public class SPM implements Serializable {
     private String jumlahKeluar;
     private String jumlahPotongan;    
     private String jumlahBersih;
+    private String nomorSpm;
+
+    public String getNomorSpm() {
+        return nomorSpm;
+    }
+
+    public void setNomorSpm(String nomorSpm) {
+        this.nomorSpm = nomorSpm;
+    }
      
     public RincianKegiatan getRincianKegiatan() {
         return rincianKegiatan;
@@ -110,22 +119,20 @@ public class SPM implements Serializable {
         return "apdol.entity.SPM[ id=" + id + " ]";
     }
 
- 
-    
-    public void kurangiDipa (RincianKegiatan rincianKegiatan, String nilai) {
+    public void kurangiDipa () {
         DaftarDipa daftarDipa = new DaftarDipa();
-        Dipa dipa = daftarDipa.findDipaByRincianKegiatan(rincianKegiatan);
-        BigInteger nilaiSpm = new BigInteger(nilai);
+        Dipa dipa = daftarDipa.findDipaByRincianKegiatan(this.rincianKegiatan);
+        BigInteger nilaiSpm = new BigInteger(this.jumlahKeluar);
         BigInteger iReal = new BigInteger(dipa.getRealisasi());
         BigInteger totalReal = iReal.add(nilaiSpm);
         dipa.setRealisasi(totalReal.toString());
         dipa.setSisaDana();
         daftarDipa.edit(dipa);
     }
-    public void tambahiDipa (RincianKegiatan rincianKegiatan, String nilai) {
+    public void tambahiDipa () {
         DaftarDipa daftarDipa = new DaftarDipa();
-        Dipa dipa = daftarDipa.findDipaByRincianKegiatan(rincianKegiatan);
-        BigInteger nilaiSpm = new BigInteger(nilai);
+        Dipa dipa = daftarDipa.findDipaByRincianKegiatan(this.rincianKegiatan);
+        BigInteger nilaiSpm = new BigInteger(this.jumlahKeluar);
         BigInteger iReal = new BigInteger(dipa.getRealisasi());
         BigInteger totalReal = iReal.subtract(nilaiSpm);
         dipa.setRealisasi(totalReal.toString());
