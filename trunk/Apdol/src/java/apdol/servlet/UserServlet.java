@@ -8,17 +8,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import apdol.entity.User;
+import apdol.model.DaftarUser;
+import java.util.List;
 
 /**
  *
- * @author wahid
+ * @author Accio
  */
-@WebServlet(name = "RekamRegisterServlet", urlPatterns = {"/rekam_user"})
-public class RekamRegisterServlet extends HttpServlet {
+public class UserServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -32,17 +33,11 @@ public class RekamRegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RekamRegisterServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RekamRegisterServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
-            String jsp = "pages/rekam_user.jsp";
+            DaftarUser daftarUser = new DaftarUser();
+            List<User> listUser = daftarUser.getUser();
+            request.setAttribute("list_user", listUser);
+            
+            String jsp = "pages/user.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {            

@@ -34,7 +34,7 @@ public class DaftarUser {
         user.setRoleuser("1");
         user.setPassword("admin");
         user.setJabatan("administrator");
-        user.setKodeSatker("null");
+        //user.setsatker("null");
         user.setNama("administrator");
         
         List<User> l = d.getUser();

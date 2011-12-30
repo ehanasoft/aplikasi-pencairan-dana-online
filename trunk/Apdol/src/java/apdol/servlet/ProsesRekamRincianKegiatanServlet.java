@@ -73,7 +73,7 @@ public class ProsesRekamRincianKegiatanServlet extends HttpServlet {
 
             SatuanKerja satker = new SatuanKerja();
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
-            List<SatuanKerja> listSatker = daftarSatker.findSatkerByKode(kodeSatker);
+            List<SatuanKerja> listSatker = daftarSatker.findSatuanKerjaByKode(kodeSatker);
             if (listSatker.isEmpty()) {
                 satker = null;
             } else {

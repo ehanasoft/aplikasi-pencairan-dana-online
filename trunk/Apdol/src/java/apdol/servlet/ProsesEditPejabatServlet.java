@@ -61,7 +61,7 @@ public class ProsesEditPejabatServlet extends HttpServlet {
 
             SatuanKerja satker = new SatuanKerja();
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
-            List<SatuanKerja> listSatker = daftarSatker.findSatkerByKode(kodeSatker);
+            List<SatuanKerja> listSatker = daftarSatker.findSatuanKerjaByKode(kodeSatker);
             satker = listSatker.get(0);
 
             String idPejabat = request.getParameter("id_edit_pejabat");

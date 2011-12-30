@@ -21,6 +21,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
     @NamedQuery(name = "SatuanKerja.findByKode", query = "SELECT l FROM SatuanKerja l where l.kodeSatker like :kodeSatker"),})
 public class SatuanKerja implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -58,7 +59,6 @@ public class SatuanKerja implements Serializable {
         this.namaUnit = namaUnit;
     }
 
-    
     public String getNamaSatker() {
         return namaSatker;
     }
@@ -66,7 +66,6 @@ public class SatuanKerja implements Serializable {
     public void setNamaSatker(String namaSatker) {
         this.namaSatker = namaSatker;
     }
-
 
     public String getKodeDept() {
         return kodeDept;
@@ -124,6 +123,7 @@ public class SatuanKerja implements Serializable {
     public String toString() {
         return "apdol.entity.SatuanKerja[ id=" + id + " ]";
     }
+
     public boolean isKodeNoChange(String kode) {
         if (kode.equalsIgnoreCase(this.kodeSatker)) {
             return true;
@@ -138,5 +138,5 @@ public class SatuanKerja implements Serializable {
         } else {
             return false;
         }
-    }    
+    }
 }
