@@ -4,6 +4,8 @@
     Author     : wahid
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="apdol.entity.SPM"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -12,6 +14,7 @@
 
 <% List<SPM> listSPM = (List<SPM>) request.getAttribute("list_spm");%>
 <% SPM spm;%>
+<% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,7 +39,7 @@
                 <% if (roleUser.equals("1")) {%>
                 <p><strong>Dokumen</strong></p> 
                 <ul class="nav">
-                    <li><a href="spm">DIPA</a></li>
+                    <li><a href="dipa">DIPA</a></li>
                 </ul>
                 <p><strong>Referensi</strong></p> 
                 <ul class="nav">
@@ -57,7 +60,7 @@
                 <% } else if (roleUser.equals("2")) {%>
                 <p><strong>Dokumen</strong></p> 
                 <ul class="nav">
-                    <li><a href="tayang_dipa">Tayang DIPA</a></li>
+                    <li><a href="tayang_dipa2">Tayang DIPA</a></li>
                 </ul>
                 <p><strong>Pencairan</strong></p> 
                 <ul class="nav">
@@ -122,8 +125,8 @@
                                 <% while (iterator.hasNext()) {
                                         spm = iterator.next();%>
                                 <tr>
-                                    <td><%=spm.getId()%></td>
-                                    <td><%=spm.getTanggalSPM()%></td>
+                                    <td><%=spm.getNomorSpm()%></td>
+                                    <td><%=df.format(spm.getTanggalSPM())%></td>
                                     <td><%=spm.getRincianKegiatan().getSatker().getNamaSatker()+ "." +spm.getRincianKegiatan().getKegiatan().getNmgiat()+ "." +spm.getRincianKegiatan().getOutput().getNamaOutput()+ "." +spm.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
                                     <td><%=spm.getJumlahKeluar()%></td>
                                     <td><%=spm.getJumlahPotongan()%></td>

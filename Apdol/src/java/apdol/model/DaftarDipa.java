@@ -58,13 +58,15 @@ public class DaftarDipa {
         DaftarDipa daftarDipa = new DaftarDipa();
         List <Dipa> listDipa= daftarDipa.getDipa();
         Iterator<Dipa> it = listDipa.iterator();
-        Dipa dipa = new Dipa();
+        Dipa dipa = new Dipa ();
+        Dipa result = new Dipa ();
         while (it.hasNext()) {
             dipa = it.next();
-            if (dipa.getRincianKegiatan().equals(rincianKegiatan))
-                return dipa;
+            if (dipa.getRincianKegiatan().getId().equals(rincianKegiatan.getId())) {
+                result = dipa;
+            }
         }
-        return dipa;
+        return result;
     }
 
     public void rekamDipa(Dipa dipa) {

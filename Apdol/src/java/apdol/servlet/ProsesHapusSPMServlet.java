@@ -68,6 +68,7 @@ public class ProsesHapusSPMServlet extends HttpServlet {
                     for (int i = 0; i < cekSPM.length; i++) {
                         long idspm = Long.parseLong(cekSPM[i]);
                         SPM spm = daftarSPM.findSPM(idspm);
+                        spm.tambahiDipa();
                         daftarSPM.destroy(idspm);
                     }
                 }
