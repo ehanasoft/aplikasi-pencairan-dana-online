@@ -50,7 +50,7 @@
         </script>
     </head>
 
-    <body>
+    <body onLoad="disableDrop()">
         <center><div class="header"><img src="images/sederhana.jpg" /></div></center>
 
         <div class="container">
