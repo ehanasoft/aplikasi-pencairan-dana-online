@@ -59,7 +59,7 @@ public class EditPejabatServlet extends HttpServlet {
             Collections.sort(listPejabat, new PejabatComparator());
             request.setAttribute("list_pejabat", listPejabat);
             String jsp = "";
-            String cekPejabat[] = request.getParameterValues("cek_pejabat");
+            String cekPejabat[] = request.getParameterValues("edit_pejabat");
 
             if (cekPejabat == null) {
                 JOptionPane.showMessageDialog(null, "Pejabat tidak ada yang dipilih");

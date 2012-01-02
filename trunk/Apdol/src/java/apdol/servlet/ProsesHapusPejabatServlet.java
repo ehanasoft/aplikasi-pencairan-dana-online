@@ -52,53 +52,54 @@ public class ProsesHapusPejabatServlet extends HttpServlet {
             DaftarPejabat daftarPejabat = new DaftarPejabat();
             List<Pejabat> listPejabat = daftarPejabat.getPejabat();
             Collections.sort(listPejabat, new PejabatComparator());
-            String cekPejabat[] = request.getParameterValues("cek_pejabat");
+            String cekPejabat = request.getParameter("hapus_pejabat");
             String jsp = "";
+
             
-            if (cekPejabat == null) {
-                JOptionPane.showMessageDialog(null, "Pejabat tidak ada yang dipilih",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                request.setAttribute("list_pejabat", listPejabat);
-                jsp = "pages/pejabat.jsp";
-            } else {
                 int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
                         JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
                 if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekPejabat.length; i++) {
-                        long idpejabat = Long.parseLong(cekPejabat[i]);
-                        Pejabat pejabat = daftarPejabat.findPejabat(idpejabat);
-                        daftarPejabat.destroy(idpejabat);
-                    }
+                    long idpejabat = Long.parseLong(cekPejabat);
+                    Pejabat pejabat = daftarPejabat.findPejabat(idpejabat);
+                    daftarPejabat.destroy(idpejabat);
                 }
-                listPejabat = daftarPejabat.getPejabat();
-                Collections.sort(listPejabat, new PejabatComparator()); 
-                request.setAttribute("list_pejabat", listPejabat);
-                jsp = "pages/pejabat.jsp";
-            }
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-            requestDispatcher.forward(request, response);
             
-        } finally {            
-            out.close();
-        }
-    }
+            listPejabat = daftarPejabat.getPejabat();
+            Collections.sort(listPejabat, new PejabatComparator());
+            request.setAttribute("list_pejabat", listPejabat);
+            jsp = "pages/pejabat.jsp";
+        
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+        requestDispatcher.forward(request, response);
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    }
+    
+
+    
+        finally {            
+            out.close();
+    }
+}
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+/** 
+ * Handles the HTTP <code>GET</code> method.
+ * @param request servlet request
+ * @param response servlet response
+ * @throws ServletException if a servlet-specific error occurs
+ * @throws IOException if an I/O error occurs
+ */
+@Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusPejabatServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusPejabatServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -110,12 +111,16 @@ public class ProsesHapusPejabatServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusPejabatServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusPejabatServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -124,7 +129,7 @@ public class ProsesHapusPejabatServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 }

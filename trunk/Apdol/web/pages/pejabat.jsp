@@ -112,7 +112,8 @@
                                             <th scope="col" class="rounded-company">NIP</th>
                                             <th scope="col" class="rounded-q1">Nama Pejabat</th>
                                             <th scope="col" class="rounded-q2">Keterangan</th>                                       
-                                            <th scope="col" class="rounded-q4">Cek</th>                                        
+                                            <th scope="col" class="rounded-q3">Edit</th>                                     
+                                            <th scope="col" class="rounded-q4">Hapus</th>                                       
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -122,7 +123,8 @@
                                             <td><%=pejabat.getNip()%></td>
                                             <td><%=pejabat.getNama()%></td>                                                                                
                                             <td><%=pejabat.getKetjabatan()%></td>
-                                            <td><input  type="checkbox" name="cek_pejabat" value="<%=pejabat.getId()%>"></td>
+                                            <td><input name="edit_pejabat" src="images/ubah.png" type="image" value="<%=pejabat.getId()%>" formmethod="post" formaction="edit_pejabat" /> </td>
+                                            <td><input name="hapus_pejabat" src="images/hapus.png" type="image" value="<%=pejabat.getId()%>" formmethod="post" formaction="hapus_pejabat" /></td>
                                         </tr>
                                         <%}%>
                                         </body>
@@ -131,8 +133,8 @@
                                 </span>
                                 <p style="margin: 10px;"><BR>
                                         <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_pejabat" />
-                                        <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_pejabat" />
-                                        <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_pejabat" />
+                                        
+                                        
                                         </form>
                                         </center>
                                         <!-- end .content --></div>
