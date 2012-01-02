@@ -6,6 +6,8 @@ package apdol.servlet;
 
 import apdol.entity.User;
 import apdol.model.DaftarUser;
+import apdol.entity.SatuanKerja;
+import apdol.model.DaftarSatuanKerja;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,16 +45,26 @@ public class ProsesEditUserServlet extends HttpServlet {
             String jsp = "";
             // List<User> listuser = daftarUser.getUser();
 
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
             String nama = request.getParameter("nama");
             String jabatan = request.getParameter("jabatan");
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
             String roleuser = request.getParameter("roleuser");
-            String kodesatker = request.getParameter("kodesatker");
+            String kodesatker = request.getParameter("satker");
 
             String idUser = request.getParameter("id_edit_user");
             Long longIdUser = Long.parseLong(idUser);
             User user = daftarUser.findUser(longIdUser);
+
+            SatuanKerja satker = new SatuanKerja();
+            DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
+            List<SatuanKerja> listSatker = daftarSatker.findSatuanKerjaByKode(kodesatker);
+            if (listSatker.isEmpty()) {
+                satker = null;
+            } else {
+                satker = listSatker.get(0);
+
+            }
 
             if (username == "") {
                 JOptionPane.showMessageDialog(null, "Username tidak boleh kosong !");
@@ -66,20 +78,11 @@ public class ProsesEditUserServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !");
                 request.setAttribute("user_edit", user);
                 jsp = "pages/edit_user.jsp";
-            }else if (jabatan == "") {
+            } else if (jabatan == "") {
                 JOptionPane.showMessageDialog(null, "Jabatan tidak boleh kosong !");
                 request.setAttribute("user_edit", user);
                 jsp = "pages/edit_user.jsp";
-            }else if (roleuser == "") {
-                JOptionPane.showMessageDialog(null, "Role User tidak boleh kosong !");
-                request.setAttribute("user_edit", user);
-                jsp = "pages/edit_user.jsp";
-            }else if (kodesatker == "") {
-                JOptionPane.showMessageDialog(null, "Kode Satker tidak boleh kosong !");
-                request.setAttribute("user_edit", user);
-                jsp = "pages/edit_user.jsp";
-            }
-           //validate username on database
+            }  //validate username on database
             else if (daftarUser.isUsernameExist(username) && !user.isUsernameNoChange(username)) {
                 JOptionPane.showMessageDialog(null, "Username sudah ada dalam data base !");
                 request.setAttribute("user_edit", user);
@@ -89,29 +92,18 @@ public class ProsesEditUserServlet extends HttpServlet {
                 JOptionPane.showMessageDialog(null, "Password sudah ada dalam data base !");
                 request.setAttribute("user_edit", user);
                 jsp = "pages/edit_user.jsp";
-            } // validate length 
-            else if (kodesatker.length() < 6) {
-                JOptionPane.showMessageDialog(null, "Kode Satker harus 6 angka !");
-                request.setAttribute("user_edit", user);
-                jsp = "pages/edit_user.jsp";
-            }// validate kode satker are number
-            else if (!this.valNumber(kodesatker)) {
-                JOptionPane.showMessageDialog(null, "Kode Satker harus angka dan tidak boleh minus !");
-                request.setAttribute("user_edit", user);
-                jsp = "pages/edit_user.jsp";
-            }
-            else {
+            } else {
                 user.setUsername(username);
                 user.setPassword(password);
                 user.setNama(nama);
                 user.setJabatan(jabatan);
                 user.setRoleuser(roleuser);
-               // user.setKodeSatker(kodesatker);
+                user.setSatker(satker);
                 daftarUser.edit(user);
                 List<User> listUser = daftarUser.getUser();
                 listUser = daftarUser.getUser();
                 request.setAttribute("list_user", listUser);
-                jsp = "pages/register.jsp";
+                jsp = "pages/user.jsp";
             }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

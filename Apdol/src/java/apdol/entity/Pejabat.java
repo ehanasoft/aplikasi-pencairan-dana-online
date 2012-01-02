@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Pejabat implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,9 +27,10 @@ public class Pejabat implements Serializable {
     private String kdgol;
     private String nmjabatan;
     private String ketjabatan;
-    @ManyToOne    
+    private String rolejabatan;
+    @ManyToOne
     private SatuanKerja satker;
-    
+
     public Long getId() {
         return id;
     }
@@ -51,6 +53,14 @@ public class Pejabat implements Serializable {
 
     public void setKetjabatan(String ketjabatan) {
         this.ketjabatan = ketjabatan;
+    }
+
+    public String getRolejabatan() {
+        return rolejabatan;
+    }
+
+    public void setRolejabatan(String rolejabatan) {
+        this.rolejabatan = rolejabatan;
     }
 
     public String getNama() {
@@ -89,7 +99,7 @@ public class Pejabat implements Serializable {
     public String toString() {
         return "apdol.entity.Pejabat[ id=" + id + " ]";
     }
-    
+
     public boolean isKodeNoChange(String kode) {
         if (kode.equalsIgnoreCase(this.nip)) {
             return true;
@@ -105,5 +115,4 @@ public class Pejabat implements Serializable {
             return false;
         }
     }
-    
 }

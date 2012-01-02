@@ -14,7 +14,7 @@
 <% Pejabat pejabat = (Pejabat) request.getAttribute("pejabat_edit");%>
 <% List<SatuanKerja> listSatker = (List<SatuanKerja>) request.getAttribute("list_satker");%>
 <% SatuanKerja satker;%>
-
+<% Iterator<SatuanKerja> iterator = listSatker.iterator();%>
 <% SatuanKerja satkerPejabat = (SatuanKerja) request.getAttribute("satkerPejabat");%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -30,22 +30,22 @@
         ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
         </style>
         <![endif]-->
-        <script language="JavaScript">
-            function showhidekppn(){
-                // enable one
-                document.getElementById("ketkppn").style.display = 'block';
-                document.getElementById("ketkppn").disabled = false;
-                // disable two
-                document.getElementById("ketsatker").disabled = true;
-                document.getElementById("ketsatker").style.display = 'none';
-            }
-            function showhidesatker(){
-                // disable one
-                document.getElementById("ketkppn").disabled = true;
-                document.getElementById("ketkppn").style.display = 'none';	
-                // enable two
-                document.getElementById("ketsatker").style.display = 'block';
-                document.getElementById("ketsatker").disabled = false;
+        <script type = "text/javascript">
+            function disableDrop(){
+                if(form_edit_pejabat.rolejabatan.options[0].selected){
+                    form_edit_pejabat.satker.disabled = false;
+                    document.getElementById("ket1").style.display = 'block';
+                    document.getElementById("ket1").disabled = false;
+                    document.getElementById("ket2").style.display = 'none';
+                    document.getElementById("ket2").disabled = true;
+                }
+                else{
+                    form_edit_pejabat.satker.disabled = true;
+                    document.getElementById("ket1").style.display = 'none';
+                    document.getElementById("ket1").disabled = true;
+                    document.getElementById("ket2").style.display = 'block';
+                    document.getElementById("ket2").disabled = false;
+                }
             }
         </script>
     </head>
@@ -171,47 +171,76 @@
                                 <td>Jabatan</td><td><input type="text" name="jabatan" style="width: 300px" value="<%=pejabat.getNmjabatan()%>"></td>
                             </tr>
                             <tr>
-                                <td>Pilih</td>
-                                <td>
-                                    <input type="radio" onClick="javascript:showhidesatker();document.form_edit_pejabat.satker.disabled=false;" name="pilih"/>Satker
-                                    <input type="radio" onClick="javascript:showhidekppn();document.form_edit_pejabat.satker.disabled=true;" name="pilih"/>KPPN
-                                </td>
+                                <td width="150px">Wewenang</td>
+                                <td><select name="rolejabatan" onchange = "disableDrop();">
+                                        <option value="1" <% if (pejabat.getRolejabatan().equals("1")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%> selected>Bendahara</option>
+                                        <option value="2" <% if (pejabat.getRolejabatan().equals("2")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>>KPPN</option>KPPN</select></td>
                             </tr>
                             <tr>
                                 <td>Keterangan</td>
-                                <td>
-                                    <select id="ketkppn" name="keterangan" style="display: none;">
-                                        <option value="Kasi Pencairan Dana" <% if (pejabat.getKetjabatan().equals("Kasi Pencairan Dana")) {
-                                                out.println(" selected=\"selected\"");
-                                            }%>> Kasi Pencairan Dana</option>
-                                        <option value="Kasi Bank/Giro Pos" <% if (pejabat.getKetjabatan().equals("Kasi Bank/Giro Pos")) {
-                                                out.println(" selected=\"selected\"");
-                                            }%>> Kasi Bank/Giro Pos</option>
-                                    </select>
-                                    <select id="ketsatker" name="keterangan">
-                                        <option value="KPA" <% if (pejabat.getKetjabatan().equals("KPA")) {
-                                                out.println(" selected=\"selected\"");
-                                            }%>> KPA</option>
-                                        <option value="Penandatangan SPM" <% if (pejabat.getKetjabatan().equals("Penandatangan SPM")) {
-                                                out.println(" selected=\"selected\"");
-                                            }%>> Penandatangan SPM</option>
-                                    </select>
+                                <td>                          
+                                    <% if (pejabat.getKetjabatan().equals("Penandatangan SPM")) {
+                                            out.println("<select id=\"ket1\" name=\"keterangan\" style=\"display: block;\">");
+                                            out.println("<option value=\"KPA\">KPA</option>");
+                                            out.println("<option value=\"Penandatangan SPM\" selected=\"selected\">Penandatangan SPM</option>");
+                                            out.println("</select>");
+                                            out.println("<select id=\"ket2\" name=\"keterangan\" style=\"display: none;\">");
+                                            out.println("<option value=\"Kasi Pencairan Dana\" >Kasi Pencairan Dana</option>");
+                                            out.println("<option value=\"Kasi Bank/Giro Pos\">Kasi Bank/Giro Pos</option>");
+                                        } else if (pejabat.getKetjabatan().equals("KPA")) {
+                                            out.println("<select id=\"ket1\" name=\"keterangan\" style=\"display: block;\">");
+                                            out.println("<option value=\"KPA\" selected=\"selected\">KPA</option>");
+                                            out.println("<option value=\"Penandatangan SPM\">Penandatangan SPM</option>");
+                                            out.println("</select>");
+                                            out.println("<select id=\"ket2\" name=\"keterangan\" style=\"display: none;\">");
+                                            out.println("<option value=\"Kasi Pencairan Dana\" >Kasi Pencairan Dana</option>");
+                                            out.println("<option value=\"Kasi Bank/Giro Pos\">Kasi Bank/Giro Pos</option>");
+                                        } else if (pejabat.getKetjabatan().equals("Kasi Pencairan Dana")) {
+                                            out.println("<select id=\"ket1\" name=\"keterangan\" style=\"display: none;\">");
+                                            out.println("<option value=\"KPA\">KPA</option>");
+                                            out.println("<option value=\"Penandatangan SPM\">Penandatangan SPM</option>");
+                                            out.println("</select>");
+                                            out.println("<select id=\"ket2\" name=\"keterangan\" style=\"display: block;\">");
+                                            out.println("<option value=\"Kasi Pencairan Dana\" selected=\"selected\">Kasi Pencairan Dana</option>");
+                                            out.println("<option value=\"Kasi Bank/Giro Pos\">Kasi Bank/Giro Pos</option>");
+                                        } else if (pejabat.getKetjabatan().equals("Kasi Bank/Giro Pos")) {
+                                            out.println("<select id=\"ket1\" name=\"keterangan\" style=\"display: none;\">");
+                                            out.println("<option value=\"KPA\">KPA</option>");
+                                            out.println("<option value=\"Penandatangan SPM\">Penandatangan SPM</option>");
+                                            out.println("</select>");
+                                            out.println("<select id=\"ket2\" name=\"keterangan\" style=\"display: block;\">");
+                                            out.println("<option value=\"Kasi Pencairan Dana\">Kasi Pencairan Dana</option>");
+                                            out.println("<option value=\"Kasi Bank/Giro Pos\" selected=\"selected\">Kasi Bank/Giro Pos</option>");
+                                        } else {
+                                            out.println("<select id=\"ket1\" name=\"keterangan\" style=\"display: block;\">");
+                                            out.println("<option value=\"KPA\">KPA</option>");
+                                            out.println("<option value=\"Penandatangan SPM\">Penandatangan SPM</option>");
+                                            out.println("</select>");
+                                            out.println("<select id=\"ket2\" name=\"keterangan\" style=\"display: none;\">");
+                                            out.println("<option value=\"Kasi Pencairan Dana\">Kasi Pencairan Dana</option>");
+                                            out.println("<option value=\"Kasi Bank/Giro Pos\">Kasi Bank/Giro Pos</option>");
+                                        }
+                                    %>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Satker</td>
+                            <tr><td>Satker</td>
                                 <td>
-                                    <select name="satker">
-                                        <%Iterator<SatuanKerja> iterator = listSatker.iterator();%>
-                                        <%while (iterator.hasNext()) {
-                                                satker = iterator.next();
-                                                if (pejabat.getSatker() != null && pejabat.getSatker().getId().equals(satker.getId())) {
-                                                    out.println("<option value=" + satker.getKodeSatker() + " selected=\"selected\">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
-                                                } else {
-                                                    out.println("<option value=" + satker.getKodeSatker() + ">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
-                                                }
-                                            }%>
-                                    </select>
+                                    <% while (iterator.hasNext()) {
+                                            satker = iterator.next();
+                                            if (pejabat.getSatker() == null) {
+                                                out.println("<select name=\"satker\" disabled=\"disabled\">");
+                                                out.println("<option value=" + satker.getKodeSatker() + ">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
+                                            } else if (pejabat.getSatker() != null && pejabat.getSatker().getId().equals(satker.getId())) {
+                                                out.println("<select name=\"satker\" >");
+                                                out.println("<option value=" + satker.getKodeSatker() + " selected=\"selected\">" + satker.getKodeSatker() + "-" + satker.getNamaSatker() + "</option>");
+                                            } else {
+                                                out.println("<option value=" + satker.getKodeSatker() + ">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
+                                            }
+                                        }%> </select>         
                                 </td>
                             </tr>
                         </table>

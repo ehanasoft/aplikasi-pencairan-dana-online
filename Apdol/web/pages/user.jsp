@@ -19,7 +19,7 @@
     <%String roleUser = (String) session.getAttribute("roleuser");%>    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Satuan Kerja</title>
+        <title>User</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -104,7 +104,7 @@
             <div class="content">
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
                 <center><p >
-                <h3>Satuan Kerja</h3></p>
+                <h3>User</h3></p>
                     <% Iterator<User> iterator = listUser.iterator();%>
                     <form >
                         <table id="rounded-corner">
@@ -123,7 +123,7 @@
                                     <td><%=user.getNama()%></td>
                                     <td><%=user.getJabatan()%></td>                                    
                                     <td><%=user.getUsername()%></td>
-                                    <td><input  type="checkbox"  name="cek_satker" value="<%=user.getId()%>"></td>
+                                    <td><input  type="checkbox"  name="cek_user" value="<%=user.getId()%>"></td>
                                 </tr>
                                 <%}%>
                             </tbody>
