@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
             } else if (user.getRoleuser().equals("2")) {
                 session.setAttribute("username", username);
                 session.setAttribute("roleuser", user.getRoleuser());
-                //session.setAttribute("kode_satker", user.getKodeSatker());
+                session.setAttribute("kode_satker", user.getSatker().getKodeSatker());
                 request.getRequestDispatcher("home").forward(request, response);
             } else if (user.getRoleuser().equals("3")) {
                 session.setAttribute("username", username);
