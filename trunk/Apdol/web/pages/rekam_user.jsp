@@ -112,7 +112,7 @@
                 <!-- end .logout --></div>
             <div class="content">
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
-                <center><p><h3> Rekam Satuan Kerja</h3></p>
+                <center><p><h3> Rekam User</h3></p>
                     <form name="form_rekam_user" action="proses_rekam_user" method="post" >
                         <table width="400px">                                
                             <tr>

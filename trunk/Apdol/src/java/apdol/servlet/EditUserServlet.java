@@ -6,6 +6,8 @@ package apdol.servlet;
 
 import apdol.entity.User;
 import apdol.model.DaftarUser;
+import apdol.entity.SatuanKerja;
+import apdol.model.DaftarSatuanKerja;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -40,15 +42,20 @@ public class EditUserServlet extends HttpServlet {
             DaftarUser daftarUser = new DaftarUser();
             List<User> listUser = daftarUser.getUser();
             request.setAttribute("list_user", listUser);
+
+            DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
+            List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
+            request.setAttribute("list_satker", listSatker);
+
             String jsp = "";
             String cekUser[] = request.getParameterValues("cek_user");
 
             if (cekUser == null) {
                 JOptionPane.showMessageDialog(null, "User tidak ada yang dipilih");
-                jsp = "pages/register.jsp";
+                jsp = "pages/user.jsp";
             } else if (cekUser.length > 1) {
                 JOptionPane.showMessageDialog(null, "Centang tidak boleh lebih dari satu, pilih salah satu user saja !");
-                jsp = "pages/register.jsp";
+                jsp = "pages/user.jsp";
             } else {
                 Long idUser = Long.parseLong(cekUser[0]);
                 User user = daftarUser.findUser(idUser);

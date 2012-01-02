@@ -60,12 +60,18 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
             String kdgol = request.getParameter("golongan");
             String nmjabatan = request.getParameter("jabatan");
             String ketjabatan = request.getParameter("keterangan");
+            String rolejabatan = request.getParameter("rolejabatan");
             String kodeSatker = request.getParameter("satker");
             
             SatuanKerja satker = new SatuanKerja();
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
             List<SatuanKerja> listSatker = daftarSatker.findSatuanKerjaByKode(kodeSatker);
-            satker = listSatker.get(0);
+            if (listSatker.isEmpty()) {
+                satker = null;
+            } else {
+                satker = listSatker.get(0);
+
+            }
 
             //validate blank field
             if ("".equals(nip)) {
@@ -140,6 +146,7 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
                 pejabat.setKdgol(kdgol);
                 pejabat.setNmjabatan(nmjabatan);
                 pejabat.setKetjabatan(ketjabatan);
+                pejabat.setRolejabatan(rolejabatan);
                 pejabat.setSatker(satker);
                 daftarPejabat.rekamPejabat(pejabat);
                 List<Pejabat> listPejabat = daftarPejabat.getPejabat();

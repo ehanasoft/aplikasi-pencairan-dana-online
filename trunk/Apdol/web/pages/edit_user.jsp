@@ -6,8 +6,17 @@
 
 <%@page import="apdol.model.DaftarUser"%>
 <%@page import="apdol.entity.User"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="apdol.model.DaftarSatuanKerja"%>
+<%@page import="apdol.entity.SatuanKerja"%>
 <%@page import="javax.swing.JOptionPane"%>
+
 <% User user = (User) request.getAttribute("user_edit");%>
+
+<% List<SatuanKerja> listSatker = (List<SatuanKerja>) request.getAttribute("list_satker");%>
+<% SatuanKerja satker;%>
+<% Iterator<SatuanKerja> iterator = listSatker.iterator();%>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -25,6 +34,16 @@
         ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
         </style>
         <![endif]-->
+        <script type = "text/javascript">
+            function disableDrop(){
+                if(form_edit_user.roleuser.options[0].selected){
+                    form_edit_user.satker.disabled = false;
+                }
+                else{
+                    form_edit_user.satker.disabled = true;
+                }
+            }
+        </script>
     </head>
 
     <body>
@@ -51,7 +70,7 @@
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="register">Registrasi User</a></li>
+                    <li><a href="user">Registrasi User</a></li>
                 </ul>
                 <% } else if (roleUser.equals("2")) {%>
                 <p><strong>Dokumen</strong></p> 
@@ -97,53 +116,58 @@
 
 
                 <!-- end .sidebar1 --></div>
-            <div class="logout"><a href="logout">[Log Out]</a>
+            <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
-                <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
-                <center><p><h3> Edit User</h3></p>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
+                <center><p><h3>Edit User</h3></p>
                     <form name="form_edit_user" action="proses_edit_user" method="post" >
-                        <table width="400px">
+                        <table width="400px">                                
                             <tr>
-                                <td width="150px">Username</td><td><input type="text" name="username" style="width: 200px" value="<%=user.getUsername()%>" /></td>
+                                <td width="175px">Nama</td><td><input name="nama" type="text" style="width: 200px" value="<%=user.getNama()%>"></td>
+                            </tr>
+                            <tr>
+                                <td>Jabatan</td><td><input type="text" name="jabatan" style="width: 200px" value="<%=user.getJabatan()%>"></td>
+                            </tr>
+                            <td width="175px">Username</td><td><input name="username" type="text" style="width: 200px" value="<%=user.getUsername()%>"></td>
                             </tr>
                             <tr>
                                 <td>Password</td><td><input type="text" name="password" style="width: 200px" value="<%=user.getPassword()%>"></td>
-                            </tr>
-                            <tr>
-                                <td>Nama </td><td><input type="text" name="nama" style="width: 200px" value="<%=user.getNama()%>"></td>
-                            </tr></table>
-                        <table width="400px">
-                          <tr>
-                            <td width="150">Kode Satker</td>
-                            <td width="238"><input type="text" name="kodesatker" style="width: 200px" value="<%=user.getKodeSatker()%>" /></td>
-                          </tr>
-                        </table>
-                        <table width="400px">
-                          <tr>
-                            <td width="150">Jabatan</td>
-                            <td width="238"><input type="text" name="jabatan" style="width: 200px" value="<%=user.getJabatan()%>" /></td>
-                          </tr>
-                        </table>
-                        <table width="400px">
-                          <tr>
-                            <td width="150">Role User</td>
-                            <td><select name="roleuser">
-                                                <option value="2">Bendahara</option>
-                                                <option value="3">KPPN</option></select></td>
-                          </tr>
-                        </table>
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
-                  <p><input type="hidden" name="id_edit_user" value="<%=user.getId()%>"></p>
-                        <table width="400px"><tr>
-                                <td align="center"><a href="javascript:document.form_edit_user.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan" /></td>
-                            </tr>
-                        </table>
-                    </form>
-                </center>          
-                <!-- end .content --></div>
-            <!-- end .container --></div>
-    </body>
-</html>
+                                <tr>
+                                    <td width="150px">Role User</td>
+                                    <td><select name="roleuser" onchange = "disableDrop();">
+                                            <option value="2" <% if (user.getRoleuser().equals("2")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%> selected>Bendahara</option>
+                                            <option value="3" <% if (user.getRoleuser().equals("3")) {
+                                                out.println(" selected=\"selected\"");
+                                            }%>>KPPN</option> </select></td>
+                                </tr>
+                                <tr><td>Satuan Kerja</td>
+                                    <td>
+                                        <% while (iterator.hasNext()) {
+                                                satker = iterator.next();
+                                                if (user.getSatker() == null) {
+                                                    out.println("<select name=\"satker\" disabled=\"disabled\">");
+                                                    out.println("<option value=" + satker.getKodeSatker() + ">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
+                                                } else if (user.getSatker() != null && user.getSatker().getId().equals(satker.getId())) {
+                                                    out.println("<select name=\"satker\" >");
+                                                    out.println("<option value=" + satker.getKodeSatker() + " selected=\"selected\">" + satker.getKodeSatker() + "-" + satker.getNamaSatker() + "</option>");
+                                                } else {
+                                                    out.println("<option value=" + satker.getKodeSatker() + ">" + satker.getKodeSatker() + " " + satker.getNamaSatker() + "</option>");
+                                                }
+                                            }%> </select>         
+                                    </td>
+                                </tr>
+                                    </table>
+                                    <p><input type="hidden" name="id_edit_user" value="<%=user.getId()%>"></p></p>
+                                    <table width="400px"><tr>
+                                            <td align="center"><a href="javascript:document.form_edit_user.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan" /></td>
+                                        </tr>
+                                    </table>
+                                    </form>
+                                    </center>          
+                                    <!-- end .content --></div>
+                                    <!-- end .container --></div>
+                                    </body>
+                                    </html>

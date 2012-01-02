@@ -27,22 +27,22 @@
         ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
         </style>
         <![endif]-->
-        <script language="JavaScript">
-            function showhidekppn(){
-                // enable one
-                document.getElementById("ketkppn").style.display = 'block';
-                document.getElementById("ketkppn").disabled = false;
-                // disable two
-                document.getElementById("ketsatker").disabled = true;
-                document.getElementById("ketsatker").style.display = 'none';
-            }
-            function showhidesatker(){
-                // disable one
-                document.getElementById("ketkppn").disabled = true;
-                document.getElementById("ketkppn").style.display = 'none';	
-                // enable two
-                document.getElementById("ketsatker").style.display = 'block';
-                document.getElementById("ketsatker").disabled = false;
+        <script type = "text/javascript">
+            function disableDrop(){
+                if(form_rekam_pejabat.rolejabatan.options[0].selected){
+                    form_rekam_pejabat.satker.disabled = false;
+                    document.getElementById("ket1").style.display = 'block';
+                    document.getElementById("ket1").disabled = false;
+                    document.getElementById("ket2").style.display = 'none';
+                    document.getElementById("ket2").disabled = true;
+                }
+                else{
+                    form_rekam_pejabat.satker.disabled = true;
+                    document.getElementById("ket1").style.display = 'none';
+                    document.getElementById("ket1").disabled = true;
+                    document.getElementById("ket2").style.display = 'block';
+                    document.getElementById("ket2").disabled = false;
+                }
             }
         </script>
     </head>
@@ -71,7 +71,7 @@
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="register">Registrasi User</a></li>
+                    <li><a href="user">Registrasi User</a></li>
                 </ul>
                 <% } else if (roleUser.equals("2")) {%>
                 <p><strong>Dokumen</strong></p> 
@@ -150,31 +150,30 @@
                                     <td>Jabatan</td><td><input type="text" name="jabatan" style="width: 300px"></input></td>
                                 </tr>                            
                                 <tr>
-                                    <td>Pilih</td>
-                                    <td>
-                                        <input type="radio" onClick="javascript:showhidesatker();document.form_rekam_pejabat.satker.disabled=false;" name="pilih"/>Satker
-                                        <input type="radio" onClick="javascript:showhidekppn();document.form_rekam_pejabat.satker.disabled=false;" name="pilih"/>KPPN
-                                    </td>
+                                    <td width="150px">Kewenangan</td>
+                                    <td><select name="rolejabatan" onchange = "disableDrop();">
+                                            <option value="1" selected>Bendahara</option>
+                                            <option value="2" >KPPN</option>KPPN</select></td>
                                 </tr>
                                 <tr>
                                     <td>Keterangan</td>
                                     <td>
-                                        <select id="ketkppn" name="keterangan" style="display: none;">
-                                            <option value="Kasi Pencairan Dana">Kasi Pencairan Dana</option>
-                                            <option value="Kasi Bank/Giro Pos">Kasi Bank/Giro Pos</option>
-                                        </select>
-                                        <select id="ketsatker" name="keterangan">
+                                        <select id="ket1" name="keterangan">
                                             <option value="KPA">KPA</option>
                                             <option value="Penandatangan SPM">Penandatangan SPM</option>
+                                        </select>
+                                        <select id="ket2" name="keterangan" style="display: none;">
+                                            <option value="Kasi Pencairan Dana">Kasi Pencairan Dana</option>
+                                            <option value="Kasi Bank/Giro Pos">Kasi Bank/Giro Pos</option>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Satker</td>
                                     <td>
-                                            <select name="satker" ><% while (iterator.hasNext()) {
+                                        <select name="satker" ><% while (iterator.hasNext()) {
                                                 satker = iterator.next();%>
-                                                <option value="<%=satker.getKodeSatker()%>"><%=satker.getKodeSatker() + " " + satker.getNamaSatker()%> </option><%}%>
+                                            <option value="<%=satker.getKodeSatker()%>"><%=satker.getKodeSatker() + " " + satker.getNamaSatker()%> </option><%}%>
                                         </select>
                                     </td>
                                 </tr>
