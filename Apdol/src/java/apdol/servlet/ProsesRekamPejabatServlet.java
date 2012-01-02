@@ -92,13 +92,7 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
                 jsp = "pages/rekam_pejabat.jsp";
-            } else if ("".equals(ketjabatan)) {
-                JOptionPane.showMessageDialog(null, "Keterangan jabatan tidak boleh kosong !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
-                request.setAttribute("list_satker", listNamaSatker);
-                jsp = "pages/rekam_pejabat.jsp";
-            }
+            } 
             
             //validate length field
             else if (nip.length() < 18) {
