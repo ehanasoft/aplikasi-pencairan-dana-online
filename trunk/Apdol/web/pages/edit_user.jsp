@@ -12,6 +12,7 @@
 <%@page import="apdol.entity.SatuanKerja"%>
 <%@page import="javax.swing.JOptionPane"%>
 
+
 <% User user = (User) request.getAttribute("user_edit");%>
 
 <% List<SatuanKerja> listSatker = (List<SatuanKerja>) request.getAttribute("list_satker");%>
