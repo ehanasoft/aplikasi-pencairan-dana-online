@@ -85,6 +85,26 @@ public class DaftarKegiatanTest {
      * Test of edit method, of class DaftarKegiatan.
      */
     @Test
+    public void testRekamKegiatan() {
+        System.out.println("rekamKegiatan");
+        Kegiatan kegiatan = new Kegiatan();
+        kegiatan.setKdgiat("1243");
+        kegiatan.setNmgiat("Belajar");
+
+        DaftarKegiatan instance = new DaftarKegiatan();
+        int hasil1 = instance.getKegiatan().size(); //jumlah objek sebelum tambah objek
+        instance.rekamKegiatan(kegiatan);
+        int hasil2 = instance.getKegiatan().size(); //jumlah objek setelah tambah objek
+
+        try {
+            assertEquals(hasil1 + 1, hasil2);
+        } catch (Exception e) {
+            // TODO review the generated test code and remove the default call to fail.
+            fail("The test case is a prototype.");
+        }
+    }
+    
+    @Test
     public void testEdit() {
         System.out.println("edit");
         Kegiatan kegiatan;
