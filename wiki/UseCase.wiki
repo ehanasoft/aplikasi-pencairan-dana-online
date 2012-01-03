@@ -26,7 +26,6 @@ Berikut ini adalah use case untuk Aplikasi Pencairan Dana Online :
  #  Cetak SP2D
  #  Batal SP2D
  #  Monitoring SPM
- #  Realisasi
  #  R Satker
  #  U Satker
  #  H Satker
@@ -261,20 +260,6 @@ Alternatif :
 * Jika field belum diisikan : sistem akan menampilkan pesan error bahwa seluruh field harus diisikan, kemudian mengembalikan ke halaman Monitoring SPM.
 * Jika data SPM tidak ditemukan: sistem akan menampilkan halaman pesan error bahwa data tidak ditemukan.
 
-== UC-Realisasi ==
-Aktor : Satker.
-
-Sistem menampilkan halaman Realisasi. Satker memasukkan data pada field (Fungsi, Sub Fungsi, Program, Kegiatan dan Sub Kegiatan) kemudian menekan tombol Proses. Sistem memastikan semua field terisi, memproses pencarian, mencari hasil yang cocok dan menampilkan halaman hasil pencarian yang berisi daftar Realisasi Satuan Kerja.
-
-Alternatif  :
-
- * Jika salah satu field belum diisikan : sistem akan menampilkan peringatan bahwa seluruh field harus diisikan.
- * Jika sistem tidak menemukan hasil yang cocok : sistem akan menampilkan peringatan bahwa realisasi belum ada / kosong.
-
- Alternatif  :
-
- * Jika salah satu field belum diisikan : sistem akan menolak input lalu menampilkan peringatan bahwa seluruh field harus terisi, kemudian mengembalikan ke halaman rekaman Nomor SP2D.
- * Jika karakter field yang terisi tidak sesuai : sistem akan menampilkan peringatan kesalahan input, kemudian mengembalikan ke halaman rekaman Nomor SP2D.
 
 == UC-Rekam Satker ==
 
