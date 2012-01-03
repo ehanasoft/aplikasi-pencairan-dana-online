@@ -28,8 +28,8 @@ public class SP2D implements Serializable {
     private Date tanggalSP2D;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date tanggalTolakSP2D;
-    private String nomorTolak;
-    private String keteranganTolak;
+    private String nomorTolakSP2D;
+    private String keteranganTolakSP2D;
     @ManyToOne
     private BankPos bankpos;
     private String nomorSP2D;
@@ -44,20 +44,20 @@ public class SP2D implements Serializable {
         this.bankpos = bankpos;
     }
 
-    public String getKeteranganTolak() {
-        return keteranganTolak;
+    public String getKeteranganTolakSP2D() {
+        return keteranganTolakSP2D;
     }
 
-    public void setKeteranganTolak(String keteranganTolak) {
-        this.keteranganTolak = keteranganTolak;
+    public void setKeteranganTolakSP2D(String keteranganTolakSP2D) {
+        this.keteranganTolakSP2D = keteranganTolakSP2D;
     }
 
-    public String getNomorTolak() {
-        return nomorTolak;
+    public String getNomorTolakSP2D() {
+        return nomorTolakSP2D;
     }
 
-    public void setNomorTolak(String nomorTolak) {
-        this.nomorTolak = nomorTolak;
+    public void setNomorTolakSP2D(String nomorTolakSP2D) {
+        this.nomorTolakSP2D = nomorTolakSP2D;
     }
 
     public SPM getSpm() {
