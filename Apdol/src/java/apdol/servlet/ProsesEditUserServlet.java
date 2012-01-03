@@ -69,28 +69,34 @@ public class ProsesEditUserServlet extends HttpServlet {
             if (username == "") {
                 JOptionPane.showMessageDialog(null, "Username tidak boleh kosong !");
                 request.setAttribute("user_edit", user);
+                request.setAttribute("list_satker",listSatker);
                 jsp = "pages/edit_user.jsp";
             } else if (password == "") {
                 JOptionPane.showMessageDialog(null, "Password tidak boleh kosong !");
                 request.setAttribute("user_edit", user);
+                request.setAttribute("list_satker",listSatker);
                 jsp = "pages/edit_user.jsp";
             } else if (nama == "") {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !");
                 request.setAttribute("user_edit", user);
+                request.setAttribute("list_satker",listSatker);
                 jsp = "pages/edit_user.jsp";
             } else if (jabatan == "") {
                 JOptionPane.showMessageDialog(null, "Jabatan tidak boleh kosong !");
                 request.setAttribute("user_edit", user);
+                request.setAttribute("list_satker",listSatker);
                 jsp = "pages/edit_user.jsp";
             }  //validate username on database
             else if (daftarUser.isUsernameExist(username) && !user.isUsernameNoChange(username)) {
                 JOptionPane.showMessageDialog(null, "Username sudah ada dalam data base !");
                 request.setAttribute("user_edit", user);
+                request.setAttribute("list_satker",listSatker);
                 jsp = "pages/edit_user.jsp";
             } //validate password on database
             else if (daftarUser.isPasswordExist(password) && !user.isPasswordNoChange(password)) {
                 JOptionPane.showMessageDialog(null, "Password sudah ada dalam data base !");
                 request.setAttribute("user_edit", user);
+                request.setAttribute("list_satker",listSatker);
                 jsp = "pages/edit_user.jsp";
             } else {
                 user.setUsername(username);
@@ -100,8 +106,7 @@ public class ProsesEditUserServlet extends HttpServlet {
                 user.setRoleuser(roleuser);
                 user.setSatker(satker);
                 daftarUser.edit(user);
-                List<User> listUser = daftarUser.getUser();
-                listUser = daftarUser.getUser();
+                List<User> listUser = daftarUser.getUser();           
                 request.setAttribute("list_user", listUser);
                 jsp = "pages/user.jsp";
             }
