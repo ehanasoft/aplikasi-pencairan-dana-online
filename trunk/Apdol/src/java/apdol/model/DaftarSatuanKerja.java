@@ -56,17 +56,6 @@ public class DaftarSatuanKerja implements Serializable {
         }
     }
     
-    public List<SatuanKerja> findSatkerByKode(String kode){
-        EntityManager em = getEntityManager();
-        try {
-            Query query = em.createNamedQuery("SatuanKerja.findByKode");
-            query.setParameter("kodeSatker", "%"+kode+"%");
-            return query.getResultList();
-        } finally {
-            em.close();
-        }
-    }
-
     public void rekamSatuanKerja(SatuanKerja satker) {
         EntityManager em = null;
         try {
