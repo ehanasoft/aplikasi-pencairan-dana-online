@@ -47,11 +47,6 @@ public class BankPos implements Serializable {
         this.nmbankpos = nmbankpos;
     }    
     
-    @Override
-    public String toString() {
-        return "apdol.entity.BankPos[ id=" + id + " ]";
-    }
-    
     public boolean isKodeNoChange(String kode) {
         if (kode.equalsIgnoreCase(this.kdbankpos)) {
             return true;

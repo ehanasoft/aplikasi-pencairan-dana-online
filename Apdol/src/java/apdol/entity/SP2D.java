@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -24,6 +26,55 @@ public class SP2D implements Serializable {
     private Long id;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date tanggalSP2D;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date tanggalTolakSP2D;
+    private String nomorTolak;
+    private String keteranganTolak;
+    @ManyToOne
+    private BankPos bankpos;
+    private String nomorSP2D;
+    @OneToOne
+    private SPM spm;
+
+    public BankPos getBankpos() {
+        return bankpos;
+    }
+
+    public void setBankpos(BankPos bankpos) {
+        this.bankpos = bankpos;
+    }
+
+    public String getKeteranganTolak() {
+        return keteranganTolak;
+    }
+
+    public void setKeteranganTolak(String keteranganTolak) {
+        this.keteranganTolak = keteranganTolak;
+    }
+
+    public String getNomorTolak() {
+        return nomorTolak;
+    }
+
+    public void setNomorTolak(String nomorTolak) {
+        this.nomorTolak = nomorTolak;
+    }
+
+    public SPM getSpm() {
+        return spm;
+    }
+
+    public void setSpm(SPM spm) {
+        this.spm = spm;
+    }
+
+    public Date getTanggalTolakSP2D() {
+        return tanggalTolakSP2D;
+    }
+
+    public void setTanggalTolakSP2D(Date tanggalTolakSP2D) {
+        this.tanggalTolakSP2D = tanggalTolakSP2D;
+    }
 
     public String getNomorSP2D() {
         return nomorSP2D;
@@ -40,7 +91,6 @@ public class SP2D implements Serializable {
     public void setTanggalSP2D(Date tanggalSP2D) {
         this.tanggalSP2D = tanggalSP2D;
     }
-    private String nomorSP2D;
 
     public Long getId() {
         return id;

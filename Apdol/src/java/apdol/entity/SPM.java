@@ -36,8 +36,36 @@ public class SPM implements Serializable {
     private String statusSpm;
     private String keteranganNotifikasi;
     private String nomorPembatalan;
+    private String nomorTolak;
+    private String keteranganTolak;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date tanggalTerima;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date tanggalTolak;
+
+    public String getKeteranganTolak() {
+        return keteranganTolak;
+    }
+
+    public void setKeteranganTolak(String keteranganTolak) {
+        this.keteranganTolak = keteranganTolak;
+    }
+
+    public String getNomorTolak() {
+        return nomorTolak;
+    }
+
+    public void setNomorTolak(String nomorTolak) {
+        this.nomorTolak = nomorTolak;
+    }
+
+    public Date getTanggalTolak() {
+        return tanggalTolak;
+    }
+
+    public void setTanggalTolak(Date tanggalTolak) {
+        this.tanggalTolak = tanggalTolak;
+    }
 
     public String getKeteranganNotifikasi() {
         return keteranganNotifikasi;

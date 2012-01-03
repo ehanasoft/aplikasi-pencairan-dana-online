@@ -51,7 +51,7 @@
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="register">Registrasi User</a></li>
+                    <li><a href="user">Registrasi User</a></li>
                 </ul>
                 <% } else if (roleUser.equals("2")) {%>
                 <p><strong>Dokumen</strong></p> 
@@ -94,7 +94,7 @@
                 <% }%>
                 <p></p>
                 <p></p>
-                <p></p>>
+                <p></p>
 
 
                 <!-- end .sidebar1 --></div>
@@ -119,7 +119,7 @@
                                 <tr>
                                     <td><%=bankpos.getKdbankpos()%></td>
                                     <td><%=bankpos.getNmbankpos()%></td>
-                                    <td><input  type="checkbox"  name="cek_bankpos" value="<%=bankpos.getId()%>"></td>
+                                    <td><input  type="checkbox"  name="cek_bankpos" value="<%=bankpos.getId()%>"></input></td>
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -130,7 +130,9 @@
                                 <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_bank_pos" />
                                 <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_bank_pos" />
                                 <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_bank_pos" />
-                                </form></center>
+                            </BR></p>
+                    </form>
+                </center>
                                 <!-- end .content --></div>
                                 <!-- end .container --></div>
                                 </body>
