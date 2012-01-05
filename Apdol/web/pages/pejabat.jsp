@@ -127,7 +127,7 @@
                                             <td><input name="hapus_pejabat" src="images/hapus.png" type="image" value="<%=pejabat.getId()%>" formmethod="post" formaction="hapus_pejabat" /></td>
                                         </tr>
                                         <%}%>
-                                        </body>
+                                        </tbody>
                                 </table>
                                 <span style="margin: 10px;">
                                 </span>

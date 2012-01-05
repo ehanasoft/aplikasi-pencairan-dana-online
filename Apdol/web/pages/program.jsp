@@ -109,7 +109,8 @@
                                     <tr>
                                         <th scope="col" class="rounded-company">Kode Program</th>
                                         <th scope="col" class="rounded-q1">Nama Program</th>
-                                        <th scope="col" class="rounded-q4">Cek</th>                        
+                                        <th scope="col" class="rounded-q2">Edit</th>                        
+                                        <th scope="col" class="rounded-q4">Hapus</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -118,7 +119,8 @@
                                     <tr>
                                         <td><%=program.getKdprogram()%></td>
                                         <td><%=program.getNmprogram()%></td>
-                                        <td><input  type="checkbox"  name="cek_program" value="<%=program.getId()%>"></td>                                        
+                                        <td><input name="edit_program" src="images/ubah.png" type="image" value="<%=program.getId()%>" formmethod="post" formaction="edit_program" /> </td>
+                                        <td><input name="hapus_program" src="images/hapus.png" type="image" value="<%=program.getId()%>" formmethod="post" formaction="hapus_program" /> </td>
                                     </tr>
                                     <%}%>
                                 </tbody>
@@ -127,8 +129,7 @@
                             </span>
                             <p style="margin: 10px;"><BR>
                                     <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_program" />
-                                    <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_program" />
-                                    <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_program" />
+
                                     </form></center>                                    
                                     <!-- end .content --></div>
                                     <!-- end .container --></div>

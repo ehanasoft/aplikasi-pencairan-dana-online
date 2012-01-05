@@ -54,53 +54,54 @@ public class ProsesHapusSatkerServlet extends HttpServlet {
             DaftarSatuanKerja daftarSatuanKerja = new DaftarSatuanKerja();
             List<SatuanKerja> listSatuanKerja = daftarSatuanKerja.getSatuanKerja();
             Collections.sort(listSatuanKerja, new SatuanKerjaComparator());
-            String cekSatker[] = request.getParameterValues("cek_satker");
+            String cekSatker = request.getParameter("hapus_satker");
             String jsp = "";
-            
-            if (cekSatker == null) {
-                JOptionPane.showMessageDialog(null, "Satuan Kerja tidak ada yang dipilih",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                request.setAttribute("list_satker", listSatuanKerja);
-                jsp = "pages/satker.jsp";
-            } else {
-                int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
-                        JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
-                if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekSatker.length; i++) {
-                        long idsatuankerja = Long.parseLong(cekSatker[i]);
-                        SatuanKerja satker = daftarSatuanKerja.findSatuanKerja(idsatuankerja);
-                        daftarSatuanKerja.destroy(idsatuankerja);
-                    }
-                }
-                listSatuanKerja = daftarSatuanKerja.getSatuanKerja();
-                Collections.sort(listSatuanKerja, new SatuanKerjaComparator()); 
-                request.setAttribute("list_satker", listSatuanKerja);
-                jsp = "pages/satker.jsp";
+
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+
+            if (j == JOptionPane.YES_OPTION) {
+                long idsatuankerja = Long.parseLong(cekSatker);
+                SatuanKerja satker = daftarSatuanKerja.findSatuanKerja(idsatuankerja);
+                daftarSatuanKerja.destroy(idsatuankerja);
             }
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-            requestDispatcher.forward(request, response);
-            
-        } finally {            
-            out.close();
-        }
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            listSatuanKerja = daftarSatuanKerja.getSatuanKerja();
+            Collections.sort(listSatuanKerja, new SatuanKerjaComparator());
+            request.setAttribute("list_satker", listSatuanKerja);
+            jsp = "pages/satker.jsp";
+        
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+        requestDispatcher.forward(request, response);
+
+    }
+    
+
+    
+        finally {            
+            out.close();
+    }
+}
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+/** 
+ * Handles the HTTP <code>GET</code> method.
+ * @param request servlet request
+ * @param response servlet response
+ * @throws ServletException if a servlet-specific error occurs
+ * @throws IOException if an I/O error occurs
+ */
+@Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusBankPosServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusBankPosServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -112,12 +113,16 @@ public class ProsesHapusSatkerServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusBankPosServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusBankPosServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -126,7 +131,7 @@ public class ProsesHapusSatkerServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 }

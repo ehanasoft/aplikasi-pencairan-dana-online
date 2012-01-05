@@ -7,7 +7,7 @@
 
 <% List<Dipa> listDipa = (List<Dipa>) request.getAttribute("list_dipa");%>
 <% Dipa dipa;%>
-<%Rupiah rp = new Rupiah ();%>
+<%Rupiah rp = new Rupiah();%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -110,7 +110,8 @@
                                     <th scope="col" class="rounded-q3">Pagu</th>
                                     <th scope="col" class="rounded-q3">Realisasi</th>
                                     <th scope="col" class="rounded-q3">Sisa Dana</th>
-                                    <th scope="col" class="rounded-q4">Cek</th>
+                                    <th scope="col" class="rounded-q3">Edit</th>
+                                    <th scope="col" class="rounded-q4">Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -118,11 +119,12 @@
                                         dipa = iterator.next();%>
                                 <tr>
                                     <td><%=dipa.getNomorDipa()%></td>
-                                    <td><%=dipa.getRincianKegiatan().getSatker().getNamaSatker()+ "." +dipa.getRincianKegiatan().getKegiatan().getNmgiat()+ "." +dipa.getRincianKegiatan().getOutput().getNamaOutput()+ "." +dipa.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
+                                    <td><%=dipa.getRincianKegiatan().getSatker().getNamaSatker() + "." + dipa.getRincianKegiatan().getKegiatan().getNmgiat() + "." + dipa.getRincianKegiatan().getOutput().getNamaOutput() + "." + dipa.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
                                     <td align="right"><%=rp.formatRupiah(dipa.getPagu())%></td>
-                                <td align="right"><%=rp.formatRupiah(dipa.getRealisasi())%></td>
-                                <td align="right"><%=rp.formatRupiah(dipa.getSisaDana())%></td>
-                                  <td><input  type="checkbox"  name="cek_dipa" value="<%=dipa.getId()%>"></input></td>
+                                    <td align="right"><%=rp.formatRupiah(dipa.getRealisasi())%></td>
+                                    <td align="right"><%=rp.formatRupiah(dipa.getSisaDana())%></td>
+                                    <td><input name="edit_dipa" src="images/ubah.png" type="image" value="<%=dipa.getId()%>" formmethod="post" formaction="edit_dipa" /> </td>
+                                    <td><input name="hapus_dipa" src="images/hapus.png" type="image" value="<%=dipa.getId()%>" formmethod="post" formaction="hapus_dipa" /> </td>
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -131,8 +133,6 @@
                         </span>
                         <p style="margin: 10px;"><BR>
                                 <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_dipa" />
-                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_dipa" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_dipa" />
                                 </form></center>
                                 <!-- end .content --></div>
                                 <!-- end .container --></div>

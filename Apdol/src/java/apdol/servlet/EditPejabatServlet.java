@@ -38,46 +38,30 @@ public class EditPejabatServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EditPejabatServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EditPejabatServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
             List<SatuanKerja> listSatker = daftarSatker.getSatuanKerja();
             request.setAttribute("list_satker", listSatker);
-            
-            
+
+
             DaftarPejabat daftarPejabat = new DaftarPejabat();
             Pejabat satkerPejabat = new Pejabat();
             List<Pejabat> listPejabat = daftarPejabat.getPejabat();
             Collections.sort(listPejabat, new PejabatComparator());
             request.setAttribute("list_pejabat", listPejabat);
             String jsp = "";
-            String cekPejabat[] = request.getParameterValues("edit_pejabat");
+            String cekPejabat = request.getParameter("edit_pejabat");
 
-            if (cekPejabat == null) {
-                JOptionPane.showMessageDialog(null, "Pejabat tidak ada yang dipilih");
-                jsp = "pages/pejabat.jsp";
-            } else if (cekPejabat.length > 1) {
-                JOptionPane.showMessageDialog(null, "Edit salah satu Pejabat saja !");
-                jsp = "pages/pejabat.jsp";
-            } else {
-                Long idPejabat = Long.parseLong(cekPejabat[0]);
-                Pejabat pejabat = daftarPejabat.findPejabat(idPejabat);
-                request.setAttribute("pejabat_edit", pejabat);
-                request.setAttribute("satkerPejabat", satkerPejabat.getSatker());
-                jsp = "/pages/edit_pejabat.jsp";
-            }
+            Long idPejabat = Long.parseLong(cekPejabat);
+            Pejabat pejabat = daftarPejabat.findPejabat(idPejabat);
+            request.setAttribute("pejabat_edit", pejabat);
+            request.setAttribute("satkerPejabat", satkerPejabat.getSatker());
+            jsp = "/pages/edit_pejabat.jsp";
+
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }

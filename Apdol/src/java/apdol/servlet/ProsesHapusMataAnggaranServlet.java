@@ -44,51 +44,52 @@ public class ProsesHapusMataAnggaranServlet extends HttpServlet {
             DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran();
             List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
             Collections.sort(listMataAnggaran, new MataAnggaranComparator());
-            String cekMataAnggaran[] = request.getParameterValues("cek_mata_anggaran");
+            String cekMataAnggaran = request.getParameter("hapus_mata_anggaran");
             String jsp = "";
 
-            if (cekMataAnggaran == null) {
-                JOptionPane.showMessageDialog(null, "Mata Anggaran tidak ada yang dipilih");
-                request.setAttribute("list_mata_anggaran", listMataAnggaran);
-                jsp = "pages/mata_anggaran.jsp";
-            } else {
-                int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
-                        JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
-                if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekMataAnggaran.length; i++) {
-                        long idMataAnggaran = Long.parseLong(cekMataAnggaran[i]);
-                        MataAnggaran mataAnggaran = daftarMataAnggaran.findMataAnggaran(idMataAnggaran);
-                        daftarMataAnggaran.destroy(idMataAnggaran);
-                    }
-                }
-                listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
-                Collections.sort(listMataAnggaran, new MataAnggaranComparator());
-                request.setAttribute("list_mata_anggaran", listMataAnggaran);
-                jsp = "pages/mata_anggaran.jsp";
+            if (j == JOptionPane.YES_OPTION) {
+                long idMataAnggaran = Long.parseLong(cekMataAnggaran);
+                MataAnggaran mataAnggaran = daftarMataAnggaran.findMataAnggaran(idMataAnggaran);
+                daftarMataAnggaran.destroy(idMataAnggaran);
             }
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-            requestDispatcher.forward(request, response);
-        } finally {
-            out.close();
-        }
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+            Collections.sort(listMataAnggaran, new MataAnggaranComparator());
+            request.setAttribute("list_mata_anggaran", listMataAnggaran);
+            jsp = "pages/mata_anggaran.jsp";
+        
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+        requestDispatcher.forward(request, response);
+    }
+    
+
+    
+        finally {
+            out.close();
+    }
+}
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+/** 
+ * Handles the HTTP <code>GET</code> method.
+ * @param request servlet request
+ * @param response servlet response
+ * @throws ServletException if a servlet-specific error occurs
+ * @throws IOException if an I/O error occurs
+ */
+@Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusMataAnggaranServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusMataAnggaranServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -100,12 +101,16 @@ public class ProsesHapusMataAnggaranServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusMataAnggaranServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusMataAnggaranServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -115,7 +120,7 @@ public class ProsesHapusMataAnggaranServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 }

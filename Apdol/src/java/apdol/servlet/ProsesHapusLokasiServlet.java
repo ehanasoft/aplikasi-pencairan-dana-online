@@ -26,7 +26,6 @@ import javax.swing.JOptionPane;
  *
  * @author Hari RZ
  */
-@WebServlet(name = "ProsesRekamLokasiServlet", urlPatterns = {"/ProsesRekamLokasiServlet"})
 public class ProsesHapusLokasiServlet extends HttpServlet {
 
     /** 
@@ -41,42 +40,26 @@ public class ProsesHapusLokasiServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProsesRekamLokasiServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProsesRekamLokasiServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
             DaftarLokasi daftarLokasi = new DaftarLokasi();
             List<Lokasi> listLokasi = daftarLokasi.getLokasi();
             Collections.sort(listLokasi, new LokasiComparator());
-            String cekLokasi[] = request.getParameterValues("cek_lokasi");
+            String cekLokasi = request.getParameter("hapus_lokasi");
             String jsp = "";
 
-            if (cekLokasi == null) {
-                JOptionPane.showMessageDialog(null, "Lokasi tidak ada yang dipilih");
-                request.setAttribute("list_lokasi", listLokasi);
-                jsp = "pages/lokasi.jsp";
-            } else {
-                int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
-                        JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
-                if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekLokasi.length; i++) {
-                        long idlokasi = Long.parseLong(cekLokasi[i]);
-                        Lokasi lokasi = daftarLokasi.findLokasi(idlokasi);
-                        daftarLokasi.destroy(idlokasi);
-                    }
-                }
-                listLokasi = daftarLokasi.getLokasi();
-                Collections.sort(listLokasi, new LokasiComparator());
-                request.setAttribute("list_lokasi", listLokasi);
-                jsp = "pages/lokasi.jsp";
+            if (j == JOptionPane.YES_OPTION) {
+                long idlokasi = Long.parseLong(cekLokasi);
+                Lokasi lokasi = daftarLokasi.findLokasi(idlokasi);
+                daftarLokasi.destroy(idlokasi);
             }
+
+            listLokasi = daftarLokasi.getLokasi();
+            Collections.sort(listLokasi, new LokasiComparator());
+            request.setAttribute("list_lokasi", listLokasi);
+            jsp = "pages/lokasi.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

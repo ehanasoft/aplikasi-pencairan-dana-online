@@ -105,7 +105,8 @@
                                     <th scope="col" class="rounded-company">Kode Lokasi</th>
                                     <th scope="col" class="rounded-q1">Nama Kota</th>
                                     <th scope="col" class="rounded-q2">Nama Propinsi</th>
-                                    <th scope="col" class="rounded-q4">Cek</th>
+                                    <th scope="col" class="rounded-q3">Edit</th>
+                                    <th scope="col" class="rounded-q4">Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -115,7 +116,8 @@
                                     <td><%=lokasi.getKodeLokasi()%></td>
                                     <td><%=lokasi.getNamaKota()%></td>
                                     <td><%=lokasi.getNamaPropinsi()%></td>
-                                    <td><input  type="checkbox"  name="cek_lokasi" value="<%=lokasi.getId()%>"></td>
+                                    <td><input name="edit_lokasi" src="images/ubah.png" type="image" value="<%=lokasi.getId()%>" formmethod="post" formaction="edit_lokasi" /> </td>
+                                    <td><input name="hapus_lokasi" src="images/hapus.png" type="image" value="<%=lokasi.getId()%>" formmethod="post" formaction="hapus_lokasi" /> </td>
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -124,8 +126,6 @@
                         </span>
                         <p style="margin: 10px;"><BR>
                                 <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_lokasi" />
-                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_lokasi" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_lokasi" />
                                 </form></center>
                                 <!-- end .content --></div>
                                 <!-- end .container --></div>

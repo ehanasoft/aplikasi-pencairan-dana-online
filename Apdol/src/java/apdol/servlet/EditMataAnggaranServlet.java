@@ -23,7 +23,6 @@ import javax.swing.JOptionPane;
  *
  * @author Accio
  */
-@WebServlet(name = "EditMataAnggaranServlet", urlPatterns = {"/EditMataAnggaranServlet"})
 public class EditMataAnggaranServlet extends HttpServlet {
 
     /** 
@@ -43,20 +42,14 @@ public class EditMataAnggaranServlet extends HttpServlet {
             Collections.sort(listMataAnggaran, new MataAnggaranComparator());
             request.setAttribute("list_mata_anggaran", listMataAnggaran);
             String jsp = "";
-            String cekMataAnggaran[] = request.getParameterValues("cek_mata_anggaran");
+            String cekMataAnggaran = request.getParameter("edit_mata_anggaran");
 
-            if (cekMataAnggaran == null) {
-                JOptionPane.showMessageDialog(null, "Mata anggaran tidak ada yang dipilih");
-                jsp = "pages/mata_anggaran.jsp";
-            } else if (cekMataAnggaran.length > 1) {
-                JOptionPane.showMessageDialog(null, "Edit salah satu mataAnggaran saja !");
-                jsp = "pages/mata_anggaran.jsp";
-            } else {
-                Long idMataAnggaran = Long.parseLong(cekMataAnggaran[0]);
-                MataAnggaran mataAnggaran = daftarMataAnggaran.findMataAnggaran(idMataAnggaran);
-                request.setAttribute("mata_anggaran_edit", mataAnggaran);
-                jsp = "/pages/edit_mata_anggaran.jsp";
-            }
+
+            Long idMataAnggaran = Long.parseLong(cekMataAnggaran);
+            MataAnggaran mataAnggaran = daftarMataAnggaran.findMataAnggaran(idMataAnggaran);
+            request.setAttribute("mata_anggaran_edit", mataAnggaran);
+            jsp = "/pages/edit_mata_anggaran.jsp";
+
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

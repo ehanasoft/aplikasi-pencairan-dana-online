@@ -124,7 +124,7 @@
                             <td width="175px">Username</td><td><input name="username" type="text" style="width: 200px"></td>
                             </tr>
                             <tr>
-                                <td>Password</td><td><input type="text" name="password" style="width: 200px"></td>
+                                <td>Password</td><td><input type="password" name="password" style="width: 200px"></td>
                                 <tr>
                                     <td width="150px">Role User</td>
                                     <td><select name="roleuser" onchange = "disableDrop();">

@@ -54,29 +54,24 @@ public class ProsesHapusOutputServlet extends HttpServlet {
             DaftarOutput daftarOutput = new DaftarOutput();
             List<Output> listOutput = daftarOutput.getOutput();
             Collections.sort(listOutput, new OutputComparator());
-            String cekOutput[] = request.getParameterValues("cek_output");
+            String cekOutput = request.getParameter("hapus_output");
             String jsp = "";
 
-            if (cekOutput == null) {
-                JOptionPane.showMessageDialog(null, "Output tidak ada yang dipilih");
-                request.setAttribute("list_output", listOutput);
-                jsp = "pages/output.jsp";
-            } else {
+
                 int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
                         JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
                 if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekOutput.length; i++) {
-                        long idoutput = Long.parseLong(cekOutput[i]);
+                        long idoutput = Long.parseLong(cekOutput);
                         Output output = daftarOutput.findOutput(idoutput);
                         daftarOutput.destroy(idoutput);
                     }
-                }
+                
                 listOutput = daftarOutput.getOutput();
                 Collections.sort(listOutput, new OutputComparator());
                 request.setAttribute("list_output", listOutput);
                 jsp = "pages/output.jsp";
-            }
+            
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

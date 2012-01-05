@@ -4,7 +4,6 @@
  */
 package apdol.servlet;
 
-
 import apdol.comparator.RincianKegiatanComparator;
 import apdol.entity.RincianKegiatan;
 import apdol.model.DaftarRincianKegiatan;
@@ -29,6 +28,7 @@ import javax.swing.JOptionPane;
  */
 @WebServlet(name = "ProsesHapusRincianKegiatanServlet", urlPatterns = {"/ProsesHapusRincianKegiatanServlet"})
 public class ProsesHapusRincianKegiatanServlet extends HttpServlet {
+
     private Long idrincianKegiatan;
 
     /** 
@@ -43,42 +43,27 @@ public class ProsesHapusRincianKegiatanServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProsesRekamLokasiServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProsesRekamLokasiServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
             Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
-            String cekRincianKegiatan[] = request.getParameterValues("cek_rincian_kegiatan");
+            String cekRincianKegiatan = request.getParameter("hapus_rincian_kegiatan");
             String jsp = "";
 
-            if (cekRincianKegiatan == null) {
-                JOptionPane.showMessageDialog(null, "Rincian Kegiatan tidak ada yang dipilih");
-                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rincian_kegiatan.jsp";
-            } else {
-                int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
-                        JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
-                if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekRincianKegiatan.length; i++) {
-                        long idrincianKegiatan = Long.parseLong(cekRincianKegiatan[i]);
-                        RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(idrincianKegiatan);
-                        daftarRincianKegiatan.destroy(idrincianKegiatan);
-                    }
-                }
-                listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
-                Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
-                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-                jsp = "pages/rincian_kegiatan.jsp";
+            if (j == JOptionPane.YES_OPTION) {
+                long idrincianKegiatan = Long.parseLong(cekRincianKegiatan);
+                RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(idrincianKegiatan);
+                daftarRincianKegiatan.destroy(idrincianKegiatan);
             }
+
+            listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+            Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
+            request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+            jsp = "pages/rincian_kegiatan.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

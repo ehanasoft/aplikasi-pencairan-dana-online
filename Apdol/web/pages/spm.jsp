@@ -118,7 +118,8 @@
                                     <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Keluar</th>
                                     <th width="111" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Potongan</th>
                                     <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Bersih</th>
-                                    <th width="29" align="center" valign="middle" class="rounded-q4" scope="col">Cek</th>
+                                    <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Edit</th>
+                                    <th width="29" align="center" valign="middle" class="rounded-q4" scope="col">Hapus</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -131,7 +132,8 @@
                                     <td><%=spm.getJumlahKeluar()%></td>
                                     <td><%=spm.getJumlahPotongan()%></td>
                                     <td><%=spm.getJumlahBersih()%></td>
-                                    <td><input  type="checkbox"  name="cek_spm" value="<%=spm.getId()%>"></input></td>
+                                    <td><input name="edit_spm" src="images/ubah.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="edit_spm" /> </td>
+                                    <td><input name="hapus_spm" src="images/hapus.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="hapus_spm" /> </td>
                               </tr>
                                 <%}%>
                             </tbody>
@@ -140,8 +142,6 @@
                         </span>
                         <p style="margin: 10px;"><BR>
                                 <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_spm" />
-                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_spm" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_spm" />
                   </form></center>
                                 <!-- end .content --></div>
                                 <!-- end .container --></div>

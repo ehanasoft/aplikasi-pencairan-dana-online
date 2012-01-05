@@ -106,19 +106,21 @@
                                     <th scope="col" class="rounded-company">Satuan Kerja</th>
                                     <th scope="col" class="rounded-q2">Kegiatan</th>
                                     <th scope="col" class="rounded-q3">Output</th>
-                                    <th scope="col" class="rounded-q3">Mata Anggaran</th>                                   
-                                    <th scope="col" class="rounded-q4">Cek</th>
+                                    <th scope="col" class="rounded-q3">Mata Anggaran</th>
+                                    <th scope="col" class="rounded-q3">Edit</th>
+                                    <th scope="col" class="rounded-q4">Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <% while (iterator.hasNext()) {
-                            rincianKegiatan = iterator.next();%>
+                                        rincianKegiatan = iterator.next();%>
                                 <tr>
                                     <td><%=rincianKegiatan.getSatker().getKodeSatker()%></td>
                                     <td><%=rincianKegiatan.getKegiatan().getNmgiat()%></td>
                                     <td><%=rincianKegiatan.getOutput().getNamaOutput()%></td>
                                     <td><%=rincianKegiatan.getMataAnggaran().getKodeMataAnggaran()%></td>
-                                    <td><input  type="checkbox"  name="cek_rincian_kegiatan" value="<%=rincianKegiatan.getId()%>"></input></td>
+                                    <td><input name="edit_rincian_kegiatan" src="images/ubah.png" type="image" value="<%=rincianKegiatan.getId()%>" formmethod="post" formaction="edit_rincian_kegiatan" /> </td>
+                                    <td><input name="hapus_rincian_kegiatan" src="images/hapus.png" type="image" value="<%=rincianKegiatan.getId()%>" formmethod="post" formaction="hapus_rincian_kegiatan" /> </td>
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -127,9 +129,7 @@
                         </span>
                         <p style="margin: 10px;"><BR>
                                 <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_rincian_kegiatan" />
-                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_rincian_kegiatan" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_rincian_kegiatan" />
-                  </form></center>
+                                </form></center>
                                 <!-- end .content --></div>
                                 <!-- end .container --></div>
                                 </body>
