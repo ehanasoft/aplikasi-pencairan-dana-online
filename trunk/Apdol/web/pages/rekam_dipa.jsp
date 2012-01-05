@@ -57,7 +57,7 @@
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
-                    <li><a href="register">Registrasi User</a></li>
+                    <li><a href="user">Registrasi User</a></li>
                 </ul>
                 <% } else if (roleUser.equals("2")) {%>
                 <p><strong>Dokumen</strong></p> 
