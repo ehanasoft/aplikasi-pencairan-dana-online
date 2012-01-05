@@ -103,7 +103,7 @@
 
 
                 <!-- end .sidebar1 --></div>
-            <div class="logout"><a href="logout">[Log Out]</a>
+            <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
                 <p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser + " " + roleUser%><%}%></p>
