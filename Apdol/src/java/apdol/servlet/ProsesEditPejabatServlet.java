@@ -69,6 +69,11 @@ public class ProsesEditPejabatServlet extends HttpServlet {
                 satker = listSatker.get(0);
 
             }
+            if (listSatker.isEmpty()) {
+                satker = null;
+            } else {
+                satker = listSatker.get(0);
+            }
 
             String idPejabat = request.getParameter("id_edit_pejabat");
             Long longIdPejabat = Long.parseLong(idPejabat);
