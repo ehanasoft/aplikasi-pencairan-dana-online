@@ -54,52 +54,52 @@ public class ProsesHapusBankPosServlet extends HttpServlet {
             DaftarBankPos daftarBankPos = new DaftarBankPos();
             List<BankPos> listBankPos = daftarBankPos.getBankPos();
             Collections.sort(listBankPos, new BankPosComparator());
-            String cekBank[] = request.getParameterValues("cek_bankpos");
+            String cekBank = request.getParameter("hapus_bankpos");
             String jsp = "";
 
-            if (cekBank == null) {
-                JOptionPane.showMessageDialog(null, "Bank Pos tidak ada yang dipilih",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                request.setAttribute("list_bankpos", listBankPos);
-                jsp = "pages/bank_pos.jsp";
-            } else {
-                int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
-                        JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
-                if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekBank.length; i++) {
-                        long idbankpos = Long.parseLong(cekBank[i]);
-                        BankPos bankpos = daftarBankPos.findBankPos(idbankpos);
-                        daftarBankPos.destroy(idbankpos);
-                    }
-                }
-                listBankPos = daftarBankPos.getBankPos();
-                Collections.sort(listBankPos, new BankPosComparator());
-                request.setAttribute("list_bankpos", listBankPos);
-                jsp = "pages/bank_pos.jsp";
+            if (j == JOptionPane.YES_OPTION) {
+                long idbankpos = Long.parseLong(cekBank);
+                BankPos bankpos = daftarBankPos.findBankPos(idbankpos);
+                daftarBankPos.destroy(idbankpos);
             }
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-            requestDispatcher.forward(request, response);
-        } finally {            
-            out.close();
-        }
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            listBankPos = daftarBankPos.getBankPos();
+            Collections.sort(listBankPos, new BankPosComparator());
+            request.setAttribute("list_bankpos", listBankPos);
+            jsp = "pages/bank_pos.jsp";
+        
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+        requestDispatcher.forward(request, response);
+    }
+    
+
+    
+        finally {
+            out.close();
+    }
+}
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+/** 
+ * Handles the HTTP <code>GET</code> method.
+ * @param request servlet request
+ * @param response servlet response
+ * @throws ServletException if a servlet-specific error occurs
+ * @throws IOException if an I/O error occurs
+ */
+@Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusBankPosServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusBankPosServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -111,12 +111,16 @@ public class ProsesHapusBankPosServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusBankPosServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusBankPosServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -125,7 +129,7 @@ public class ProsesHapusBankPosServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 }

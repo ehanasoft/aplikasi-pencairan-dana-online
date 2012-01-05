@@ -24,7 +24,6 @@ import javax.swing.JOptionPane;
  *
  * @author wahid
  */
-@WebServlet(name = "ProsesHapusUserServlet", urlPatterns = {"/proses_hapus_user"})
 public class ProsesHapusUserServlet extends HttpServlet {
 
     /** 
@@ -39,40 +38,25 @@ public class ProsesHapusUserServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProsesRekamUserServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProsesRekamUserServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+            
             DaftarUser daftarUser = new DaftarUser();
             List<User> listUser = daftarUser.getUser();
-            String cekUser[] = request.getParameterValues("cek_user");
+            String cekUser = request.getParameter("hapus_user");
             String jsp = "";
 
-            if (cekUser == null) {
-                JOptionPane.showMessageDialog(null, "User tidak ada yang dipilih");
-                request.setAttribute("list_user", listUser);
-                jsp = "pages/user.jsp";
-            } else {
                 int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
                         JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
                 if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekUser.length; i++) {
-                        long iduser = Long.parseLong(cekUser[i]);
+                        long iduser = Long.parseLong(cekUser);
                         User user = daftarUser.findUser(iduser);
                         daftarUser.destroy(iduser);
                     }
-                }
+                
                 listUser = daftarUser.getUser();
                 request.setAttribute("list_user", listUser);
                 jsp = "pages/user.jsp";
-            }
+            
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

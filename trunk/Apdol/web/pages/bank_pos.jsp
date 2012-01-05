@@ -110,7 +110,8 @@
                                 <tr>
                                     <th scope="col" class="rounded-company">Kode Bank Pos</th>
                                     <th scope="col" class="rounded-q1">Nama Bank Pos</th>
-                                    <th scope="col" class="rounded-q4">Cek</th>
+                                    <th scope="col" class="rounded-q2">Edit</th>
+                                    <th scope="col" class="rounded-q4">Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -119,7 +120,8 @@
                                 <tr>
                                     <td><%=bankpos.getKdbankpos()%></td>
                                     <td><%=bankpos.getNmbankpos()%></td>
-                                    <td><input  type="checkbox"  name="cek_bankpos" value="<%=bankpos.getId()%>"></input></td>
+                                    <td><input name="edit_bankpos" src="images/ubah.png" type="image" value="<%=bankpos.getId()%>" formmethod="post" formaction="edit_bank_pos" /> </td>
+                                    <td><input name="hapus_bankpos" src="images/hapus.png" type="image" value="<%=bankpos.getId()%>" formmethod="post" formaction="hapus_bank_pos" /> </td>                                
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -128,9 +130,8 @@
                         </span>
                         <p style="margin: 10px;"><BR>
                                 <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_bank_pos" />
-                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_bank_pos" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="hapus_bank_pos" />
-                            </BR></p>
+
+                            </p>
                     </form>
                 </center>
                                 <!-- end .content --></div>

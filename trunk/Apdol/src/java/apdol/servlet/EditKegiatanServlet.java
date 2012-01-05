@@ -23,7 +23,6 @@ import javax.swing.JOptionPane;
  *
  * @author Accio
  */
-@WebServlet(name = "EditKegiatanServlet", urlPatterns = {"/EditKegiatanServlet"})
 public class EditKegiatanServlet extends HttpServlet {
 
     /** 
@@ -44,20 +43,13 @@ public class EditKegiatanServlet extends HttpServlet {
             Collections.sort(listKegiatan, new KegiatanComparator());
             request.setAttribute("list_kegiatan", listKegiatan);
             String jsp = "";
-            String cekKegiatan[] = request.getParameterValues("cek_kegiatan");
+            String cekKegiatan = request.getParameter("edit_kegiatan");
 
-            if (cekKegiatan == null) {
-                JOptionPane.showMessageDialog(null, "Kegiatan tidak ada yang dipilih");
-                jsp = "pages/kegiatan.jsp";
-            } else if (cekKegiatan.length > 1) {
-                JOptionPane.showMessageDialog(null, "Edit salah satu kegiatan saja !");
-                jsp = "pages/kegiatan.jsp";
-            } else {
-                Long idKegiatan = Long.parseLong(cekKegiatan[0]);
-                Kegiatan kegiatan = daftarKegiatan.findKegiatan(idKegiatan);
-                request.setAttribute("kegiatan_edit", kegiatan);
-                jsp = "/pages/edit_kegiatan.jsp";
-            }
+            Long idKegiatan = Long.parseLong(cekKegiatan);
+            Kegiatan kegiatan = daftarKegiatan.findKegiatan(idKegiatan);
+            request.setAttribute("kegiatan_edit", kegiatan);
+            jsp = "/pages/edit_kegiatan.jsp";
+
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

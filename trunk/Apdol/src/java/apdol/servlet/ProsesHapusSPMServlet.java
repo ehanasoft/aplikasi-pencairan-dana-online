@@ -39,48 +39,33 @@ public class ProsesHapusSPMServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProsesHapusSPMServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProsesHapusSPMServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+
             DaftarSPM daftarSPM = new DaftarSPM();
             List<SPM> listSPM = daftarSPM.getSPM();
             Collections.sort(listSPM, new SpmComparator());
-            String cekSPM[] = request.getParameterValues("cek_spm");
+            String cekSPM = request.getParameter("hapus_spm");
             String jsp = "";
-            
-            if (cekSPM == null) {
-                JOptionPane.showMessageDialog(null, "SPM tidak ada yang dipilih",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                request.setAttribute("list_spm", listSPM);
-                jsp = "pages/spm.jsp";
-            } else {
-                int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
-                        JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
-                if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekSPM.length; i++) {
-                        long idspm = Long.parseLong(cekSPM[i]);
-                        SPM spm = daftarSPM.findSPM(idspm);
-                        spm.tambahiDipa();
-                        daftarSPM.destroy(idspm);
-                    }
-                }
-                listSPM = daftarSPM.getSPM();
-                Collections.sort(listSPM, new SpmComparator()); 
-                request.setAttribute("list_spm", listSPM);
-                jsp = "pages/spm.jsp";
+
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+
+            if (j == JOptionPane.YES_OPTION) {
+                long idspm = Long.parseLong(cekSPM);
+                SPM spm = daftarSPM.findSPM(idspm);
+                spm.tambahiDipa();
+                daftarSPM.destroy(idspm);
             }
+
+            listSPM = daftarSPM.getSPM();
+            Collections.sort(listSPM, new SpmComparator());
+            request.setAttribute("list_spm", listSPM);
+            jsp = "pages/spm.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-            
-        } finally {            
+
+        } finally {
             out.close();
         }
     }

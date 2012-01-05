@@ -112,8 +112,9 @@
                                 <tr>
                                     <th width="187" class="rounded-company" scope="col">Nama User</th>
                                     <th width="232" class="rounded-q1" scope="col">Jabatan</th>                                    
-                                    <th width="232" class="rounded-q3" scope="col">Username</th>
-                                    <th width="45" class="rounded-q4" scope="col">Cek</th>
+                                    <th width="232" class="rounded-q2" scope="col">Username</th>
+                                    <th width="45" class="rounded-q3" scope="col">Edit</th>
+                                    <th width="45" class="rounded-q4" scope="col">Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -123,7 +124,8 @@
                                     <td><%=user.getNama()%></td>
                                     <td><%=user.getJabatan()%></td>                                    
                                     <td><%=user.getUsername()%></td>
-                                    <td><input  type="checkbox"  name="cek_user" value="<%=user.getId()%>"></td>
+                                    <td><input name="edit_user" src="images/ubah.png" type="image" value="<%=user.getId()%>" formmethod="post" formaction="edit_user" /> </td>
+                                    <td><input name="hapus_user" src="images/hapus.png" type="image" value="<%=user.getId()%>" formmethod="post" formaction="hapus_user" /> </td>
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -132,8 +134,6 @@
                         </span>
                         <p style="margin: 10px;"><BR>
                                 <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_user" />
-                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_user" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_user" />
                   </form></center>
                                 <!-- end .content --></div>
                                 <!-- end .container --></div>

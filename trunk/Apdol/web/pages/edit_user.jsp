@@ -133,7 +133,7 @@
                             <td width="175px">Username</td><td><input name="username" type="text" style="width: 200px" value="<%=user.getUsername()%>"></td>
                             </tr>
                             <tr>
-                                <td>Password</td><td><input type="text" name="password" style="width: 200px" value="<%=user.getPassword()%>"></td>
+                                <td>Password</td><td><input type="password" name="password" style="width: 200px" value="<%=user.getPassword()%>"></td>
                                 <tr>
                                     <td width="150px">Role User</td>
                                     <td><select name="roleuser" onchange = "disableDrop();">

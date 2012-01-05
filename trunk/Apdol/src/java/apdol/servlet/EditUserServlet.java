@@ -48,20 +48,13 @@ public class EditUserServlet extends HttpServlet {
             request.setAttribute("list_satker", listSatker);
 
             String jsp = "";
-            String cekUser[] = request.getParameterValues("cek_user");
+            String cekUser = request.getParameter("edit_user");
 
-            if (cekUser == null) {
-                JOptionPane.showMessageDialog(null, "User tidak ada yang dipilih");
-                jsp = "pages/user.jsp";
-            } else if (cekUser.length > 1) {
-                JOptionPane.showMessageDialog(null, "Centang tidak boleh lebih dari satu, pilih salah satu user saja !");
-                jsp = "pages/user.jsp";
-            } else {
-                Long idUser = Long.parseLong(cekUser[0]);
-                User user = daftarUser.findUser(idUser);
-                request.setAttribute("user_edit", user);
-                jsp = "/pages/edit_user.jsp";
-            }
+            Long idUser = Long.parseLong(cekUser);
+            User user = daftarUser.findUser(idUser);
+            request.setAttribute("user_edit", user);
+            jsp = "/pages/edit_user.jsp";
+
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

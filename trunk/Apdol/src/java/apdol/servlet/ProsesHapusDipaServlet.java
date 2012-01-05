@@ -39,47 +39,31 @@ public class ProsesHapusDipaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProsesHapusDipaServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProsesHapusDipaServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+
             DaftarDipa daftarDipa = new DaftarDipa();
             List<Dipa> listDipa = daftarDipa.getDipa();
             Collections.sort(listDipa, new DipaComparator());
-            String cekDipa[] = request.getParameterValues("cek_dipa");
+            String cekDipa = request.getParameter("hapus_dipa");
             String jsp = "";
-            
-            if (cekDipa == null) {
-                JOptionPane.showMessageDialog(null, "Dipa tidak ada yang dipilih",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                request.setAttribute("list_dipa", listDipa);
-                jsp = "pages/dipa.jsp";
-            } else {
-                int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
-                        JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
-                if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekDipa.length; i++) {
-                        long iddipa = Long.parseLong(cekDipa[i]);
-                        Dipa dipa = daftarDipa.findDipa(iddipa);
-                        daftarDipa.destroy(iddipa);
-                    }
-                }
-                listDipa = daftarDipa.getDipa();
-                Collections.sort(listDipa, new DipaComparator()); 
-                request.setAttribute("list_dipa", listDipa);
-                jsp = "pages/dipa.jsp";
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+
+            if (j == JOptionPane.YES_OPTION) {
+                long iddipa = Long.parseLong(cekDipa);
+                Dipa dipa = daftarDipa.findDipa(iddipa);
+                daftarDipa.destroy(iddipa);
             }
+
+            listDipa = daftarDipa.getDipa();
+            Collections.sort(listDipa, new DipaComparator());
+            request.setAttribute("list_dipa", listDipa);
+            jsp = "pages/dipa.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-            
-        } finally {            
+
+        } finally {
             out.close();
         }
     }

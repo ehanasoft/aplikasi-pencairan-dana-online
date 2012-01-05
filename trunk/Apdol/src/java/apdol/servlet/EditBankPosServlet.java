@@ -23,7 +23,6 @@ import javax.swing.JOptionPane;
  *
  * @author AlfieSaHid
  */
-@WebServlet(name = "EditBankPosServlet", urlPatterns = {"/edit_bank_pos"})
 public class EditBankPosServlet extends HttpServlet {
 
     /** 
@@ -38,28 +37,20 @@ public class EditBankPosServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            
+
             DaftarBankPos daftarBankPos = new DaftarBankPos();
             List<BankPos> listBankPos = daftarBankPos.getBankPos();
             Collections.sort(listBankPos, new BankPosComparator());
             request.setAttribute("list_bankpos", listBankPos);
             String jsp = "";
-            String cekBankPos[] = request.getParameterValues("cek_bankpos");
+            String cekBankPos = request.getParameter("edit_bankpos");
 
-            if (cekBankPos == null) {
-                JOptionPane.showMessageDialog(null, "Bank Pos tidak ada yang dipilih",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/bank_pos.jsp";
-            } else if (cekBankPos.length > 1) {
-                JOptionPane.showMessageDialog(null, "Pilih salah satu Bank Pos saja !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/bank_pos.jsp";
-            } else {
-                Long idBankPos = Long.parseLong(cekBankPos[0]);
-                BankPos bankpos = daftarBankPos.findBankPos(idBankPos);
-                request.setAttribute("bankpos_edit", bankpos);
-                jsp = "/pages/edit_bank_pos.jsp";
-            }
+
+            Long idBankPos = Long.parseLong(cekBankPos);
+            BankPos bankpos = daftarBankPos.findBankPos(idBankPos);
+            request.setAttribute("bankpos_edit", bankpos);
+            jsp = "/pages/edit_bank_pos.jsp";
+
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

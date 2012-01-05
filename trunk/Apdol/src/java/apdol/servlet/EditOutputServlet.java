@@ -23,7 +23,6 @@ import javax.swing.JOptionPane;
  *
  * @author Accio
  */
-@WebServlet(name = "EditOutputServlet", urlPatterns = {"/EditOutputServlet"})
 public class EditOutputServlet extends HttpServlet {
 
     /** 
@@ -44,20 +43,13 @@ public class EditOutputServlet extends HttpServlet {
             Collections.sort(listOutput, new OutputComparator());
             request.setAttribute("list_output", listOutput);
             String jsp = "";
-            String cekOutput[] = request.getParameterValues("cek_output");
+            String cekOutput = request.getParameter("edit_output");
 
-            if (cekOutput == null) {
-                JOptionPane.showMessageDialog(null, "Output tidak ada yang dipilih");
-                jsp = "pages/output.jsp";
-            } else if (cekOutput.length > 1) {
-                JOptionPane.showMessageDialog(null, "Edit salah satu output saja !");
-                jsp = "pages/output.jsp";
-            } else {
-                Long idOutput = Long.parseLong(cekOutput[0]);
-                Output output = daftarOutput.findOutput(idOutput);
-                request.setAttribute("output_edit", output);
-                jsp = "/pages/edit_output.jsp";
-            }
+            Long idOutput = Long.parseLong(cekOutput);
+            Output output = daftarOutput.findOutput(idOutput);
+            request.setAttribute("output_edit", output);
+            jsp = "/pages/edit_output.jsp";
+
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

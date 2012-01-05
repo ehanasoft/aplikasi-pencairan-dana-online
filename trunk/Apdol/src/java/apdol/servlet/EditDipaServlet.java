@@ -38,42 +38,25 @@ public class EditDipaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EditDipaServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EditDipaServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
             request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-            
-            
+                        
             DaftarDipa daftarDipa = new DaftarDipa();
             Dipa rincianKegiatanDipa = new Dipa();
             List<Dipa> listDipa = daftarDipa.getDipa();
             Collections.sort(listDipa, new DipaComparator());
             request.setAttribute("list_dipa", listDipa);
             String jsp = "";
-            String cekDipa[] = request.getParameterValues("cek_dipa");
+            String cekDipa = request.getParameter("edit_dipa");
 
-            if (cekDipa == null) {
-                JOptionPane.showMessageDialog(null, "Dipa tidak ada yang dipilih");
-                jsp = "pages/dipa.jsp";
-            } else if (cekDipa.length > 1) {
-                JOptionPane.showMessageDialog(null, "Edit salah satu Dipa saja !");
-                jsp = "pages/dipa.jsp";
-            } else {
-                Long idDipa = Long.parseLong(cekDipa[0]);
+                Long idDipa = Long.parseLong(cekDipa);
                 Dipa dipa = daftarDipa.findDipa(idDipa);
                 request.setAttribute("dipa_edit", dipa);
                 request.setAttribute("rincianKegiatanDipa", rincianKegiatanDipa.getRincianKegiatan());
                 jsp = "/pages/edit_dipa.jsp";
-            }
+            
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

@@ -23,7 +23,6 @@ import javax.swing.JOptionPane;
  *
  * @author Accio
  */
-@WebServlet(name = "EditLokasiServlet", urlPatterns = {"/EditLokasiServlet"})
 public class EditLokasiServlet extends HttpServlet {
 
     /** 
@@ -44,20 +43,13 @@ public class EditLokasiServlet extends HttpServlet {
             Collections.sort(listLokasi, new LokasiComparator());
             request.setAttribute("list_lokasi", listLokasi);
             String jsp = "";
-            String cekLokasi[] = request.getParameterValues("cek_lokasi");
+            String cekLokasi = request.getParameter("edit_lokasi");
 
-            if (cekLokasi == null) {
-                JOptionPane.showMessageDialog(null, "Lokasi tidak ada yang dipilih");
-                jsp = "pages/lokasi.jsp";
-            } else if (cekLokasi.length > 1) {
-                JOptionPane.showMessageDialog(null, "Edit salah satu lokasi saja !");
-                jsp = "pages/lokasi.jsp";
-            } else {
-                Long idLokasi = Long.parseLong(cekLokasi[0]);
-                Lokasi lokasi = daftarLokasi.findLokasi(idLokasi);
-                request.setAttribute("lokasi_edit", lokasi);
-                jsp = "/pages/edit_lokasi.jsp";
-            }
+            Long idLokasi = Long.parseLong(cekLokasi);
+            Lokasi lokasi = daftarLokasi.findLokasi(idLokasi);
+            request.setAttribute("lokasi_edit", lokasi);
+            jsp = "/pages/edit_lokasi.jsp";
+
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

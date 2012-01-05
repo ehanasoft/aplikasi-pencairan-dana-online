@@ -52,52 +52,52 @@ public class ProsesHapusProgramServlet extends HttpServlet {
             DaftarProgram daftarProgram = new DaftarProgram();
             List<Program> listProgram = daftarProgram.getProgram();
             Collections.sort(listProgram, new ProgramComparator());
-            String cekBank[] = request.getParameterValues("cek_program");
+            String cekBank = request.getParameter("hapus_program");
             String jsp = "";
 
-            if (cekBank == null) {
-                JOptionPane.showMessageDialog(null, "Program tidak ada yang dipilih",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                request.setAttribute("list_program", listProgram);
-                jsp = "pages/program.jsp";
-            } else {
-                int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
-                        JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
-                if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekBank.length; i++) {
-                        long idprogram = Long.parseLong(cekBank[i]);
-                        Program program = daftarProgram.findProgram(idprogram);
-                        daftarProgram.destroy(idprogram);
-                    }
-                }
-                listProgram = daftarProgram.getProgram();
-                Collections.sort(listProgram, new ProgramComparator());
-                request.setAttribute("list_program", listProgram);
-                jsp = "pages/program.jsp";
+            if (j == JOptionPane.YES_OPTION) {
+                long idprogram = Long.parseLong(cekBank);
+                Program program = daftarProgram.findProgram(idprogram);
+                daftarProgram.destroy(idprogram);
             }
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-            requestDispatcher.forward(request, response);
-        } finally {            
-            out.close();
-        }
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            listProgram = daftarProgram.getProgram();
+            Collections.sort(listProgram, new ProgramComparator());
+            request.setAttribute("list_program", listProgram);
+            jsp = "pages/program.jsp";
+        
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+        requestDispatcher.forward(request, response);
+    }
+    
+
+    
+        finally {            
+            out.close();
+    }
+}
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+/** 
+ * Handles the HTTP <code>GET</code> method.
+ * @param request servlet request
+ * @param response servlet response
+ * @throws ServletException if a servlet-specific error occurs
+ * @throws IOException if an I/O error occurs
+ */
+@Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusBankPosServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusBankPosServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -109,12 +109,16 @@ public class ProsesHapusProgramServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProsesHapusBankPosServlet.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+} catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProsesHapusBankPosServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -123,7 +127,7 @@ public class ProsesHapusProgramServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 }

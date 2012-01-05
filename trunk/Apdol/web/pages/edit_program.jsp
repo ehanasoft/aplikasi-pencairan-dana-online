@@ -104,7 +104,7 @@
                     <form name="form_edit_program" action="proses_edit_program" method="post" >
                         <table width="400px">
                             <tr>
-                                <td width="150px">Kode Program</td><td><input name="kode_program" type="text" style="width: 30px" value="<%=program.getKdprogram()%>" size="3" maxlength="3"></td>
+                                <td width="150px">Kode Program</td><td><input name="kode_program" type="text" style="width: 30px" value="<%=program.getKdprogram()%>" size="4" maxlength="4"></td>
                             </tr>
                             <tr>
                                 <td>Nama Program</td><td><input type="text" name="nama_program" style="width: 200px" value="<%=program.getNmprogram()%>"></td>

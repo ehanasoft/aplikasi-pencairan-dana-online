@@ -36,41 +36,23 @@ public class EditProgramServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EditProgramServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EditProgramServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+
             DaftarProgram daftarProgram = new DaftarProgram();
             List<Program> listProgram = daftarProgram.getProgram();
             Collections.sort(listProgram, new ProgramComparator());
             request.setAttribute("list_program", listProgram);
             String jsp = "";
-            String cekProgram[] = request.getParameterValues("cek_program");
+            String cekProgram = request.getParameter("edit_program");
 
-            if (cekProgram == null) {
-                JOptionPane.showMessageDialog(null, "Program tidak ada yang dipilih",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/program.jsp";
-            } else if (cekProgram.length > 1) {
-                JOptionPane.showMessageDialog(null, "Pilih salah satu Program saja !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/program.jsp";
-            } else {
-                Long idProgram = Long.parseLong(cekProgram[0]);
-                Program program = daftarProgram.findProgram(idProgram);
-                request.setAttribute("program_edit", program);
-                jsp = "/pages/edit_program.jsp";
-            }
+            Long idProgram = Long.parseLong(cekProgram);
+            Program program = daftarProgram.findProgram(idProgram);
+            request.setAttribute("program_edit", program);
+            jsp = "/pages/edit_program.jsp";
+
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }

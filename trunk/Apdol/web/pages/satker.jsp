@@ -110,9 +110,10 @@
                         <table id="rounded-corner">
                             <thead>
                                 <tr>
-                                    <th width="187" class="rounded-company" scope="col">Kode Satker</th>
-                                    <th width="232" class="rounded-q1" scope="col">Nama Satker</th>                                    
-                                    <th width="45" class="rounded-q4" scope="col">Cek</th>
+                                    <th class="rounded-company" scope="col">Kode Satker</th>
+                                    <th class="rounded-q1" scope="col">Nama Satker</th>                                    
+                                    <th class="rounded-q2" scope="col">Edit</th>
+                                    <th class="rounded-q4" scope="col">Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -121,7 +122,8 @@
                                 <tr>
                                     <td><%=satker.getKodeSatker()%></td>
                                     <td><%=satker.getNamaSatker()%></td>                                    
-                                    <td><input  type="checkbox"  name="cek_satker" value="<%=satker.getId()%>"></td>
+                                    <td><input name="edit_satker" src="images/ubah.png" type="image" value="<%=satker.getId()%>" formmethod="post" formaction="edit_satker" /> </td>
+                                    <td><input name="hapus_satker" src="images/hapus.png" type="image" value="<%=satker.getId()%>" formmethod="post" formaction="hapus_satker" /> </td>
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -130,9 +132,9 @@
                         </span>
                         <p style="margin: 10px;"><BR>
                                 <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_satker" />
-                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_satker" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_satker" />
-                  </form></center>
+
+                  </form>
+                </center>
                                 <!-- end .content --></div>
                                 <!-- end .container --></div>
                                 </body>

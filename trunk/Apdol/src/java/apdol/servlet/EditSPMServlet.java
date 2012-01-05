@@ -38,46 +38,29 @@ public class EditSPMServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EditSPMServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EditSPMServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+
             DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
             List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
             request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
-            
-            
+
             DaftarSPM daftarSPM = new DaftarSPM();
             SPM rincianKegiatanSPM = new SPM();
             List<SPM> listSPM = daftarSPM.getSPM();
             Collections.sort(listSPM, new SpmComparator());
             request.setAttribute("list_spm", listSPM);
             String jsp = "";
-            String cekSPM[] = request.getParameterValues("cek_spm");
+            String cekSPM = request.getParameter("edit_spm");
 
-            if (cekSPM == null) {
-                JOptionPane.showMessageDialog(null, "SPM tidak ada yang dipilih");
-                jsp = "pages/spm.jsp";
-            } else if (cekSPM.length > 1) {
-                JOptionPane.showMessageDialog(null, "Edit salah satu SPM saja !");
-                jsp = "pages/spm.jsp";
-            } else {
-                Long idSPM = Long.parseLong(cekSPM[0]);
-                SPM spm = daftarSPM.findSPM(idSPM);
-                request.setAttribute("spm_edit", spm);
-                request.setAttribute("rincianKegiatanSPM", rincianKegiatanSPM.getRincianKegiatan());
-                jsp = "/pages/edit_spm.jsp";
-            }
+            Long idSPM = Long.parseLong(cekSPM);
+            SPM spm = daftarSPM.findSPM(idSPM);
+            request.setAttribute("spm_edit", spm);
+            request.setAttribute("rincianKegiatanSPM", rincianKegiatanSPM.getRincianKegiatan());
+            jsp = "/pages/edit_spm.jsp";
+
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }

@@ -105,7 +105,8 @@
                                     <th scope="col" class="rounded-company">Kode Mata Anggaran</th>
                                     <th scope="col" class="rounded-q1">Nama Mata Anggaran</th>
                                     <th scope="col" class="rounded-q2">Nama BKPK</th>
-                                    <th scope="col" class="rounded-q4">Cek</th>
+                                    <th scope="col" class="rounded-q3">Edit</th>
+                                    <th scope="col" class="rounded-q4">Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -115,7 +116,8 @@
                                     <td><%=mataAnggaran.getKodeMataAnggaran()%></td>
                                     <td><%=mataAnggaran.getNamaMataAnggaran()%></td>
                                     <td><%=mataAnggaran.getNamaBKPK()%></td>
-                                    <td><input  type="checkbox"  name="cek_mata_anggaran" value="<%=mataAnggaran.getId()%>"></td>
+                                    <td><input name="edit_mata_anggaran" src="images/ubah.png" type="image" value="<%=mataAnggaran.getId()%>" formmethod="post" formaction="edit_mata_anggaran" /> </td>
+                                    <td><input name="hapus_mata_anggaran" src="images/hapus.png" type="image" value="<%=mataAnggaran.getId()%>" formmethod="post" formaction="hapus_mata_anggaran" /> </td>
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -124,8 +126,6 @@
                         </span>
                         <p style="margin: 10px;"><BR>
                                 <input name="Submit" src="images/rekam.png" type="image" value="rekam" formmethod="post" formaction="rekam_mata_anggaran" />
-                                <input name="Submit" src="images/ubah.png" type="image" value="edit" formmethod="post" formaction="edit_mata_anggaran" />
-                                <input name="Submit" src="images/hapus.png" type="image" value="hapus" formmethod="post" formaction="proses_hapus_mata_anggaran" />
                                 </form></center>
                                 <!-- end .content --></div>
                                 <!-- end .container --></div>

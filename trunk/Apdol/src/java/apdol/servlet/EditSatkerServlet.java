@@ -49,21 +49,13 @@ public class EditSatkerServlet extends HttpServlet {
             Collections.sort(listSatker, new SatuanKerjaComparator());
             request.setAttribute("list_satker", listSatker);
             String jsp = "";
-            String cekSatker[] = request.getParameterValues("cek_satker");
+            String cekSatker = request.getParameter("edit_satker");
 
-            if (cekSatker == null) {
-                JOptionPane.showMessageDialog(null, "Satuan Kerja tidak ada yang dipilih");
-                jsp = "pages/satker.jsp";
-            } else if (cekSatker.length > 1) {
-                JOptionPane.showMessageDialog(null, "Edit salah satu Satuan Kerja saja !");
-                jsp = "pages/satker.jsp";
-            } else {
-                Long idSatker = Long.parseLong(cekSatker[0]);
+                Long idSatker = Long.parseLong(cekSatker);
                 SatuanKerja satker = daftarSatker.findSatuanKerja(idSatker);
                 request.setAttribute("satker_edit", satker);
                 request.setAttribute("lokasiSatker", lokasiSatker.getLokasi());
                 jsp = "/pages/edit_satker.jsp";
-            }
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

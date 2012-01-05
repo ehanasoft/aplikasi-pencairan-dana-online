@@ -44,29 +44,23 @@ public class ProsesHapusKegiatanServlet extends HttpServlet {
             DaftarKegiatan daftarKegiatan = new DaftarKegiatan();
             List<Kegiatan> listKegiatan = daftarKegiatan.getKegiatan();
             Collections.sort(listKegiatan, new KegiatanComparator());
-            String cekKegiatan[] = request.getParameterValues("cek_kegiatan");
+            String cekKegiatan = request.getParameter("hapus_kegiatan");
             String jsp = "";
 
-            if (cekKegiatan == null) {
-                JOptionPane.showMessageDialog(null, "Kegiatan tidak ada yang dipilih");
-                request.setAttribute("list_kegiatan", listKegiatan);
-                jsp = "pages/kegiatan.jsp";
-            } else {
-                int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
-                        JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menghapus ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
-                if (j == JOptionPane.YES_OPTION) {
-                    for (int i = 0; i < cekKegiatan.length; i++) {
-                        long idkegiatan = Long.parseLong(cekKegiatan[i]);
-                        Kegiatan kegiatan = daftarKegiatan.findKegiatan(idkegiatan);
-                        daftarKegiatan.destroy(idkegiatan);
-                    }
-                }
-                listKegiatan = daftarKegiatan.getKegiatan();
-                Collections.sort(listKegiatan, new KegiatanComparator());
-                request.setAttribute("list_kegiatan", listKegiatan);
-                jsp = "pages/kegiatan.jsp";
+            if (j == JOptionPane.YES_OPTION) {
+                long idkegiatan = Long.parseLong(cekKegiatan);
+                Kegiatan kegiatan = daftarKegiatan.findKegiatan(idkegiatan);
+                daftarKegiatan.destroy(idkegiatan);
             }
+
+            listKegiatan = daftarKegiatan.getKegiatan();
+            Collections.sort(listKegiatan, new KegiatanComparator());
+            request.setAttribute("list_kegiatan", listKegiatan);
+            jsp = "pages/kegiatan.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

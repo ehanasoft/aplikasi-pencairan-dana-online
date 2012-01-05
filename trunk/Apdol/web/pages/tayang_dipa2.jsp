@@ -118,7 +118,7 @@
                                     <th scope="col" class="rounded-q1">Rincian Kegiatan</th>
                                     <th scope="col" class="rounded-q3">Pagu</th>
                                     <th scope="col" class="rounded-q3">Realisasi</th>
-                                    <th scope="col" class="rounded-q3">Sisa Dana</th>                                  
+                                    <th scope="col" class="rounded-q4">Sisa Dana</th>                                  
                                 </tr>
                             </thead>
                             <tbody>
