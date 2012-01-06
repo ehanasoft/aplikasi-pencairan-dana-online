@@ -7,6 +7,7 @@ package apdol.servlet;
 import apdol.comparator.SpmComparator;
 import apdol.entity.SPM;
 import apdol.model.DaftarSPM;
+import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -16,12 +17,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Accio
  */
-public class SubmitSPMServlet extends HttpServlet {
+public class ProsesSubmitSPMServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -38,11 +40,28 @@ public class SubmitSPMServlet extends HttpServlet {
             DaftarSPM daftarSPM = new DaftarSPM();
             List<SPM> listSPM = daftarSPM.getSPM();
             Collections.sort(listSPM, new SpmComparator());
-            request.setAttribute("list_spm", listSPM);
+            String cekSPM = request.getParameter("proses_submit_spm");
+            String jsp = "";
 
-            String jsp = "pages/submit_spm.jsp";
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan submit ke KPPN?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+
+            if (j == JOptionPane.YES_OPTION) {
+                long idspm = Long.parseLong(cekSPM);
+                SPM spm = daftarSPM.findSPM(idspm);
+                String statSPM = "1";
+                spm.setStatusSpm(statSPM);
+                daftarSPM.edit(spm);
+            }            
+            
+            listSPM = daftarSPM.getSPM();
+            Collections.sort(listSPM, new SpmComparator());
+            request.setAttribute("list_spm", listSPM);
+            jsp = "pages/submit_spm.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
+
         } finally {
             out.close();
         }

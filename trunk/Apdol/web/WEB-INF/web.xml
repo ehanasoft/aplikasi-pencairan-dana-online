@@ -348,6 +348,10 @@
         <servlet-name>ProsesRekamUserServlet</servlet-name>
         <servlet-class>apdol.servlet.ProsesRekamUserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProsesSubmitSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesSubmitSPMServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -695,6 +699,10 @@
     <servlet-mapping>
         <servlet-name>ProsesRekamUserServlet</servlet-name>
         <url-pattern>/proses_rekam_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesSubmitSPMServlet</servlet-name>
+        <url-pattern>/proses_submit_spm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
