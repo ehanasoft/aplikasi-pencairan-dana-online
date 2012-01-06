@@ -4,6 +4,19 @@
     Author     : Accio
 --%>
 
+<%@page import="apdol.string.format.Rupiah"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="apdol.entity.SPM"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="apdol.model.DaftarSPM"%>
+<%@page import="javax.swing.JOptionPane"%>
+
+<% List<SPM> listSPM = (List<SPM>) request.getAttribute("list_spm");%>
+<% SPM spm;%>
+<% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
+<%Rupiah rp = new Rupiah ();%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,7 +24,7 @@
     <%String roleUser = (String) session.getAttribute("roleuser");%>    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Halaman Awal</title>
+        <title>Submit SPM</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -94,9 +107,65 @@
             <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
-                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p>
-                    <p>Under Construction</p></center>
-                <!-- end .content --></div>
-            <!-- end .container --></div>
-    </body>
-</html>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
+                <center><p ><h3>Submit SPM</h3></p>
+                    <% Iterator<SPM> iterator = listSPM.iterator();%>
+                    <form >
+                        <table id="rounded-corner">
+                            <thead>
+                                <tr>
+                                    <th width="61" align="center" valign="middle" class="rounded-company" scope="col">Nomor SPM</th>
+                                    <th width="58" align="center" valign="middle" class="rounded-q1" scope="col">Tanggal SPM</th>
+                                    <th width="270" align="center" valign="middle" class="rounded-q3" scope="col">Rincian Kegiatan</th>
+                                    <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Keluar</th>
+                                    <th width="111" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Potongan</th>
+                                    <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Bersih</th>
+                                    <th width="29" align="center" valign="middle" class="rounded-q4" scope="col">Proses</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% while (iterator.hasNext()) {
+                                        spm = iterator.next();%>
+                                <% if (spm.getStatusSpm().equals(null)) {%>        
+                                <tr>
+                                    <td><%=spm.getNomorSpm()%></td>
+                                    <td><%=df.format(spm.getTanggalSPM())%></td>
+                                    <td><%=spm.getRincianKegiatan().getSatker().getNamaSatker() + "." + spm.getRincianKegiatan().getKegiatan().getNmgiat() + "." + spm.getRincianKegiatan().getOutput().getNamaOutput() + "." + spm.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
+                                    <td><%=spm.getJumlahKeluar()%></td>
+                                    <td><%=spm.getJumlahPotongan()%></td>
+                                    <td><%=spm.getJumlahBersih()%></td>
+                                    <td><input name="proses_submit_spm" src="images/proses.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses_submit_spm" /> </td>
+                                </tr><%} else if (spm.getStatusSpm().equals("1")) {%>
+                            </tbody>
+                        </table>
+                                <BR>
+                                    <p><h3>SPM Terkirim</h3></p>
+                                    <table id="rounded-corner">
+                                        <thead>
+                                            <tr>
+                                                <th width="61" align="center" valign="middle" class="rounded-company" scope="col">Nomor SPM</th>
+                                                <th width="58" align="center" valign="middle" class="rounded-q1" scope="col">Tanggal SPM</th>
+                                                <th width="270" align="center" valign="middle" class="rounded-q3" scope="col">Rincian Kegiatan</th>
+                                                <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Keluar</th>
+                                                <th width="111" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Potongan</th>
+                                                <th width="106" align="center" valign="middle" class="rounded-q4" scope="col">Jumlah Bersih</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>        
+                                            <tr>
+                                                <td><%=spm.getNomorSpm()%></td>
+                                                <td><%=df.format(spm.getTanggalSPM())%></td>
+                                                <td><%=spm.getRincianKegiatan().getSatker().getNamaSatker() + "." + spm.getRincianKegiatan().getKegiatan().getNmgiat() + "." + spm.getRincianKegiatan().getOutput().getNamaOutput() + "." + spm.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
+                                                <td><%=rp.formatRupiah(spm.getJumlahKeluar())%></td>
+                                                <td><%=rp.formatRupiah(spm.getJumlahPotongan())%></td>
+                                                <td><%=rp.formatRupiah(spm.getJumlahBersih())%></td>
+                                            </tr><%}%>
+
+                                        </tbody>
+                                    </table>      
+                                    <%}%>   
+                                    </form>
+                                        <!-- end .content --></div>
+                                        <!-- end .container --></div>
+                                        </body>
+                                        </html>

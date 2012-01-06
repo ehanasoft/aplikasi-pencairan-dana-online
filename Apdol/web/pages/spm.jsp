@@ -4,6 +4,7 @@
     Author     : wahid
 --%>
 
+<%@page import="apdol.string.format.Rupiah"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="apdol.entity.SPM"%>
@@ -15,6 +16,7 @@
 <% List<SPM> listSPM = (List<SPM>) request.getAttribute("list_spm");%>
 <% SPM spm;%>
 <% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
+<%Rupiah rp = new Rupiah ();%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -129,9 +131,9 @@
                                     <td><%=spm.getNomorSpm()%></td>
                                     <td><%=df.format(spm.getTanggalSPM())%></td>
                                     <td><%=spm.getRincianKegiatan().getSatker().getNamaSatker()+ "." +spm.getRincianKegiatan().getKegiatan().getNmgiat()+ "." +spm.getRincianKegiatan().getOutput().getNamaOutput()+ "." +spm.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
-                                    <td><%=spm.getJumlahKeluar()%></td>
-                                    <td><%=spm.getJumlahPotongan()%></td>
-                                    <td><%=spm.getJumlahBersih()%></td>
+                                    <td><%=rp.formatRupiah(spm.getJumlahKeluar())%></td>
+                                    <td><%=rp.formatRupiah(spm.getJumlahPotongan())%></td>
+                                    <td><%=rp.formatRupiah(spm.getJumlahBersih())%></td>
                                     <td><input name="edit_spm" src="images/ubah.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="edit_spm" /> </td>
                                     <td><input name="hapus_spm" src="images/hapus.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="hapus_spm" /> </td>
                               </tr>
