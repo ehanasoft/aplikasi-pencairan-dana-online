@@ -9,19 +9,24 @@ import apdol.entity.SPM;
 import apdol.model.DaftarSPM;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Accio
  */
-public class NotifikasiSPMServlet extends HttpServlet {
+public class ProsesNotifikasiSPMServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -35,13 +40,32 @@ public class NotifikasiSPMServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            SPM spm = new SPM();
             DaftarSPM daftarSPM = new DaftarSPM();
-            List<SPM> listSPM = daftarSPM.getSPM();
-            Collections.sort(listSPM, new SpmComparator());
-            request.setAttribute("list_spm", listSPM);
+            String jsp = "";
 
-
-            String jsp = "pages/notifikasi_spm.jsp";
+            Date now = new Date();
+            String keterangan = request.getParameter("keterangan");
+            String statSPM = "2";
+            String idSPM = request.getParameter("id_edit_spm");
+            Long longIdSPM = Long.parseLong(idSPM);
+            spm = daftarSPM.findSPM(longIdSPM);
+            
+            if (keterangan == "") {
+                JOptionPane.showMessageDialog(null, "Keterangan tidak boleh kosong !");
+                jsp = "/pages/input_notifikasi_spm.jsp";
+                request.setAttribute("spm_notifikasi", spm);
+            } else {
+                spm.setTanggalTerima(now);
+                spm.setStatusSpm(statSPM);
+                spm.setKeteranganNotifikasi(keterangan);
+                daftarSPM.edit(spm);
+                List<SPM> listSPM = daftarSPM.getSPM();
+                Collections.sort(listSPM, new SpmComparator());
+                request.setAttribute("list_spm", listSPM);
+                jsp = "pages/notifikasi_spm.jsp";
+            }
+            
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

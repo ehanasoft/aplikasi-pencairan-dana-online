@@ -5,7 +5,9 @@
 package apdol.servlet;
 
 import apdol.comparator.SpmComparator;
+import apdol.entity.RincianKegiatan;
 import apdol.entity.SPM;
+import apdol.model.DaftarRincianKegiatan;
 import apdol.model.DaftarSPM;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Accio
  */
-public class NotifikasiSPMServlet extends HttpServlet {
+public class InputNotifikasiSPMServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -35,13 +37,24 @@ public class NotifikasiSPMServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
+            List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+            request.setAttribute("rincianKegiatanSPM", listRincianKegiatan);
+
             DaftarSPM daftarSPM = new DaftarSPM();
+            SPM rincianKegiatanSPM = new SPM();
             List<SPM> listSPM = daftarSPM.getSPM();
             Collections.sort(listSPM, new SpmComparator());
             request.setAttribute("list_spm", listSPM);
+            String jsp = "";
+            String cekSPM = request.getParameter("input_notifikasi_spm");
 
+            Long idSPM = Long.parseLong(cekSPM);
+            SPM spm = daftarSPM.findSPM(idSPM);
+            request.setAttribute("spm_notifikasi", spm);
+            request.setAttribute("rincianKegiatanSPM", rincianKegiatanSPM.getRincianKegiatan());
+            jsp = "/pages/input_notifikasi_spm.jsp";
 
-            String jsp = "pages/notifikasi_spm.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
