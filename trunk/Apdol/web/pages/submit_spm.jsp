@@ -16,7 +16,7 @@
 <% List<SPM> listSPM = (List<SPM>) request.getAttribute("list_spm");%>
 <% SPM spm;%>
 <% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
-<%Rupiah rp = new Rupiah ();%>
+<%Rupiah rp = new Rupiah();%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -126,7 +126,7 @@
                             <tbody>
                                 <% while (iterator.hasNext()) {
                                         spm = iterator.next();%>
-                                <% if (spm.getStatusSpm().equals(null)) {%>        
+                                <% if (spm.getStatusSpm() == null) {%>        
                                 <tr>
                                     <td><%=spm.getNomorSpm()%></td>
                                     <td><%=df.format(spm.getTanggalSPM())%></td>
@@ -135,37 +135,11 @@
                                     <td><%=spm.getJumlahPotongan()%></td>
                                     <td><%=spm.getJumlahBersih()%></td>
                                     <td><input name="proses_submit_spm" src="images/proses.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses_submit_spm" /> </td>
-                                </tr><%} else if (spm.getStatusSpm().equals("1")) {%>
+                                </tr>                              <%}%>      <%}%>
                             </tbody>
                         </table>
-                                <BR>
-                                    <p><h3>SPM Terkirim</h3></p>
-                                    <table id="rounded-corner">
-                                        <thead>
-                                            <tr>
-                                                <th width="61" align="center" valign="middle" class="rounded-company" scope="col">Nomor SPM</th>
-                                                <th width="58" align="center" valign="middle" class="rounded-q1" scope="col">Tanggal SPM</th>
-                                                <th width="270" align="center" valign="middle" class="rounded-q3" scope="col">Rincian Kegiatan</th>
-                                                <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Keluar</th>
-                                                <th width="111" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Potongan</th>
-                                                <th width="106" align="center" valign="middle" class="rounded-q4" scope="col">Jumlah Bersih</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>        
-                                            <tr>
-                                                <td><%=spm.getNomorSpm()%></td>
-                                                <td><%=df.format(spm.getTanggalSPM())%></td>
-                                                <td><%=spm.getRincianKegiatan().getSatker().getNamaSatker() + "." + spm.getRincianKegiatan().getKegiatan().getNmgiat() + "." + spm.getRincianKegiatan().getOutput().getNamaOutput() + "." + spm.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
-                                                <td><%=rp.formatRupiah(spm.getJumlahKeluar())%></td>
-                                                <td><%=rp.formatRupiah(spm.getJumlahPotongan())%></td>
-                                                <td><%=rp.formatRupiah(spm.getJumlahBersih())%></td>
-                                            </tr><%}%>
-
-                                        </tbody>
-                                    </table>      
-                                    <%}%>   
-                                    </form>
-                                        <!-- end .content --></div>
-                                        <!-- end .container --></div>
-                                        </body>
-                                        </html>
+                    </form>
+                        <!-- end .content --></div>
+                        <!-- end .container --></div>
+                        </body>
+                        </html>
