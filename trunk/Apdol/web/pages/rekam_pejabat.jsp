@@ -124,9 +124,9 @@
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
                 <center><p><h3> Rekam Pejabat</h3></p>
                     <form name="form_rekam_pejabat" action="proses_rekam_pejabat" method="post" >
-                        <table width="450">                                                
+                        <table width="500">                                                
                             <tr>
-                                <td width="150">NIP</td><td><input name="nip" type="text" style="width: 180px" size="18" maxlength="18"></input></td>
+                                <td width="200">NIP</td><td><input name="nip" type="text" style="width: 180px" size="18" maxlength="18"></input></td>
                             </tr>                                                
                             <tr>
                                 <td>Nama Pejabat</td><td><input type="text" name="nama" style="width: 300px"></input></td>
@@ -147,16 +147,16 @@
                                     </select>
                                 </td>
                                 <tr>
-                                    <td>Jabatan</td><td><input type="text" name="jabatan" style="width: 300px"></input></td>
+                                    <td>Jabatan Struktural</td><td><input type="text" name="jabatan" style="width: 300px"></input></td>
                                 </tr>                            
                                 <tr>
                                     <td width="150px">Kewenangan</td>
                                     <td><select name="rolejabatan" onchange = "disableDrop();">
-                                            <option value="1" selected>Bendahara</option>
-                                            <option value="2" >KPPN</option>KPPN</select></td>
+                                            <option value="1">Bendahara</option>
+                                            <option value="2">KPPN</option>KPPN</select></td>
                                 </tr>
                                 <tr>
-                                    <td>Keterangan</td>
+                                    <td>Jabatan Keuangan</td>
                                     <td>
                                         <select id="ket1" name="keterangan">
                                             <option value="KPA">KPA</option>

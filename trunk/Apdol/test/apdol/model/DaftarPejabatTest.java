@@ -156,14 +156,14 @@ public class DaftarPejabatTest {
      * Test of isKodeExist method, of class DaftarPejabat.
      */
     @Test
-    public void testIsKodeExist() {
-        System.out.println("isKodeExist");
+    public void testIsNipExist() {
+        System.out.println("isNipExist");
         DaftarPejabat instance = new DaftarPejabat();
         List<Pejabat> list = instance.getPejabat();
         Pejabat pejabat = list.get(0);
         String nip = pejabat.getNip();
         boolean expResult = true;
-        boolean result = instance.isKodeExist(nip);
+        boolean result = instance.isNipExist(nip);
         try {
             assertEquals(expResult, result);
         } catch (Exception e) {

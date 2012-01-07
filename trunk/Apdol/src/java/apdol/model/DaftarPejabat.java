@@ -20,11 +20,10 @@ import javax.persistence.Query;
  * @author AlfieSaHid
  */
 public class DaftarPejabat {
-    
-    public DaftarPejabat() {
-        emf = Persistence.createEntityManagerFactory("ApdolPU"); 
-    }
 
+    public DaftarPejabat() {
+        emf = Persistence.createEntityManagerFactory("ApdolPU");
+    }
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -53,7 +52,7 @@ public class DaftarPejabat {
             em.close();
         }
     }
-    
+
     public void rekamPejabat(Pejabat pejabat) {
         EntityManager em = null;
         try {
@@ -67,8 +66,8 @@ public class DaftarPejabat {
             }
         }
     }
-    
-    public void edit(Pejabat pejabat)  {
+
+    public void edit(Pejabat pejabat) {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -81,8 +80,8 @@ public class DaftarPejabat {
             }
         }
     }
-    
-    public void destroy(long  id) throws NonexistentEntityException {
+
+    public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -101,7 +100,8 @@ public class DaftarPejabat {
             }
         }
     }
-    public boolean isKodeExist(String kode) {
+
+    public boolean isNipExist(String nip) {
         DaftarPejabat daftarPejabat = new DaftarPejabat();
         List<Pejabat> listPejabat = daftarPejabat.getPejabat();
         Iterator<Pejabat> iterator = listPejabat.iterator();
@@ -109,12 +109,13 @@ public class DaftarPejabat {
 
         while (iterator.hasNext()) {
             tes = iterator.next();
-            if (kode.equalsIgnoreCase(tes.getNip())) {
+            if (nip.equalsIgnoreCase(tes.getNip())) {
                 return true;
             }
-        } return false;
+        }
+        return false;
     }
-    
+
     public boolean isNamaExist(String nama) {
         DaftarPejabat daftarPejabat = new DaftarPejabat();
         List<Pejabat> listPejabat = daftarPejabat.getPejabat();
@@ -126,7 +127,38 @@ public class DaftarPejabat {
             if (nama.equalsIgnoreCase(tes.getNama())) {
                 return true;
             }
-        } return false;
+        }
+        return false;
     }
     
+    public boolean isJabatanExist(String ketjabatan) {
+        DaftarPejabat daftarPejabat = new DaftarPejabat();
+        List<Pejabat> listPejabat = daftarPejabat.getPejabat();
+        Iterator<Pejabat> iterator = listPejabat.iterator();
+        Pejabat tes = new Pejabat();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if ((ketjabatan.equals("KPA")) || ketjabatan.equals("Penandatangan SPM")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isKetjabatanExist(String ketjabatan) {
+        DaftarPejabat daftarPejabat = new DaftarPejabat();
+        List<Pejabat> listPejabat = daftarPejabat.getPejabat();
+        Iterator<Pejabat> iterator = listPejabat.iterator();
+        Pejabat tes = new Pejabat();
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (ketjabatan.equals("Kasi Pencairan Dana") || ketjabatan.equals("Kasi Bank/Giro Pos")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

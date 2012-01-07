@@ -126,9 +126,9 @@
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
                 <center><p><h3> Edit Pejabat</h3></p>
                     <form name="form_edit_pejabat" action="proses_edit_pejabat" method="post" >
-                        <table width="400px">
+                        <table width="500px">
                             <tr>
-                                <td width="150">NIP</td><td><input name="nip" type="text" style="width: 180px" size="18" maxlength="18" value="<%=pejabat.getNip()%>"></td>
+                                <td width="200">NIP</td><td><input name="nip" type="text" style="width: 180px" size="18" maxlength="18" value="<%=pejabat.getNip()%>"></td>
                             </tr>
                             <tr>
                                 <td>Nama Pejabat</td><td><input type="text" name="nama" style="width: 300px" value="<%=pejabat.getNama()%>"</td>
@@ -168,7 +168,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Jabatan</td><td><input type="text" name="jabatan" style="width: 300px" value="<%=pejabat.getNmjabatan()%>"></td>
+                                <td>Jabatan Struktural</td><td><input type="text" name="jabatan" style="width: 300px" value="<%=pejabat.getNmjabatan()%>"></td>
                             </tr>
                             <tr>
                                 <td width="150px">Wewenang</td>
@@ -181,7 +181,7 @@
                                             }%>>KPPN</option>KPPN</select></td>
                             </tr>
                             <tr>
-                                <td>Keterangan</td>
+                                <td>Jabatan Keuangan</td>
                                 <td>                          
                                     <% if (pejabat.getKetjabatan().equals("Penandatangan SPM")) {
                                             out.println("<select id=\"ket1\" name=\"keterangan\" style=\"display: block;\">");

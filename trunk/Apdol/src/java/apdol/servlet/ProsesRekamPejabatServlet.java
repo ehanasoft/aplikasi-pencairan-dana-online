@@ -52,9 +52,9 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
              */
             Pejabat pejabat = new Pejabat();
             DaftarPejabat daftarPejabat = new DaftarPejabat();
-            
+
             String jsp = "";
-                        
+
             String nip = request.getParameter("nip");
             String nama = request.getParameter("nama");
             String kdgol = request.getParameter("golongan");
@@ -62,7 +62,7 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
             String ketjabatan = request.getParameter("keterangan");
             String rolejabatan = request.getParameter("rolejabatan");
             String kodeSatker = request.getParameter("satker");
-            
+
             SatuanKerja satker = new SatuanKerja();
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
             List<SatuanKerja> listSatker = daftarSatker.findSatuanKerjaByKode(kodeSatker);
@@ -75,62 +75,60 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
 
             //validate blank field
             if ("".equals(nip)) {
-                JOptionPane.showMessageDialog(null, "NIP tidak boleh kosong !", 
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "NIP tidak boleh kosong !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
                 jsp = "pages/rekam_pejabat.jsp";
             } else if ("".equals(nama)) {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
-                jsp = "pages/rekam_pejabat.jsp";            
+                jsp = "pages/rekam_pejabat.jsp";
             } else if ("".equals(nmjabatan)) {
                 JOptionPane.showMessageDialog(null, "Jabatan tidak boleh kosong !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
                 jsp = "pages/rekam_pejabat.jsp";
-            } 
-            
-            //validate length field
+            } //validate length field
             else if (nip.length() < 18) {
                 JOptionPane.showMessageDialog(null, "NIP harus 18 angka !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
                 jsp = "pages/rekam_pejabat.jsp";
-            } 
-            
-            //validate nip are numbers
+            } //validate nip are numbers
             else if (!this.valNumber(nip)) {
                 JOptionPane.showMessageDialog(null, "NIP harus angka dan tidak boleh minus !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
                 jsp = "pages/rekam_pejabat.jsp";
-            } 
-            
-            //validate zero value
+            } //validate zero value
             else if (nip.equalsIgnoreCase("000000")) {
                 JOptionPane.showMessageDialog(null, "NIP tidak boleh bernilai nol !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
                 jsp = "pages/rekam_pejabat.jsp";
-            } 
-            
-            //validate record on database
-            else if (daftarPejabat.isKodeExist(nip)) {
+            } //validate record on database
+            else if (daftarPejabat.isNipExist(nip)) {
                 JOptionPane.showMessageDialog(null, "NIP sudah ada dalam database !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
                 jsp = "pages/rekam_pejabat.jsp";
             } else if (daftarPejabat.isNamaExist(nama)) {
                 JOptionPane.showMessageDialog(null, "Nama sudah ada dalam database !",
-                        "Kesalahan!",JOptionPane.WARNING_MESSAGE);
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
+                request.setAttribute("list_satker", listNamaSatker);
+                jsp = "pages/rekam_pejabat.jsp";
+            } else if (daftarPejabat.isKetjabatanExist(ketjabatan)) {
+                JOptionPane.showMessageDialog(null, "Pejabat Keuangan tersebut sudah ada dalam database !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
                 jsp = "pages/rekam_pejabat.jsp";
@@ -148,24 +146,24 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
                 request.setAttribute("list_pejabat", listPejabat);
                 jsp = "pages/pejabat.jsp";
             }
-            
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
-    
+
     //validate number
     public boolean valNumber(String nip) {
         int j;
         try {
             for (int i = 0; i < nip.length(); i++) {
-                String c = nip.substring(i,i+1);
+                String c = nip.substring(i, i + 1);
                 j = Integer.parseInt(c);
             }
             return true;
-            } catch (Exception e) {
+        } catch (Exception e) {
             return false;
         }
     }
