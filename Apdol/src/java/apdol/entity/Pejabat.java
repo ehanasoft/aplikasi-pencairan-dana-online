@@ -100,8 +100,8 @@ public class Pejabat implements Serializable {
         return "apdol.entity.Pejabat[ id=" + id + " ]";
     }
 
-    public boolean isKodeNoChange(String kode) {
-        if (kode.equalsIgnoreCase(this.nip)) {
+    public boolean isNipNoChange(String nip) {
+        if (nip.equalsIgnoreCase(this.nip)) {
             return true;
         } else {
             return false;
@@ -110,6 +110,14 @@ public class Pejabat implements Serializable {
 
     public boolean isNamaNoChange(String nama) {
         if (nama.equalsIgnoreCase(this.nama)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean isKetJabatanNoChange(String ketjabatan) {
+        if (ketjabatan.equalsIgnoreCase(this.ketjabatan)) {
             return true;
         } else {
             return false;

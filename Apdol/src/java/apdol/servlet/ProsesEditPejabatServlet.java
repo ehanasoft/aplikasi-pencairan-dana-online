@@ -101,8 +101,7 @@ public class ProsesEditPejabatServlet extends HttpServlet {
                 request.setAttribute("list_satker", listNamaSatker);
                 request.setAttribute("pejabat_edit", pejabat);
                 jsp = "pages/edit_pejabat.jsp";
-            } 
-            //validate length field
+            } //validate length field
             else if (nip.length() < 18) {
                 JOptionPane.showMessageDialog(null, "NIP harus 18 angka !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
@@ -110,8 +109,7 @@ public class ProsesEditPejabatServlet extends HttpServlet {
                 request.setAttribute("list_satker", listNamaSatker);
                 request.setAttribute("pejabat_edit", pejabat);
                 jsp = "pages/edit_pejabat.jsp";
-            } 
-            //validate nip are numbers
+            } //validate nip are numbers
             else if (!this.valNumber(nip)) {
                 JOptionPane.showMessageDialog(null, "NIP harus angka dan tidak boleh minus !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
@@ -119,8 +117,7 @@ public class ProsesEditPejabatServlet extends HttpServlet {
                 request.setAttribute("list_satker", listNamaSatker);
                 request.setAttribute("pejabat_edit", pejabat);
                 jsp = "pages/edit_pejabat.jsp";
-            } 
-            //validate zero value
+            } //validate zero value
             else if (nip.equalsIgnoreCase("000000")) {
                 JOptionPane.showMessageDialog(null, "NIP tidak boleh bernilai nol !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
@@ -128,9 +125,8 @@ public class ProsesEditPejabatServlet extends HttpServlet {
                 request.setAttribute("list_satker", listNamaSatker);
                 request.setAttribute("pejabat_edit", pejabat);
                 jsp = "pages/edit_pejabat.jsp";
-            } 
-            //validate record on database
-            else if (daftarPejabat.isKodeExist(nip) && !pejabat.isKodeNoChange(nip)) {
+            } //validate record on database
+            else if (daftarPejabat.isNipExist(nip) && !pejabat.isNipNoChange(nip)) {
                 JOptionPane.showMessageDialog(null, "NIP sudah ada dalam database !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
@@ -139,6 +135,13 @@ public class ProsesEditPejabatServlet extends HttpServlet {
                 jsp = "pages/edit_pejabat.jsp";
             } else if (daftarPejabat.isNamaExist(nama) && !pejabat.isNamaNoChange(nama)) {
                 JOptionPane.showMessageDialog(null, "Nama sudah ada dalam database !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
+                request.setAttribute("list_satker", listNamaSatker);
+                request.setAttribute("pejabat_edit", pejabat);
+                jsp = "pages/edit_pejabat.jsp";
+            } else if (daftarPejabat.isKetjabatanExist(ketjabatan) && !pejabat.isKetJabatanNoChange(ketjabatan)) {
+                JOptionPane.showMessageDialog(null, "Pejabat Keuangan tersebut sudah ada dalam database !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
