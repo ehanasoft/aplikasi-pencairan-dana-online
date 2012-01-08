@@ -139,7 +139,7 @@ public class DaftarPejabat {
 
         while (iterator.hasNext()) {
             tes = iterator.next();
-            if ((ketjabatan.equals("KPA")) || ketjabatan.equals("Penandatangan SPM")) {
+            if (ketjabatan.equals(tes.getKetjabatan())) {
                 return true;
             }
         }
@@ -154,7 +154,7 @@ public class DaftarPejabat {
 
         while (iterator.hasNext()) {
             tes = iterator.next();
-            if (ketjabatan.equals("Kasi Pencairan Dana") || ketjabatan.equals("Kasi Bank/Giro Pos")) {
+            if (ketjabatan.equals(tes.getKetjabatan())&&(ketjabatan.equals("Kasi Pencairan Dana")||ketjabatan.equals("Kasi Bank/Giro Pos"))) {
                 return true;
             }
         }
