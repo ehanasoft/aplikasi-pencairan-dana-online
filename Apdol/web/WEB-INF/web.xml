@@ -361,8 +361,16 @@
         <servlet-class>apdol.servlet.InputNotifikasiSPMServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Proses Tolak SPM</servlet-name>
-        <servlet-class>apdol.servlet.ProsesTolakSPMServlet</servlet-class>
+        <servlet-name>ProsesMonitoringSPMServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesMonitoringSPMServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProsesBatalSP2DServlet</servlet-name>
+        <servlet-class>apdol.servlet.ProsesBatalSP2DServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InputBatalSP2DServlet</servlet-name>
+        <servlet-class>apdol.servlet.InputBatalSP2DServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
@@ -725,8 +733,16 @@
         <url-pattern>/input_notifikasi_spm</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Proses Tolak SPM</servlet-name>
-        <url-pattern>/proses_tolak_spm</url-pattern>
+        <servlet-name>ProsesMonitoringSPMServlet</servlet-name>
+        <url-pattern>/proses_monitoring_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesBatalSP2DServlet</servlet-name>
+        <url-pattern>/proses_batal_sp2d</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InputBatalSP2DServlet</servlet-name>
+        <url-pattern>/input_batal_sp2d</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

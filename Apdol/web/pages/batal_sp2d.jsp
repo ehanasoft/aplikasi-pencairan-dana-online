@@ -1,9 +1,19 @@
 <%-- 
     Document   : batal_sp2d
     Created on : Dec 12, 2011, 3:09:36 AM
-    Author     : Accio
+    Author     : AlfieSaHid
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="apdol.entity.SP2D"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.util.List"%>
+<%@page import="apdol.model.DaftarSP2D"%>
+
+<% List<SP2D> listSP2D = (List<SP2D>) request.getAttribute("list_sp2d");%>
+<% SP2D sp2d;%>
+<% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,7 +21,7 @@
     <%String roleUser = (String) session.getAttribute("roleuser");%>    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Halaman Awal</title>
+        <title>Batal SP2D</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -53,7 +63,7 @@
                 </ul>
                 <p><strong>Pencairan</strong></p> 
                 <ul class="nav">
-                    <li><a href="#">Surat Perintah Membayar</a></li>
+                    <li><a href="spm">Surat Perintah Membayar</a></li>
                 </ul>
                 <p><strong>Monitoring</strong></p>
                 <ul class="nav">
@@ -94,8 +104,35 @@
             <div class="logout"><a href="logout"><img src="images/logout.png"/></a>
                 <!-- end .logout --></div>
             <div class="content">
-                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p>
-                    <p>Under Construction</p></center>
+                <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
+                <center><p><h3>Batal SP2D</h3></p>
+                    <% Iterator<SP2D> iterator = listSP2D.iterator();%>
+                    <form >
+                        <table id="rounded-corner">
+                            <thead>
+                                <tr>
+                                    <th width="70" align="center" valign="middle" class="rounded-company" scope="col">Tanggal SP2D</th>
+                                    <th width="60" align="center" valign="middle" class="rounded-q1" scope="col">Nomor SP2D</th>
+                                    <th width="50" align="center" valign="middle" class="rounded-q3" scope="col">Bank Pos</th>
+                                    <th width="50" align="center" valign="middle" class="rounded-q3" scope="col">Kode Satker</th>
+                                    <th width="29" align="center" valign="middle" class="rounded-q4" scope="col">Batal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% while (iterator.hasNext()) {
+                                            sp2d = iterator.next();%>
+                                <tr>
+                                    <td><%=df.format(sp2d.getTanggalSP2D())%></td>
+                                    <td><%=sp2d.getNomorSP2D()%></td>
+                                    <td><%=sp2d.getBankpos().getNmbankpos()%></td>
+                                    <td><%=sp2d.getSpm().getRincianKegiatan().getSatker().getKodeSatker()%></td>
+                                    <td><input name="input_batal_sp2d" src="images/proses.png" type="image" value="<%=sp2d.getId()%>" formmethod="post" formaction="input_batal_sp2d" /> </td>
+                                </tr>
+                                <%}%>      
+                            </tbody>
+                        </table>
+                    </form>
+                </center>
                 <!-- end .content --></div>
             <!-- end .container --></div>
     </body>

@@ -4,8 +4,13 @@
  */
 package apdol.servlet;
 
+import apdol.comparator.SpmComparator;
+import apdol.entity.SPM;
+import apdol.model.DaftarSPM;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +35,11 @@ public class MonitoringSPMServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            DaftarSPM daftarSPM = new DaftarSPM();
+            List<SPM> listSPM = daftarSPM.getSPM();
+            Collections.sort(listSPM, new SpmComparator());
+            request.setAttribute("list_spm", listSPM);
+            
             String jsp = "pages/monitoring_spm.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);

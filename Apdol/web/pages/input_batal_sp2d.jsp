@@ -1,20 +1,17 @@
 <%-- 
-    Document   : monitoring_spm
-    Created on : Dec 12, 2011, 3:20:40 AM
+    Document   : input_batal_sp2d
+    Created on : Jan 8, 2012, 11:12:22 PM
     Author     : AlfieSaHid
 --%>
-<%@page import="apdol.string.format.Rupiah"%>
-<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
-<%@page import="apdol.entity.SPM"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
-<%@page import="apdol.model.DaftarSPM"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="apdol.model.DaftarSP2D"%>
+<%@page import="apdol.entity.SP2D"%>
 
-<% List<SPM> listSPM = (List<SPM>) request.getAttribute("list_spm");%>
-<% SPM spm;%>
-<% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
-<%Rupiah rp = new Rupiah();%>
+<% SP2D sp2d = (SP2D) request.getAttribute("sp2d_batal");%>
+<% DateFormat dfd = new SimpleDateFormat("dd");%>
+<% DateFormat dfm = new SimpleDateFormat("MM");%>
+<% DateFormat dfy = new SimpleDateFormat("yyyy");%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,7 +19,7 @@
     <%String roleUser = (String) session.getAttribute("roleuser");%>    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Monitoring SPM</title>
+        <title>Input Batal SP2D</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
         <style>
         .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -60,7 +57,7 @@
                 <% } else if (roleUser.equals("2")) {%>
                 <p><strong>Dokumen</strong></p> 
                 <ul class="nav">
-                    <li><a href="tayang_dipa2">Tayang DIPA</a></li>
+                    <li><a href="tayang_dipa">Tayang DIPA</a></li>
                 </ul>
                 <p><strong>Pencairan</strong></p> 
                 <ul class="nav">
@@ -106,39 +103,43 @@
                 <!-- end .logout --></div>
             <div class="content">
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
-                <center><p><h3>Monitoring SPM</h3></p>
-                    <% Iterator<SPM> iterator = listSPM.iterator();%>
-                    <form >
-                        <table id="rounded-corner">
-                            <thead>
-                                <tr>
-                                    <th width="61" align="center" valign="middle" class="rounded-company" scope="col">Nomor SPM</th>
-                                    <th width="58" align="center" valign="middle" class="rounded-q1" scope="col">Tanggal SPM</th>
-                                    <th width="270" align="center" valign="middle" class="rounded-q3" scope="col">Rincian Kegiatan</th>
-                                    <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Keluar</th>
-                                    <th width="111" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Potongan</th>
-                                    <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Bersih</th>
-                                    <th width="29" align="center" valign="middle" class="rounded-q4" scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% while (iterator.hasNext()) {
-                                    spm = iterator.next();%>
-                                <% if (spm.getStatusSpm() == null) {%>        
-                                <tr>
-                                    <td><%=spm.getNomorSpm()%></td>
-                                    <td><%=df.format(spm.getTanggalSPM())%></td>
-                                    <td><%=spm.getRincianKegiatan().getSatker().getNamaSatker() + "." + spm.getRincianKegiatan().getKegiatan().getNmgiat() + "." + spm.getRincianKegiatan().getOutput().getNamaOutput() + "." + spm.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
-                                    <td><%=spm.getJumlahKeluar()%></td>
-                                    <td><%=spm.getJumlahPotongan()%></td>
-                                    <td><%=spm.getJumlahBersih()%></td>
-                                    <td><input name="proses_monitoring_spm" src="images/proses.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses_monitoring_spm" /> </td>
-                                </tr>                              <%}%>      <%}%>
-                            </tbody>
+                <center><p><h3>Input Batal SP2D</h3></p>
+                    <form name="form_input_batal_sp2d" action="proses_batal_sp2d" method="post" >
+                        <table width="650">
+                            <tr>
+                                <td width="189">Nomor SP2D</td>
+                                <td width="11">:</td>
+                                <td width="450"><%=sp2d.getNomorSP2D()%></td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal SP2D</td>
+                                <td>:</td>
+                                <td><%=dfd.format(sp2d.getTanggalSP2D())%>/<%=dfm.format(sp2d.getTanggalSP2D())%>/<%=dfy.format(sp2d.getTanggalSP2D())%></td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Batal SP2D</td>
+                                <td>:</td>
+                                <td><input type="text" name="tanggal_batal_sp2d" style="width: 70px" /></td>
+                            </tr>
+                            <tr>
+                                <td>Nomor Batal SP2D</td>
+                                <td>:</td>
+                                <td><input type="text" name="nomor_tolak_sp2d" style="width: 70px" /></td>
+                            </tr>
+                            <tr>
+                                <td>Alasan Batal</td>
+                                <td>:</td>
+                                <td><textarea name="alasan" cols="45" rows="2"></textarea></td>
+                            </tr>
+                        </table>
+                        <p><input type="hidden" name="id_edit_sp2d" value="<%=sp2d.getId()%>"/></p>
+                        <table width="400px"><tr>
+                                <td align="center"><a href="javascript:document.form_input_batal_sp2d.reset()"><img src="images/reset.png" alt="Reset"/></a><input name="proses_batal_sp2d" src="images/proses.png" type="image" value="<%=sp2d.getId()%>" formmethod="post" formaction="proses_batal_sp2d"/> </td>
+                            </tr>
                         </table>
                     </form>
-                </center>
-                    <!-- end .content --></div>
+                </center> 
+                <!-- end .content --></div>
             <!-- end .container --></div>
     </body>
 </html>
