@@ -4,6 +4,7 @@
  */
 package apdol.model;
 
+import apdol.entity.Lokasi;
 import apdol.entity.SatuanKerja;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -96,6 +97,7 @@ public class DaftarSatuanKerjaTest {
         satker.setNamaDept("Kementerian Testing");
         satker.setKodeUnit("08");
         satker.setNamaUnit("Ditjen Testing");
+        satker.setLokasi(null);
 
         DaftarSatuanKerja instance = new DaftarSatuanKerja();
         try {
@@ -122,6 +124,7 @@ public class DaftarSatuanKerjaTest {
         satker.setNamaDept("Kementerian Testing2");
         satker.setKodeUnit("90");
         satker.setNamaUnit("Ditjen Testing2");
+        satker.setLokasi(null);
         try {
             instance.edit(satker);
         } catch (Exception e) {
