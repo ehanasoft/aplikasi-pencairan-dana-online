@@ -19,9 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Accio
+ * @author AlfieSaHid
  */
-public class BatalSP2DServlet extends HttpServlet {
+public class InputBatalSP2DServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,14 +36,21 @@ public class BatalSP2DServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             DaftarSP2D daftarSP2D = new DaftarSP2D();
+            //SPM rincianKegiatanSPM = new SPM();
             List<SP2D> listSP2D = daftarSP2D.getSP2D();
             Collections.sort(listSP2D, new Sp2dComparator());
             request.setAttribute("list_sp2d", listSP2D);
-            
-            String jsp = "pages/batal_sp2d.jsp";
+            String jsp = "";
+            String cekSP2D = request.getParameter("input_batal_sp2d");
+
+            Long idSP2D = Long.parseLong(cekSP2D);
+            SP2D sp2d = daftarSP2D.findSP2D(idSP2D);
+            request.setAttribute("sp2d_batal", sp2d);
+            jsp = "/pages/input_batal_sp2d.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }

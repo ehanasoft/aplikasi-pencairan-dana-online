@@ -4,9 +4,9 @@
  */
 package apdol.servlet;
 
-import apdol.comparator.Sp2dComparator;
-import apdol.entity.SP2D;
-import apdol.model.DaftarSP2D;
+import apdol.comparator.SpmComparator;
+import apdol.entity.SPM;
+import apdol.model.DaftarSPM;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -16,12 +16,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Accio
+ * @author AlfieSaHid
  */
-public class BatalSP2DServlet extends HttpServlet {
+public class ProsesMonitoringSPMServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -35,15 +36,42 @@ public class BatalSP2DServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            DaftarSP2D daftarSP2D = new DaftarSP2D();
-            List<SP2D> listSP2D = daftarSP2D.getSP2D();
-            Collections.sort(listSP2D, new Sp2dComparator());
-            request.setAttribute("list_sp2d", listSP2D);
+            /* TODO output your page here
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ProsesMonitoringSPMServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ProsesMonitoringSPMServlet at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+             */
+            DaftarSPM daftarSPM = new DaftarSPM();
+            List<SPM> listSPM = daftarSPM.getSPM();
+            Collections.sort(listSPM, new SpmComparator());
+            String cekSPM = request.getParameter("proses_monitoring_spm");
+            String jsp = "";
+
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda akan melihat status SPM ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+
+            if (j == JOptionPane.YES_OPTION) {
+                long idspm = Long.parseLong(cekSPM);
+                SPM spm = daftarSPM.findSPM(idspm);
+                String statSPM = "1";
+                spm.setStatusSpm(statSPM);
+                daftarSPM.edit(spm);
+            }            
             
-            String jsp = "pages/batal_sp2d.jsp";
+            listSPM = daftarSPM.getSPM();
+            Collections.sort(listSPM, new SpmComparator());
+            request.setAttribute("list_spm", listSPM);
+            jsp = "pages/monitoring_spm.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+
+        } finally {
             out.close();
         }
     }

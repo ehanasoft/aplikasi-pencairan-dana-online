@@ -6,7 +6,9 @@ package apdol.servlet;
 
 import apdol.comparator.Sp2dComparator;
 import apdol.entity.SP2D;
+import apdol.entity.SPM;
 import apdol.model.DaftarSP2D;
+import apdol.model.DaftarSPM;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -16,12 +18,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Accio
+ * @author AlfieSaHid
  */
-public class BatalSP2DServlet extends HttpServlet {
+public class ProsesBatalSP2DServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -38,12 +41,34 @@ public class BatalSP2DServlet extends HttpServlet {
             DaftarSP2D daftarSP2D = new DaftarSP2D();
             List<SP2D> listSP2D = daftarSP2D.getSP2D();
             Collections.sort(listSP2D, new Sp2dComparator());
+            String cekSP2D = request.getParameter("proses_batal_sp2d");
+            String jsp = "";
+
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan membatalkan SP2D ini?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+
+            if (j == JOptionPane.YES_OPTION) {
+                String tanggalTolakSP2D = request.getParameter("tanggal_batal_sp2d");
+                String nomorTolakSP2D = request.getParameter("nomor_batal_sp2d");
+                String keteranganTolakSP2D = request.getParameter("alasan");
+                
+                long idspm = Long.parseLong(cekSP2D);
+                DaftarSPM daftarSPM = new DaftarSPM();
+                SPM spm = daftarSPM.findSPM(idspm);
+                String statSPM = "1";
+                spm.setStatusSpm(statSPM);
+                daftarSPM.edit(spm);
+            }
+
+            listSP2D = daftarSP2D.getSP2D();
+            Collections.sort(listSP2D, new Sp2dComparator());
             request.setAttribute("list_sp2d", listSP2D);
-            
-            String jsp = "pages/batal_sp2d.jsp";
+            jsp = "pages/batal_sp2d.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+
+        } finally {
             out.close();
         }
     }
