@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,6 +31,7 @@ public class RincianKegiatan implements Serializable {
     private Output output;
     @ManyToOne
     private MataAnggaran mataAnggaran;
+
     public Long getId() {
         return id;
     }
@@ -37,7 +39,7 @@ public class RincianKegiatan implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     public SatuanKerja getSatker() {
         return satker;
     }
@@ -77,9 +79,20 @@ public class RincianKegiatan implements Serializable {
         return hash;
     }
 
-   
-@Override
-        public String toString() {
+    @Override
+    public String toString() {
         return "apdol.entity.RincianKegiatan[ id=" + id + " ]";
+    }
+
+    public boolean isRincianKegiatanNoChange(Kegiatan kegiatan,MataAnggaran mataAnggaran, Output output, SatuanKerja satker) {
+
+        if (kegiatan.getKdgiat().equals(this.kegiatan.getKdgiat()) &&
+                mataAnggaran.getKodeMataAnggaran().equals(this.mataAnggaran.getKodeMataAnggaran()) &&
+                output.getKodeOutput().equals(this.getOutput().getKodeOutput()) &&
+                satker.getKodeSatker().equals(this.satker.getKodeSatker())) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

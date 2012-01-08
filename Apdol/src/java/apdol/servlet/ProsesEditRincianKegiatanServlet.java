@@ -70,17 +70,17 @@ public class ProsesEditRincianKegiatanServlet extends HttpServlet {
             DaftarSatuanKerja daftarSatker = new DaftarSatuanKerja();
             List<SatuanKerja> listSatker = daftarSatker.findSatuanKerjaByKode(kodeSatker);
             satker = listSatker.get(0);
-            
+
             Output output = new Output();
             DaftarOutput daftarOutput = new DaftarOutput();
             List<Output> listOutput = daftarOutput.findOutputByKode(kodeOutput);
             output = listOutput.get(0);
-            
+
             MataAnggaran mataAnggaran = new MataAnggaran();
             DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran();
             List<MataAnggaran> listMataAnggaran = daftarMataAnggaran.findMataAnggaranByKode(kodeMataAnggaran);
             mataAnggaran = listMataAnggaran.get(0);
-            
+
             Kegiatan kegiatan = new Kegiatan();
             DaftarKegiatan daftarKegiatan = new DaftarKegiatan();
             List<Kegiatan> listKegiatan = daftarKegiatan.findKegiatanByKode(kdgiat);
@@ -90,39 +90,74 @@ public class ProsesEditRincianKegiatanServlet extends HttpServlet {
             Long longIdRincianKegiatan = Long.parseLong(idRincianKegiatan);
             RincianKegiatan rincianKegiatan = daftarRincianKegiatan.findRincianKegiatan(longIdRincianKegiatan);
 
+            listKegiatan = daftarKegiatan.getKegiatan();
+            listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+            listOutput = daftarOutput.getOutput();
+            listSatker = daftarSatker.getSatuanKerja();
+
             //validate blank field
             if (kodeSatker == "") {
                 JOptionPane.showMessageDialog(null, "Satuan Kerja tidak boleh kosong !");
-                jsp = "pages/rekam_rincian_kegiatan.jsp";
+                request.setAttribute("list_satker", listSatker);
+                request.setAttribute("list_kegiatan", listKegiatan);
+                request.setAttribute("list_output", listOutput);
+                request.setAttribute("list_mata_anggaran", listMataAnggaran);
+                request.setAttribute("rincian_kegiatan_edit", rincianKegiatan);
+                jsp = "pages/edit_rincian_kegiatan.jsp";
             } else if (kdgiat == "") {
                 JOptionPane.showMessageDialog(null, "Kegiatan tidak boleh kosong !");
-                jsp = "pages/rekam_rincian_kegiatan.jsp";
+                request.setAttribute("list_satker", listSatker);
+                request.setAttribute("list_kegiatan", listKegiatan);
+                request.setAttribute("list_output", listOutput);
+                request.setAttribute("list_mata_anggaran", listMataAnggaran);
+                request.setAttribute("rincian_kegiatan_edit", rincianKegiatan);
+                jsp = "pages/edit_rincian_kegiatan.jsp";
             } else if (kodeOutput == "") {
                 JOptionPane.showMessageDialog(null, "Output tidak boleh kosong !");
-                jsp = "pages/rekam_rincian_kegiatan.jsp";   
+                request.setAttribute("list_satker", listSatker);
+                request.setAttribute("list_kegiatan", listKegiatan);
+                request.setAttribute("list_output", listOutput);
+                request.setAttribute("list_mata_anggaran", listMataAnggaran);
+                request.setAttribute("rincian_kegiatan_edit", rincianKegiatan);
+                jsp = "pages/edit_rincian_kegiatan.jsp";
             } else if (kodeMataAnggaran == "") {
                 JOptionPane.showMessageDialog(null, "Mata Anggaran tidak boleh kosong !");
-                jsp = "pages/rekam_rincian_kegiatan.jsp";                   
+                request.setAttribute("list_satker", listSatker);
+                request.setAttribute("list_kegiatan", listKegiatan);
+                request.setAttribute("list_output", listOutput);
+                request.setAttribute("list_mata_anggaran", listMataAnggaran);
+                request.setAttribute("rincian_kegiatan_edit", rincianKegiatan);
+                jsp = "pages/edit_rincian_kegiatan.jsp";
+                //cek rincian kegiatan di database
+            } else if (!rincianKegiatan.isRincianKegiatanNoChange(kegiatan, mataAnggaran, output, satker)
+                    && daftarRincianKegiatan.isRincianKegiatanExist(kegiatan, mataAnggaran, output, satker)) {
+                JOptionPane.showMessageDialog(null, "Rincian Kegiatan sudah ada di database !");
+                request.setAttribute("list_satker", listSatker);
+                request.setAttribute("list_kegiatan", listKegiatan);
+                request.setAttribute("list_output", listOutput);
+                request.setAttribute("list_mata_anggaran", listMataAnggaran);
+                request.setAttribute("rincian_kegiatan_edit", rincianKegiatan);
+                jsp = "pages/edit_rincian_kegiatan.jsp";
             } else {
                 rincianKegiatan.setSatker(satker);
                 rincianKegiatan.setKegiatan(kegiatan);
                 rincianKegiatan.setOutput(output);
                 rincianKegiatan.setMataAnggaran(mataAnggaran);
                 daftarRincianKegiatan.edit(rincianKegiatan);
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rincian_kegiatan.jsp";
-                //response.sendRedirect("rincian_kegiatan");
             }
-            List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
-            Collections.sort(listRincianKegiatan, new RincianKegiatanComparator());
-            request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {
             out.close();
         }
     }
+//validate number
 
-    //validate number
     public boolean valNumber(String nip) {
         int j;
         try {

@@ -106,4 +106,12 @@ public class Dipa implements Serializable {
         }
     }
     
+    public boolean isRincianKegiatanNoChange(RincianKegiatan rkeg) {
+        if (rkeg.toString().equals(this.rincianKegiatan.toString())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
 }

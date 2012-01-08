@@ -73,7 +73,7 @@ public class DaftarBankPosTest {
     @Test
     public void testFindBankPos() {
         System.out.println("findBankPos");
-        Long id = Long.parseLong("305"); // id pada database
+        Long id = Long.parseLong("607"); // id pada database
         DaftarBankPos instance = new DaftarBankPos();
         String expResult = "Bang Toyib";
         BankPos result = instance.findBankPos(id);
@@ -93,7 +93,7 @@ public class DaftarBankPosTest {
     public void testRekamBankPos() {
         System.out.println("rekamBankPos");
         BankPos bankpos = new BankPos();
-        bankpos.setKdbankpos("123");
+        bankpos.setKdbankpos("701");
         bankpos.setNmbankpos("Bank Oma");
 
         DaftarBankPos instance = new DaftarBankPos();
@@ -135,7 +135,7 @@ public class DaftarBankPosTest {
     @Test
     public void testDestroy() throws Exception {
         System.out.println("destroy");
-        Long id = Long.parseLong("601"); // id pada database
+        Long id = Long.parseLong("607"); // id pada database
         DaftarBankPos instance = new DaftarBankPos();
         int hasil1 = instance.getBankPos().size(); //jumlah objek sebelum destroy
         instance.destroy(id);

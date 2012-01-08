@@ -360,6 +360,10 @@
         <servlet-name>InputNotifikasiSPMServlet</servlet-name>
         <servlet-class>apdol.servlet.InputNotifikasiSPMServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Proses Tolak SPM</servlet-name>
+        <servlet-class>apdol.servlet.ProsesTolakSPMServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -719,6 +723,10 @@
     <servlet-mapping>
         <servlet-name>InputNotifikasiSPMServlet</servlet-name>
         <url-pattern>/input_notifikasi_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Tolak SPM</servlet-name>
+        <url-pattern>/proses_tolak_spm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

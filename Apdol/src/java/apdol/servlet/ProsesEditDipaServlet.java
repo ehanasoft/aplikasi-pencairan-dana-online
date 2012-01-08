@@ -93,9 +93,16 @@ public class ProsesEditDipaServlet extends HttpServlet {
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 request.setAttribute("dipa_edit", dipa);
                 jsp = "pages/edit_dipa.jsp";
-            } //validate record on database
+            } //validate record no change
             else if (daftarDipa.isNomorExist(nomorDipa) && !dipa.isKodeNoChange(nomorDipa)) {
                 JOptionPane.showMessageDialog(null, "Nomor Dipa sudah ada dalam database !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                request.setAttribute("dipa_edit", dipa);
+                jsp = "pages/edit_dipa.jsp";
+            } //validate record on database
+            else if (daftarDipa.isRincianKegiatanExist(rincianKegiatan) && !dipa.isRincianKegiatanNoChange(rincianKegiatan)) {
+                JOptionPane.showMessageDialog(null, "Dipa dengan rincian kegiatan ini sudah ada dalam database !");
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 request.setAttribute("dipa_edit", dipa);

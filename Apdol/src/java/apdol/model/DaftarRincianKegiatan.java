@@ -18,6 +18,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -116,6 +117,25 @@ public class DaftarRincianKegiatan {
             if (tes.getKegiatan().equals(other.getKegiatan())
                     && tes.getMataAnggaran().equals(other.getMataAnggaran())
                     && tes.getOutput().equals(other.getOutput())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isRincianKegiatanExist(Kegiatan kegiatan, MataAnggaran mataAnggaran, Output output, SatuanKerja satker) {
+
+        DaftarRincianKegiatan daftarRincianKegiatan = new DaftarRincianKegiatan();
+        List<RincianKegiatan> lRinKeg = daftarRincianKegiatan.getRincianKegiatan();
+        Iterator<RincianKegiatan> iterator = lRinKeg.iterator();
+        RincianKegiatan tes;
+
+        while (iterator.hasNext()) {
+            tes = iterator.next();
+            if (tes.getKegiatan().getKdgiat().equals(kegiatan.getKdgiat())
+                    && tes.getMataAnggaran().getKodeMataAnggaran().equals(mataAnggaran.getKodeMataAnggaran())
+                    && tes.getOutput().getKodeOutput().equals(output.getKodeOutput())
+                    && tes.getSatker().getKodeSatker().equals(satker.getKodeSatker())) {
                 return true;
             }
         }
