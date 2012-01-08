@@ -21,7 +21,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
-    <%String roleUser = (String) session.getAttribute("roleuser");%>    
+    <%String roleUser = (String) session.getAttribute("roleuser");%>  
+    <%String kodeSatker = (String) session.getAttribute("kode_satker");%>  
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>SPM</title>
@@ -122,11 +123,13 @@
                                     <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Bersih</th>
                                     <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Edit</th>
                                     <th width="29" align="center" valign="middle" class="rounded-q4" scope="col">Hapus</th>
+                                    
                               </tr>
                             </thead>
                             <tbody>
                                 <% while (iterator.hasNext()) {
-                                        spm = iterator.next();%>
+                                        spm = iterator.next();
+                                        if (kodeSatker.equalsIgnoreCase(spm.getRincianKegiatan().getSatker().getKodeSatker())) {%>
                                 <tr>
                                     <td><%=spm.getNomorSpm()%></td>
                                     <td><%=df.format(spm.getTanggalSPM())%></td>
@@ -136,8 +139,9 @@
                                     <td><%=rp.formatRupiah(spm.getJumlahBersih())%></td>
                                     <td><input name="edit_spm" src="images/ubah.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="edit_spm" /> </td>
                                     <td><input name="hapus_spm" src="images/hapus.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="hapus_spm" /> </td>
+                                    
                               </tr>
-                                <%}%>
+                                <%}}%>
                             </tbody>
                         </table>
                         <span style="margin: 10px;">

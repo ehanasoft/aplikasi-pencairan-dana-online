@@ -11,25 +11,17 @@
 <%@page import="apdol.entity.Lokasi"%>
 
 <% RincianKegiatan rincianKegiatan = (RincianKegiatan) request.getAttribute("rincian_kegiatan_edit");%>
-
 <% List<SatuanKerja> listSatker = (List<SatuanKerja>) request.getAttribute("list_satker");%>
 <% SatuanKerja satker;%>
-
 <% SatuanKerja satkerRincianKegiatan = (SatuanKerja) request.getAttribute("satkerRincianKegiatan");%>
-
 <% List<Kegiatan> listKegiatan = (List<Kegiatan>) request.getAttribute("list_kegiatan");%>
 <% Kegiatan kegiatan;%>
-
 <% Kegiatan kegiatanRincianKegiatan = (Kegiatan) request.getAttribute("kegiatanRincianKegiatan");%>
-
 <% List<Output> listOutput = (List<Output>) request.getAttribute("list_output");%>
 <% Output output;%>
-
 <% Output outputRincianKegiatan = (Output) request.getAttribute("outputRincianKegiatan");%>
-
 <% List<MataAnggaran> listMataAnggaran = (List<MataAnggaran>) request.getAttribute("list_mata_anggaran");%>
 <% MataAnggaran mataAnggaran;%>
-
 <% MataAnggaran mataAnggaranRincianKegiatan = (MataAnggaran) request.getAttribute("mataAnggaranRincianKegiatan");%>
 
 
@@ -128,7 +120,7 @@
                 <center><p><h3> Edit Rincian Kegiatan</h3></p>
                     <form name="form_edit_rincian_kegiatan" action="proses_edit_rincian_kegiatan" method="post" >
                         <table width="400px">                                                           
-                                <tr>
+                            <tr>
                                 <td>Satker</td>
                                 <td>
                                     <select name="satker">
@@ -143,8 +135,8 @@
                                             }%>
                                     </select>
                                 </td>
-                                </tr>
-                                <tr>
+                            </tr>
+                            <tr>
                                 <td>Kegiatan</td>
                                 <td>
                                     <select name="kegiatan">
@@ -159,8 +151,8 @@
                                             }%>
                                     </select>
                                 </td>
-                                </tr>
-                                <tr>
+                            </tr>
+                            <tr>
                                 <td>Output</td>
                                 <td>
                                     <select name="output">
@@ -175,8 +167,8 @@
                                             }%>
                                     </select>
                                 </td>
-                                </tr>
-                                <tr>
+                            </tr>
+                            <tr>
                                 <td>Mata Anggaran</td>
                                 <td>
                                     <select name="mata_anggaran">
@@ -191,7 +183,7 @@
                                             }%>
                                     </select>
                                 </td>
-                                </tr>
+                            </tr>
                         </table>
                         <p><input type="hidden" name="id_edit_rincian_kegiatan" value="<%=rincianKegiatan.getId()%>"></p>
                         <table width="400px"><tr>

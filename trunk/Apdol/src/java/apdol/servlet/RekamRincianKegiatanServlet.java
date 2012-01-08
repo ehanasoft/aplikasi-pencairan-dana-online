@@ -65,7 +65,7 @@ public class RekamRincianKegiatanServlet extends HttpServlet {
             
             DaftarMataAnggaran daftarMataAnggaran = new DaftarMataAnggaran();
             List <MataAnggaran> listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
-            request.setAttribute("list_mataAnggaran", listMataAnggaran);
+            request.setAttribute("list_mata_anggaran", listMataAnggaran);
 
             String jsp = "pages/rekam_rincian_kegiatan.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);

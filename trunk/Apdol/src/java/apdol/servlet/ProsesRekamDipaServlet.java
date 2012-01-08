@@ -90,6 +90,12 @@ public class ProsesRekamDipaServlet extends HttpServlet {
                 List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rekam_dipa.jsp";
+            } //validate record on database
+            else if (daftarDipa.isRincianKegiatanExist(rincianKegiatan)) {
+                JOptionPane.showMessageDialog(null, "Dipa dengan rincian kegiatan ini sudah ada dalam database !");
+                List<RincianKegiatan> listRincianKegiatan = daftarRincianKegiatan.getRincianKegiatan();
+                request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
+                jsp = "pages/rekam_dipa.jsp";
             } else {
                 dipa.setNomorDipa(nomorDipa);
                 dipa.setPagu(pagu);

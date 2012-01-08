@@ -10,6 +10,7 @@ import apdol.model.DaftarKegiatan;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
@@ -47,6 +48,9 @@ public class ProsesEditKegiatanServlet extends HttpServlet {
 
             String kodeKegiatan = request.getParameter("kode_kegiatan");
             String namaKegiatan = request.getParameter("nama_kegiatan");
+            String cekKegiatan[] =  request.getParameterValues("cek_kegiatan");
+            String indexString = request.getParameter("index");
+            for (int i = 0;i <cekKegiatan.length;i++) JOptionPane.showMessageDialog(null, cekKegiatan[i]);
 
             String idKegiatan = request.getParameter("id_edit_kegiatan");
             Long longIdKegiatan = Long.parseLong(idKegiatan);

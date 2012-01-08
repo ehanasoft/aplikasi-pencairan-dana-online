@@ -23,7 +23,7 @@
 <% Output output;%>
 <% Iterator<Output> iteratorOutput = listOutput.iterator();%>
 
-<% List<MataAnggaran> listMataAnggaran = (List<MataAnggaran>) request.getAttribute("list_mataAnggaran");%>
+<% List<MataAnggaran> listMataAnggaran = (List<MataAnggaran>) request.getAttribute("list_mata_anggaran");%>
 <% MataAnggaran mataAnggaran;%>
 <% Iterator<MataAnggaran> iteratorMataAnggaran = listMataAnggaran.iterator();%>
 

@@ -146,5 +146,21 @@ public class DaftarDipa {
         } return false;
     }
     
-    //public void kurangiDipa (Long idDipa,)
+    
+    public boolean isRincianKegiatanExist(RincianKegiatan rincianKegiatan) {
+        DaftarDipa daftarDipa = new DaftarDipa();
+        List<Dipa> ldipa = daftarDipa.getDipa();
+        Iterator<Dipa> iterator = ldipa.iterator();
+        RincianKegiatan tes;
+
+        while (iterator.hasNext()) {
+            tes = iterator.next().getRincianKegiatan();
+            if (tes.getKegiatan().getKdgiat().equals(rincianKegiatan.getKegiatan().getKdgiat()) &&
+                    tes.getMataAnggaran().getKodeMataAnggaran().equals(rincianKegiatan.getMataAnggaran().getKodeMataAnggaran()) &&
+                    tes.getOutput().getKodeOutput().equals(rincianKegiatan.getOutput().getKodeOutput()) &&
+                    tes.getSatker().getKodeSatker().equals(rincianKegiatan.getSatker().getKodeSatker())) {
+                return true;
+            }
+        } return false;
+    }
 }

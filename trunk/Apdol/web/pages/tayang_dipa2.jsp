@@ -13,14 +13,14 @@
 
 <% List<Dipa> listDipa = (List<Dipa>) request.getAttribute("list_dipa");%>
 <% Dipa dipa;%>
-<%Rupiah rp = new Rupiah ();%>
+<%Rupiah rp = new Rupiah();%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
     <%String roleUser = (String) session.getAttribute("roleuser");%>
     <%String kodeSatker = (String) session.getAttribute("kode_satker");%>
-    
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Tayang Dipa</title>
@@ -109,9 +109,9 @@
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p></center>
                 <center><p ><h3>Tayang DIPA</p>
                     </h3>
-                <p>
-              <% Iterator<Dipa> iterator = listDipa.iterator();%>                
-                <table id="rounded-corner">
+                    <p>
+                        <% Iterator<Dipa> iterator = listDipa.iterator();%>                
+                        <table id="rounded-corner">
                             <thead>
                                 <tr>
                                     <th scope="col" class="rounded-company">Nomor DIPA</th>
@@ -123,24 +123,25 @@
                             </thead>
                             <tbody>
                                 <% while (iterator.hasNext()) {
-                                        dipa = iterator.next();                                     
-        if (kodeSatker.equalsIgnoreCase(dipa.getRincianKegiatan().getSatker().getKodeSatker())) {%>
+                                        dipa = iterator.next();
+                                        if (kodeSatker.equalsIgnoreCase(dipa.getRincianKegiatan().getSatker().getKodeSatker())) {%>
                                 <tr>
                                     <td><%=dipa.getNomorDipa()%></td>
-                                    <td><%=dipa.getRincianKegiatan().getSatker().getNamaSatker()+ "-" +dipa.getRincianKegiatan().getKegiatan().getNmgiat()+ "-" +dipa.getRincianKegiatan().getOutput().getNamaOutput()+ "-" +dipa.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
+                                    <td><%=dipa.getRincianKegiatan().getSatker().getNamaSatker() + "-" + dipa.getRincianKegiatan().getKegiatan().getNmgiat() + "-" + dipa.getRincianKegiatan().getOutput().getNamaOutput() + "-" + dipa.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
                                     <td align="right"><%=rp.formatRupiah(dipa.getPagu())%></td>
                                     <td align="right"><%=rp.formatRupiah(dipa.getRealisasi())%></td>
                                     <td align="right"><%=rp.formatRupiah(dipa.getSisaDana())%></td>
                                 </tr>
-                                <%}}%>
+                                <%}
+                                    }%>
                             </tbody>
-                      </table>
+                        </table>
                         <span style="margin: 10px;">
                         </span>
-                        
-                                <!-- end .content --></div>
-                                <!-- end .container --></div>
-                                </body>
-                                </html>
+
+                        <!-- end .content --></div>
+                        <!-- end .container --></div>
+                        </body>
+                        </html>
 
 

@@ -79,19 +79,18 @@ public class ProsesRekamRincianKegiatanServlet extends HttpServlet {
             } else {
                 satker = listSatker.get(0);
             }
-
-            //validate blank field
-            if (kodeSatker == "") {
-                JOptionPane.showMessageDialog(null, "Satuan Kerja tidak boleh kosong !");
-                jsp = "pages/rekam_rincian_kegiatan.jsp";
-            } else if (kdgiat == "") {
-                JOptionPane.showMessageDialog(null, "Kegiatan tidak boleh kosong !");
-                jsp = "pages/rekam_rincian_kegiatan.jsp";
-            } else if (kodeOutput == "") {
-                JOptionPane.showMessageDialog(null, "Output tidak boleh kosong !");
-                jsp = "pages/rekam_rincian_kegiatan.jsp";
-            } else if (kodeMataAnggaran == "") {
-                JOptionPane.showMessageDialog(null, "Mata Anggaran tidak boleh kosong !");
+            
+            listKegiatan = daftarKegiatan.getKegiatan();
+            listMataAnggaran = daftarMataAnggaran.getMataAnggaran();
+            listOutput = daftarOutput.getOutput();
+            listSatker = daftarSatker.getSatuanKerja();
+            //validate to database
+            if (daftarRincianKegiatan.isRincianKegiatanExist(kegiatan, mataAnggaran, output, satker)) {
+                JOptionPane.showMessageDialog(null, "Rincian Kegiatan sudah ada di database !");
+                request.setAttribute("list_satker", listSatker);
+                request.setAttribute("list_kegiatan", listKegiatan);
+                request.setAttribute("list_output", listOutput);
+                request.setAttribute("list_mata_anggaran", listMataAnggaran);
                 jsp = "pages/rekam_rincian_kegiatan.jsp";
             } else {
                 rincianKegiatan.setSatker(satker);
@@ -104,7 +103,6 @@ public class ProsesRekamRincianKegiatanServlet extends HttpServlet {
                 request.setAttribute("list_rincian_kegiatan", listRincianKegiatan);
                 jsp = "pages/rincian_kegiatan.jsp";
             }
-
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
         } finally {

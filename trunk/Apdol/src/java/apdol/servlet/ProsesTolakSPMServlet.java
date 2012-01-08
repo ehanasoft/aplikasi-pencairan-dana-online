@@ -7,6 +7,7 @@ package apdol.servlet;
 import apdol.comparator.SpmComparator;
 import apdol.entity.SPM;
 import apdol.model.DaftarSPM;
+import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -16,12 +17,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Accio
+ * 
  */
-public class TolakSPMServlet extends HttpServlet {
+public class ProsesTolakSPMServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -38,12 +40,29 @@ public class TolakSPMServlet extends HttpServlet {
             DaftarSPM daftarSPM = new DaftarSPM();
             List<SPM> listSPM = daftarSPM.getSPM();
             Collections.sort(listSPM, new SpmComparator());
-            request.setAttribute("list_spm", listSPM);
+            String id = request.getParameter("id_tolak_spm");
+            String jsp = "";
+
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menolak SPM ini ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
+
+            if (j == JOptionPane.YES_OPTION) {
+                long idSpm = Long.parseLong(id);
+                SPM spm = daftarSPM.findSPM(idSpm);
+                String statSPM = "0";
+                spm.setStatusSpm(statSPM);
+                daftarSPM.edit(spm);
+            }            
             
-            String jsp = "pages/tolak_spm.jsp";
+            listSPM = daftarSPM.getSPM();
+            Collections.sort(listSPM, new SpmComparator());
+            request.setAttribute("list_spm", listSPM);
+            jsp = "pages/tolak_spm.jsp";
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-        } finally {            
+
+        } finally {
             out.close();
         }
     }

@@ -2,6 +2,8 @@
 <%@page import="apdol.entity.Kegiatan"%>
 <%@page import="javax.swing.JOptionPane"%>
 <% Kegiatan kegiatan = (Kegiatan) request.getAttribute("kegiatan_edit");%>
+<% String cekKegiatan [] = (String []) request.getAttribute("cek_kegiatan");%>
+<% Integer index = (Integer) request.getAttribute("index");%>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -104,7 +106,9 @@
                             <tr>
                                 <td>Nama Kegiatan</td><td><input type="text" name="nama_kegiatan" style="width: 200px" value="<%=kegiatan.getNmgiat()%>"></td>
                             </tr></table>
-                        <p><input type="hidden" name="id_edit_kegiatan" value="<%=kegiatan.getId()%>"></p>
+                        <p><input type="hidden" name="id_edit_kegiatan" value="<%=kegiatan.getId()%>">
+                                <input type ="hidden" type="checkbox" name="cek_kegiatan" value="<%=cekKegiatan%>">
+                                    <input type ="hidden" name="index" value ="<%=index%>"></p>
                         <table width="400px"><tr>
                                 <td align="center"><a href="javascript:document.form_edit_kegiatan.reset()"><img src="images/reset.png" border=0 alt="Reset"></a><input name="Submit" src="images/simpan.png" type="image" value="Simpan" /></td>
                             </tr>
