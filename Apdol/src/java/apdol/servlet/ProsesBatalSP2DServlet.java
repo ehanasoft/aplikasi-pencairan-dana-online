@@ -11,8 +11,14 @@ import apdol.model.DaftarSP2D;
 import apdol.model.DaftarSPM;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +40,7 @@ public class ProsesBatalSP2DServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
@@ -48,22 +54,44 @@ public class ProsesBatalSP2DServlet extends HttpServlet {
                     JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
             if (j == JOptionPane.YES_OPTION) {
-                String tanggalTolakSP2D = request.getParameter("tanggal_batal_sp2d");
-                String nomorTolakSP2D = request.getParameter("nomor_batal_sp2d");
-                String keteranganTolakSP2D = request.getParameter("alasan");
-                
-                long idspm = Long.parseLong(cekSP2D);
-                DaftarSPM daftarSPM = new DaftarSPM();
-                SPM spm = daftarSPM.findSPM(idspm);
-                String statSPM = "1";
-                spm.setStatusSpm(statSPM);
-                daftarSPM.edit(spm);
+                long idsp2d = Long.parseLong(cekSP2D);
+                SP2D sp2d = daftarSP2D.findSP2D(idsp2d);
+                //String statSPM = "1";
+                //spm.setStatusSpm(statSPM);
+                //daftarSPM.edit(spm);
             }
-
-            listSP2D = daftarSP2D.getSP2D();
-            Collections.sort(listSP2D, new Sp2dComparator());
-            request.setAttribute("list_sp2d", listSP2D);
-            jsp = "pages/batal_sp2d.jsp";
+            
+            SP2D sp2d = new SP2D();
+            String idSP2D = request.getParameter("id_edit_sp2d");
+            Long longIdSP2D = Long.parseLong(idSP2D);
+            sp2d = daftarSP2D.findSP2D(longIdSP2D);
+            String tanggal = request.getParameter("tanggal") + "/";
+            String bulan = request.getParameter("bulan") + "/";
+            String tahun = request.getParameter("tahun");
+            String stringDate = tanggal + bulan + tahun;
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = df.parse(stringDate);
+            String nomorTolakSP2D = request.getParameter("nomor_tolak_sp2d");
+            String keteranganTolakSP2D = request.getParameter("alasan");
+            
+            //validate blank field
+            if ("".equals(nomorTolakSP2D)) {
+                JOptionPane.showMessageDialog(null, "Nomor Batal SP2D tidak boleh kosong !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                jsp = "pages/rekam_bank_pos.jsp";
+            } else if ("".equals(keteranganTolakSP2D)) {
+                JOptionPane.showMessageDialog(null, "Alasan Batal SP2D tidak boleh kosong !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                jsp = "pages/rekam_bank_pos.jsp";
+            } else {
+                sp2d.setTanggalTolakSP2D(date);
+                sp2d.setNomorTolakSP2D(nomorTolakSP2D);
+                sp2d.setKeteranganTolakSP2D(keteranganTolakSP2D);
+                listSP2D = daftarSP2D.getSP2D();
+                Collections.sort(listSP2D, new Sp2dComparator());
+                request.setAttribute("list_sp2d", listSP2D);
+                jsp = "pages/batal_sp2d.jsp";
+            }
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
@@ -84,7 +112,11 @@ public class ProsesBatalSP2DServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(ProsesBatalSP2DServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 
@@ -97,7 +129,11 @@ public class ProsesBatalSP2DServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(ProsesBatalSP2DServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 
