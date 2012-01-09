@@ -52,10 +52,13 @@ public class InputBatalSP2DServlet extends HttpServlet {
                 request.setAttribute("sp2d_batal", sp2d);
                 jsp = "/pages/input_batal_sp2d.jsp";
 
+            } else {
+                request.setAttribute("list_sp2d", listSP2D);
+                jsp = "/pages/batal_sp2d.jsp";
             }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-            
+
         } finally {
             out.close();
         }
