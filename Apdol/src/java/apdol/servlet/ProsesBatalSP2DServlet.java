@@ -44,27 +44,10 @@ public class ProsesBatalSP2DServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            SP2D sp2d = new SP2D();
             DaftarSP2D daftarSP2D = new DaftarSP2D();
-            List<SP2D> listSP2D = daftarSP2D.getSP2D();
-            Collections.sort(listSP2D, new Sp2dComparator());
-            String cekSP2D = request.getParameter("proses_batal_sp2d");
             String jsp = "";
 
-            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan membatalkan SP2D ini?",
-                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
-
-            if (j == JOptionPane.YES_OPTION) {
-                long idsp2d = Long.parseLong(cekSP2D);
-                SP2D sp2d = daftarSP2D.findSP2D(idsp2d);
-                //String statSPM = "1";
-                //spm.setStatusSpm(statSPM);
-                //daftarSPM.edit(spm);
-            }
-            
-            SP2D sp2d = new SP2D();
-            String idSP2D = request.getParameter("id_edit_sp2d");
-            Long longIdSP2D = Long.parseLong(idSP2D);
-            sp2d = daftarSP2D.findSP2D(longIdSP2D);
             String tanggal = request.getParameter("tanggal") + "/";
             String bulan = request.getParameter("bulan") + "/";
             String tahun = request.getParameter("tahun");
@@ -78,16 +61,16 @@ public class ProsesBatalSP2DServlet extends HttpServlet {
             if ("".equals(nomorTolakSP2D)) {
                 JOptionPane.showMessageDialog(null, "Nomor Batal SP2D tidak boleh kosong !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
+                jsp = "pages/input_batal_sp2d.jsp";
             } else if ("".equals(keteranganTolakSP2D)) {
                 JOptionPane.showMessageDialog(null, "Alasan Batal SP2D tidak boleh kosong !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
-                jsp = "pages/rekam_bank_pos.jsp";
+                jsp = "pages/input_batal_sp2d.jsp";
             } else {
                 sp2d.setTanggalTolakSP2D(date);
                 sp2d.setNomorTolakSP2D(nomorTolakSP2D);
                 sp2d.setKeteranganTolakSP2D(keteranganTolakSP2D);
-                listSP2D = daftarSP2D.getSP2D();
+                List<SP2D>listSP2D = daftarSP2D.getSP2D();
                 Collections.sort(listSP2D, new Sp2dComparator());
                 request.setAttribute("list_sp2d", listSP2D);
                 jsp = "pages/batal_sp2d.jsp";
