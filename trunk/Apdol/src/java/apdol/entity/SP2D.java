@@ -35,6 +35,7 @@ public class SP2D implements Serializable {
     private String nomorSP2D;
     @OneToOne
     private SPM spm;
+    private String statusSp2d;
 
     public BankPos getBankpos() {
         return bankpos;
@@ -98,6 +99,14 @@ public class SP2D implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getStatusSp2d() {
+        return statusSp2d;
+    }
+
+    public void setStatusSp2d(String statusSp2d) {
+        this.statusSp2d = statusSp2d;
     }
 
     @Override
