@@ -382,7 +382,11 @@
     </servlet>
     <servlet>
         <servlet-name>Input Proses SP2D</servlet-name>
-        <servlet-class>apdol.servlet.ProsesInputSP2D</servlet-class>
+        <servlet-class>apdol.servlet.InputProsesSP2D</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Input Tolak SPM</servlet-name>
+        <servlet-class>apdol.servlet.InputTolakSPM</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
@@ -767,6 +771,10 @@
     <servlet-mapping>
         <servlet-name>Input Proses SP2D</servlet-name>
         <url-pattern>/input_proses_sp2d</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Input Tolak SPM</servlet-name>
+        <url-pattern>/input_tolak_spm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
