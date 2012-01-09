@@ -70,7 +70,6 @@
                 <p><strong>Monitoring</strong></p>
                 <ul class="nav">
                     <li><a href="monitoring_spm">Monitoring SPM</a></li>
-                    <li><a href="realisasi">Realisasi</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
@@ -139,7 +138,7 @@
                         </table>
                     </form>
                 </center>
-                    <!-- end .content --></div>
+                <!-- end .content --></div>
             <!-- end .container --></div>
     </body>
 </html>
