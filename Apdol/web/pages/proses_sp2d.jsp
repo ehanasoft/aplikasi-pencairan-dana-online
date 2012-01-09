@@ -121,15 +121,14 @@
                                 <th width="111" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Potongan</th>
                                 <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Bersih</th>
                                 <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Edit</th>
-                                <th width="29" align="center" valign="middle" class="rounded-q3" scope="col">Hapus</th>
-                                <th width="29" align="center" valign="middle" class="rounded-q4" scope="col">Status</th>
+                                <th width="29" align="center" valign="middle" class="rounded-q4" scope="col">Proses</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <% while (iterator.hasNext()) {
                                     spm = iterator.next();
-                                    if (spm.getStatusSpm().equalsIgnoreCase("2")) {%>
+                                    if (spm.getStatusSpm().equalsIgnoreCase("Diterima KPPN")) {%>
                             <tr>
                                 <td ><%=spm.getNomorSpm()%></td>
                                 <td><%=df.format(spm.getTanggalSPM())%></td>
@@ -138,8 +137,7 @@
                                 <td><%=rp.formatRupiah(spm.getJumlahPotongan())%></td>
                                 <td><%=rp.formatRupiah(spm.getJumlahBersih())%></td>
                                 <td><%=spm.getStatusSpm()%></td>
-                                <td type="hidden" name="spm_id" value="<%=spm.getId()%>"></td>
-                                <td><input name="proses" src="images/ubah.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses" /> </td>
+                                <td><input name="spm_id" src="images/proses.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses" /> </td>
                                 
 
                             </tr>

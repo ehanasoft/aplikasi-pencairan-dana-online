@@ -4,8 +4,11 @@
  */
 package apdol.servlet;
 
+import apdol.entity.SPM;
+import apdol.model.DaftarSPM;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +33,9 @@ public class SP2DServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            DaftarSPM daftarSpm = new DaftarSPM();
+            List<SPM> listSpm = daftarSpm.getSPM();
+            request.setAttribute("list_spm", listSpm);
             String jsp = "pages/proses_sp2d.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
