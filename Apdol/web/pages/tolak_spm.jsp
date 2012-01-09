@@ -107,7 +107,7 @@
                 <!-- end .logout --></div>
             <div class="content">
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p>
-                    <center><p ><h3>SPM</h3></p>
+                    <center><p ><h3>Tolak SPM</h3></p>
                         <% Iterator<SPM> iterator = listSPM.iterator();%>
                         <form >
                             <table id="rounded-corner">
@@ -133,7 +133,7 @@
                                         <td><%=rp.formatRupiah(spm.getJumlahKeluar())%></td>
                                         <td><%=rp.formatRupiah(spm.getJumlahPotongan())%></td>
                                         <td><%=rp.formatRupiah(spm.getJumlahBersih())%></td>
-                                        <td><input name="id_tolak_spm" src="images/proses.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses_tolak_spm" /> </td>
+                                        <td><input name="spm_id" src="images/proses.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="input_tolak_spm" /> </td>
                                     </tr>
                                     <%}
                                     }%>
