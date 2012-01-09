@@ -137,7 +137,7 @@
                                 <td><%=rp.formatRupiah(spm.getJumlahPotongan())%></td>
                                 <td><%=rp.formatRupiah(spm.getJumlahBersih())%></td>
                                 <td><%=spm.getStatusSpm()%></td>
-                                <td><input name="spm_id" src="images/proses.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses" /> </td>
+                                <td><input name="spm_id" src="images/proses.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="input_proses_sp2d" /> </td>
                                 
 
                             </tr>
