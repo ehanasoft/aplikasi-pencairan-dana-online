@@ -4,31 +4,29 @@
  */
 package apdol.servlet;
 
-import apdol.comparator.SpmComparator;
+import apdol.entity.BankPos;
 import apdol.entity.SPM;
+import apdol.model.DaftarBankPos;
 import apdol.model.DaftarSPM;
+import apdol.model.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 
 /**
  *
- * 
+ * @author Hari RZ
  */
-public class ProsesTolakSPMServlet extends HttpServlet {
+@WebServlet(name = "ProsesRekamLokasiServlet", urlPatterns = {"/input_tolak"})
+public class InputTolakSPM extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -38,51 +36,18 @@ public class ProsesTolakSPMServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
+            throws ServletException, IOException, NonexistentEntityException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            DaftarSPM daftarSPM = new DaftarSPM();
-            List<SPM> listSPM = daftarSPM.getSPM();
-            Collections.sort(listSPM, new SpmComparator());
-            String id = request.getParameter("spm_id");
-            String nomorSurat = request.getParameter("nomor_surat");
-            String keterangan = request.getParameter("keterangan");
-            String nomorTolak = request.getParameter("nomor_tolak");
+            String idString = request.getParameter("spm_id");
+            DaftarSPM daftarSpm = new DaftarSPM();
+            SPM spm = daftarSpm.findSPM(Long.parseLong(idString));
+            request.setAttribute("spm", spm);
             
-            String tanggal = request.getParameter("tanggal") + "/";
-            String bulan = request.getParameter("bulan") + "/";
-            String tahun = request.getParameter("tahun");
-            String stringDate = tanggal + bulan + tahun;
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-            Date date = df.parse(stringDate);
-            
-            String jsp = "";
-
-            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan menolak SPM ini ?",
-                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
-
-            if (j == JOptionPane.YES_OPTION) {
-                long idSpm = Long.parseLong(id);
-                SPM spm = daftarSPM.findSPM(idSpm);
-                String statSPM = "Ditolak KPPN";
-                spm.setNomorPembatalan(nomorSurat);
-                spm.setNomorTolak(nomorTolak);
-                spm.setKeteranganTolak(keterangan);
-                spm.setNomorPembatalan(nomorSurat);
-                spm.setTanggalTolak(date);
-                spm.setStatusSpm(statSPM);
-                daftarSPM.edit(spm);
-            }            
-            
-            listSPM = daftarSPM.getSPM();
-            Collections.sort(listSPM, new SpmComparator());
-            request.setAttribute("list_spm", listSPM);
-            jsp = "pages/tolak_spm.jsp";
-
+            String jsp = "/pages/input_tolak_spm.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
-
         } finally {
             out.close();
         }
@@ -101,8 +66,8 @@ public class ProsesTolakSPMServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(ProsesTolakSPMServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(InputTolakSPM.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -118,9 +83,10 @@ public class ProsesTolakSPMServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(ProsesTolakSPMServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(InputTolakSPM.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     /** 
