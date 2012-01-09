@@ -5,6 +5,7 @@
 package apdol.model;
 
 import apdol.entity.Pejabat;
+import apdol.entity.SatuanKerja;
 import apdol.model.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -131,7 +132,7 @@ public class DaftarPejabat {
         return false;
     }
     
-    public boolean isJabatanExist(String ketjabatan) {
+    public boolean isJabatanExist(String ketjabatan, SatuanKerja satker) {
         DaftarPejabat daftarPejabat = new DaftarPejabat();
         List<Pejabat> listPejabat = daftarPejabat.getPejabat();
         Iterator<Pejabat> iterator = listPejabat.iterator();
@@ -139,7 +140,8 @@ public class DaftarPejabat {
 
         while (iterator.hasNext()) {
             tes = iterator.next();
-            if (ketjabatan.equals(tes.getKetjabatan())) {
+            if ((ketjabatan.equals(tes.getKetjabatan())&&(ketjabatan.equals("KPA")||ketjabatan.equals("Penandatangan SPM")))
+                    && tes.getSatker().getId()==satker.getId()){
                 return true;
             }
         }

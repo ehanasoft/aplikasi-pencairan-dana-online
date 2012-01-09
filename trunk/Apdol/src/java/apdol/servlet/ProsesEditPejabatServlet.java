@@ -147,6 +147,13 @@ public class ProsesEditPejabatServlet extends HttpServlet {
                 request.setAttribute("list_satker", listNamaSatker);
                 request.setAttribute("pejabat_edit", pejabat);
                 jsp = "pages/edit_pejabat.jsp";
+            } else if (daftarPejabat.isJabatanExist(ketjabatan, satker) && !pejabat.isKetJabatanNoChange(ketjabatan)) {
+                JOptionPane.showMessageDialog(null, "Pejabat Keuangan tersebut sudah ada dalam database !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
+                request.setAttribute("list_satker", listNamaSatker);
+                request.setAttribute("pejabat_edit", pejabat);
+                jsp = "pages/edit_pejabat.jsp";
             } else {
                 pejabat.setNip(nip);
                 pejabat.setNama(nama);

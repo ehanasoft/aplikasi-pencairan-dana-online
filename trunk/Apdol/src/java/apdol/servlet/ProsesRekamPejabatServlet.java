@@ -132,6 +132,12 @@ public class ProsesRekamPejabatServlet extends HttpServlet {
                 List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
                 request.setAttribute("list_satker", listNamaSatker);
                 jsp = "pages/rekam_pejabat.jsp";
+            } else if (daftarPejabat.isJabatanExist(ketjabatan, satker)) {
+                JOptionPane.showMessageDialog(null, "Pejabat Keuangan tersebut sudah ada dalam database !",
+                        "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                List<SatuanKerja> listNamaSatker = daftarSatker.getSatuanKerja();
+                request.setAttribute("list_satker", listNamaSatker);
+                jsp = "pages/rekam_pejabat.jsp";
             } else {
                 pejabat.setNip(nip);
                 pejabat.setNama(nama);
