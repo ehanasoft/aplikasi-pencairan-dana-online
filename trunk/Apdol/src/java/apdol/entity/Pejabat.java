@@ -123,4 +123,12 @@ public class Pejabat implements Serializable {
             return false;
         }
     }
+    
+    public boolean isKetJabatanNoChange1(String ketjabatan, SatuanKerja satker) {
+        if (ketjabatan.equalsIgnoreCase(this.ketjabatan)&&satker.equals(this.satker)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
