@@ -175,7 +175,7 @@
                             <tr>
                                 <td>Bank Pos</td>
                                 <td>
-                                    <select name="bank_pos"><% while (iteratorBank.hasNext()) { 
+                                    <select name="bank_id"><% while (iteratorBank.hasNext()) { 
                                             bankPos = iteratorBank.next();%>
                                         <option value="<%=bankPos.getId()%>"><%=bankPos.getKdbankpos() + "-"+bankPos.getNmbankpos()%></option><%}%>
                                     </select>

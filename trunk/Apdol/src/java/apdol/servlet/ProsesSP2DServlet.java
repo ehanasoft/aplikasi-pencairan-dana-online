@@ -12,15 +12,19 @@ import apdol.model.DaftarSP2D;
 import apdol.model.DaftarSPM;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,27 +41,34 @@ public class ProsesSP2DServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
 
+
+            String tanggal = request.getParameter("tanggal") + "/";
+            String bulan = request.getParameter("bulan") + "/";
+            String tahun = request.getParameter("tahun");
+            String stringDate = tanggal + bulan + tahun;
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = df.parse(stringDate);
+            
             DaftarSPM daftarSpm = new DaftarSPM();
             DaftarSP2D daftarSp2d = new DaftarSP2D();
             DaftarBankPos daftarBankPos = new DaftarBankPos();
-            List<BankPos> listBank = daftarBankPos.getBankPos();
             
+            String idBank = request.getParameter("bank_id");
+            BankPos bankPos = daftarBankPos.findBankPos(Long.parseLong(idBank));
 
             String spmString = request.getParameter("spm_id");
             SPM spm = daftarSpm.findSPM(Long.parseLong(spmString));
             SP2D sp2d = new SP2D();
-            
-            Date date = new Date();
 
             Double nomor = 100*Math.random();
              Long nomorSp2d = Math.round(nomor);
 
-            sp2d.setBankpos(listBank.get(0));
+            sp2d.setBankpos(bankPos);
             sp2d.setNomorSP2D(nomorSp2d.toString());
             sp2d.setSpm(spm);
             spm.setStatusSpm("terproses");
@@ -88,7 +99,11 @@ public class ProsesSP2DServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(ProsesSP2DServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 
@@ -101,7 +116,11 @@ public class ProsesSP2DServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(ProsesSP2DServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 
