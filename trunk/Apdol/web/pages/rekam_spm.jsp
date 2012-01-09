@@ -20,8 +20,8 @@
 <% List<RincianKegiatan> listRincianKegiatan = (List<RincianKegiatan>) request.getAttribute("list_rincian_kegiatan");
     RincianKegiatan rincianKegiatan;
     Iterator<RincianKegiatan> iterator = listRincianKegiatan.iterator();%>
-     
-    
+
+
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -161,7 +161,7 @@
             //-->
 
         </script>
-        
+
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Rekam SPM</title>
         <link href="styles/style2.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]>
@@ -210,7 +210,6 @@
                 <p><strong>Monitoring</strong></p>
                 <ul class="nav">
                     <li><a href="monitoring_spm">Monitoring SPM</a></li>
-                    <li><a href="realisasi">Realisasi</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
@@ -259,42 +258,43 @@
                                 <td width="200">Tanggal SPM</td>
                                 <td>
                                     <select name="tanggal" > 
-                                        <% for (int i = 0; i<31 ; i++) {%>
-                                        <option value="<%=i+1%>" ><%=i+1%></option> <%}%> 
+                                        <% for (int i = 0; i < 31; i++) {%>
+                                        <option value="<%=i + 1%>" ><%=i + 1%></option> <%}%> 
                                     </select>
                                     /
                                     <select name="bulan">
-                                      <% for (int i = 0; i<12 ; i++) {%>
-                                      <option value="<%=i+1%>"><%=i+1%></option>
-                                      <%}%>
-                                </select>
+                                        <% for (int i = 0; i < 12; i++) {%>
+                                        <option value="<%=i + 1%>"><%=i + 1%></option>
+                                        <%}%>
+                                    </select>
                                     /
                                     <select name="tahun">
-                                      <option value="2011">2011</option>
-                                </select></td>
+                                        <option value="2011">2011</option>
+                                    </select></td>
                             </tr>
                             <tr>
                                 <td>Rincian Kegiatan</td>
                                 <td>
-                                        <select name="rincian_kegiatan"><% while (iterator.hasNext()) {
-                                            rincianKegiatan = iterator.next(); 
-                                            if (kodeSatker.equalsIgnoreCase(rincianKegiatan.getSatker().getKodeSatker())) {%>
-                                            <option value="<%=rincianKegiatan.getId()%>"><%=rincianKegiatan.getSatker().getNamaSatker() + " . " +rincianKegiatan.getKegiatan().getNmgiat() + " . " + rincianKegiatan.getOutput().getNamaOutput() + " . " + rincianKegiatan.getMataAnggaran().getNamaMataAnggaran()%></option><%}}%>
+                                    <select name="rincian_kegiatan"><% while (iterator.hasNext()) {
+                                                rincianKegiatan = iterator.next();
+                                                if (kodeSatker.equalsIgnoreCase(rincianKegiatan.getSatker().getKodeSatker())) {%>
+                                        <option value="<%=rincianKegiatan.getId()%>"><%=rincianKegiatan.getSatker().getNamaSatker() + " . " + rincianKegiatan.getKegiatan().getNmgiat() + " . " + rincianKegiatan.getOutput().getNamaOutput() + " . " + rincianKegiatan.getMataAnggaran().getNamaMataAnggaran()%></option><%}
+                                                }%>
                                     </select>
                                 </td>
                             </tr> 
-                        
+
                             <tr>
                                 <td width="200">Jumlah Keluar</td>
                                 <td><input type="text" name="jumlah_keluar" style="width: 200px" /></td>
                             </tr>
-                                    
+
                             <tr>
                                 <td width="200">Jumlah Potongan</td>
                                 <td><input type="text" name="jumlah_potongan" style="width: 200px" /></td>
                             </tr>
                         </table>
-                <p>&nbsp;</p>
+                        <p>&nbsp;</p>
                         <h5>&nbsp;</h5>
                         <table width="400px">
                             <tr>

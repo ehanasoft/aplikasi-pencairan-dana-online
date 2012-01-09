@@ -75,7 +75,7 @@
                 </ul>
                 <p><strong>Monitoring</strong></p>
                 <ul class="nav">
-                    <li><a href="realisasi">Realisasi</a></li>
+                    <li><a href="monitoring_spm">Monitoring SPM</a></li>
                 </ul>
                 <p><strong>Utilitas</strong></p>
                 <ul class="nav">
