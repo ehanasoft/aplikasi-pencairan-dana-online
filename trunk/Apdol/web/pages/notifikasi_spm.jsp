@@ -127,7 +127,7 @@
                                 <tbody>
                                     <%while (iterator.hasNext()) {
                                                spm = iterator.next();%>
-                                               <%if (spm.getStatusSpm() != null && spm.getStatusSpm().equals("1")) {%>
+                                               <%if (spm.getStatusSpm() != null && spm.getStatusSpm().equals("Tersubmit")) {%>
                                                
                                     <tr>
                                         <td><%=spm.getNomorSpm()%></td>

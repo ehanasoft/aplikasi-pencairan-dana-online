@@ -372,6 +372,14 @@
         <servlet-name>InputBatalSP2DServlet</servlet-name>
         <servlet-class>apdol.servlet.InputBatalSP2DServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Proses Tolak SPM</servlet-name>
+        <servlet-class>apdol.servlet.ProsesTolakSPMServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proses SP2D</servlet-name>
+        <servlet-class>apdol.servlet.ProsesSP2DServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -743,6 +751,14 @@
     <servlet-mapping>
         <servlet-name>InputBatalSP2DServlet</servlet-name>
         <url-pattern>/input_batal_sp2d</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses Tolak SPM</servlet-name>
+        <url-pattern>/proses_tolak_spm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proses SP2D</servlet-name>
+        <url-pattern>/proses</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

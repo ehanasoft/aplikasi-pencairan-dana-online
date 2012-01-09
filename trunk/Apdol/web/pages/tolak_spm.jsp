@@ -14,7 +14,7 @@
 
 <% List<SPM> listSPM = (List<SPM>) request.getAttribute("list_spm");%>
 <% SPM spm;%>
-<% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
+<% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%> 
 <%Rupiah rp = new Rupiah();%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -124,8 +124,8 @@
                                 </thead>
                                 <tbody>
                                     <% while (iterator.hasNext()) {
-                                        spm = iterator.next();
-                                        if (spm.getStatusSpm().equalsIgnoreCase("1")) {%>
+                                        spm = iterator.next();;
+                                        if (spm.getStatusSpm().equalsIgnoreCase("Tersubmit")) {%>
                                     <tr>
                                         <td><%=spm.getNomorSpm()%></td>
                                         <td><%=df.format(spm.getTanggalSPM())%></td>
@@ -133,7 +133,7 @@
                                         <td><%=rp.formatRupiah(spm.getJumlahKeluar())%></td>
                                         <td><%=rp.formatRupiah(spm.getJumlahPotongan())%></td>
                                         <td><%=rp.formatRupiah(spm.getJumlahBersih())%></td>
-                                        <td><input name="id_tolak_spm" src="images/ubah.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses_tolak_spm" /> </td>
+                                        <td><input name="id_tolak_spm" src="images/proses.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses_tolak_spm" /> </td>
                                     </tr>
                                     <%}
                                     }%>
