@@ -74,6 +74,7 @@ public class ProsesSP2DServlet extends HttpServlet {
             spm.setStatusSpm("terproses");
             daftarSpm.edit(spm);
             sp2d.setTanggalSP2D(date);
+            sp2d.setStatusSp2d("terproses");
             daftarSp2d.rekamSP2D(sp2d);
             
             daftarSpm = new DaftarSPM();

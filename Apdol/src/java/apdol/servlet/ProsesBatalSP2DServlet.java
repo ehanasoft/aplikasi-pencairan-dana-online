@@ -64,15 +64,18 @@ public class ProsesBatalSP2DServlet extends HttpServlet {
             if ("".equals(nomorTolakSP2D)) {
                 JOptionPane.showMessageDialog(null, "Nomor Batal SP2D tidak boleh kosong !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                request.setAttribute("sp2d_batal", sp2d);
                 jsp = "pages/input_batal_sp2d.jsp";
             } else if ("".equals(keteranganTolakSP2D)) {
                 JOptionPane.showMessageDialog(null, "Alasan Batal SP2D tidak boleh kosong !",
                         "Kesalahan!", JOptionPane.WARNING_MESSAGE);
+                request.setAttribute("sp2d_batal", sp2d);
                 jsp = "pages/input_batal_sp2d.jsp";
             } else {
                 sp2d.setTanggalTolakSP2D(date);
                 sp2d.setNomorTolakSP2D(nomorTolakSP2D);
                 sp2d.setKeteranganTolakSP2D(keteranganTolakSP2D);
+                sp2d.setStatusSp2d("dibatalkan");
                 daftarSP2D.edit(sp2d);
                 List<SP2D>listSP2D = daftarSP2D.getSP2D();
                 Collections.sort(listSP2D, new Sp2dComparator());

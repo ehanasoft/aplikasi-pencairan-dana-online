@@ -120,7 +120,8 @@
                             </thead>
                             <tbody>
                                 <% while (iterator.hasNext()) {
-                                            sp2d = iterator.next();%>
+                                        sp2d = iterator.next();
+                                        if (sp2d.getStatusSp2d().equals("terproses")) {%>
                                 <tr>
                                     <td><%=df.format(sp2d.getTanggalSP2D())%></td>
                                     <td><%=sp2d.getNomorSP2D()%></td>
@@ -128,7 +129,7 @@
                                     <td><%=sp2d.getSpm().getRincianKegiatan().getSatker().getKodeSatker()%></td>
                                     <td><input name="input_batal_sp2d" src="images/proses.png" type="image" value="<%=sp2d.getId()%>" formmethod="post" formaction="input_batal_sp2d" /> </td>
                                 </tr>
-                                <%}%>      
+                                <%}}%>      
                             </tbody>
                         </table>
                     </form>
