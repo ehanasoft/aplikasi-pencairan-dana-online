@@ -49,7 +49,7 @@ public class ProsesTolakSPMServlet extends HttpServlet {
             if (j == JOptionPane.YES_OPTION) {
                 long idSpm = Long.parseLong(id);
                 SPM spm = daftarSPM.findSPM(idSpm);
-                String statSPM = "0";
+                String statSPM = "Ditolak KPPN";
                 spm.setStatusSpm(statSPM);
                 daftarSPM.edit(spm);
             }            
