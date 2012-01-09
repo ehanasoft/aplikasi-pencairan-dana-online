@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,17 +40,22 @@ public class InputBatalSP2DServlet extends HttpServlet {
             //SPM rincianKegiatanSPM = new SPM();
             List<SP2D> listSP2D = daftarSP2D.getSP2D();
             Collections.sort(listSP2D, new Sp2dComparator());
-            request.setAttribute("list_sp2d", listSP2D);
-            String jsp = "";
             String cekSP2D = request.getParameter("input_batal_sp2d");
+            String jsp = "";
 
-            Long idSP2D = Long.parseLong(cekSP2D);
-            SP2D sp2d = daftarSP2D.findSP2D(idSP2D);
-            request.setAttribute("sp2d_batal", sp2d);
-            jsp = "/pages/input_batal_sp2d.jsp";
+            int j = JOptionPane.showConfirmDialog(null, "apakah anda yakin akan membatalkan SP2D ini ?",
+                    JOptionPane.MESSAGE_TYPE_PROPERTY, JOptionPane.YES_NO_OPTION);
 
+            if (j == JOptionPane.YES_OPTION) {
+                long idSp2d = Long.parseLong(cekSP2D);
+                SP2D sp2d = daftarSP2D.findSP2D(idSp2d);
+                request.setAttribute("sp2d_batal", sp2d);
+                jsp = "/pages/input_batal_sp2d.jsp";
+
+            }
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             requestDispatcher.forward(request, response);
+            
         } finally {
             out.close();
         }
