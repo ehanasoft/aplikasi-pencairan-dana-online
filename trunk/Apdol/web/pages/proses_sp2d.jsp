@@ -3,12 +3,25 @@
     Created on : Dec 12, 2011, 3:01:51 AM
     Author     : Accio
 --%>
+<%@page import="apdol.string.format.Rupiah"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="apdol.entity.SPM"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="apdol.model.DaftarSPM"%>
+<%@page import="javax.swing.JOptionPane"%>
 
+<% List<SPM> listSPM = (List<SPM>) request.getAttribute("list_spm");%>
+<% SPM spm;%>
+<% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
+<%Rupiah rp = new Rupiah();%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
-    <%String roleUser = (String) session.getAttribute("roleuser");%>    
+    <%String roleUser = (String) session.getAttribute("roleuser");%> 
+    <%String kodeSatker = (String) session.getAttribute("kode_satker");%>     
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Halaman Awal</title>
@@ -96,7 +109,50 @@
             <div class="content">
                 <center><p><% if (logedUser != null) {%><%="Anda Login sebagai: " + logedUser%><%}%></p>
                     <p>Under Construction</p></center>
-                <!-- end .content --></div>
-            <!-- end .container --></div>
-    </body>
-</html>
+                    <% Iterator<SPM> iterator = listSPM.iterator();%>
+                <form >
+                    <table id="rounded-corner">
+                        <thead>
+                            <tr>
+                                <th width="61" align="center" valign="middle" class="rounded-company" scope="col">Nomor SPM</th>
+                                <th width="58" align="center" valign="middle" class="rounded-q1" scope="col">Tanggal SPM</th>
+                                <th width="270" align="center" valign="middle" class="rounded-q3" scope="col">Rincian Kegiatan</th>
+                                <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Keluar</th>
+                                <th width="111" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Potongan</th>
+                                <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Jumlah Bersih</th>
+                                <th width="106" align="center" valign="middle" class="rounded-q3" scope="col">Edit</th>
+                                <th width="29" align="center" valign="middle" class="rounded-q3" scope="col">Hapus</th>
+                                <th width="29" align="center" valign="middle" class="rounded-q4" scope="col">Status</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% while (iterator.hasNext()) {
+                                    spm = iterator.next();
+                                    if (spm.getStatusSpm().equalsIgnoreCase("2")) {%>
+                            <tr>
+                                <td ><%=spm.getNomorSpm()%></td>
+                                <td><%=df.format(spm.getTanggalSPM())%></td>
+                                <td><%=spm.getRincianKegiatan().getSatker().getNamaSatker() + "." + spm.getRincianKegiatan().getKegiatan().getNmgiat() + "." + spm.getRincianKegiatan().getOutput().getNamaOutput() + "." + spm.getRincianKegiatan().getMataAnggaran().getNamaMataAnggaran()%></td>
+                                <td><%=rp.formatRupiah(spm.getJumlahKeluar())%></td>
+                                <td><%=rp.formatRupiah(spm.getJumlahPotongan())%></td>
+                                <td><%=rp.formatRupiah(spm.getJumlahBersih())%></td>
+                                <td><%=spm.getStatusSpm()%></td>
+                                <td type="hidden" name="spm_id" value="<%=spm.getId()%>"></td>
+                                <td><input name="proses" src="images/ubah.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses" /> </td>
+                                
+
+                            </tr>
+                            <%}
+                                }%>
+                        </tbody>
+                    </table>
+                    <span style="margin: 10px;">
+                    </span>
+                    <p style="margin: 10px;"><BR>
+                            
+                            </form></center>
+                            <!-- end .content --></div>
+                            <!-- end .container --></div>
+                            </body>
+                            </html>
