@@ -44,7 +44,6 @@ public class ProsesBatalSP2DServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            SP2D sp2d = new SP2D();
             DaftarSP2D daftarSP2D = new DaftarSP2D();
             String jsp = "";
 
@@ -56,6 +55,10 @@ public class ProsesBatalSP2DServlet extends HttpServlet {
             Date date = df.parse(stringDate);
             String nomorTolakSP2D = request.getParameter("nomor_tolak_sp2d");
             String keteranganTolakSP2D = request.getParameter("alasan");
+            
+            String idSP2D = request.getParameter("id_edit_sp2d");
+            Long longIdSP2D = Long.parseLong(idSP2D);
+            SP2D sp2d = daftarSP2D.findSP2D(longIdSP2D);
             
             //validate blank field
             if ("".equals(nomorTolakSP2D)) {
@@ -70,6 +73,7 @@ public class ProsesBatalSP2DServlet extends HttpServlet {
                 sp2d.setTanggalTolakSP2D(date);
                 sp2d.setNomorTolakSP2D(nomorTolakSP2D);
                 sp2d.setKeteranganTolakSP2D(keteranganTolakSP2D);
+                daftarSP2D.edit(sp2d);
                 List<SP2D>listSP2D = daftarSP2D.getSP2D();
                 Collections.sort(listSP2D, new Sp2dComparator());
                 request.setAttribute("list_sp2d", listSP2D);
