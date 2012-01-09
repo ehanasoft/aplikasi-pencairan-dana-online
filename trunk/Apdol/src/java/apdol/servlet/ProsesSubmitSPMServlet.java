@@ -49,7 +49,7 @@ public class ProsesSubmitSPMServlet extends HttpServlet {
             if (j == JOptionPane.YES_OPTION) {
                 long idspm = Long.parseLong(cekSPM);
                 SPM spm = daftarSPM.findSPM(idspm);
-                String statSPM = "1";
+                String statSPM = "Tersubmit";
                 spm.setStatusSpm(statSPM);
                 daftarSPM.edit(spm);
             }            

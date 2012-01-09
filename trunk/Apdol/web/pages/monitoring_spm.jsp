@@ -19,7 +19,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%String logedUser = (String) session.getAttribute("username");%>
-    <%String roleUser = (String) session.getAttribute("roleuser");%>    
+    <%String roleUser = (String) session.getAttribute("roleuser");%>
+    <%String kodeSatker = (String) session.getAttribute("kode_satker");%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Monitoring SPM</title>
@@ -123,8 +124,8 @@
                             </thead>
                             <tbody>
                                 <% while (iterator.hasNext()) {
-                                    spm = iterator.next();%>
-                                <% if (spm.getStatusSpm() == null) {%>        
+                                        spm = iterator.next();
+                                        if (kodeSatker.equalsIgnoreCase(spm.getRincianKegiatan().getSatker().getKodeSatker())) {%>        
                                 <tr>
                                     <td><%=spm.getNomorSpm()%></td>
                                     <td><%=df.format(spm.getTanggalSPM())%></td>
@@ -132,7 +133,7 @@
                                     <td><%=spm.getJumlahKeluar()%></td>
                                     <td><%=spm.getJumlahPotongan()%></td>
                                     <td><%=spm.getJumlahBersih()%></td>
-                                    <td><input name="proses_monitoring_spm" src="images/proses.png" type="image" value="<%=spm.getId()%>" formmethod="post" formaction="proses_monitoring_spm" /> </td>
+                                    <td><%=spm.getStatusSpm()%></td>
                                 </tr>                              <%}%>      <%}%>
                             </tbody>
                         </table>
