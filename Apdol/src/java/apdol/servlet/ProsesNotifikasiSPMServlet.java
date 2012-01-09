@@ -46,7 +46,7 @@ public class ProsesNotifikasiSPMServlet extends HttpServlet {
 
             Date now = new Date();
             String keterangan = request.getParameter("keterangan");
-            String statSPM = "2";
+            String statSPM = "Diterima KPPN";
             String idSPM = request.getParameter("id_edit_spm");
             Long longIdSPM = Long.parseLong(idSPM);
             spm = daftarSPM.findSPM(longIdSPM);
